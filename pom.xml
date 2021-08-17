@@ -37,6 +37,7 @@
         <openfeign.start>2.2.1.RELEASE</openfeign.start>
         <log4j.version>1.2.17</log4j.version>
         <spring.cloud.gateway>2.2.1.RELEASE</spring.cloud.gateway>
+        <fastjson.version>1.2.73</fastjson.version>
     </properties>
 
     <parent>
@@ -62,6 +63,15 @@
             <!--                <version>${mapper.starter.version}</version>-->
             <!--            </dependency>-->
             <!--网关-->
+
+
+            <!--fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>

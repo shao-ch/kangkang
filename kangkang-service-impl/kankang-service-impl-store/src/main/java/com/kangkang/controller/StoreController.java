@@ -1,12 +1,10 @@
 package com.kangkang.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.entity.KangkangStore;
 import com.kangkang.service.KangkangApiService;
 import com.kangkang.service.StoreService;
 import com.kangkang.tools.PageUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -26,4 +24,5 @@ public class StoreController implements KangkangApiService {
     public Page<KangkangStore> queryStoreInfo(PageUtils pageUtils) {
         return storeService.queryStoreInfo(pageUtils);
     }
+
 }

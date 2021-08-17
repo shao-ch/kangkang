@@ -13,7 +13,7 @@ import java.util.Date;
  * @Description: TODO
  */
 
-@TableName("kangkang_user")
+@TableName("tb_user")
 public class KangkangUser {
     //主键id
     @TableId(value = "id",type = IdType.AUTO)

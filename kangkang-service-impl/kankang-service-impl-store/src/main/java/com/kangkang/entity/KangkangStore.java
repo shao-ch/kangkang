@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * kangkang商城信息表
  */
-@TableName("kangkang_store")
+@TableName("tb_store")
 public class KangkangStore {
 
   //主键

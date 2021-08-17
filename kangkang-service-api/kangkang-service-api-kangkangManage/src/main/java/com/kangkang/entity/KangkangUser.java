@@ -23,7 +23,6 @@ public class KangkangUser{
 
     private String telephone;
 
-
     private String macAddress;
 
     private String status;

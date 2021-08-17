@@ -13,13 +13,19 @@ public class KangkangStore extends PageUtils {
   //主键
   private long id;
   //图片地址
-  private String path;
+  private String banner;
   //标题
   private String title;
   //价格
   private double price;
   //物流类别
   private String logisticType;
+
+  //产品的模具  是数组
+  private String model;
+
+  //产品的规格  是数组
+  private String standards;
   //创建时间
   private Date createDate;
   //更新时间
@@ -33,12 +39,12 @@ public class KangkangStore extends PageUtils {
     this.id = id;
   }
 
-  public String getPath() {
-    return path;
+  public String getBanner() {
+    return banner;
   }
 
-  public void setPath(String path) {
-    this.path = path;
+  public void setBanner(String banner) {
+    this.banner = banner;
   }
 
   public String getTitle() {
@@ -63,6 +69,22 @@ public class KangkangStore extends PageUtils {
 
   public void setLogisticType(String logisticType) {
     this.logisticType = logisticType;
+  }
+
+  public String getModel() {
+    return model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public String getStandards() {
+    return standards;
+  }
+
+  public void setStandards(String standards) {
+    this.standards = standards;
   }
 
   public Date getCreateDate() {

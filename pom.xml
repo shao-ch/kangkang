@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.sch</groupId>
+    <artifactId>kangkang</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>kangkangManage</module>
+        <module>kangkang-service-api</module>
+        <module>kangkang-service-impl</module>
+        <module>kangkangStoreWeb</module>
+        <module>kangkang-common</module>
+        <module>kangkang-gateway</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <name>kangkang</name>
+    <description>kangkang商城</description>
+
+    <!--依赖版本控制-->
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <mybatis.starter.version>1.3.2</mybatis.starter.version>
+        <mybatisplus.starter.version>3.4.1</mybatisplus.starter.version>
+        <mapper.starter.version>2.0.2</mapper.starter.version>
+        <druid.starter.version>1.1.1-</druid.starter.version>
+        <mysql.version>8.0.16</mysql.version>
+        <pageHelper.starter.version>1.2.12</pageHelper.starter.version>
+        <nacos.version>0.2.2.RELEASE</nacos.version>
+        <nacos.start>0.2.2.RELEASE</nacos.start>
+        <openfeign.start>2.2.1.RELEASE</openfeign.start>
+        <log4j.version>1.2.17</log4j.version>
+        <spring.cloud.gateway>2.2.1.RELEASE</spring.cloud.gateway>
+    </properties>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- mybatis启动器 -->
+            <!--            <dependency>-->
+            <!--                <groupId>org.mybatis.spring.boot</groupId>-->
+            <!--                <artifactId>mybatis-spring-boot-starter</artifactId>-->
+            <!--                <version>${mybatis.starter.version}</version>-->
+            <!--            </dependency>-->
+            <!--            &lt;!&ndash; 通用Mapper启动器 &ndash;&gt;-->
+            <!--            <dependency>-->
+            <!--                <groupId>tk.mybatis</groupId>-->
+            <!--                <artifactId>mapper-spring-boot-starter</artifactId>-->
+            <!--                <version>${mapper.starter.version}</version>-->
+            <!--            </dependency>-->
+            <!--网关-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.cloud.gateway}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.starter.version}</version>
+            </dependency>
+
+            <!-- 分页助手启动器 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pageHelper.starter.version}</version>
+            </dependency>
+            <!-- mysql驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- fastDFS图片上传 -->
+            <!--            <dependency>-->
+            <!--                <groupId>com.github.tobato</groupId>-->
+            <!--                <artifactId>fastdfs-client</artifactId>-->
+            <!--                <version>${fastDFS.client.version}</version>-->
+            <!--            </dependency>-->
+
+
+            <!-- 2. nacos-服务发现功能依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <!--  springboot openfeign rpc远程调用-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${openfeign.start}</version>
+            </dependency>
+
+            <!-- 日志log4j -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!--        mybatis_plus启动器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatisplus.starter.version}</version>
+            </dependency>
+
+
+            <!--流控组件-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+                <version>${spring.cloud.gateway}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

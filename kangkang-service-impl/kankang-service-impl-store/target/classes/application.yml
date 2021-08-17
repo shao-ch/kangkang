@@ -1,0 +1,20 @@
+#mybatis-plus.configuration.cache-enabled=true
+#mybatis-plus.mapper-locations=classpath*:/mapper/*.xml
+#mybatis-plus.type-aliases-package=com.sch.app.mybatis.entity
+#logging.level.com.sch.app.mybatis.mapper= debug
+server:
+  port: 9002
+spring:
+  application:
+    name: kangkang-store-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.211.55.9:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.211.55.9:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: root123
+  main:
+    allow-bean-definition-overriding: true

@@ -1,0 +1,19 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: kangkang-manage
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.211.55.9:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.211.55.9:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: root123
+  main:
+    allow-bean-definition-overriding: true
+#ribbon:
+#  restclient:
+#    enabled: true

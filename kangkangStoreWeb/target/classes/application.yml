@@ -1,0 +1,17 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: kangkang-store
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.211.55.9:8848
+  logging:
+    level:
+      root: info
+  #logging.level.org.springframework=info
+logging:
+  level:
+    org:
+    springframework: info

@@ -1,0 +1,31 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: kangkang-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          ####开启以服务id去注册中心上获取转发地址，也是开启网关服务注册和发现
+          enabled: true
+          lower-case-service-id: true   #将请求路径上的服务名配置为小写
+      #路由策略
+      routes:
+        #路由id
+        - id: kkstore
+          #转发地址：
+#          uri: http://localhost
+          uri: lb://kangkang-store     #3、然后再去拼上转到该地址，或者服务。如果有后续的地址在在这里拼上资源路径
+#          uri: http://www.baidu.com/     #3、然后再去拼上转到该地址，或者服务。如果有后续的地址在在这里拼上资源路径
+          #匹配规则  这是匹配url后面的路径，所有的请求都会先过网关
+          predicates:
+            - Path=/kk/**      #1、匹配规则，先通过断言进行匹配
+          filters:
+            - StripPrefix=1       #2、然后过滤调第一位
+    nacos:
+      discovery:
+        server-addr: 10.211.55.9:8848
+    sentinel:   #限流设置，如果需要，要在配置类中添加限流规则，要指定相应的服务，也就是上面的路由id
+      transport:
+        dashboard: 10.211.55.9:8858

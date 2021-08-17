@@ -15,4 +15,5 @@ import org.springframework.stereotype.Service;
 public interface StoreService {
     Page<KangkangStore> queryStoreInfo(PageUtils pageUtils);
 
+
 }

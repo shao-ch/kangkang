@@ -29,3 +29,19 @@ spring:
     sentinel:   #限流设置，如果需要，要在配置类中添加限流规则，要指定相应的服务，也就是上面的路由id
       transport:
         dashboard: 10.211.55.9:8858
+  redis:
+    host: 10.211.55.9   #主机
+    port: 6379          #端口
+    password: root123   #密码
+    jedis:              #注意这里要设置最大活跃线程要通过jedis
+      pool:
+        max-active: 200 #最大连接数
+        max-wait: -1    #最大等待
+        max-idle: 10    #最大空闲数
+        min-idle: 0     #最小空闲数
+    timeout: 1000
+wx:
+  open:
+    app_id: wxedb4d43b2e668dce
+    app_secret: 1fddc8f2e431815be10d1134e33fbb64
+    redirect_url: https://api.weixin.qq.com/sns/jscode2session

@@ -64,4 +64,7 @@ public class GatewayConfiguration {
                 .setIntervalSec(1) // 统计时间窗口，单位是秒，默认是 1 秒
         );
         GatewayRuleManager.loadRules(rules);
-    }}
+    }
+
+
+}

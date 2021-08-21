@@ -1,11 +1,22 @@
 package com.kangkang.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kangkang.dao.KangKangUserDao;
-import com.kangkang.entity.KangkangUser;
+import com.kangkang.dao.TbAddressDao;
+import com.kangkang.dao.TbAreaDao;
+import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbAddress;
+import com.kangkang.manage.entity.TbArea;
+import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.ManageService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Wrapper;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName: ManageServiceImpl
@@ -19,6 +30,12 @@ public class ManageServiceImpl implements ManageService {
 
     @Autowired
     private KangKangUserDao kangKangUserDao;
+
+    @Autowired
+    private TbAddressDao tbAddressDao;
+
+    @Autowired
+    private TbAreaDao tbAreaDao;
     /**
      * 注册账号
      * @param kangkangUser
@@ -28,5 +45,48 @@ public class ManageServiceImpl implements ManageService {
     public void save(KangkangUser kangkangUser) {
 
         kangKangUserDao.insert(kangkangUser);
+    }
+
+    /**
+     * 通过openid查询用户
+     * @param kangkangUser
+     * @return
+     */
+    @Override
+    public KangkangUser selectUser(KangkangUser kangkangUser) {
+
+        QueryWrapper<KangkangUser> wrapper = new QueryWrapper<>();
+        wrapper.eq("openid",kangkangUser.getOpenid());
+        return kangKangUserDao.selectOne(wrapper);
+    }
+
+
+    /**
+     * 通过id查询用户地址
+     * @param id  用户id
+     * @return
+     */
+    @Override
+    public List<TbAdressVO> selectAddress(Integer id) {
+
+        ArrayList<TbAdressVO> result = new ArrayList<>();
+        //查询所有收货地址
+        List<TbAddress> address = tbAddressDao.selectAddress(id);
+
+        if (address.isEmpty()){
+            return result;
+        }
+        for (TbAddress tbAddress : address) {
+            TbAdressVO vo = new TbAdressVO();
+            //数据转换
+            BeanUtils.copyProperties(address,vo);
+            //及联查询所有具体地址
+            List<TbArea> tbArea = tbAreaDao.selectAllLevel(tbAddress.getAreaid());
+            //查询的省市县
+            vo.setAreas(tbArea);
+            result.add(vo);
+
+        }
+        return result;
     }
 }

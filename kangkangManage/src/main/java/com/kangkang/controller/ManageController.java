@@ -1,15 +1,16 @@
 package com.kangkang.controller;
 
-import com.kangkang.entity.KangkangUser;
+
+import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.UserService;
-import org.apache.commons.lang.StringUtils;
+import com.kangkang.tools.ResponseCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName: ManageController
@@ -18,7 +19,7 @@ import javax.annotation.Resource;
  * @Description: TODO
  */
 @RestController
-@RequestMapping("kangkang")
+@RequestMapping("api")
 public class ManageController {
     private static final Logger logger = LoggerFactory.getLogger(ManageController.class);
 
@@ -26,40 +27,51 @@ public class ManageController {
     private UserService userService;
 
     /**
-     * 用户注册
+     * 用户登陆
      * @param kangkangUser
      * @return
      */
-    @PostMapping("/aaa")
-    public ResponseEntity<String> save(@RequestBody KangkangUser kangkangUser){
+    @PostMapping("/userLogin")
+    public ResponseCode<String> save(@RequestBody KangkangUser kangkangUser){
 
-        ResponseEntity save;
+        ResponseCode save;
+        //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-            save = userService.save(kangkangUser);
+           KangkangUser user= userService.selectUser(kangkangUser);
+
+           //如果用户为null，要为该用户在我们系统生成一个用户
+           if (user==null){
+               userService.save(kangkangUser);
+           }
+           save=ResponseCode.message(200,"登陆成功","success");
         } catch (Exception e) {
             logger.error("调用失败："+e.getMessage());
-            e.printStackTrace();
-            save=ResponseEntity.status(500).body(e.getMessage());
+            save=ResponseCode.message(500,"登陆失败","服务异常");
         }
         return save;
     }
 
     /**
-     * 用户注册
-     * @param id
+     * 用户登陆
+     * @param kangkangUser
      * @return
      */
-    @GetMapping("/bbb")
-    public String bbb(int id){
-        String bbb="";
+    @GetMapping("/queryAddress")
+    public ResponseCode<TbAdressVO> queryAddress(@RequestParam("id") Integer id){
+
+        ResponseCode save;
+        //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-             bbb = userService.bbb(id);
+            List<TbAdressVO> address= userService.selectAddress(id);
+
+
+            save=ResponseCode.message(200,address,"success");
         } catch (Exception e) {
             logger.error("调用失败："+e.getMessage());
-            e.printStackTrace();
+            save=ResponseCode.message(500,"登陆失败","服务异常");
         }
-
-        return bbb;
+        return save;
     }
+
 
 }

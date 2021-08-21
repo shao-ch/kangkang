@@ -1,9 +1,9 @@
 package com.kangkang.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.entity.KangkangStore;
 import com.kangkang.service.KangkangApiService;
 import com.kangkang.service.StoreService;
+import com.kangkang.store.entity.KangkangStore;
 import com.kangkang.tools.PageUtils;
 import org.springframework.web.bind.annotation.RestController;
 

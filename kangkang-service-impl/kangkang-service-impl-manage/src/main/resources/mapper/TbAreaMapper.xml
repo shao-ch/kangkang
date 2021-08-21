@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.dao.TbAreaDao">
+
+    <resultMap id="tbarea" type="com.kangkang.manage.entity.TbArea">
+        <id property="id" column="id"/>
+        <result property="areaCode" column="areaCode"/>
+        <result property="areaName" column="areaName"/>
+        <result property="level" column="level"/>
+        <result property="parentId" column="parentId"/>
+    </resultMap>
+
+    <select id="selectAllLevel" resultType="com.kangkang.manage.entity.TbArea">
+        with recursive t as (select * from tb_area where id = #{id}
+                             union all
+                             select *  from tb_area a join t on a.id = t.parentId )
+        select * from t order by id;
+    </select>
+</mapper>

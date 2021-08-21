@@ -2,7 +2,7 @@ package com.kangkang.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.entity.KangkangStore;
+import com.kangkang.store.entity.KangkangStore;
 import com.kangkang.tools.PageUtils;
 import org.springframework.stereotype.Service;
 

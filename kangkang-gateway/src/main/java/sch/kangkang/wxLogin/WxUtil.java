@@ -21,15 +21,19 @@ public class WxUtil implements InitializingBean {
 
     @Value("${wx.open.redirect_url}")
     private String redirectUrl;
+    @Value("${wx.sch.timeout}")
+    private Integer timeout;
 
     public static String WX_OPEN_APP_ID;
     public static String WX_OPEN_APP_SECRET;
     public static String WX_OPEN_REDIRECT_URL;
+    public static Integer redis_Timeout;
 
     @Override
     public void afterPropertiesSet() throws Exception {
         WX_OPEN_APP_ID=appId;
         WX_OPEN_APP_SECRET=appSecret;
         WX_OPEN_REDIRECT_URL=redirectUrl;
+        redis_Timeout=timeout;
     }
 }

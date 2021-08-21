@@ -2,14 +2,15 @@ package com.kangkang.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.entity.KangkangStore;
 import com.kangkang.service.StoreService;
-import com.kangkang.tools.HttpStatusCode;
+import com.kangkang.store.entity.KangkangStore;
 import com.kangkang.tools.PageUtils;
 import com.kangkang.tools.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @ClassName: StoreController

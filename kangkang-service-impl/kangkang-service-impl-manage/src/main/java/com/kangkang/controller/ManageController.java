@@ -1,6 +1,7 @@
 package com.kangkang.controller;
 
-import com.kangkang.entity.KangkangUser;
+import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.KangkangFeign;
 import com.kangkang.service.ManageService;
 import org.apache.commons.lang.StringUtils;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName: ManageController
@@ -36,14 +38,8 @@ public class ManageController implements KangkangFeign {
         }
 
 
-        if(StringUtils.isEmpty(kangkangUser.getLoginName())){
+        if(StringUtils.isEmpty(kangkangUser.getOpenid())){
             return ResponseEntity.status(200).body("用户名不能为null");
-        }
-
-        if(StringUtils.isEmpty(kangkangUser.getPassword())){
-            return ResponseEntity.status(200).body("密码不能为null");
-        }else if (kangkangUser.getPassword().length()<6){
-            return ResponseEntity.status(200).body("密码长度不能小于6位");
         }
 
         try {
@@ -59,8 +55,24 @@ public class ManageController implements KangkangFeign {
     }
 
 
+    /**
+     * 查询用户信息
+     * @param kangkangUser
+     * @return
+     */
     @Override
-    public String bbb(int id) {
-        return id+10+"";
+    public KangkangUser selectUser(KangkangUser kangkangUser) {
+        return manageService.selectUser(kangkangUser);
+    }
+
+
+    /**
+     * 获取收货地址
+     * @param id  用户id
+     * @return
+     */
+    @Override
+    public List<TbAdressVO> selectAddress(Integer id) {
+        return manageService.selectAddress(id);
     }
 }

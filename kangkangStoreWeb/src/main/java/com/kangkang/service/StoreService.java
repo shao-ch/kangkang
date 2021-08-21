@@ -1,7 +1,5 @@
 package com.kangkang.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.kangkang.entity.KangkangStore;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

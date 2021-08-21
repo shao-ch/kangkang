@@ -1,8 +1,7 @@
 package com.kangkang.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kangkang.entity.KangkangUser;
-import org.springframework.stereotype.Component;
+import com.kangkang.manage.entity.KangkangUser;
 import org.springframework.stereotype.Repository;
 
 /**

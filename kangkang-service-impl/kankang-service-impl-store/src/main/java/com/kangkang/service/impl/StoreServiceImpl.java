@@ -2,8 +2,8 @@ package com.kangkang.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.dao.StoreDao;
-import com.kangkang.entity.KangkangStore;
 import com.kangkang.service.StoreService;
+import com.kangkang.store.entity.KangkangStore;
 import com.kangkang.tools.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

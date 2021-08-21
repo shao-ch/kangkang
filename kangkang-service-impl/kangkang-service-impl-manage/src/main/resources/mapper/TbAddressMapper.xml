@@ -1,0 +1,22 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.dao.TbAddressDao">
+
+    <resultMap id="address" type="com.kangkang.manage.entity.TbAddress">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="userId" column="user_id" />
+        <result property="areaid" column="areaid" />
+        <result property="consignee" column="consignee" />
+        <result property="consiTelephone" column="consi_telephone" />
+        <result property="areaid" column="areaid" />
+        <result property="priority" column="priority" />
+        <result property="updateTime" column="update_time" />
+        <result property="createTime" column="create_time" />
+    </resultMap>
+
+
+    <select id="selectAddress" resultType="com.kangkang.manage.entity.TbAddress">
+        select * from tb_address a where a.id=#{id}
+    </select>
+
+</mapper>

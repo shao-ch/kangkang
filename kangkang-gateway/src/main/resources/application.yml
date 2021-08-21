@@ -13,16 +13,24 @@ spring:
       #路由策略
       routes:
         #路由id
-        - id: kkstore
+        - id: store
           #转发地址：
-#          uri: http://localhost
+          #          uri: http://localhost
           uri: lb://kangkang-store     #3、然后再去拼上转到该地址，或者服务。如果有后续的地址在在这里拼上资源路径
-#          uri: http://www.baidu.com/     #3、然后再去拼上转到该地址，或者服务。如果有后续的地址在在这里拼上资源路径
+          #          uri: http://www.baidu.com/     #3、然后再去拼上转到该地址，或者服务。如果有后续的地址在在这里拼上资源路径
           #匹配规则  这是匹配url后面的路径，所有的请求都会先过网关
           predicates:
-            - Path=/kk/**      #1、匹配规则，先通过断言进行匹配
+            - Path=/mini/store/**      #1、匹配规则，先通过断言进行匹配
           filters:
-            - StripPrefix=1       #2、然后过滤调第一位
+            - StripPrefix=2       #2、然后过滤掉前两位
+
+        #后台管理系统
+        - id: manage
+          uri: lb://manage-service
+          predicates:
+            - Path=/mini/manage/**
+          filters:
+            - StripPrefix=2
     nacos:
       discovery:
         server-addr: 10.211.55.9:8848
@@ -45,5 +53,5 @@ wx:
     app_id: wxedb4d43b2e668dce
     app_secret: 1fddc8f2e431815be10d1134e33fbb64
     redirect_url: https://api.weixin.qq.com/sns/jscode2session
-redis:
+  sch:
    timeout: 72    #token的过期时间,时间单位为小时

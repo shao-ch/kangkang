@@ -41,7 +41,7 @@ public class JwtUtils {
     /**
      * 校验token
      * @param token
-     * @return
+     * @return  认证信息，里面包含过期时间，存入的openid等信息
      */
     public static Claims checkJWT(String token) {
         try {
@@ -51,5 +51,19 @@ public class JwtUtils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 检查token是否过期
+     * @param token
+     * @return
+     */
+    public static boolean checkExpiration(String token){
+
+        Claims body = Jwts.parser().setSigningKey(APPSECRET_KEY).parseClaimsJws(token).getBody();
+
+        Date expiration = body.getExpiration();
+
+        return expiration.getTime()<new Date().getTime();
     }
 }

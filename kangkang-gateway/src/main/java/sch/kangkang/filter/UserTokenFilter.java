@@ -126,7 +126,7 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
      * @return
      */
     private Mono<Void> getMono(ServerHttpResponse response, String code, Object openid, String tokens) {
-        response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+        response.setStatusCode(HttpStatus.valueOf(Integer.valueOf(code)));
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", code);
         HashMap<String, Object> data = new HashMap<String, Object>();
@@ -152,7 +152,7 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
     }
 
     private Mono<Void> getReturnData(ServerHttpResponse response, String errorMsg, String code) {
-        response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+        response.setStatusCode(HttpStatus.valueOf(Integer.valueOf(code)));
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", code);
         jsonObject.put("data", errorMsg);

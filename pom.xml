@@ -51,20 +51,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- mybatis启动器 -->
-            <!--            <dependency>-->
-            <!--                <groupId>org.mybatis.spring.boot</groupId>-->
-            <!--                <artifactId>mybatis-spring-boot-starter</artifactId>-->
-            <!--                <version>${mybatis.starter.version}</version>-->
-            <!--            </dependency>-->
-            <!--            &lt;!&ndash; 通用Mapper启动器 &ndash;&gt;-->
-            <!--            <dependency>-->
-            <!--                <groupId>tk.mybatis</groupId>-->
-            <!--                <artifactId>mapper-spring-boot-starter</artifactId>-->
-            <!--                <version>${mapper.starter.version}</version>-->
-            <!--            </dependency>-->
-            <!--网关-->
-
 
             <!--fastjson-->
             <dependency>

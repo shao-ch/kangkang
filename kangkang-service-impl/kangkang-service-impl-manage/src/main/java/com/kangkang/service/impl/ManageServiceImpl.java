@@ -63,15 +63,15 @@ public class ManageServiceImpl implements ManageService {
 
     /**
      * 通过id查询用户地址
-     * @param id  用户id
+     * @param userId userId
      * @return
      */
     @Override
-    public List<TbAdressVO> selectAddress(Integer id) {
+    public List<TbAdressVO> selectAddress(Integer userId) {
 
         ArrayList<TbAdressVO> result = new ArrayList<>();
         //查询所有收货地址
-        List<TbAddress> address = tbAddressDao.selectAddress(id);
+        List<TbAddress> address = tbAddressDao.selectAddress(userId);
 
         if (address.isEmpty()){
             return result;

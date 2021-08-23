@@ -52,17 +52,17 @@ public class ManageController {
     }
 
     /**
-     * 用户登陆
-     * @param kangkangUser
+     * 收货地址查询
+     * @param userId
      * @return
      */
     @GetMapping("/queryAddress")
-    public ResponseCode<TbAdressVO> queryAddress(@RequestParam("id") Integer id){
+    public ResponseCode<TbAdressVO> queryAddress(@RequestParam("userId") Integer userId){
 
         ResponseCode save;
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-            List<TbAdressVO> address= userService.selectAddress(id);
+            List<TbAdressVO> address= userService.selectAddress(userId);
 
 
             save=ResponseCode.message(200,address,"success");

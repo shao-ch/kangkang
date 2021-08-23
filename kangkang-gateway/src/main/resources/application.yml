@@ -33,14 +33,14 @@ spring:
             - StripPrefix=2
     nacos:
       discovery:
-        server-addr: 10.211.55.9:8848
+        server-addr: 110.40.235.203:8848
     sentinel:   #限流设置，如果需要，要在配置类中添加限流规则，要指定相应的服务，也就是上面的路由id
       transport:
-        dashboard: 10.211.55.9:8858
+        dashboard: 110.40.235.203:8858
   redis:
-    host: 10.211.55.9   #主机
+    host: 110.40.235.203   #主机
     port: 6379          #端口
-    password: root123   #密码
+    password: promise123   #密码
     jedis:              #注意这里要设置最大活跃线程要通过jedis
       pool:
         max-active: 200   # 连接池最大连接数（使用负值表示没有限制）

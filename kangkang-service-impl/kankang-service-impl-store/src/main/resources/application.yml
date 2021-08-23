@@ -10,10 +10,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 10.211.55.9:8848
+        server-addr: 110.40.235.203:8848
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.211.55.9:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://110.40.235.203:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: root123
   main:

@@ -1,6 +1,8 @@
 package sch.kangkang.filter;
 
 import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -26,9 +28,13 @@ import java.util.Map;
 @Component
 public class GagewayFilter implements GlobalFilter, Ordered {
 
+    private static final Logger log = LoggerFactory.getLogger(GagewayFilter.class);
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+
+        log.info("=====请求以进网关，；路径为===["+exchange.getRequest().getURI().getPath()+"]=========");
 
         ServerHttpRequest request = exchange.getRequest();
         //获取用户的token

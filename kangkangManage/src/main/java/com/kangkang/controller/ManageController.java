@@ -31,7 +31,7 @@ public class ManageController {
      * @param kangkangUser
      * @return
      */
-    @PostMapping("/kkLogin")
+    @PostMapping("/signIn")
     public ResponseCode<String> kkLogin(@RequestBody KangkangUser kangkangUser){
 
         ResponseCode save;

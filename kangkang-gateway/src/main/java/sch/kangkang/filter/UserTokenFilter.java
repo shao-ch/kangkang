@@ -82,13 +82,13 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
                     //判断token是否存在，如果已经存在直接返回
                     if (redisTemplate.opsForValue().get(tokens) != null) {
                         log.info("=======用户的token已存在，为：【"+redisTemplate.opsForValue().get(tokens)+"】=====");
-                        return  getMono(response, code, openid, tokens);
+                        return  getMono(response, "200", openid, tokens);
                     }
                     //将token存入redis
                     redisTemplate.opsForValue().set(tokens, getToken, WxUtil.redis_Timeout, TimeUnit.HOURS);
                     log.info("=======token存入redis成功=====");
                     //将token返回前端
-                    return getMono(response, code, openid, tokens);
+                    return getMono(response, "200", openid, tokens);
                 }
             } else {   //这里是携带token的,并且token的内容为openid
 

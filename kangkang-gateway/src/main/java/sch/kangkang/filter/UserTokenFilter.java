@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 import sch.kangkang.wxLogin.WxUtil;
@@ -24,6 +25,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -74,17 +77,18 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
                     String getToken = JwtUtils.generateJsonWebToken(map);
                     log.info("=======用户的token为：【"+wxUrl+"】=====");
                     Object openid = map.get("openid");
-
+                    //对token加密处理
+                    String tokens= Base64Utils.encodeToString(openid.toString().getBytes(StandardCharsets.UTF_8));
                     //判断token是否存在，如果已经存在直接返回
-                    if (redisTemplate.opsForValue().get(openid) != null) {
-                        log.info("=======用户的token已存在，为：【"+redisTemplate.opsForValue().get(openid)+"】=====");
-                        return getReturnData(response, String.valueOf(openid), "200");
+                    if (redisTemplate.opsForValue().get(tokens) != null) {
+                        log.info("=======用户的token已存在，为：【"+redisTemplate.opsForValue().get(tokens)+"】=====");
+                        return  getMono(response, code, openid, tokens);
                     }
                     //将token存入redis
-                    redisTemplate.opsForValue().set(openid, getToken, WxUtil.redis_Timeout, TimeUnit.HOURS);
+                    redisTemplate.opsForValue().set(tokens, getToken, WxUtil.redis_Timeout, TimeUnit.HOURS);
                     log.info("=======token存入redis成功=====");
                     //将token返回前端
-                    return getReturnData(response, String.valueOf(openid), "200");
+                    return getMono(response, code, openid, tokens);
                 }
             } else {   //这里是携带token的,并且token的内容为openid
 
@@ -107,10 +111,31 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
         return chain.filter(exchange);
     }
 
+    /**
+     * 将认证成功的数据返回给前端
+     * @param response
+     * @param code
+     * @param openid
+     * @param tokens
+     * @return
+     */
+    private Mono<Void> getMono(ServerHttpResponse response, String code, Object openid, String tokens) {
+        response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("code", code);
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        data.put("token", tokens);
+        data.put("openid", openid);
+        jsonObject.put("data",data);
+        DataBuffer wrap = response.bufferFactory().wrap(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
+        //没有token就返回拒绝登陆
+        return response.writeWith(Mono.just(wrap));
+    }
+
 
     /**
      * 检查token本身是否失效
-     * @param o   true  代表token已经过期
+     * @param token   true  代表token已经过期
      * @return
      */
     private boolean checkToken(String token) {

@@ -10,6 +10,7 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -25,9 +26,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -99,11 +98,18 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
                 if (o == null||checkToken(o)) {
                     return getReturnData(response, "token以失效", "401");
                 }
-                //将真实token存入请求头中
-                request.getHeaders().set("token", o);
+                //设置请求头权限，不然会报java.lang.UnsupportedOperationException，因为所有的请求头是没有修改的权限
+
+                exchange.getRequest().mutate().header("token",o).build();
+//                HttpHeaders headers = request.getHeaders();
+//                HttpHeaders.writableHttpHeaders(headers);
+//                headers.set("token",o);
+
+                log.info("=======222222：【"+request.getHeaders().getFirst("token")+"】=====");
             }
         } catch (Exception e) {
             e.printStackTrace();
+            log.error("===网关服务异常===："+e);
 
             return getReturnData(response, "网关服务异常", "500");
         }

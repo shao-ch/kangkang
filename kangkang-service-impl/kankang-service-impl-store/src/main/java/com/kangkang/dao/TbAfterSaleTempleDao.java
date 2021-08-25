@@ -1,17 +1,15 @@
 package com.kangkang.dao;
 
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.entity.TbAfterSaleTemple;
 import org.springframework.stereotype.Repository;
 
 /**
- * @InterfaceName: StoreDao
+ * @InterfaceName: TbAfterSaleTempleDao
  * @Author: shaochunhai
- * @Date: 2021/8/12 9:58 上午
+ * @Date: 2021/8/24 5:32 下午
  * @Description: TODO
  */
 @Repository
-public interface StoreDao extends BaseMapper<TbStore> {
-
+public interface TbAfterSaleTempleDao extends BaseMapper<TbAfterSaleTemple> {
 }

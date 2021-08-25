@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @TableName("tb_store")
-public class KangkangStore {
+public class TbStore {
 
   //主键
   @TableId(value = "id",type = IdType.AUTO)

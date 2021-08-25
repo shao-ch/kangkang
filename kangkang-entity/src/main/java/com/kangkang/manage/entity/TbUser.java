@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Data
 @TableName("tb_user")
-public class KangkangUser {
+public class TbUser {
     //主键id
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;

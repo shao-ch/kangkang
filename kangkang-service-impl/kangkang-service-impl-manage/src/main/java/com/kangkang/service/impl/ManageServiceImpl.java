@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kangkang.dao.KangKangUserDao;
 import com.kangkang.dao.TbAddressDao;
 import com.kangkang.dao.TbAreaDao;
-import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbArea;
 import com.kangkang.manage.viewObject.TbAdressVO;
@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,25 +37,25 @@ public class ManageServiceImpl implements ManageService {
     private TbAreaDao tbAreaDao;
     /**
      * 注册账号
-     * @param kangkangUser
+     * @param tbUser
      */
     @Override
     @Transactional
-    public void save(KangkangUser kangkangUser) {
+    public void save(TbUser tbUser) {
 
-        kangKangUserDao.insert(kangkangUser);
+        kangKangUserDao.insert(tbUser);
     }
 
     /**
      * 通过openid查询用户
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
     @Override
-    public KangkangUser selectUser(KangkangUser kangkangUser) {
+    public TbUser selectUser(TbUser tbUser) {
 
-        QueryWrapper<KangkangUser> wrapper = new QueryWrapper<>();
-        wrapper.eq("openid",kangkangUser.getOpenid());
+        QueryWrapper<TbUser> wrapper = new QueryWrapper<>();
+        wrapper.eq("openid", tbUser.getOpenid());
         return kangKangUserDao.selectOne(wrapper);
     }
 

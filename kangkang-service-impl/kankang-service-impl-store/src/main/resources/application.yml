@@ -18,3 +18,7 @@ spring:
     password: root123
   main:
     allow-bean-definition-overriding: true
+mybatis-plus:
+  mapper-locations:
+    - classpath*:/mapper/*.xml
+  type-aliases-package: com.kangkang.store.entity   #在Mybatis的mapper.xml文件中resultType的type或者paramterType会返回自定义entity，此时可以用全类名名来指定这些实体

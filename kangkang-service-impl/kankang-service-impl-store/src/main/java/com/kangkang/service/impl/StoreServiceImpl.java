@@ -1,12 +1,18 @@
 package com.kangkang.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.dao.StoreDao;
+import com.kangkang.dao.TbStoreDetailDao;
 import com.kangkang.service.StoreService;
-import com.kangkang.store.entity.KangkangStore;
+import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.entity.TbStoreDetail;
+import com.kangkang.store.viewObject.StoreDetailVO;
 import com.kangkang.tools.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @ClassName: StoreServiceImpl
@@ -18,9 +24,29 @@ import org.springframework.stereotype.Service;
 public class StoreServiceImpl implements StoreService {
     @Autowired
     private StoreDao storeDao;
+    @Autowired
+    private TbStoreDetailDao tbStoreDetailDao;
     @Override
-    public Page<KangkangStore> queryStoreInfo(PageUtils pageUtils) {
-        Page<KangkangStore> page = new Page<>(pageUtils.getPageIndex(),pageUtils.getPageSize());
+    @Transactional(readOnly = true)
+    public Page<TbStore> queryStoreInfo(PageUtils pageUtils) {
+        Page<TbStore> page = new Page<>(pageUtils.getPageIndex(),pageUtils.getPageSize());
         return storeDao.selectPage(page,null);
+    }
+
+
+    /**
+     * 通过id查询商品详细信息
+     * @param id
+     * @return
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = true)   //这里要设置只读
+    public TbStoreDetail getStoreDetail(Long id) {
+
+        QueryWrapper<TbStoreDetail> wrapper = new QueryWrapper<>();
+
+        //第一步查询商品详情实体
+        wrapper.eq("id",id);
+        return tbStoreDetailDao.selectOne(wrapper);
     }
 }

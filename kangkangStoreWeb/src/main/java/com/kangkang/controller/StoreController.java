@@ -3,14 +3,13 @@ package com.kangkang.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.StoreService;
-import com.kangkang.store.entity.KangkangStore;
+import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.entity.TbStoreDetail;
+import com.kangkang.store.viewObject.StoreDetailVO;
 import com.kangkang.tools.PageUtils;
 import com.kangkang.tools.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName: StoreController
@@ -33,10 +32,28 @@ public class StoreController {
     @PostMapping("/queryStoreInfo")
     public ResponseCode<IPage> queryStoreInfo(@RequestBody PageUtils pageUtils){
 
-        Page<KangkangStore> page= null;
+        Page<TbStore> page= null;
         try {
             page = storeService.queryStoreInfo(pageUtils);
             return ResponseCode.message(200,page,"success");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
+
+    /**
+     *  通过id查询商品详细信息 PathVariable  这个注解是用来接受路径后面的参数的
+     * @param id
+     * @return
+     */
+    @GetMapping("/getStoreDetail/{id}")
+    public ResponseCode<TbStoreDetail> getStoreDetail(@PathVariable Long id){
+
+        TbStoreDetail tbStoreDetail= null;
+        try {
+            tbStoreDetail = storeService.getStoreDetail(id);
+            return ResponseCode.message(200,tbStoreDetail,"success");
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseCode.message(500,null,"服务异常");

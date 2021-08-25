@@ -1,10 +1,10 @@
 package com.kangkang.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.store.entity.KangkangStore;
+import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.entity.TbStoreDetail;
+import com.kangkang.store.viewObject.StoreDetailVO;
 import com.kangkang.tools.PageUtils;
-import org.springframework.stereotype.Service;
 
 /**
  * @ClassName: StoreService
@@ -13,7 +13,13 @@ import org.springframework.stereotype.Service;
  * @Description: TODO
  */
 public interface StoreService {
-    Page<KangkangStore> queryStoreInfo(PageUtils pageUtils);
+    Page<TbStore> queryStoreInfo(PageUtils pageUtils);
 
 
+    /**
+     * 通过id查询商品详细信息
+     * @param id
+     * @return
+     */
+    TbStoreDetail getStoreDetail(Long id);
 }

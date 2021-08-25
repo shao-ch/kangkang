@@ -1,5 +1,6 @@
 package com.kangkang.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import org.apache.ibatis.annotations.Param;
@@ -14,8 +15,7 @@ import java.util.List;
  * @Description: TODO
  */
 @Repository
-public interface TbAddressDao {
-
+public interface TbAddressDao extends BaseMapper<TbAddress> {
 
     List<TbAddress> selectAddress(@Param("id") Integer id);
 }

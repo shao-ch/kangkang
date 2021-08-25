@@ -1,6 +1,6 @@
 package com.kangkang.controller;
 
-import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.KangkangFeign;
 import com.kangkang.service.ManageService;
@@ -27,23 +27,23 @@ public class ManageController implements KangkangFeign {
 
     /**
      * 注册用户
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
     @Override
-    public ResponseEntity<String> save(KangkangUser kangkangUser){
+    public ResponseEntity<String> save(TbUser tbUser){
 
-        if (kangkangUser==null){
+        if (tbUser ==null){
             return ResponseEntity.status(200).body("用户不能为null");
         }
 
 
-        if(StringUtils.isEmpty(kangkangUser.getOpenid())){
+        if(StringUtils.isEmpty(tbUser.getOpenid())){
             return ResponseEntity.status(200).body("用户名不能为null");
         }
 
         try {
-            manageService.save(kangkangUser);
+            manageService.save(tbUser);
         } catch (Exception e) {
             logger.error("注册账号服务异常："+e.getMessage());
             e.printStackTrace();
@@ -57,12 +57,12 @@ public class ManageController implements KangkangFeign {
 
     /**
      * 查询用户信息
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
     @Override
-    public KangkangUser selectUser(KangkangUser kangkangUser) {
-        return manageService.selectUser(kangkangUser);
+    public TbUser selectUser(TbUser tbUser) {
+        return manageService.selectUser(tbUser);
     }
 
 

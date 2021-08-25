@@ -1,7 +1,7 @@
 package com.kangkang.controller;
 
 
-import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.UserService;
 import com.kangkang.tools.ResponseCode;
@@ -28,20 +28,20 @@ public class ManageController {
 
     /**
      * 用户登陆
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
     @PostMapping("/signIn")
-    public ResponseCode<String> kkLogin(@RequestBody KangkangUser kangkangUser){
+    public ResponseCode<String> kkLogin(@RequestBody TbUser tbUser){
 
         ResponseCode save;
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-           KangkangUser user= userService.selectUser(kangkangUser);
+           TbUser user= userService.selectUser(tbUser);
 
            //如果用户为null，要为该用户在我们系统生成一个用户
            if (user==null){
-               userService.save(kangkangUser);
+               userService.save(tbUser);
            }
            save=ResponseCode.message(200,"登陆成功","success");
         } catch (Exception e) {

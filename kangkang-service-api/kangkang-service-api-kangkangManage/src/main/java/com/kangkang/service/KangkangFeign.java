@@ -1,6 +1,6 @@
 package com.kangkang.service;
 
-import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.ResponseEntity;
@@ -21,21 +21,21 @@ public interface KangkangFeign {
 
     /**
      * 保存用户
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
     @LoadBalanced
     @PostMapping(value = "manage/save/")
-    ResponseEntity<String> save(@RequestBody KangkangUser kangkangUser);
+    ResponseEntity<String> save(@RequestBody TbUser tbUser);
 
     /**
      * 用户查询
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
     @LoadBalanced
     @PostMapping(value = "manage/selectUser/")
-    KangkangUser selectUser(@RequestBody KangkangUser kangkangUser);
+    TbUser selectUser(@RequestBody TbUser tbUser);
 
 
     /**

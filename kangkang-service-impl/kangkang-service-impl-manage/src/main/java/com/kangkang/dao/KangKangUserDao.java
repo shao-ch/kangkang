@@ -1,7 +1,7 @@
 package com.kangkang.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbUser;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * @Description: TODO
  */
 @Repository
-public interface KangKangUserDao extends BaseMapper<KangkangUser> {
+public interface KangKangUserDao extends BaseMapper<TbUser> {
 }

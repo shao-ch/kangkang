@@ -1,7 +1,7 @@
 package com.kangkang.service;
 
 
-import com.kangkang.manage.entity.KangkangUser;
+import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 
 import java.util.List;
@@ -16,16 +16,16 @@ public interface ManageService {
 
     /**
      * 注册账号
-     * @param kangkangUser
+     * @param tbUser
      */
-    void save(KangkangUser kangkangUser);
+    void save(TbUser tbUser);
 
     /**
      * 查询用户
-     * @param kangkangUser
+     * @param tbUser
      * @return
      */
-    KangkangUser selectUser(KangkangUser kangkangUser);
+    TbUser selectUser(TbUser tbUser);
 
     /**
      * 获取收货地址

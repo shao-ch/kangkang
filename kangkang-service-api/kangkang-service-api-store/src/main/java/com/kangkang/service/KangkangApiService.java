@@ -1,6 +1,8 @@
 package com.kangkang.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.store.entity.TbSku;
+import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
 import com.kangkang.store.entity.TbStoreDetail;
 import com.kangkang.store.viewObject.StoreDetailVO;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * @ClassName: KangkangApiService
@@ -27,4 +31,23 @@ public interface KangkangApiService {
     @LoadBalanced
     @GetMapping(value = "store/getStoreDetail")
     TbStoreDetail getStoreDetail(@RequestParam("id") Long id);
+
+
+    /**
+     * 立即购买 获取商品实体数据
+     * @param tbStoreId
+     * @return
+     */
+    @LoadBalanced
+    @GetMapping(value = "store/getSkuData")
+    List<TbSku> getSkuData(@RequestParam("tbStoreId") Long tbStoreId);
+
+    /**
+     * 查询库存
+     * @param tbSkuId
+     * @return
+     */
+    @LoadBalanced
+    @GetMapping(value = "store/getStock")
+    TbStock getStock(Long tbSkuId);
 }

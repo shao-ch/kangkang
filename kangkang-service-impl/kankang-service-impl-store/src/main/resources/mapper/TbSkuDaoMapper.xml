@@ -1,0 +1,10 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.dao.TbSkuDao">
+
+
+    <select id="getStock" resultType="com.kangkang.store.entity.TbStock">
+        select * from tb_stock where tb_sku_id=#{tbSkuId}
+    </select>
+
+</mapper>

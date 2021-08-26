@@ -31,6 +31,16 @@ spring:
             - Path=/mini/manage/**
           filters:
             - StripPrefix=2
+
+        #订单管理系统
+        - id: order
+          uri: lb://kangkang-order
+          predicates:
+            - Path=/mini/order/**
+          filters:
+            - StripPrefix=2       #2、然后过滤掉前两位
+
+
     nacos:
       discovery:
         server-addr: 110.40.235.203:8848

@@ -27,6 +27,14 @@ public class  ResponseCode<T> {
      * 代表成功
      * @return
      */
+    public static ResponseCode ok(Integer httpCode){
+        return new BulidBody(httpCode).body(null,"success");
+    }
+
+    /**
+     * 代表成功
+     * @return
+     */
     public static BulidBody ok(){
         return new BulidBody(HttpStatusCode.OK.value());
     }
@@ -38,12 +46,15 @@ public class  ResponseCode<T> {
      * @return
      */
     public static <T>ResponseCode<T> ok(T t){
-        BulidBody ok = ok();
-        return ok.body(t,"success");
+        return new BulidBody(HttpStatusCode.OK.value()).body(t,"success");
     }
 
-    public static BulidBody status(Integer code){
-
+    /**
+     * 通过传入http响应码
+     * @param code   响应码
+     * @return
+     */
+     public static BulidBody status(Integer code){
         return new BulidBody(code);
     }
 
@@ -95,7 +106,7 @@ public class  ResponseCode<T> {
         this.data = data;
     }
 
-    private static class BulidBody{
+    public static class BulidBody{
 
         private Integer httpCode;
 
@@ -121,9 +132,21 @@ public class  ResponseCode<T> {
             return new ResponseCode<>(httpCode,success,body);
         }
 
+        /**
+         * 无message的body
+         * @param body
+         * @param <T>
+         * @return
+         */
+        public <T> ResponseCode<T> body(T body) {
+            return new ResponseCode<>(this.httpCode,null,body);
+        }
+
 
         public <T> ResponseCode<T> bodyToHttpStatus(T body, String success) {
             return new ResponseCode<>(httpStatusCode.value(),success,body);
         }
+
+
     }
 }

@@ -15,6 +15,7 @@
         <module>kangkang-common</module>
         <module>kangkang-gateway</module>
         <module>kangkang-entity</module>
+        <module>kangkangOrder</module>
     </modules>
 
     <packaging>pom</packaging>

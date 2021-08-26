@@ -1,8 +1,8 @@
 server:
-  port: 8082
+  port: 8083
 spring:
   application:
-    name: kangkang-store
+    name: kangkang-order
   cloud:
     nacos:
       discovery:

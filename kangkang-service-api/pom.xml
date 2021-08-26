@@ -15,6 +15,7 @@
     <modules>
         <module>kangkang-service-api-kangkangManage</module>
         <module>kangkang-service-api-store</module>
+        <module>kangkang-service-api-order</module>
     </modules>
     <artifactId>kangkang-service-api</artifactId>
 

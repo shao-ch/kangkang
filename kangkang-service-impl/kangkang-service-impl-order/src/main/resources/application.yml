@@ -3,10 +3,10 @@
 #mybatis-plus.type-aliases-package=com.sch.app.mybatis.entity
 #logging.level.com.sch.app.mybatis.mapper= debug
 server:
-  port: 9002
+  port: 9003
 spring:
   application:
-    name: kangkang-store-service
+    name: kangkang-order-service
   cloud:
     nacos:
       discovery:

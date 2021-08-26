@@ -14,6 +14,7 @@
     <modules>
         <module>kangkang-service-impl-manage</module>
         <module>kankang-service-impl-store</module>
+        <module>kangkang-service-impl-order</module>
     </modules>
 
     <properties>

@@ -61,4 +61,13 @@ public class StoreController implements KangkangApiService {
     public TbStock getStock(Long tbSkuId) {
         return storeService.getStock(tbSkuId);
     }
+
+    /**
+     * 通过主键获取sku商品主体信息
+     * @param skuId
+     */
+    @Override
+    public TbSku getSkuById(Long skuId) {
+        return storeService.getSkuById(skuId);
+    }
 }

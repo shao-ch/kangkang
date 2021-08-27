@@ -84,4 +84,13 @@ public class StoreServiceImpl implements StoreService {
     public TbStock getStock(Long tbSkuId) {
         return tbSkuDao.getStock(tbSkuId);
     }
+
+    /**
+     * 通过主键获取sku商品主体信息
+     * @param skuId
+     */
+    @Override
+    public TbSku getSkuById(Long skuId) {
+        return tbSkuDao.selectById(skuId);
+    }
 }

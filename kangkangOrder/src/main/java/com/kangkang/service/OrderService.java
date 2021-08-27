@@ -14,13 +14,4 @@ import java.util.Map;
 @FeignClient("kangkang-store-order")
 public interface OrderService extends OrderFeignService{
 
-    /**
-     * 查询订单初始化信息
-     * @param order
-     * @return
-     */
-    @Override
-    default Map<String, Object> queryOrder(OrderVO order) {
-        return null;
-    }
 }

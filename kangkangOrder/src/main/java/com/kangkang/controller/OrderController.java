@@ -1,8 +1,10 @@
 package com.kangkang.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.tools.ResponseCode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,7 @@ import java.util.Map;
  * @Date: 2021/8/26 2:15 下午
  * @Description: TODO
  */
+@Slf4j
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -33,7 +36,7 @@ public class OrderController {
             orderService.createOrder(order);
             return ResponseCode.message(200,null,"success");
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("=====生成订单服务异常=====：【"+ e+"】");
             return ResponseCode.message(500,null,"服务异常");
         }
     }
@@ -46,6 +49,7 @@ public class OrderController {
     @GetMapping("/queryOrder")
     public ResponseCode<OrderVO> queryOrder(@RequestBody OrderVO order){
 
+        log.info("=====查询订单初始化信息=====,接收参数为：【"+ JSONObject.toJSONString(order)+"】");
         try {
             //判定前端的数据没有问题
             if (order.getSkuId()==null){
@@ -58,14 +62,14 @@ public class OrderController {
 
             //查询订单信息
             Map<String,Object> result= orderService.queryOrder(order);
-
+            log.info("=====查询订单的查询结果为=====：【"+ result+"】");
             //返回数据
             if (result.get("error")==null){
                 return ResponseCode.ok().body((OrderVO)result.get("order"));
             }
             return ResponseCode.ok().body(null,result.get("error").toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("=====查询订单的服务异常=====：【"+ e+"】");
             return ResponseCode.message(500,null,"服务异常");
         }
     }

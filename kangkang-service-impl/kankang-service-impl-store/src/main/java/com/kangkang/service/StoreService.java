@@ -40,4 +40,11 @@ public interface StoreService {
      * @return
      */
     TbStock getStock(Long tbSkuId);
+
+
+    /**
+     * 通过主键获取sku商品主体信息
+     * @param skuId
+     */
+    TbSku getSkuById(Long skuId);
 }

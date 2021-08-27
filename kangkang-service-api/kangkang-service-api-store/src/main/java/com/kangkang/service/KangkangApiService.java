@@ -50,4 +50,10 @@ public interface KangkangApiService {
     @LoadBalanced
     @GetMapping(value = "store/getStock")
     TbStock getStock(Long tbSkuId);
+
+    /**
+     * 通过主键获取sku商品主体信息
+     * @param skuId
+     */
+    TbSku getSkuById(Long skuId);
 }

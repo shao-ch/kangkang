@@ -2,8 +2,10 @@ package com.kangkang.store.viewObject;
 
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
-import com.kangkang.store.entity.TbSku;
+import com.kangkang.store.entity.TbOrder;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @ClassName: CreateOrderVO 创建订单接受参数的类
@@ -12,10 +14,10 @@ import lombok.Data;
  * @Description: TODO
  */
 @Data
-public class OrderVO {
+public class OrderVO extends TbOrder {
 
     //商品实体的id
-    private Long skuId;
+    private List<Long> skuIds;
 
     //用户id
     private Long userId;
@@ -24,11 +26,12 @@ public class OrderVO {
     private Long addressId;
 
     //商品实体数据
-    private TbSku tbSku;
+    private List<TbSkuVO> tbSkus;
 
     //用户信息
     private TbUser tbUser;
 
     //地址信息
     private TbAddress tbAddress;
+
 }

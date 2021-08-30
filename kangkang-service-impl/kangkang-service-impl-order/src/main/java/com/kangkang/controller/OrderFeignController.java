@@ -22,6 +22,7 @@ public class OrderFeignController implements OrderFeignService {
 
     /**
      * 查询订单初始化信息
+     *
      * @param order
      * @return
      */
@@ -32,11 +33,11 @@ public class OrderFeignController implements OrderFeignService {
 
     /**
      * 生成订单
+     *
      * @param order
      */
     @Override
     public void createOrder(OrderVO order) {
-        //创建订单号   使用雪花算法
-
+        orderService.createOrder(order);
     }
 }

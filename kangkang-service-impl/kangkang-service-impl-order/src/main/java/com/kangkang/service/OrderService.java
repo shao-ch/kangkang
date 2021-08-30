@@ -20,4 +20,10 @@ public interface OrderService {
      * @return
      */
     Map<String, Object> queryOrder(OrderVO order);
+
+    /**
+     * 生成订单
+     * @param order
+     */
+    void createOrder(OrderVO order);
 }

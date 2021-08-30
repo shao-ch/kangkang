@@ -64,10 +64,10 @@ public class StoreController implements KangkangApiService {
 
     /**
      * 通过主键获取sku商品主体信息
-     * @param skuId
+     * @param skuIds
      */
     @Override
-    public TbSku getSkuById(Long skuId) {
-        return storeService.getSkuById(skuId);
+    public List<TbSku> getSkuById(List<Long> skuIds) {
+        return storeService.getSkuById(skuIds);
     }
 }

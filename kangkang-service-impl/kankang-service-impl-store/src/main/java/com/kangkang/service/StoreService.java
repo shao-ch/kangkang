@@ -44,7 +44,7 @@ public interface StoreService {
 
     /**
      * 通过主键获取sku商品主体信息
-     * @param skuId
+     * @param skuIds
      */
-    TbSku getSkuById(Long skuId);
+    List<TbSku> getSkuById(List<Long> skuIds);
 }

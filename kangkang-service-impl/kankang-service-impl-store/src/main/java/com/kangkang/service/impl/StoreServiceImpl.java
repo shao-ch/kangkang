@@ -87,10 +87,10 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 通过主键获取sku商品主体信息
-     * @param skuId
+     * @param skuIds
      */
     @Override
-    public TbSku getSkuById(Long skuId) {
-        return tbSkuDao.selectById(skuId);
+    public List<TbSku> getSkuById(List<Long> skuIds) {
+        return tbSkuDao.selectBatchIds(skuIds);
     }
 }

@@ -11,6 +11,36 @@ spring:
     nacos:
       discovery:
         server-addr: 110.40.235.203:8848
+#rocketmq的配置信息
+rocketmq:
+  #mq的nameserver的地址
+  namesrvAddr: 10.211.55.9:9876
+  #生产者
+  producer:
+    #是否开启自动配置，是否将类注入spring容器
+    isOnOff: on
+    #发送同一类消息设置为同一个group，保证唯一默认不需要设置
+    groupName: kangkang-order-service-produce
+    #消息的最大长度，默认4M，也就是1024*4
+    maxMessageSize: 4096
+    #发送消息超市时间，默认为3000
+    sendMsgTimeOut: 3000
+    #消息发送失败重试次数，默认为2
+    retryTimesWhenSendFailed: 2
+  #消费者
+  consumer:
+    #是否开启自动配置
+    isOnOff: on
+    #发送同一类消息设置为同一个group，保证唯一默认不需要设置
+    groupName: kangkang-order-service-consumer
+    #消费者线程数
+    consumeThreadMin: 5
+    consumeThreadMax: 32
+    #设置一次消费信心的条数  默认为1
+    consumeMessageBatchMaxSize: 1
+
+
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://110.40.235.203:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
@@ -22,3 +52,8 @@ mybatis-plus:
   mapper-locations:
     - classpath*:/mapper/*.xml
   type-aliases-package: com.kangkang.store.entity   #在Mybatis的mapper.xml文件中resultType的type或者paramterType会返回自定义entity，此时可以用全类名名来指定这些实体
+
+
+sch:
+    slowtopic: SLOW_TOPIC_SEND      #雪花算法发送
+    slowreceive: SLOW_TOPIC_RECEIVE   #雪花算法接收

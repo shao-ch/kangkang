@@ -41,6 +41,8 @@
         <spring.cloud.gateway>2.2.1.RELEASE</spring.cloud.gateway>
         <fastjson.version>1.2.73</fastjson.version>
         <jasypt.version>3.0.3</jasypt.version>
+        <rocket.client.version>4.7.1</rocket.client.version>
+        <cloud.alibaba.version>2.2.0.RELEASE</cloud.alibaba.version>
     </properties>
 
     <parent>
@@ -55,6 +57,19 @@
 
 
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--rocketmq-client的依赖-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocket.client.version}</version>
+            </dependency>
             <!--fastjson-->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -94,11 +109,11 @@
 
 
             <!-- 2. nacos-服务发现功能依赖 -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>${nacos.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--                <version>${nacos.version}</version>-->
+<!--            </dependency>-->
             <!--  springboot openfeign rpc远程调用-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -135,7 +150,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
 
     <dependencies>

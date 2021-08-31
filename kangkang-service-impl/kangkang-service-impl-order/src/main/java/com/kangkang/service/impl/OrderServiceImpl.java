@@ -1,11 +1,8 @@
 ﻿package com.kangkang.service.impl;
 import java.util.*;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import com.kangkang.dao.TbAdressDao;
-import com.kangkang.dao.TbOrderDao;
-import com.kangkang.dao.TbOrderDetailDao;
-import com.kangkang.dao.TbUserDao;
+import com.kangkang.RedisKeyPrefix;
+import com.kangkang.dao.*;
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.service.OrderService;
@@ -13,12 +10,15 @@ import com.kangkang.serviceInvoke.InvokingStoreService;
 import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.entity.TbOrderDetail;
 import com.kangkang.store.entity.TbSku;
+import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.TbSkuVO;
 import com.kangkang.tools.SnowFlake;
+import com.kangkang.untils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class OrderServiceImpl implements OrderService {
 
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
     //远程调用的方法，此微服务掉用另一个微服务
     @Autowired
     private InvokingStoreService invokingStoreService;
@@ -47,6 +49,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private TbOrderDetailDao tbOrderDetailDao;
+
+    @Autowired
+    private TbStockDao tbStockDao;
     /**
      * 查询订单初始化信息
      * @param order
@@ -125,27 +130,54 @@ public class OrderServiceImpl implements OrderService {
         //然后生成订单向平表
         List<TbSkuVO> tbSkus = order.getTbSkus();
         for (TbSkuVO skuVo : tbSkus) {
+            //生成订单详情
+            generateOrderDetail(tbOrder, skuVo);
+            //这里去redis里面查，如果没有就去数据库查，然后更新缓存。分布式锁
+            boolean b = RedisUtils.decrement(redisTemplate, RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId());
+            if (!b){
+                //如果不存在就要去查询数据库。并且减去1，然后将值保存在redis。然后在日志表中插入一条订单信息
+                //1、查询库存数据库
+                Integer stock = tbStockDao.queryStockById(skuVo.getId());
 
-            TbOrderDetail detail = new TbOrderDetail();
-            //设置订单id
-            detail.setTbOrderId(tbOrder.getId());
-            //设置skuid
-            detail.setSkuId(skuVo.getId());
-            //设置发票的id
-            detail.setInvoiceId(skuVo.getInvoiceId());
-            //设置优惠金额
-            detail.setReducePrice(skuVo.getReducePrice());
-            //设置邮费
-            detail.setPostFee(skuVo.getPostFee());
-            //设置评价状态  0-未评价，1-以评价
-            detail.setEvaluateStatus(skuVo.getEvaluateStatus());
-            detail.setCreateTime(new Date());
-            detail.setUpdateTime(new Date());
 
-            tbOrderDetailDao.insert(detail);
+                //2、减1之后生成缓存
+                RedisUtils.generateRedis(redisTemplate,stock,RedisKeyPrefix.STOCK_LOCK_KEY+skuVo.getId());
+            }
+
+            //3、异步生成订单日志
+
+            //4、通过rocketmq做数据库与缓存的同步。这里不需要实时的同步。仅仅是一条通知同步的消息
+
         }
-        //通过mq发送扣减库存的操作，如果已经付款就扣减，否则就在扣减的状态。
 
+        
+        
+
+    }
+
+    /**
+     * 生成订单详情
+     * @param tbOrder
+     * @param skuVo
+     */
+    private void generateOrderDetail(TbOrder tbOrder, TbSkuVO skuVo) {
+        TbOrderDetail detail = new TbOrderDetail();
+        //设置订单id
+        detail.setTbOrderId(tbOrder.getId());
+        //设置skuid,注意这里是tb_sku表的id
+        detail.setSkuId(skuVo.getId());
+        //设置发票的id
+        detail.setInvoiceId(skuVo.getInvoiceId());
+        //设置优惠金额
+        detail.setReducePrice(skuVo.getReducePrice());
+        //设置邮费
+        detail.setPostFee(skuVo.getPostFee());
+        //设置评价状态  0-未评价，1-以评价
+        detail.setEvaluateStatus(skuVo.getEvaluateStatus());
+        detail.setCreateTime(new Date());
+        detail.setUpdateTime(new Date());
+
+        tbOrderDetailDao.insert(detail);
     }
 
     /**

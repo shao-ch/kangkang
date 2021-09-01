@@ -1,8 +1,9 @@
 ﻿package com.kangkang.service.impl;
 import java.util.*;
 
-import com.kangkang.RedisKeyPrefix;
+import com.kangkang.enumInfo.RedisKeyPrefix;
 import com.kangkang.dao.*;
+import com.kangkang.enumInfo.RocketInfo;
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.service.OrderService;
@@ -14,8 +15,11 @@ import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.TbSkuVO;
 import com.kangkang.tools.SnowFlake;
+import com.kangkang.untils.MqUtils;
 import com.kangkang.untils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -52,6 +56,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private TbStockDao tbStockDao;
+
+    @Autowired
+    private DefaultMQProducer defaultMQProducer;
     /**
      * 查询订单初始化信息
      * @param order
@@ -126,28 +133,71 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void createOrder(OrderVO order) {
+        //定义一个flag变量来判断是否已经扣减库存了
+        int flag=0;
+        //这个容器是里面已经成功多少订单了，都要做回滚操作
+        ArrayList<Long> orderIds = new ArrayList<>();
         TbOrder tbOrder = insertOrder(order);
         //然后生成订单向平表
         List<TbSkuVO> tbSkus = order.getTbSkus();
         for (TbSkuVO skuVo : tbSkus) {
-            //生成订单详情
-            generateOrderDetail(tbOrder, skuVo);
-            //这里去redis里面查，如果没有就去数据库查，然后更新缓存。分布式锁
-            boolean b = RedisUtils.decrement(redisTemplate, RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId());
-            if (!b){
-                //如果不存在就要去查询数据库。并且减去1，然后将值保存在redis。然后在日志表中插入一条订单信息
-                //1、查询库存数据库
-                Integer stock = tbStockDao.queryStockById(skuVo.getId());
+            //重置状态
+            flag=0;
+            try {
+                //这里去redis里面查，如果没有就去数据库查，然后更新缓存。分布式锁   --先去扣减库存，成功了在进行订单的生成
+                boolean b = RedisUtils.decrement(redisTemplate, RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId());
+                if (!b){
+                    //获取分布式锁信息
+                    Boolean lock = redisTemplate.opsForValue().setIfAbsent(RedisKeyPrefix.STOCK_LOCK_KEY+skuVo.getId(), 0);
+                    //如果获取锁成功就去redis生成库存数据
+                    if (lock){
+                        //获取锁成功就将缓存更新
+                        TbStock tbStock = tbStockDao.queryStockById(skuVo.getId());
+                        redisTemplate.opsForValue().set(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId(),tbStock.getStock()-1);
+                        //缓存设置成功之后要将锁加1；
+                        redisTemplate.opsForValue().increment(RedisKeyPrefix.STOCK_LOCK_KEY+skuVo.getId());
+                        flag+=1;
+                    }else {
+                        //这里做一次查询，如果还是没有缓存,就去更新数据库
+                        if(redisTemplate.opsForValue().get(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId())==null){
+                            tbStockDao.updateStockById(skuVo.getId());
+                        }else {
+                            RedisUtils.decrement(redisTemplate,RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId());
+                        }
+                        flag+=1;
+                    }
+                }else{
+                    flag+=1;
+                }
 
+                //生成订单详情
+                generateOrderDetail(tbOrder, skuVo);
 
-                //2、减1之后生成缓存
-                RedisUtils.generateRedis(redisTemplate,stock,RedisKeyPrefix.STOCK_LOCK_KEY+skuVo.getId());
+                //3、异步生成订单日志
+                MqUtils.send(defaultMQProducer, RocketInfo.SEND_LOG_TOPIC,"orderInfo","");
+                //4、通过rocketmq做数据库与缓存的同步。这里不需要实时的同步。仅仅是一条通知同步的消息
+                MqUtils.send(defaultMQProducer, RocketInfo.SEND_ORDER_TOPIC,"stock", String.valueOf(skuVo.getId()));
+                //5、将成功的订单存入容器中
+                orderIds.add(skuVo.getId());
+            } catch (Exception e) {
+                log.error("=====订单生成失败=====：【"+ e+"】");
+                //判断是否已经扣减了库存，如果是就要在加回去
+                if (flag==1){
+                    //1、判断是容器中是否存在，不存在添加进去
+                    if (!orderIds.contains(skuVo.getId())){
+                        orderIds.add(skuVo.getId());
+                    }
+
+                    //循环进行回滚
+                    for (Long orderId : orderIds) {
+                        RedisUtils.increment(redisTemplate,RedisKeyPrefix.STOCK_PREFIX_KEY + orderId);
+                        //删除订单
+                        tbOrderDao.deleteById(orderId);
+                    }
+
+                }
+                return;
             }
-
-            //3、异步生成订单日志
-
-            //4、通过rocketmq做数据库与缓存的同步。这里不需要实时的同步。仅仅是一条通知同步的消息
-
         }
 
         

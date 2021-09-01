@@ -21,3 +21,16 @@ mybatis-plus:
   mapper-locations:
     - classpath*:/mapper/*.xml
   type-aliases-package: com.kangkang.manage.entity
+#rocketmq的配置信息
+rocketmq:
+  #消费者
+  consumer:
+    #是否开启自动配置
+    isOnOff: on
+    #发送同一类消息设置为同一个group，保证唯一默认不需要设置
+    groupName: kangkang-order-service-consumer
+    #消费者线程数
+    consumeThreadMin: 5
+    consumeThreadMax: 32
+    #设置一次消费信心的条数  默认为1
+    consumeMessageBatchMaxSize: 1

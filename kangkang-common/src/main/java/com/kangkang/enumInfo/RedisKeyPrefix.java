@@ -1,4 +1,4 @@
-package com.kangkang;
+package com.kangkang.enumInfo;
 
 /**
  * @ClassName: RedisKeyPrefix  redis前缀

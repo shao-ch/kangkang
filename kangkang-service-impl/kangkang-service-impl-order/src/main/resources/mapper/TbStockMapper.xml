@@ -7,4 +7,9 @@
     <select id="queryStockById" resultType="com.kangkang.store.entity.TbStock">
         select (stock-1) stock from tb_stock where tb_sku_id=#{skuId}
     </select>
+
+
+    <update id="updateStockById">
+        update tb_stock set stock=stock-1 where tb_sku_id=#{skuId}
+    </update>
 </mapper>

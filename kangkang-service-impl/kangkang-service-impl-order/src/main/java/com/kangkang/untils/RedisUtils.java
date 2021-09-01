@@ -1,6 +1,5 @@
 package com.kangkang.untils;
 
-import com.kangkang.RedisKeyPrefix;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.support.atomic.RedisAtomicInteger;
 
@@ -31,22 +30,13 @@ public class RedisUtils {
     }
 
     /**
-     * 生成库存数据
+     * 增加库存
      * @param redisTemplate
-     * @param stock
-     * @param key   锁的key
+     * @param key
      */
-    public static void generateRedis(RedisTemplate<String, Object> redisTemplate, Integer stock, String key) {
-        //获取分布式锁信息
-        Boolean lock = redisTemplate.opsForValue().setIfAbsent(key, 0);
-        //如果获取锁成功就去redis生成库存数据
-        if (lock){
-
-        }else {
-            //如果没有成功，说明已经存在库存，就去扣减库存
-        }
-
-
+    public static void increment(RedisTemplate<String, Object> redisTemplate, String key) {
+        //获取原子操作类
+        RedisAtomicInteger integer = new RedisAtomicInteger(key, redisTemplate.getConnectionFactory());
+        integer.getAndIncrement();
     }
-
 }

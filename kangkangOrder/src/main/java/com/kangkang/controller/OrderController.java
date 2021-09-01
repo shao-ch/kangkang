@@ -52,7 +52,7 @@ public class OrderController {
         log.info("=====查询订单初始化信息=====,接收参数为：【"+ JSONObject.toJSONString(order)+"】");
         try {
             //判定前端的数据没有问题
-            if (order.getSkuId()==null){
+            if (order.getSkuIds().isEmpty()||order.getSkuIds()==null){
                 return ResponseCode.ok().body(null,"无商品信息");
             }else if (order.getTbAddress()==null){
                 return ResponseCode.ok().body(null,"无地址信息");

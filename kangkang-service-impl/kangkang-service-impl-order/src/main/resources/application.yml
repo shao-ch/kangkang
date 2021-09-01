@@ -27,20 +27,6 @@ rocketmq:
     sendMsgTimeOut: 3000
     #消息发送失败重试次数，默认为2
     retryTimesWhenSendFailed: 2
-  #消费者
-  consumer:
-    #是否开启自动配置
-    isOnOff: on
-    #发送同一类消息设置为同一个group，保证唯一默认不需要设置
-    groupName: kangkang-order-service-consumer
-    #消费者线程数
-    consumeThreadMin: 5
-    consumeThreadMax: 32
-    #设置一次消费信心的条数  默认为1
-    consumeMessageBatchMaxSize: 1
-
-
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://110.40.235.203:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8

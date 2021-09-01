@@ -13,11 +13,13 @@ public class RocketInfo {
      * 发送日志的topic
      */
     public static final String SEND_LOG_TOPIC="log_topic";
+    public static final String SEND_LOG_TAG="orderInfo";
 
     /**
      * 发送订单的topic
      */
     public static final String SEND_ORDER_TOPIC="order_topic";
+    public static final String SEND_ORDER_TAG="stock";
 
     /**
      * manage消费者组   按照服务来区分消费者组

@@ -174,9 +174,9 @@ public class OrderServiceImpl implements OrderService {
                 generateOrderDetail(tbOrder, skuVo);
 
                 //3、异步生成订单日志
-                MqUtils.send(defaultMQProducer, RocketInfo.SEND_LOG_TOPIC,"orderInfo","");
+                MqUtils.send(defaultMQProducer, RocketInfo.SEND_LOG_TOPIC,RocketInfo.SEND_LOG_TAG,"");
                 //4、通过rocketmq做数据库与缓存的同步。这里不需要实时的同步。仅仅是一条通知同步的消息
-                MqUtils.send(defaultMQProducer, RocketInfo.SEND_ORDER_TOPIC,"stock", String.valueOf(skuVo.getId()));
+                MqUtils.send(defaultMQProducer, RocketInfo.SEND_ORDER_TOPIC,RocketInfo.SEND_ORDER_TAG, String.valueOf(skuVo.getId()));
                 //5、将成功的订单存入容器中
                 orderIds.add(skuVo.getId());
             } catch (Exception e) {

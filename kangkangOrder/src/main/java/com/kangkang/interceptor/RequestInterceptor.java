@@ -15,8 +15,6 @@ import java.util.HashMap;
  * @Description: TODO
  */
 
-
-@Component
 public class RequestInterceptor implements HandlerInterceptor {
 
 

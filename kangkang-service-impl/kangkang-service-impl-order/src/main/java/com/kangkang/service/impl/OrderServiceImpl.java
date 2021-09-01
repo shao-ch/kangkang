@@ -1,5 +1,6 @@
 ﻿package com.kangkang.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.kangkang.dao.*;
 import com.kangkang.enumInfo.RedisKeyPrefix;
 import com.kangkang.enumInfo.RocketInfo;
@@ -136,7 +137,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public void createOrder(OrderVO order) {
+    public TbOrder createOrder(OrderVO order) {
         //定义一个flag变量来判断是否已经扣减库存了
         int flag = 0;
         //这个容器是里面已经成功多少订单了，都要做回滚操作
@@ -200,11 +201,22 @@ public class OrderServiceImpl implements OrderService {
                     }
 
                 }
-                return;
+                return null;
             }
         }
 
+        return order;
+    }
 
+    /**
+     * 查询全部订单列表
+     * @param order
+     * @return
+     */
+    @Override
+    public IPage<Map<String, Object>> queryOrderList(OrderVO order) {
+        //通过openid查询所有订单消息，并返回数据。要分页
+        return null;
     }
 
     /**
@@ -241,6 +253,8 @@ public class OrderServiceImpl implements OrderService {
      */
     private TbOrder insertOrder(OrderVO order) {
         TbOrder tbOrder = new TbOrder();
+        //设置用户id
+        tbOrder.setOpenId(order.getOpenId());
         //创建订单号
         long orderId = SnowFlake.nextId();
         //设置订单号

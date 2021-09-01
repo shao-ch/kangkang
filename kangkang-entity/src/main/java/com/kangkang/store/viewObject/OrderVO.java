@@ -16,6 +16,9 @@ import java.util.List;
 @Data
 public class OrderVO extends TbOrder {
 
+    //用户id
+    private String openId;
+
     //商品实体的id
     private List<Long> skuIds;
 

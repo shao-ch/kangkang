@@ -22,6 +22,11 @@ public class TbOrder {
     private Long id;
 
 	/**
+	 * 用户id
+	 */
+	private String openId;
+
+	/**
 	 * 由于购物车生成的订单号一样，所以有可能重复
 	 */
     private Long orderId;

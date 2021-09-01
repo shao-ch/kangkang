@@ -1,7 +1,9 @@
 package com.kangkang.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.kangkang.service.OrderFeignService;
 import com.kangkang.service.OrderService;
+import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,7 +39,17 @@ public class OrderFeignController implements OrderFeignService {
      * @param order
      */
     @Override
-    public void createOrder(OrderVO order) {
-        orderService.createOrder(order);
+    public TbOrder createOrder(OrderVO order) {
+       return orderService.createOrder(order);
+    }
+
+    /**
+     * 查询全部订单列表
+     * @param order
+     * @return
+     */
+    @Override
+    public IPage<Map<String, Object>> queryOrderList(OrderVO order) {
+        return orderService.queryOrderList(order);
     }
 }

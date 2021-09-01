@@ -1,5 +1,7 @@
 package com.kangkang.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +27,12 @@ public interface OrderService {
      * 生成订单
      * @param order
      */
-    void createOrder(OrderVO order);
+    TbOrder createOrder(OrderVO order);
+
+    /**
+     * 查询全部订单列表
+     * @param order
+     * @return
+     */
+    IPage<Map<String, Object>> queryOrderList(OrderVO order);
 }

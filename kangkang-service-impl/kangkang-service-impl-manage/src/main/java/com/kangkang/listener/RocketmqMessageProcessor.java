@@ -20,6 +20,7 @@ import java.util.List;
 @Component
 public class RocketmqMessageProcessor implements MessageListenerConcurrently {
 
+
     /**
      * 因为之前设置的setConsumeMessageBatchMaxSize 为1  所以list里面只有一条数据
      * @param list

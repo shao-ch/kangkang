@@ -1,9 +1,11 @@
 package com.kangkang.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderFeignService;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbOrder;
+import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,7 +51,7 @@ public class OrderFeignController implements OrderFeignService {
      * @return
      */
     @Override
-    public IPage<Map<String, Object>> queryOrderList(OrderVO order) {
+    public Page<Map<String, Object>> queryOrderList(OrderPageVO order) {
         return orderService.queryOrderList(order);
     }
 }

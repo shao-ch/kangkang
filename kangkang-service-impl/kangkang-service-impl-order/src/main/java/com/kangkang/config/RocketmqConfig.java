@@ -2,13 +2,10 @@ package com.kangkang.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -39,22 +36,6 @@ public class RocketmqConfig {
     @Value("${rocketmq.producer.retryTimesWhenSendFailed}")
     private Integer produceRetryTimesWhenSendFailed;
 
-    //消费者组
-    @Value("${rocketmq.consumer.groupName}")
-    private String consumerGroupName;
-
-    //消费者线最小程数
-    @Value("${rocketmq.consumer.consumeThreadMin}")
-    private Integer consumeThreadMin;
-
-    //消费者线最大程数
-    @Value("${rocketmq.consumer.consumeThreadMax}")
-    private Integer consumeThreadMax;
-
-    //设置一次消费信心的条数  默认为1
-    @Value("${rocketmq.consumer.consumeMessageBatchMaxSize}")
-    private Integer consumeMessageBatchMaxSize;
-
 
     /**
      * mq的生产者配置
@@ -63,7 +44,8 @@ public class RocketmqConfig {
      * @throws MQClientException
      */
     @Bean
-    @ConditionalOnProperty(prefix = "rocketmq.producer", value = "isOnOff", havingValue = "on")
+//    @ConditionalOnProperty(prefix = "rocketmq.producer", value = "isOnOff", havingValue = "on")
+    @ConditionalOnProperty(prefix = "rocketmq.producer", value = "isOnOff")
     public DefaultMQProducer defaultMQProducer() throws MQClientException {
         log.info("defaultProducer 正在创建---------------------------------------");
         //创建生产者

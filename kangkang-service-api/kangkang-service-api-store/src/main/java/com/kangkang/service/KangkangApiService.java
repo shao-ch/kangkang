@@ -55,5 +55,7 @@ public interface KangkangApiService {
      * 通过主键获取sku商品主体信息
      * @param skuId
      */
-    List<TbSku> getSkuById(List<Long> skuId);
+    @LoadBalanced
+    @GetMapping(value = "store/getStock")
+    List<TbSku> getSkuById(@RequestParam("tbStoreId") List<Long> skuId);
 }

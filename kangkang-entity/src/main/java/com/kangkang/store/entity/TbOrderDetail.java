@@ -47,9 +47,14 @@ public class TbOrderDetail {
     private Double postFee;
 
 	/**
+	 * 商品状态，0-生成订单，1-有物流单号，3-已发货
+	 */
+	private String goodStatus;
+
+	/**
 	 * 发货时间
 	 */
-    private java.util.Date deliverTime;
+    private Date deliverTime;
 
 	/**
 	 * 物流名称

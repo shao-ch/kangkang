@@ -1,6 +1,7 @@
 package com.kangkang.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.dao.*;
 import com.kangkang.enumInfo.RedisKeyPrefix;
 import com.kangkang.enumInfo.RocketInfo;
@@ -12,6 +13,7 @@ import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.entity.TbOrderDetail;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.TbSkuVO;
 import com.kangkang.tools.SnowFlake;
@@ -214,9 +216,13 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public IPage<Map<String, Object>> queryOrderList(OrderVO order) {
+    public Page<Map<String, Object>> queryOrderList(OrderPageVO order) {
+        Page<Map<String, Object>> page = new Page<>(order.getPageIndex(), order.getPageSize());
         //通过openid查询所有订单消息，并返回数据。要分页
-        return null;
+
+        Page<Map<String, Object>> result = tbOrderDao.queryInfoByOpenId(page,order.getOpenId());
+
+        return result;
     }
 
     /**

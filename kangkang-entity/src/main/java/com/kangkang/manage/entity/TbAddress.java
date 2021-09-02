@@ -19,9 +19,9 @@ public class TbAddress {
 
     @TableId(value = "id",type = IdType.AUTO)
     //主键
-    private long id;
+    private Long id;
     //用户id
-    private long userId;
+    private Long userId;
     //收货人
     private String consignee;
     //收货人电话

@@ -2,8 +2,10 @@ package com.kangkang.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbOrder;
+import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +28,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-
-
     /**
      * 生成订单
      * @return
@@ -49,14 +49,14 @@ public class OrderController {
      * @return
      */
     @GetMapping("/queryOrderList")
-    public ResponseCode<IPage<Map<String,Object>>> queryOrderList(@RequestBody OrderVO order){
+    public ResponseCode<IPage<Map<String,Object>>> queryOrderList(@RequestBody OrderPageVO orderPageVO){
 
-        log.info("=====查询全部订单列表======,接收参数为：【"+ JSONObject.toJSONString(order)+"】");
+        log.info("=====查询全部订单列表======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");
         try {
 
 
             //查询全部订单列表
-            IPage<Map<String,Object>> result= orderService.queryOrderList(order);
+            Page<Map<String,Object>> result= orderService.queryOrderList(orderPageVO);
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {
@@ -64,6 +64,7 @@ public class OrderController {
             return ResponseCode.message(500,null,"服务异常");
         }
     }
+
 
 
 

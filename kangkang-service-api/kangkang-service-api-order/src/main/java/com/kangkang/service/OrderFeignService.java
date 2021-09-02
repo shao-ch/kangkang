@@ -1,12 +1,13 @@
 package com.kangkang.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbOrder;
+import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.Map;
 
@@ -39,5 +40,5 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @PostMapping(value = "order/queryOrderList")
-    IPage<Map<String, Object>> queryOrderList(OrderVO order);
+    Page<Map<String, Object>> queryOrderList(OrderPageVO order);
 }

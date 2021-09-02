@@ -1,7 +1,9 @@
 package com.kangkang.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbOrder;
+import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +36,5 @@ public interface OrderService {
      * @param order
      * @return
      */
-    IPage<Map<String, Object>> queryOrderList(OrderVO order);
+    Page<Map<String, Object>> queryOrderList(OrderPageVO order);
 }

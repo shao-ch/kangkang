@@ -19,6 +19,12 @@
             <version>3.4.1</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.sch</groupId>
+            <artifactId>kangkang-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

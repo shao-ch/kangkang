@@ -1,7 +1,7 @@
 #mybatis-plus.configuration.cache-enabled=true
 #mybatis-plus.mapper-locations=classpath*:/mapper/*.xml
 #mybatis-plus.type-aliases-package=com.sch.app.mybatis.entity
-#logging.level.com.sch.app.mybatis.mapper= debug
+#注意，下面的redis和datasorce是有顺序的，不然系统启动不起来。先redis，然后在datasource，然后在其他的
 server:
   port: 9003
 spring:
@@ -11,6 +11,24 @@ spring:
     nacos:
       discovery:
         server-addr: 110.40.235.203:8848
+  redis:
+    host: 110.40.235.203   #主机
+    port: 6379          #端口
+    password: promise123   #密码
+    jedis:              #注意这里要设置最大活跃线程要通过jedis
+      pool:
+        max-active: 200   # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1      #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 10      #连接池中的最大空闲连接
+        min-idle: 0       #连接池中的最小空闲连接
+    timeout: 1000         #连接超时时间（毫秒）
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://110.40.235.203:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: root123
+  main:
+    allow-bean-definition-overriding: true
 #rocketmq的配置信息
 rocketmq:
   #mq的nameserver的地址
@@ -27,30 +45,16 @@ rocketmq:
     sendMsgTimeOut: 3000
     #消息发送失败重试次数，默认为2
     retryTimesWhenSendFailed: 2
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://110.40.235.203:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: root
-    password: root123
-  main:
-    allow-bean-definition-overriding: true
 mybatis-plus:
   mapper-locations:
     - classpath*:/mapper/*.xml
   type-aliases-package: com.kangkang.store.entity   #在Mybatis的mapper.xml文件中resultType的type或者paramterType会返回自定义entity，此时可以用全类名名来指定这些实体
 
-  redis:
-    host: 110.40.235.203   #主机
-    port: 6379          #端口
-    password: promise123   #密码
-    jedis:              #注意这里要设置最大活跃线程要通过jedis
-      pool:
-        max-active: 200   # 连接池最大连接数（使用负值表示没有限制）
-        max-wait: -1      #连接池最大阻塞等待时间（使用负值表示没有限制）
-        max-idle: 10      #连接池中的最大空闲连接
-        min-idle: 0       #连接池中的最小空闲连接
-    timeout: 1000         #连接超时时间（毫秒）
 
 sch:
     slowtopic: SLOW_TOPIC_SEND      #雪花算法发送
     slowreceive: SLOW_TOPIC_RECEIVE   #雪花算法接收
+
+#日志配置
+#logging:
+#  config: classpath:logback.xml

@@ -26,6 +26,7 @@ public class MybatisPlusConfig {
 
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 
+        //这是分页助手
         PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
         //设置数据库类型
         paginationInnerInterceptor.setDbType(DbType.MYSQL);

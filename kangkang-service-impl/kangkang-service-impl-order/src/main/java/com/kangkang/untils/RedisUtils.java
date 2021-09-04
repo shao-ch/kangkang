@@ -35,7 +35,6 @@ public class RedisUtils {
      */
     public static void increment(RedisTemplate<String, Object> redisTemplate, String key) {
         //获取原子操作类
-        RedisAtomicInteger integer = new RedisAtomicInteger(key, redisTemplate.getConnectionFactory());
-        integer.getAndIncrement();
+        redisTemplate.opsForValue().increment(key);
     }
 }

@@ -171,19 +171,19 @@ public class OrderServiceImpl implements OrderService {
                     lockKey.add(RedisKeyPrefix.STOCK_LOCK_KEY + skuVo.getId());
                     lockStatus += 1;
                     //如果获取锁成功就去redis生成库存数据
-                    if (lock) {
-                        //获取锁成功就将缓存更新
-                        Integer stock = tbStockDao.queryStockById(skuVo.getId());
-                        redisTemplate.opsForValue().set(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId(), stock);
-//                        //缓存设置成功之后要将锁加1；
-//                        redisTemplate.opsForValue().increment(RedisKeyPrefix.STOCK_LOCK_KEY + skuVo.getId());
-                        flag += 1;
-                    } else {
-                        //这里做一次查询，如果还是没有缓存,就去更新数据库
-                        if (redisTemplate.opsForValue().get(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId()) == null) {
-                            tbStockDao.updateStockById(skuVo.getId());
+                    synchronized (this) {   //这里要进行加锁处理，防止出现脏读问题
+                        if (lock) {
+                            //获取锁成功就将缓存更新
+                            Integer stock = tbStockDao.queryStockById(skuVo.getId());
+                            redisTemplate.opsForValue().set(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId(), stock);
+                            flag += 1;
+                        } else {
+                            //这里做一次查询，如果还是没有缓存,就去更新数据库
+                            if (redisTemplate.opsForValue().get(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId()) == null) {
+                                tbStockDao.updateStockById(skuVo.getId());
+                            }
+                            flag += 1;
                         }
-                        flag += 1;
                     }
                 } else {
                     flag += 1;
@@ -192,10 +192,10 @@ public class OrderServiceImpl implements OrderService {
                 //生成订单详情
                 generateOrderDetail(tbOrder, skuVo);
 
-//                //3、异步生成订单日志
-//                MqUtils.send(defaultMQProducer, RocketInfo.SEND_LOG_TOPIC, RocketInfo.SEND_LOG_TAG, "");
-//                //4、通过rocketmq做数据库与缓存的同步。这里不需要实时的同步。仅仅是一条通知同步的消息
-//                MqUtils.send(defaultMQProducer, RocketInfo.SEND_ORDER_TOPIC, RocketInfo.SEND_ORDER_TAG, String.valueOf(skuVo.getId()));
+                //3、异步生成订单日志
+                MqUtils.send(defaultMQProducer, RocketInfo.SEND_LOG_TOPIC, RocketInfo.SEND_LOG_TAG, "订单日志信息");
+                //4、通过rocketmq做数据库与缓存的同步。这里不需要实时的同步。仅仅是一条通知同步的消息
+                MqUtils.send(defaultMQProducer, RocketInfo.SEND_ORDER_TOPIC, RocketInfo.SEND_ORDER_TAG, String.valueOf(skuVo.getId()));
                 //5、将成功的订单存入容器中
                 orderIds.add(skuVo.getId());
 
@@ -220,7 +220,8 @@ public class OrderServiceImpl implements OrderService {
                     //删除订单
                     tbOrderDao.deleteById(orderId);
                 }
-
+                //删除重复消费的标志
+                redisTemplate.delete(order.getRepeatOrderFlag());
 
                 //这里要手动回滚事务，不然插入操作就会执行的
                 throw new RuntimeException("订单生成失败");

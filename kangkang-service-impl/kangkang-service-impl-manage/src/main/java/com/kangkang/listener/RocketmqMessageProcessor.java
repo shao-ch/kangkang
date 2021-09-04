@@ -43,8 +43,10 @@ public class RocketmqMessageProcessor implements MessageListenerConcurrently {
 
         if (topic.equals(RocketInfo.SEND_LOG_TOPIC)&&tags.equals(RocketInfo.SEND_LOG_TAG)){
             //更新订单日志数据
+            log.info("==========更新订单日志数据===========");
         }else if (topic.equals(RocketInfo.SEND_ORDER_TOPIC)&&tags.equals(RocketInfo.SEND_ORDER_TAG)){
             //更新库存数据
+            log.info("==========更新库存数据===========");
         }
 
 

@@ -7,6 +7,7 @@ import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 import java.util.Map;
@@ -26,12 +27,12 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @GetMapping(value = "order/queryOrder")
-    Map<String, Object> queryOrder(OrderVO order);
+    Map<String, Object> queryOrder(@RequestBody OrderVO order);
 
 
     @LoadBalanced
     @PostMapping(value = "order/createOrder")
-    TbOrder createOrder(OrderVO order);
+    Map<String,Object> createOrder(@RequestBody OrderVO order);
 
     /**
      * 查询全部订单列表
@@ -40,5 +41,5 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @PostMapping(value = "order/queryOrderList")
-    Page<Map<String, Object>> queryOrderList(OrderPageVO order);
+    Page<Map<String, Object>> queryOrderList(@RequestBody OrderPageVO order);
 }

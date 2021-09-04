@@ -4,7 +4,7 @@
 
 
 
-    <select id="queryStockById" resultType="com.kangkang.store.entity.TbStock">
+    <select id="queryStockById" resultType="integer">
         select (stock-1) stock from tb_stock where tb_sku_id=#{skuId}
     </select>
 

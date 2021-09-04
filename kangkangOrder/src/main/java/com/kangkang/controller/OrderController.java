@@ -33,10 +33,10 @@ public class OrderController {
      * @return
      */
     @PostMapping("/createOrder")
-    public ResponseCode<TbOrder> createOrder(@RequestBody OrderVO orderVo){
+    public ResponseCode<Map<String,Object>> createOrder(@RequestBody OrderVO orderVo){
         try {
-            TbOrder order = orderService.createOrder(orderVo);
-            return ResponseCode.message(200,order,"success");
+            Map<String,Object> data = orderService.createOrder(orderVo);
+            return ResponseCode.message(200,data,"success");
         } catch (Exception e) {
             log.error("=====生成订单服务异常=====：【"+ e+"】");
             return ResponseCode.message(500,null,"服务异常");
@@ -48,7 +48,7 @@ public class OrderController {
      * 查询全部订单列表
      * @return
      */
-    @GetMapping("/queryOrderList")
+    @PostMapping("/queryOrderList")
     public ResponseCode<IPage<Map<String,Object>>> queryOrderList(@RequestBody OrderPageVO orderPageVO){
 
         log.info("=====查询全部订单列表======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");

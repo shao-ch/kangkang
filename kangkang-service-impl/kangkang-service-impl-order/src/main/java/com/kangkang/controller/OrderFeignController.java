@@ -41,7 +41,7 @@ public class OrderFeignController implements OrderFeignService {
      * @param order
      */
     @Override
-    public TbOrder createOrder(OrderVO order) {
+    public Map<String,Object> createOrder(OrderVO order) {
        return orderService.createOrder(order);
     }
 

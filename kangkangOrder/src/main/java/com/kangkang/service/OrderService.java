@@ -11,7 +11,7 @@ import java.util.Map;
  * @Date: 2021/8/26 2:19 下午
  * @Description: TODO
  */
-@FeignClient("kangkang-store-order")
+@FeignClient("kangkang-order-service")
 public interface OrderService extends OrderFeignService{
 
 }

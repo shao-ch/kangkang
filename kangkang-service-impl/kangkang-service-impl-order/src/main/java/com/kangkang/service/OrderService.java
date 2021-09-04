@@ -29,7 +29,7 @@ public interface OrderService {
      * 生成订单
      * @param order
      */
-    TbOrder createOrder(OrderVO order);
+    Map<String,Object> createOrder(OrderVO order);
 
     /**
      * 查询全部订单列表

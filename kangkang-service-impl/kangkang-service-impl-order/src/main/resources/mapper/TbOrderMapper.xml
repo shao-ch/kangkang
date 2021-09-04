@@ -18,6 +18,6 @@
                 JOIN tb_order_detail b ON a.id = b.tb_order_id
                 JOIN tb_sku c ON b.sku_id = c.id
         WHERE
-            a.openId = #{openId};
+            a.openId = #{openId}
     </select>
 </mapper>

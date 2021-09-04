@@ -24,12 +24,13 @@ public class TbOrder {
 	/**
 	 * 用户id
 	 */
+	@TableField("openId")
 	private String openId;
 
 	/**
 	 * 由于购物车生成的订单号一样，所以有可能重复
 	 */
-    private Long orderId;
+    private String orderId;
 
 	/**
 	 * tb_address的物理主键，也就是收货人信息
@@ -70,5 +71,11 @@ public class TbOrder {
 	 * 更新时间
 	 */
     private Date updateTime;
+
+	/**
+	 * 防止重复订单状态
+	 */
+	@TableField(exist = false)
+	private String repeatOrderFlag;
 
 }

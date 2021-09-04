@@ -36,4 +36,9 @@ public class TbSkuVO extends TbSku {
      * 是否以评价：0未评价，1以评价
      */
     private String evaluateStatus;
+
+    /**
+     * 商品状态，0-生成订单，1-有物流单号，3-已发货
+     */
+    private String goodStatus;
 }

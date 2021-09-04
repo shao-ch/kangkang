@@ -21,7 +21,7 @@ public interface TbStockDao extends BaseMapper<TbStock> {
      * @param skuId
      * @return
      */
-    TbStock queryStockById(@Param("SkuId") Long skuId);
+    Integer queryStockById(@Param("skuId") Long skuId);
 
     /**
      * 通过id更新数据

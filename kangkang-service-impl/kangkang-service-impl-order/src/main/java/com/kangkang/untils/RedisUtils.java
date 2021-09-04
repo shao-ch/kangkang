@@ -24,8 +24,7 @@ public class RedisUtils {
             return false;
         }
         //获取原子操作类
-        RedisAtomicInteger integer = new RedisAtomicInteger(key, redisTemplate.getConnectionFactory());
-        integer.getAndDecrement();
+        redisTemplate.opsForValue().decrement(key);
         return true;
     }
 

@@ -34,4 +34,9 @@ public class OrderVO extends TbOrder {
     //地址信息
     private TbAddress tbAddress;
 
+    /**
+     * 防止重复订单状态
+     */
+    private String repeatOrderFlag;
+
 }

@@ -32,7 +32,7 @@ spring:
 #rocketmq的配置信息
 rocketmq:
   #mq的nameserver的地址
-  namesrvAddr: 10.211.55.9:9876
+  namesrvAddr: 42.192.79.7:9876
   #生产者
   producer:
     #是否开启自动配置，是否将类注入spring容器

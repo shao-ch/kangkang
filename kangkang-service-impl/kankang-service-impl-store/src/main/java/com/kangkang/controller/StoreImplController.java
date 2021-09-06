@@ -21,7 +21,7 @@ import java.util.List;
  * @Description: TODO
  */
 @RestController
-public class StoreController implements KangkangApiService {
+public class StoreImplController implements KangkangApiService {
 
     @Resource
     private StoreService storeService;

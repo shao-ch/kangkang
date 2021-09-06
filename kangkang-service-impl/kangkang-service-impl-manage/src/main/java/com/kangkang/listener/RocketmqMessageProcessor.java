@@ -1,12 +1,13 @@
 package com.kangkang.listener;
 
 import com.kangkang.enumInfo.RocketInfo;
+import com.kangkang.service.OrderInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
@@ -22,6 +23,8 @@ import java.util.List;
 @Component
 public class RocketmqMessageProcessor implements MessageListenerConcurrently {
 
+    @Autowired
+    private OrderInfoService orderInfoService;
     /**
      * 因为之前设置的setConsumeMessageBatchMaxSize 为1  所以list里面只有一条数据
      * @param list
@@ -51,7 +54,14 @@ public class RocketmqMessageProcessor implements MessageListenerConcurrently {
             byte[] body = messageExt.getBody();
             String msg = new String(body, StandardCharsets.UTF_8);
 
-            log.info("==========更新库存数据===========");
+            try {
+                orderInfoService.updateStockBySkuId(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("==========更新库存数据失败===========["+e+"]");
+                return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+            }
+            log.info("==========更新库存数据成功===========");
         }
 
 

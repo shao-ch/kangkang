@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.dao.TbStockManageDao">
+
+
+    <update id="updateStockBySkuId">
+        update tb_stock set stock=stock-1 where tb_sku_id=#{skuId}
+    </update>
+</mapper>

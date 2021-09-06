@@ -10,7 +10,6 @@ import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
 import com.kangkang.store.entity.TbStoreDetail;
-import com.kangkang.store.viewObject.StoreDetailVO;
 import com.kangkang.tools.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

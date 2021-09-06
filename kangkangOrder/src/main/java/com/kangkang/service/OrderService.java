@@ -1,9 +1,6 @@
 package com.kangkang.service;
 
-import com.kangkang.store.viewObject.OrderVO;
 import org.springframework.cloud.openfeign.FeignClient;
-
-import java.util.Map;
 
 /**
  * @InterfaceName: OrderService  订单服务

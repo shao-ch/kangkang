@@ -56,6 +56,6 @@ public interface KangkangApiService {
      * @param skuId
      */
     @LoadBalanced
-    @GetMapping(value = "store/getStock")
+    @GetMapping(value = "store/getSkuById")
     List<TbSku> getSkuById(@RequestParam("tbStoreId") List<Long> skuId);
 }

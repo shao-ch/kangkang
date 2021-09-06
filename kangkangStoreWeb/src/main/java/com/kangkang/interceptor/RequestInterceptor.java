@@ -16,7 +16,7 @@ import java.util.HashMap;
  */
 
 
-@Component
+//@Component
 public class RequestInterceptor implements HandlerInterceptor {
 
 

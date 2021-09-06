@@ -48,6 +48,7 @@ public class RocketmqConsumerConfig {
         //设置批量消费的大小，就是消费者一次性消费的消息数  和pullBatchSize 有区别，pullBatchSize是从broker拉取的最大消息数
         consumer.setConsumeMessageBatchMaxSize(consumeMessageBatchMaxSize);
 
+        consumer.setVipChannelEnabled(false);
         //设置消费者监听
         consumer.registerMessageListener(rocketmqMessageProcessor);
         /**

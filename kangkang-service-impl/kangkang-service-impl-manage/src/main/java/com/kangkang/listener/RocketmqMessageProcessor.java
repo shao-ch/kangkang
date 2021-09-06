@@ -2,12 +2,14 @@ package com.kangkang.listener;
 
 import com.kangkang.enumInfo.RocketInfo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -46,6 +48,9 @@ public class RocketmqMessageProcessor implements MessageListenerConcurrently {
             log.info("==========更新订单日志数据===========");
         }else if (topic.equals(RocketInfo.SEND_ORDER_TOPIC)&&tags.equals(RocketInfo.SEND_ORDER_TAG)){
             //更新库存数据
+            byte[] body = messageExt.getBody();
+            String msg = new String(body, StandardCharsets.UTF_8);
+
             log.info("==========更新库存数据===========");
         }
 

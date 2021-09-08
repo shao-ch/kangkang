@@ -46,4 +46,14 @@ public interface KangkangFeign {
     @LoadBalanced
     @GetMapping("/manage/selectAddress/")
     List<TbAdressVO> selectAddress(@RequestParam("id") Integer id);
+
+
+    /**
+     * 新增收货地址
+     * @param vo
+     * @return
+     */
+    @LoadBalanced
+    @GetMapping("/manage/commitAddress/")
+    void commitAddress(@RequestBody TbAdressVO vo);
 }

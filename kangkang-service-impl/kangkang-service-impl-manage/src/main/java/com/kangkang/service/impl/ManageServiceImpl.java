@@ -9,6 +9,7 @@ import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbArea;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.ManageService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,5 +88,26 @@ public class ManageServiceImpl implements ManageService {
 
         }
         return result;
+    }
+
+
+    /**
+     * 新增收货地址
+     * @param vo
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void commitAddress(TbAdressVO vo) {
+
+       if (StringUtils.equals(vo.getPriority(),"0")){
+           //将所有地址更新为1
+           tbAddressDao.updatePriorityByUserId(vo.getUserId(),'1');
+       }
+
+        TbAddress tbAddress = new TbAddress();
+       //数据转换
+        BeanUtils.copyProperties(vo,tbAddress);
+
+        tbAddressDao.insert(tbAddress);
     }
 }

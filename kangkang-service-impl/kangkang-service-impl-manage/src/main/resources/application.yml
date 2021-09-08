@@ -25,7 +25,7 @@ mybatis-plus:
 rocketmq:
   #消费者
   consumer:
-    namesrvAddr: 10.211.55.9:9876
+    namesrvAddr: 42.192.79.7:9876
     #是否开启自动配置
     isOnOff: on
     #发送同一类消息设置为同一个group，保证唯一默认不需要设置

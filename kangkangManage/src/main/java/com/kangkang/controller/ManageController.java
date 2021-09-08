@@ -68,10 +68,32 @@ public class ManageController {
             save=ResponseCode.message(200,address,"success");
         } catch (Exception e) {
             logger.error("调用失败："+e.getMessage());
-            save=ResponseCode.message(500,"登陆失败","服务异常");
+            save=ResponseCode.message(500,null,"服务异常");
         }
         return save;
     }
 
+
+    /**
+     * 保存地址
+     * @param vo
+     * @return
+     */
+    @GetMapping("/commitAddress")
+    public ResponseCode<Void> commitAddress(@RequestBody TbAdressVO vo){
+
+        ResponseCode save;
+        //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
+        try {
+            userService.commitAddress(vo);
+
+
+            save=ResponseCode.message(200,null,"success");
+        } catch (Exception e) {
+            logger.error("调用失败："+e.getMessage());
+            save=ResponseCode.message(500,null,"服务异常");
+        }
+        return save;
+    }
 
 }

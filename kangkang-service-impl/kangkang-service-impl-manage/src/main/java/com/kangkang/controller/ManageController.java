@@ -75,4 +75,15 @@ public class ManageController implements KangkangFeign {
     public List<TbAdressVO> selectAddress(Integer id) {
         return manageService.selectAddress(id);
     }
+
+
+    /**
+     * 新增收货地址
+     * @param vo
+     * @return
+     */
+    @Override
+    public void commitAddress(TbAdressVO vo) {
+        manageService.commitAddress(vo);
+    }
 }

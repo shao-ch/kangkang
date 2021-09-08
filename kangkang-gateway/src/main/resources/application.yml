@@ -65,3 +65,6 @@ wx:
     redirect_url: https://api.weixin.qq.com/sns/jscode2session
   sch:
    timeout: 72    #token的过期时间,时间单位为小时
+jasypt:
+  encryptor:
+    password: gatawey

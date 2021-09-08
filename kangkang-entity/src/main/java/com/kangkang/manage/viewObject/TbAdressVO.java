@@ -18,4 +18,6 @@ import java.util.List;
 public class TbAdressVO extends TbAddress {
     private List<TbArea> areas;
 
+
+
 }

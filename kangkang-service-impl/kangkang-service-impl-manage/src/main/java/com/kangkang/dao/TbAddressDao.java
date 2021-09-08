@@ -17,4 +17,6 @@ import java.util.List;
 public interface TbAddressDao extends BaseMapper<TbAddress> {
 
     List<TbAddress> selectAddress(@Param("id") Integer id);
+
+    void updatePriorityByUserId(@Param("userId")Long userId,@Param("priority") char priority);
 }

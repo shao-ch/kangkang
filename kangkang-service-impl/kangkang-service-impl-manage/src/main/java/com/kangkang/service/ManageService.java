@@ -33,4 +33,10 @@ public interface ManageService {
      * @return
      */
     List<TbAdressVO> selectAddress(Integer id);
+
+    /**
+     * 新增收货地址
+     * @param vo
+     */
+    void commitAddress(TbAdressVO vo);
 }

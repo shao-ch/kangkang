@@ -1,6 +1,7 @@
 package sch.kangkang.filter;
 
 import com.alibaba.fastjson.JSONObject;
+import com.kangkang.enumInfo.SkipWitchFilter;
 import com.kangkang.tools.JwtUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +46,12 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         log.info("=======进入token检验过滤器=====");
+        boolean attribute = exchange.getAttribute(SkipWitchFilter.USER_TOKEN_FILTER);
+        if (!attribute){
+            //跳过次过滤器
+            log.info("此路径--["+exchange.getRequest().getURI().getPath()+"]--跳过鉴权过滤器。");
+            return chain.filter(exchange);
+        }
         //获取response
         ServerHttpResponse response = exchange.getResponse();
         try {
@@ -92,20 +99,15 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
             } else {   //这里是携带token的,并且token的内容为openid
 
                 //token是放在redis中的 需要去拿
-                String o = (String) redisTemplate.opsForValue().get(token);
+                String actureToken = (String) redisTemplate.opsForValue().get(token);
 
                 //判断缓存中是不是不存在，或者本身token自己过期了
-                if (o == null||checkToken(o)) {
+                if (actureToken == null||checkToken(actureToken)) {
                     return getReturnData(response, "token以失效", "401");
                 }
                 //设置请求头权限，不然会报java.lang.UnsupportedOperationException，因为所有的请求头是没有修改的权限
 
-                exchange.getRequest().mutate().header("token",o).build();
-//                HttpHeaders headers = request.getHeaders();
-//                HttpHeaders.writableHttpHeaders(headers);
-//                headers.set("token",o);
-
-                log.info("=======222222：【"+request.getHeaders().getFirst("token")+"】=====");
+                exchange.getRequest().mutate().header("token",actureToken).build();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -151,7 +153,16 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
         return b;
     }
 
+    /**
+     * 拒绝请求之后 --->响应数据信息
+     * @param response
+     * @param errorMsg
+     * @param code
+     * @return
+     */
     private Mono<Void> getReturnData(ServerHttpResponse response, String errorMsg, String code) {
+        //设置前端编码器，不然会报中文乱码
+        response.getHeaders().set("Content-type", "text/html;charset=UTF-8");
         response.setStatusCode(HttpStatus.valueOf(Integer.valueOf(code)));
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", code);
@@ -221,7 +232,6 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
 
         return url;
     }
-
 
     //优先级低于跨域
     @Override

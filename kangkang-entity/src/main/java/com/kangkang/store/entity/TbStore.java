@@ -40,6 +40,11 @@ public class TbStore {
     private String title;
 
 	/**
+	 * 价格，有可能是价格区间
+	 */
+	private String price;
+
+	/**
 	 * 物流类别
 	 */
     private String logisticType;

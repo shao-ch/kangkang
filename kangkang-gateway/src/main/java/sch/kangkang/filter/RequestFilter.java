@@ -35,7 +35,7 @@ public class RequestFilter implements GlobalFilter, Ordered {
         if (token==null){
             response.getHeaders().set("Content-type", "text/html;charset=UTF-8");
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("code", 200);
+            jsonObject.put("code", "415");
             jsonObject.put("data", "请登陆后在操作");
             DataBuffer wrap = response.bufferFactory().wrap(jsonObject.toString().getBytes());
             //没有token就返回拒绝登陆

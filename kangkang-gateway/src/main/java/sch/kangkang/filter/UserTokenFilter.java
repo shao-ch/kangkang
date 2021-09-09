@@ -74,10 +74,10 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
 
                     if (map == null || map.size() == 0) {
                         //直接返回数据
-                        return getReturnData(response, "拒绝登陆", "500");
+                        return getReturnData(response, "调用微信接口失败", "415");
                     }
                     if (map.get("errcode")!=null) {
-                        return getReturnData(response, map.get("errmsg").toString(), "500");
+                        return getReturnData(response, map.get("errmsg").toString(), "415");
                     }
                     //成功之后这里要对信息进行jwt加密处理，存入redis，然后返回给前端
                     String getToken = JwtUtils.generateJsonWebToken(map);
@@ -103,7 +103,7 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
 
                 //判断缓存中是不是不存在，或者本身token自己过期了
                 if (actureToken == null||checkToken(actureToken)) {
-                    return getReturnData(response, "token以失效", "401");
+                    return getReturnData(response, "token以失效,请重新登陆", "415");
                 }
                 //设置请求头权限，不然会报java.lang.UnsupportedOperationException，因为所有的请求头是没有修改的权限
 

@@ -55,8 +55,8 @@ public class GatewayRouteFilter implements GlobalFilter, Ordered {
             response.getHeaders().set("Content-type", "text/html;charset=UTF-8");
             response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("code", "500");
-            jsonObject.put("data", "拒绝登陆");
+            jsonObject.put("code", "415");
+            jsonObject.put("data", "请登陆后在操作");
             DataBuffer wrap = response.bufferFactory().wrap(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
 
             //没有token就返回拒绝登陆

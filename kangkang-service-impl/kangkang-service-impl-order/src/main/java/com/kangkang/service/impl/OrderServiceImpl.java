@@ -1,5 +1,6 @@
 package com.kangkang.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.dao.*;
@@ -15,6 +16,7 @@ import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
+import com.kangkang.store.viewObject.OrderView;
 import com.kangkang.store.viewObject.TbSkuVO;
 import com.kangkang.tools.SnowFlake;
 import com.kangkang.untils.MqUtils;
@@ -236,6 +238,46 @@ public class OrderServiceImpl implements OrderService {
         //此时将key存入redis，作为防止重复下订单的操作
         redisTemplate.opsForValue().set(order.getRepeatOrderFlag(),1);
         return result;
+    }
+
+
+    /**
+     * 查询代付款订单
+     * @param orderPageVO
+     * @return
+     */
+    @Override
+    public Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO) {
+        ArrayList<OrderView> result = new ArrayList<>();
+        //第一步查询所有代付款订单
+        Page<OrderView> page = new Page<>(orderPageVO.getPageIndex(), orderPageVO.getPageSize());
+
+        //查询订单数据
+        Page<TbOrder> tbOrders = tbOrderDao.selectPayingOrder(new Page<>(orderPageVO.getPageIndex(), orderPageVO.getPageSize()),
+                orderPageVO.getOpenId(),orderPageVO.getOrderStatus());
+        //数据的转入
+        BeanUtils.copyProperties(tbOrders,page);
+        if (tbOrders.getRecords().isEmpty()){
+            return page;
+        }
+        //获取其他的详情数据
+        for (TbOrder tbOrder : tbOrders.getRecords()) {
+            OrderView orderView = new OrderView();
+            //存入订单数据
+            orderView.setTbOrder(tbOrder);
+            //存入订单详情数据
+            TbOrderDetail detail = tbOrderDetailDao.selectOne(new QueryWrapper<TbOrderDetail>().eq("tb_order_id", tbOrder.getId()));
+            orderView.setTbOrderDetail(detail);
+            //存入商品数据
+            TbSku tbSku=tbOrderDao.selectSkuInfo(detail.getSkuId());
+            orderView.setTbSku(tbSku);
+
+            result.add(orderView);
+        }
+        page.setRecords(result);
+
+        //返回的信息有：sku 的图片，skuid
+        return page;
     }
 
     /**

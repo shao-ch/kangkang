@@ -7,6 +7,7 @@ import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
+import com.kangkang.store.viewObject.OrderView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,5 +54,16 @@ public class OrderFeignController implements OrderFeignService {
     @Override
     public Page<Map<String, Object>> queryOrderList(OrderPageVO order) {
         return orderService.queryOrderList(order);
+    }
+
+
+    /**
+     * 查询代付款订单
+     * @param orderPageVO
+     * @return
+     */
+    @Override
+    public Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO) {
+        return orderService.queryPayingOrder(orderPageVO);
     }
 }

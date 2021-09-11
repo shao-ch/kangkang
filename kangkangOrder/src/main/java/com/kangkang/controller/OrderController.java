@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
+import com.kangkang.store.viewObject.OrderView;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,28 @@ public class OrderController {
         }
     }
 
+
+    /**
+     * 查询代付款，已付款，代发货等信息订单
+     * @param orderPageVO
+     * @return
+     */
+    @PostMapping("/queryPayingOrder")
+    public ResponseCode<IPage<OrderView>> queryPayingOrder(@RequestBody OrderPageVO orderPageVO){
+
+        log.info("=====查询代付款订单======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");
+        try {
+
+
+            //查询代付款订单
+            Page<OrderView> result= orderService.queryPayingOrder(orderPageVO);
+
+            return ResponseCode.ok().body(result,"success");
+        } catch (Exception e) {
+            log.error("=====查询代付款订单服务异常=====：【"+ e+"】");
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
 
 
 

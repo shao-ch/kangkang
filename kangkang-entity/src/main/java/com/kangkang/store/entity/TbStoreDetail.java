@@ -2,11 +2,13 @@ package com.kangkang.store.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @ClassName:  TbStoreDetail
- * @Description: 商品详情表
+ * @Description:  
  * @Author shaochunhai
- * @Date 2021-08-24 17:14:26 
+ * @Date 2021-09-10 16:11:40 
  */
 @Data
 @TableName("tb_store_detail")
@@ -40,23 +42,18 @@ public class TbStoreDetail {
     private String specArgument;
 
 	/**
-	 * 包装售后模版数据
+	 * 分类id，可以查分类，也可以查售后详情
 	 */
-    private String afterSaleTemple;
-
-	/**
-	 * 商品详情模版数据
-	 */
-    private String detailTemple;
+    private Long tbCategoryId;
 
 	/**
 	 * 创建时间
 	 */
-    private java.util.Date createTime;
+    private Date createTime;
 
 	/**
 	 * 更新时间
 	 */
-    private java.util.Date updateTime;
+    private Date updateTime;
 
 }

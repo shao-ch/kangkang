@@ -25,7 +25,7 @@ public interface StoreService {
      * @param id
      * @return
      */
-    TbStoreDetail getStoreDetail(Long id);
+    StoreDetailVO getStoreDetail(Long id);
 
     /**
      * 立即购买 获取商品实体数据

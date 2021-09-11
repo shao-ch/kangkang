@@ -30,7 +30,7 @@ public interface KangkangApiService {
 
     @LoadBalanced
     @GetMapping(value = "store/getStoreDetail")
-    TbStoreDetail getStoreDetail(@RequestParam("id") Long id);
+    StoreDetailVO getStoreDetail(@RequestParam("id") Long id);
 
 
     /**

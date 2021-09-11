@@ -20,4 +20,15 @@
         WHERE
             a.openId = #{openId}
     </select>
+
+    <select id="selectPayingOrder" resultType="com.kangkang.store.entity.TbOrder">
+        select * from tb_order a where a.order_id=#{openId} and a.order_status=#{orderStatus}
+    </select>
+
+    <select id="selectSkuInfo" resultType="com.kangkang.store.entity.TbSku">
+        select * from tb_sku a where a.id=#{skuId}
+    </select>
+
+
+
 </mapper>

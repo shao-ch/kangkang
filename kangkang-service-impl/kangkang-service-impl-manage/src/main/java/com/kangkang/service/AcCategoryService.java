@@ -1,6 +1,7 @@
 package com.kangkang.service;
 
 import com.kangkang.manage.entity.TbCategory;
+import com.kangkang.manage.viewObject.TbCategoryVO;
 
 import java.util.List;
 
@@ -17,4 +18,18 @@ public interface AcCategoryService {
      * @return
      */
     List<TbCategory> queryCategoryInfo(Long id);
+
+    /**
+     * 保存分类目录
+     * @param vo
+     * @return
+     */
+    void saveCategory(TbCategoryVO vo);
+
+    /**
+     * 通过id删除分类条目
+     * @param ids
+     * @return
+     */
+    void deleteCategory(List<Long> ids);
 }

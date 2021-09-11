@@ -7,6 +7,7 @@ import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
 import com.kangkang.store.entity.TbStoreDetail;
+import com.kangkang.store.viewObject.StoreDetailVO;
 import com.kangkang.tools.PageUtils;
 import com.kangkang.tools.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +52,9 @@ public class StoreController {
      * @return
      */
     @GetMapping("/getStoreDetail/{id}")
-    public ResponseCode<TbStoreDetail> getStoreDetail(@PathVariable Long id){
+    public ResponseCode<StoreDetailVO> getStoreDetail(@PathVariable Long id){
 
-        TbStoreDetail tbStoreDetail= null;
+        StoreDetailVO tbStoreDetail= null;
         try {
             tbStoreDetail = storeService.getStoreDetail(id);
             return ResponseCode.message(200,tbStoreDetail,"success");
@@ -100,4 +101,7 @@ public class StoreController {
             return ResponseCode.message(500,null,"服务异常");
         }
     }
+
+
+
 }

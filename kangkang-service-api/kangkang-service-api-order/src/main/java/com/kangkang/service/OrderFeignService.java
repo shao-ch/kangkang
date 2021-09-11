@@ -3,6 +3,7 @@ package com.kangkang.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
+import com.kangkang.store.viewObject.OrderView;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,4 +42,14 @@ public interface OrderFeignService {
     @LoadBalanced
     @PostMapping(value = "order/queryOrderList")
     Page<Map<String, Object>> queryOrderList(@RequestBody OrderPageVO order);
+
+    /**
+     * 查询代付款订单
+     * @param orderPageVO
+     * @return
+     */
+    @LoadBalanced
+    @PostMapping(value = "order/queryPayingOrder")
+    Page<OrderView> queryPayingOrder(@RequestBody OrderPageVO orderPageVO);
+
 }

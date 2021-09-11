@@ -37,7 +37,7 @@ public class StoreImplController implements KangkangApiService {
      * @return
      */
     @Override
-    public TbStoreDetail getStoreDetail(Long id) {
+    public StoreDetailVO getStoreDetail(Long id) {
         return storeService.getStoreDetail(id);
     }
 

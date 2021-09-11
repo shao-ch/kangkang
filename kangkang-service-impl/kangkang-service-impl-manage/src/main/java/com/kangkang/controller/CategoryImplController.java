@@ -1,9 +1,11 @@
 package com.kangkang.controller;
 
 import com.kangkang.manage.entity.TbCategory;
+import com.kangkang.manage.viewObject.TbCategoryVO;
 import com.kangkang.service.AcCategoryService;
 import com.kangkang.service.CategoryFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,5 +29,28 @@ public class CategoryImplController implements CategoryFeign {
     @Override
     public List<TbCategory> queryCategoryInfo(Long id) {
         return acCategoryService.queryCategoryInfo(id);
+    }
+
+    /**
+     * 保存分类目录
+     * @param vo
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void saveCategory(TbCategoryVO vo) {
+        acCategoryService.saveCategory(vo);
+    }
+
+
+    /**
+     * 通过id删除分类条目
+     * @param ids
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteCategory(List<Long> ids) {
+        acCategoryService.deleteCategory(ids);
     }
 }

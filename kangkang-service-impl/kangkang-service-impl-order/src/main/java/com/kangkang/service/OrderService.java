@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
+import com.kangkang.store.viewObject.OrderView;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -37,4 +38,11 @@ public interface OrderService {
      * @return
      */
     Page<Map<String, Object>> queryOrderList(OrderPageVO order);
+
+    /**
+     * 查询代付款订单
+     * @param orderPageVO
+     * @return
+     */
+    Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO);
 }

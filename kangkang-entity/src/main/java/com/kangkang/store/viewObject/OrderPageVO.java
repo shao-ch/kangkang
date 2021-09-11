@@ -16,4 +16,9 @@ public class OrderPageVO extends PageUtils {
      * 用户id
      */
     private String openId;
+
+    /**
+     * 订单状态
+     */
+    private String orderStatus;
 }

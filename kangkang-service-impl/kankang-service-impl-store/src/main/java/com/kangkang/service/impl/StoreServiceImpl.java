@@ -2,14 +2,14 @@ package com.kangkang.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.dao.StoreDao;
-import com.kangkang.dao.TbAfterSaleDao;
-import com.kangkang.dao.TbSkuDao;
-import com.kangkang.dao.TbStoreDetailDao;
+import com.kangkang.dao.*;
+import com.kangkang.manage.entity.TbComment;
+import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.*;
 import com.kangkang.store.viewObject.StoreDetailVO;
 import com.kangkang.tools.PageUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +37,9 @@ public class StoreServiceImpl implements StoreService {
 
     @Autowired
     private TbAfterSaleDao tbAfterSaleDao;
+
+    @Autowired
+    private TbCommentDao tbCommentDao;
 
     @Override
     @Transactional(readOnly = true)
@@ -104,7 +107,56 @@ public class StoreServiceImpl implements StoreService {
      * @param skuIds
      */
     @Override
+    @Transactional(readOnly = true)
     public List<TbSku> getSkuById(List<Long> skuIds) {
         return tbSkuDao.selectBatchIds(skuIds);
+    }
+
+    /**
+     * 新增评论
+     * @param tbCommentVO
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void addComment(TbCommentVO tbCommentVO) {
+        TbComment tbComment = new TbComment();
+        BeanUtils.copyProperties(tbCommentVO,tbComment);
+        tbCommentDao.insert(tbComment);
+    }
+
+
+    /**
+     * 查询累计评论
+     * @param tbCommentVO
+     * @return
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<TbComment> queryCommentInfo(TbCommentVO tbCommentVO) {
+
+        Page<TbComment> page = new Page<>(tbCommentVO.getPageIndex(), tbCommentVO.getPageSize());
+        //0-代表查询商品评论，1-代表查询回复评论
+        if (StringUtils.equals("0", tbCommentVO.getFlag()))
+            return tbCommentDao.queryCommentInfoByStoreId(page, tbCommentVO.getTbStoreId());
+        return tbCommentDao.queryReplyCommentInfo(page, tbCommentVO.getId(), tbCommentVO.getTbStoreId());
+    }
+
+
+    /**
+     * 点赞数
+     *
+     * @param flag 0-带表减1，1-代表加1
+     * @param id  评论表的id
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class,timeout = 1000)
+    public Integer clickZAN(String flag, Long id) {
+        if ("0".equals(flag))
+         tbCommentDao.reduceZANById(id);
+        tbCommentDao.addZANById (id);
+
+        //然后查询结果
+        return tbCommentDao.selectZANById(id);
     }
 }

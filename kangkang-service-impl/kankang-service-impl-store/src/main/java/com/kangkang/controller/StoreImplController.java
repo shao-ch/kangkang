@@ -1,6 +1,8 @@
 package com.kangkang.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.manage.entity.TbComment;
+import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.KangkangApiService;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbSku;
@@ -69,5 +71,38 @@ public class StoreImplController implements KangkangApiService {
     @Override
     public List<TbSku> getSkuById(List<Long> skuIds) {
         return storeService.getSkuById(skuIds);
+    }
+
+    /**
+     * 新增评论
+     * @param tbCommentVO
+     */
+    @Override
+    public void addComment(TbCommentVO tbCommentVO) {
+        storeService.addComment(tbCommentVO);
+    }
+
+
+    /**
+     * 查询累计评论
+     * @param tbCommentVO
+     * @return
+     */
+    @Override
+    public Page<TbComment> queryCommentInfo(TbCommentVO tbCommentVO) {
+
+        return storeService.queryCommentInfo(tbCommentVO);
+    }
+
+    /**
+     * 点赞数
+     *
+     * @param flag 0-带表减1，1-代表加1
+     * @param id  评论表的id
+     * @return
+     */
+    @Override
+    public Integer clickZAN(String flag, Long id) {
+        return storeService.clickZAN(flag,id);
     }
 }

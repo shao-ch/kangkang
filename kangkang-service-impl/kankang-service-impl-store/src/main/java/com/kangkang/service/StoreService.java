@@ -1,6 +1,8 @@
 package com.kangkang.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.manage.entity.TbComment;
+import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
@@ -47,4 +49,26 @@ public interface StoreService {
      * @param skuIds
      */
     List<TbSku> getSkuById(List<Long> skuIds);
+
+    /**
+     * 新增评论
+     * @param tbCommentVO
+     */
+    void addComment(TbCommentVO tbCommentVO);
+
+    /**
+     * 查询累计评论
+     * @param tbCommentVO
+     * @return
+     */
+    Page<TbComment> queryCommentInfo(TbCommentVO tbCommentVO);
+
+    /**
+     * 点赞数
+     *
+     * @param flag 0-带表减1，1-代表加1
+     * @param id  评论表的id
+     * @return
+     */
+    Integer clickZAN(String flag, Long id);
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.dao.TbCommentDao">
+
+
+    <select id="queryCommentInfoByStoreId" resultType="com.kangkang.manage.entity.TbComment">
+        select * from tb_comment where tb_store_id=#{tbStoreId} and revert_id is null
+    </select>
+
+    <select id="queryReplyCommentInfo" resultType="com.kangkang.manage.entity.TbComment">
+        select * from tb_comment where tb_store_id=#{tbStoreId} and revert_id =#{revertId} order by create_time
+    </select>
+
+    <update id="reduceZANById">
+        update tb_comment set zan=zan-1 where id =#{id}
+    </update>
+
+    <update id="addZANById">
+        update tb_comment set zan=zan+1 where id =#{id}
+    </update>
+
+    <select id="selectZANById" resultType="integer">
+        select zan from tb_comment where id=#{id}
+    </select>
+</mapper>

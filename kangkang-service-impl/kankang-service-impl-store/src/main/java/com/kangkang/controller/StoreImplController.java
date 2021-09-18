@@ -48,7 +48,7 @@ public class StoreImplController implements KangkangApiService {
      * @return
      */
     @Override
-    public List<TbSku> getSkuData(Long skuId) {
+    public TbSku getSkuData(Long skuId) {
         return storeService.getSkuData(skuId);
     }
 

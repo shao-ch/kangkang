@@ -86,12 +86,9 @@ public class StoreServiceImpl implements StoreService {
      * @return
      */
     @Override
-    public List<TbSku> getSkuData(Long skuId) {
-        QueryWrapper<TbSku> wrapper = new QueryWrapper<>();
+    public TbSku getSkuData(Long skuId) {
 
-        wrapper.eq("id",skuId);
-
-        return tbSkuDao.selectList(wrapper);
+        return tbSkuDao.selectById(skuId);
     }
 
 

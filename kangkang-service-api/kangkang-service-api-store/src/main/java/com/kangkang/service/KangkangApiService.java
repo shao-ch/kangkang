@@ -40,7 +40,7 @@ public interface KangkangApiService {
      */
     @LoadBalanced
     @GetMapping(value = "store/getSkuData")
-    List<TbSku> getSkuData(@RequestParam("skuId") Long skuId);
+    TbSku getSkuData(@RequestParam("skuId") Long skuId);
 
     /**
      * 查询库存

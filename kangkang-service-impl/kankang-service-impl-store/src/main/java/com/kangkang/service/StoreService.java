@@ -32,7 +32,7 @@ public interface StoreService {
      * @param skuId
      * @return
      */
-    List<TbSku> getSkuData(Long skuId);
+    TbSku getSkuData(Long skuId);
 
     /**
      * 查询库存

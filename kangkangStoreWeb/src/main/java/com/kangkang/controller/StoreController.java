@@ -74,9 +74,9 @@ public class StoreController {
      * @return
      */
     @GetMapping("/getSkuData")
-    public ResponseCode<List<TbSku>> getSkuData(@RequestParam("skuId") Long skuId) {
+    public ResponseCode<TbSku> getSkuData(@RequestParam("skuId") Long skuId) {
 
-        List<TbSku> result = null;
+        TbSku result = null;
         try {
             result = storeService.getSkuData(skuId);
             return ResponseCode.message(200, result, "success");

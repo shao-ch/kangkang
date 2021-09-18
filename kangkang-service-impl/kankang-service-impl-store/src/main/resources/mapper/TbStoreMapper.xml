@@ -3,9 +3,10 @@
 <mapper namespace="com.kangkang.dao.TbStoreDao">
 
     <select id="selectStoreInfo" resultType="com.kangkang.store.viewObject.TbStoreVO">
-        select a.id, a.image, a.tb_category_id, b.id skuId, b.title, b.price
-        FROM tb_store a
-                 join tb_sku b on a.id = b.tb_store_id
-        order by b.id LIMIT 1;
+        select *
+        from (select a.id, a.image, a.tb_category_id, b.id skuId, b.title, b.price
+              FROM tb_store a
+                       join tb_sku b on a.id = b.tb_store_id
+              order by b.id LIMIT 1) a
     </select>
 </mapper>

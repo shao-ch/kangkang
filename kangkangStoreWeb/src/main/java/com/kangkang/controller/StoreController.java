@@ -7,9 +7,7 @@ import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.entity.TbStore;
-import com.kangkang.store.entity.TbStoreDetail;
-import com.kangkang.store.viewObject.StoreDetailVO;
+import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import com.kangkang.tools.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +37,7 @@ public class StoreController {
     @PostMapping("/queryStoreInfo")
     public ResponseCode<IPage> queryStoreInfo(@RequestBody PageUtils pageUtils) {
 
-        Page<TbStore> page = null;
+        Page<TbStoreVO> page = null;
         try {
             page = storeService.queryStoreInfo(pageUtils);
             return ResponseCode.message(200, page, "success");
@@ -56,9 +54,9 @@ public class StoreController {
      * @return
      */
     @GetMapping("/getStoreDetail/{id}")
-    public ResponseCode<StoreDetailVO> getStoreDetail(@PathVariable Long id) {
+    public ResponseCode<TbStoreVO> getStoreDetail(@PathVariable Long id) {
 
-        StoreDetailVO tbStoreDetail = null;
+        TbStoreVO tbStoreDetail = null;
         try {
             tbStoreDetail = storeService.getStoreDetail(id);
             return ResponseCode.message(200, tbStoreDetail, "success");

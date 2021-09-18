@@ -2,12 +2,18 @@ package com.kangkang.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.dao.*;
+import com.kangkang.dao.TbAfterSaleDao;
+import com.kangkang.dao.TbCommentDao;
+import com.kangkang.dao.TbSkuDao;
+import com.kangkang.dao.TbStoreDao;
 import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.StoreService;
-import com.kangkang.store.entity.*;
-import com.kangkang.store.viewObject.StoreDetailVO;
+import com.kangkang.store.entity.TbAfterSale;
+import com.kangkang.store.entity.TbSku;
+import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -27,10 +33,7 @@ import java.util.List;
 @Service
 public class StoreServiceImpl implements StoreService {
     @Autowired
-    private StoreDao storeDao;
-
-    @Autowired
-    private TbStoreDetailDao tbStoreDetailDao;
+    private TbStoreDao tbStoreDao;
 
     @Autowired
     private TbSkuDao tbSkuDao;
@@ -43,9 +46,11 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<TbStore> queryStoreInfo(PageUtils pageUtils) {
-        Page<TbStore> page = new Page<>(pageUtils.getPageIndex(),pageUtils.getPageSize());
-        return storeDao.selectPage(page,null);
+    public Page<TbStoreVO> queryStoreInfo(PageUtils pageUtils) {
+        //获取首先的分页数据
+        Page<TbStoreVO> page = new Page<>(pageUtils.getPageIndex(),pageUtils.getPageSize());
+        Page<TbStoreVO> TbStoreVO = tbStoreDao.selectStoreInfo(page);
+        return TbStoreVO;
     }
 
 
@@ -56,17 +61,17 @@ public class StoreServiceImpl implements StoreService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED,readOnly = true)   //这里要设置只读
-    public StoreDetailVO getStoreDetail(Long id) {
+    public TbStoreVO getStoreDetail(Long id) {
 
-        StoreDetailVO result = new StoreDetailVO();
-        QueryWrapper<TbStoreDetail> wrapper = new QueryWrapper<>();
+        TbStoreVO result = new TbStoreVO();
+        QueryWrapper<TbStore> wrapper = new QueryWrapper<>();
         //第一步查询商品详情实体
         wrapper.eq("id",id);
-        TbStoreDetail tbStoreDetail = tbStoreDetailDao.selectOne(wrapper);
+        TbStore tbStore = tbStoreDao.selectOne(wrapper);
         //bean的转化
-        BeanUtils.copyProperties(tbStoreDetail,result);
+        BeanUtils.copyProperties(tbStore,result);
         //获取cid
-        Long cid = tbStoreDetail.getTbCategoryId();
+        Long cid = tbStore.getTbCategoryId();
         //通过cid查询详情信息
         QueryWrapper<TbAfterSale> wrapper1 = new QueryWrapper<>();
         wrapper1.eq("tb_category_id",cid);

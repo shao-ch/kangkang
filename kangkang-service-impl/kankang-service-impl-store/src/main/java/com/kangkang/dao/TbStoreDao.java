@@ -2,7 +2,9 @@ package com.kangkang.dao;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.viewObject.TbStoreVO;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Repository;
  * @Description: TODO
  */
 @Repository
-public interface StoreDao extends BaseMapper<TbStore> {
+public interface TbStoreDao extends BaseMapper<TbStore> {
 
+    Page<TbStoreVO> selectStoreInfo(Page<TbStoreVO> page);
 }

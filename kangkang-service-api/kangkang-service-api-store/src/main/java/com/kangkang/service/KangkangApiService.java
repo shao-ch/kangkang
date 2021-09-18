@@ -5,9 +5,7 @@ import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.entity.TbStore;
-import com.kangkang.store.entity.TbStoreDetail;
-import com.kangkang.store.viewObject.StoreDetailVO;
+import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,12 +25,12 @@ public interface KangkangApiService {
 
     @LoadBalanced
     @PostMapping(value = "store/queryStoreInfo")
-    Page<TbStore> queryStoreInfo(@RequestBody PageUtils pageUtils);
+    Page<TbStoreVO> queryStoreInfo(@RequestBody PageUtils pageUtils);
 
 
     @LoadBalanced
     @GetMapping(value = "store/getStoreDetail")
-    StoreDetailVO getStoreDetail(@RequestParam("id") Long id);
+    TbStoreVO getStoreDetail(@RequestParam("id") Long id);
 
 
     /**

@@ -8,7 +8,7 @@ import java.util.Date;
  * @ClassName:  TbStore
  * @Description:  
  * @Author shaochunhai
- * @Date 2021-09-10 16:09:56 
+ * @Date 2021-09-18 14:01:13 
  */
 @Data
 @TableName("tb_store")
@@ -22,43 +22,33 @@ public class TbStore {
     private Long id;
 
 	/**
-	 * 图片路径
+	 * 图片展示
 	 */
-    private String banner;
+    private String image;
 
 	/**
-	 * 标题
+	 * 商品详情图片信息
 	 */
-    private String title;
+    private String specification;
 
 	/**
-	 * 价格，有可能是价格区间
+	 * 特有商品公共参数
 	 */
-    private String price;
+    private String specArgument;
 
 	/**
-	 * 物流类别
+	 * 分类id，可以查分类，也可以查售后详情
 	 */
-    private String logisticType;
-
-	/**
-	 * 是否在售卖；0-不可售卖，1-可售卖
-	 */
-    private String issolding;
-
-	/**
-	 * 是否有效。0-有效，1无效
-	 */
-    private String status;
+    private Long tbCategoryId;
 
 	/**
 	 * 创建时间
 	 */
-    private Date createDate;
+    private Date createTime;
 
 	/**
 	 * 更新时间
 	 */
-    private Date updateDate;
+    private Date updateTime;
 
 }

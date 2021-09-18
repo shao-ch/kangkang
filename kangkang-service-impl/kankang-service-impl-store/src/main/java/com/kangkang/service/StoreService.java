@@ -5,9 +5,7 @@ import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.entity.TbStore;
-import com.kangkang.store.entity.TbStoreDetail;
-import com.kangkang.store.viewObject.StoreDetailVO;
+import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 
 import java.util.List;
@@ -19,7 +17,7 @@ import java.util.List;
  * @Description: TODO
  */
 public interface StoreService {
-    Page<TbStore> queryStoreInfo(PageUtils pageUtils);
+    Page<TbStoreVO> queryStoreInfo(PageUtils pageUtils);
 
 
     /**
@@ -27,7 +25,7 @@ public interface StoreService {
      * @param id
      * @return
      */
-    StoreDetailVO getStoreDetail(Long id);
+    TbStoreVO getStoreDetail(Long id);
 
     /**
      * 立即购买 获取商品实体数据

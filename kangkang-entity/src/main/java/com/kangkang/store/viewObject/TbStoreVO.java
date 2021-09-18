@@ -1,8 +1,7 @@
 package com.kangkang.store.viewObject;
 
 import com.kangkang.store.entity.TbAfterSale;
-import com.kangkang.store.entity.TbDetailTemple;
-import com.kangkang.store.entity.TbStoreDetail;
+import com.kangkang.store.entity.TbStore;
 import lombok.Data;
 
 import java.util.List;
@@ -14,9 +13,15 @@ import java.util.List;
  * @Description: TODO
  */
 @Data
-public class StoreDetailVO extends TbStoreDetail {
+public class TbStoreVO extends TbStore {
 
     //售后信息模版
     private List<TbAfterSale> tbAfterSales;
+
+    private Long skuId;
+
+    private Double price;
+
+    private String title;
 
 }

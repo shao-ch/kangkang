@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -56,5 +57,20 @@ public class ConverUtils {
             e.printStackTrace();
         }
         return t;
+    }
+
+    /**
+     * 数组转化为json
+     * @param specArgument
+     * @return
+     */
+    private String arrayToJson(String specArgument) {
+        String[] parse = (String[]) JSONObject.parse(specArgument);
+        HashMap<String, Object> map = new HashMap<>();
+        for (String s : parse) {
+            String[] split = s.split(":");
+            map.put(split[0],split[1]);
+        }
+        return JSONObject.toJSONString(map);
     }
 }

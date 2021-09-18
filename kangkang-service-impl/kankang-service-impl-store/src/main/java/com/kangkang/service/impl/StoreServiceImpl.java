@@ -1,5 +1,6 @@
 package com.kangkang.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.dao.TbAfterSaleDao;
@@ -15,6 +16,7 @@ import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
 import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -30,6 +33,7 @@ import java.util.List;
  * @Date: 2021/8/12 9:56 上午
  * @Description: TODO
  */
+@Slf4j
 @Service
 public class StoreServiceImpl implements StoreService {
     @Autowired
@@ -68,6 +72,10 @@ public class StoreServiceImpl implements StoreService {
         //第一步查询商品详情实体
         wrapper.eq("id",id);
         TbStore tbStore = tbStoreDao.selectOne(wrapper);
+        String specArgument = tbStore.getSpecArgument();
+        List<String> parse = (List<String>) JSONObject.parse(specArgument);
+        log.info("转化的数据为："+JSONObject.toJSONString(parse));
+        tbStore.setSpecArgument(JSONObject.toJSONString(parse));
         //bean的转化
         BeanUtils.copyProperties(tbStore,result);
         //获取cid

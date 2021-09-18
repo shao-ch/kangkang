@@ -42,6 +42,7 @@ public class RequestInterceptor implements HandlerInterceptor {
             HashMap<String, Object> map = new HashMap<>();
             map.put("code",403);
             map.put("data","拒绝操作");
+            response.addHeader("Content-type", "text/html;charset=UTF-8");
             response.getWriter().print(JSONObject.toJSON(map));
 
             return false;

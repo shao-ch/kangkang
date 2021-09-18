@@ -35,12 +35,12 @@ public interface KangkangApiService {
 
     /**
      * 立即购买 获取商品实体数据
-     * @param tbStoreId
+     * @param skuId
      * @return
      */
     @LoadBalanced
     @GetMapping(value = "store/getSkuData")
-    List<TbSku> getSkuData(@RequestParam("tbStoreId") Long tbStoreId);
+    List<TbSku> getSkuData(@RequestParam("skuId") Long skuId);
 
     /**
      * 查询库存

@@ -70,15 +70,15 @@ public class StoreController {
     /**
      * 立即购买 获取商品实体数据
      *
-     * @param tbStoreId tb_store的主键
+     * @param skuId tb_sku的主键
      * @return
      */
     @GetMapping("/getSkuData")
-    public ResponseCode<List<TbSku>> getSkuData(@RequestParam("id") Long tbStoreId) {
+    public ResponseCode<List<TbSku>> getSkuData(@RequestParam("skuId") Long skuId) {
 
         List<TbSku> result = null;
         try {
-            result = storeService.getSkuData(tbStoreId);
+            result = storeService.getSkuData(skuId);
             return ResponseCode.message(200, result, "success");
         } catch (Exception e) {
             e.printStackTrace();

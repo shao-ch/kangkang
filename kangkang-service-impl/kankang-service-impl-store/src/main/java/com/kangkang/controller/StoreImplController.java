@@ -44,12 +44,12 @@ public class StoreImplController implements KangkangApiService {
 
     /**
      * 立即购买 获取商品实体数据
-     * @param tbStoreId
+     * @param skuId
      * @return
      */
     @Override
-    public List<TbSku> getSkuData(Long tbStoreId) {
-        return storeService.getSkuData(tbStoreId);
+    public List<TbSku> getSkuData(Long skuId) {
+        return storeService.getSkuData(skuId);
     }
 
     /**

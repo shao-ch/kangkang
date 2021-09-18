@@ -2,7 +2,10 @@ package com.kangkang.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kangkang.store.entity.TbAfterSale;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @InterfaceName: TbAfterSaleDao
@@ -12,4 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TbAfterSaleDao extends BaseMapper<TbAfterSale> {
+    List<TbAfterSale> selectListByCid(@Param("cid") Long cid);
 }

@@ -73,9 +73,7 @@ public class StoreServiceImpl implements StoreService {
         //获取cid
         Long cid = tbStore.getTbCategoryId();
         //通过cid查询详情信息
-        QueryWrapper<TbAfterSale> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq("tb_category_id",cid);
-        List<TbAfterSale> tbAfterSales = tbAfterSaleDao.selectList(wrapper1);
+        List<TbAfterSale> tbAfterSales = tbAfterSaleDao.selectListByCid(cid);
         //将售后详情数据放入结果中
         result.setTbAfterSales(tbAfterSales);
         return result;
@@ -84,14 +82,14 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 立即购买 获取商品实体数据
-     * @param tbStoreId
+     * @param skuId
      * @return
      */
     @Override
-    public List<TbSku> getSkuData(Long tbStoreId) {
+    public List<TbSku> getSkuData(Long skuId) {
         QueryWrapper<TbSku> wrapper = new QueryWrapper<>();
 
-        wrapper.eq("tb_store_id",tbStoreId);
+        wrapper.eq("id",skuId);
 
         return tbSkuDao.selectList(wrapper);
     }

@@ -29,10 +29,10 @@ public interface StoreService {
 
     /**
      * 立即购买 获取商品实体数据
-     * @param tbStoreId
+     * @param skuId
      * @return
      */
-    List<TbSku> getSkuData(Long tbStoreId);
+    List<TbSku> getSkuData(Long skuId);
 
     /**
      * 查询库存

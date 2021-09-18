@@ -53,8 +53,8 @@ public class StoreController {
      * @param id
      * @return
      */
-    @GetMapping("/getStoreDetail/{id}")
-    public ResponseCode<TbStoreVO> getStoreDetail(@PathVariable Long id) {
+    @GetMapping("/getStoreDetail")
+    public ResponseCode<TbStoreVO> getStoreDetail(@RequestParam("id") Long id) {
 
         TbStoreVO tbStoreDetail = null;
         try {

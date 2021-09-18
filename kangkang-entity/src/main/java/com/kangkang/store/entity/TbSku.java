@@ -42,7 +42,7 @@ public class TbSku {
 	/**
 	 * 商品实体的规格参数，内存，颜色，，购买方式等
 	 */
-    private String specParams;
+    private Object specParams;
 
 	/**
 	 * 状态：0-可购买，1-购买状态

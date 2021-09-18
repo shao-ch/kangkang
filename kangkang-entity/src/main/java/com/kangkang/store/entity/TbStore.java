@@ -34,7 +34,7 @@ public class TbStore {
 	/**
 	 * 特有商品公共参数
 	 */
-    private String specArgument;
+    private Object specArgument;
 
 	/**
 	 * 分类id，可以查分类，也可以查售后详情

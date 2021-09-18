@@ -72,10 +72,10 @@ public class StoreServiceImpl implements StoreService {
         //第一步查询商品详情实体
         wrapper.eq("id",id);
         TbStore tbStore = tbStoreDao.selectOne(wrapper);
-        String specArgument = tbStore.getSpecArgument();
-        List<String> parse = (List<String>) JSONObject.parse(specArgument);
+        Object specArgument = tbStore.getSpecArgument();
+        List<String> parse = (List<String>) JSONObject.parse(specArgument.toString());
         log.info("转化的数据为："+JSONObject.toJSONString(parse));
-        tbStore.setSpecArgument(JSONObject.toJSONString(parse));
+        tbStore.setSpecArgument(JSONObject.toJSON(parse));
         //bean的转化
         BeanUtils.copyProperties(tbStore,result);
         //获取cid
@@ -96,9 +96,9 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public TbSku getSkuData(Long skuId) {
         TbSku tbSku = tbSkuDao.selectById(skuId);
-        String specParams = tbSku.getSpecParams();
-        List<String> parse = (List<String>) JSONObject.parse(specParams);
-        tbSku.setSpecParams(JSONObject.toJSONString(parse));
+        Object specParams = tbSku.getSpecParams();
+        List<String> parse = (List<String>) JSONObject.parse(specParams.toString());
+        tbSku.setSpecParams(JSONObject.toJSON(parse));
         return tbSku;
     }
 

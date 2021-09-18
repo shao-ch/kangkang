@@ -24,7 +24,7 @@ import java.util.List;
  * @Description: TODO
  */
 @RestController
-@RequestMapping("store")
+@RequestMapping("api")
 public class StoreController {
 
     @Autowired

@@ -95,8 +95,11 @@ public class StoreServiceImpl implements StoreService {
      */
     @Override
     public TbSku getSkuData(Long skuId) {
-
-        return tbSkuDao.selectById(skuId);
+        TbSku tbSku = tbSkuDao.selectById(skuId);
+        String specParams = tbSku.getSpecParams();
+        List<String> parse = (List<String>) JSONObject.parse(specParams);
+        tbSku.setSpecParams(JSONObject.toJSONString(parse));
+        return tbSku;
     }
 
 

@@ -1,6 +1,7 @@
 package com.kangkang.dao;
 
 
+import com.baomidou.mybatisplus.annotation.SqlParser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbStore;
@@ -16,5 +17,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TbStoreDao extends BaseMapper<TbStore> {
 
+    @SqlParser(filter=true)
     Page<TbStoreVO> selectStoreInfo(Page<TbStoreVO> page);
 }

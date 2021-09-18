@@ -1,7 +1,7 @@
 package com.kangkang.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kangkang.store.entity.TbAfterSaleTemple;
+import com.kangkang.store.entity.TbAfterSale;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * @Description: TODO
  */
 @Repository
-public interface TbAfterSaleTempleDao extends BaseMapper<TbAfterSaleTemple> {
+public interface TbAfterSaleTempleDao extends BaseMapper<TbAfterSale> {
 }

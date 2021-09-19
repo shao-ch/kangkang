@@ -16,6 +16,7 @@
         <module>kangkang-gateway</module>
         <module>kangkang-entity</module>
         <module>kangkangOrder</module>
+        <module>kangkangFileProcess</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -5,7 +5,7 @@
     <select id="selectStoreInfo" resultType="com.kangkang.store.viewObject.TbStoreVO">
         SELECT id, skuId, image, tb_category_id, title, price
         FROM (SELECT IF(@tem_id = id, @tmp_num:=@tmp_num+1, @tmp_num:=0) 'tmp_num',@tem_id:=id 'id',skuId,image,tb_category_id,title,price
-              FROM (select a.id, b.id skuId, a.image, a.tb_category_id, b.title, b.price from tb_store a join tb_sku
+              FROM (select a.id, b.id skuId, b.image, a.tb_category_id, b.title, b.price from tb_store a join tb_sku
                   b on a.id = b.tb_store_id order by b.id asc) c) a
         where a.tmp_num &lt; 1
     </select>

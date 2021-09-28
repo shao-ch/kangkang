@@ -1,6 +1,7 @@
 package com.kangkang.service;
 
 
+import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 
@@ -32,7 +33,7 @@ public interface ManageService {
      * @param id  用户id
      * @return
      */
-    List<TbAdressVO> selectAddress(Integer id);
+    List<TbAddress> selectAddress(Integer id);
 
     /**
      * 新增收货地址

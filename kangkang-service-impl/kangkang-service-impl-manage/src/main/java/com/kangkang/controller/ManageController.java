@@ -1,5 +1,6 @@
 package com.kangkang.controller;
 
+import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.KangkangFeign;
@@ -72,7 +73,7 @@ public class ManageController implements KangkangFeign {
      * @return
      */
     @Override
-    public List<TbAdressVO> selectAddress(Integer id) {
+    public List<TbAddress> selectAddress(Integer id) {
         return manageService.selectAddress(id);
     }
 

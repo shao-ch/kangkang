@@ -1,39 +1,84 @@
 package com.kangkang.manage.entity;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @ClassName: TbAddress   收货地址表
- * @Author: shaochunhai
- * @Date: 2021/8/21 4:27 下午
- * @Description: TODO
- */
 @Data
 @TableName("tb_address")
 public class TbAddress {
 
+
+	/**
+	 * 主键
+	 */
     @TableId(value = "id",type = IdType.AUTO)
-    //主键
     private Long id;
-    //用户id
+
+	/**
+	 * 用户id
+	 */
     private Long userId;
-    //收货人
+
+	/**
+	 * 收货人
+	 */
     private String consignee;
-    //收货人电话
-    private String consiTelephone;
-    //收货人地址的最后一级
-    private long areaid;
-    //手输入的具体地址
+
+	/**
+	 * 省名
+	 */
+    private String provinceName;
+
+	/**
+	 * 省代码
+	 */
+    private String provinceCode;
+
+	/**
+	 * 市名
+	 */
+    private String cityName;
+
+	/**
+	 * 市代码
+	 */
+    private String cityCode;
+
+	/**
+	 * 县名称
+	 */
+    private String countyName;
+
+	/**
+	 * 详细地址
+	 */
     private String detailAddress;
-    //优先级：0-设置默认地址，1-普通
-    private String priority;
-    //更新时间
+
+	/**
+	 * 县代码
+	 */
+    private String countyCode;
+
+	/**
+	 * 是否是默认：0-默认，1代表普通
+	 */
+    private String isDefault;
+
+
+	/**
+	 * 电话号码
+	 */
+    private String telephone;
+
+	/**
+	 * 创建时间
+	 */
+	private Date createTime;
+
+	/**
+	 * 更新时间
+	 */
     private Date updateTime;
-    //创建时间
-    private Date createTime;
+
 }

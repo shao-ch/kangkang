@@ -348,7 +348,7 @@ public class OrderServiceImpl implements OrderService {
         tbOrder.setCreateTime(new Date());
         //买家留言
         tbOrder.setLeaveWord(order.getLeaveWord());
-        //点击确认的时候会发送一条付款信息，如果付款成功就给1，否则就给0,前台给的数据
+        //点击确认的时候会发送一条付款信息，如果付款成功就给0，否则就给1,前台给的数据
         tbOrder.setOrderStatus(order.getOrderStatus());
         //每一次更新都要给
         tbOrder.setUpdateTime(new Date());

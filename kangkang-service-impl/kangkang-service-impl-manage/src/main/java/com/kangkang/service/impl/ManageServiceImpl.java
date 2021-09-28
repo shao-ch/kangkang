@@ -67,27 +67,16 @@ public class ManageServiceImpl implements ManageService {
      * @return
      */
     @Override
-    public List<TbAdressVO> selectAddress(Integer userId) {
+    public List<TbAddress> selectAddress(Integer userId) {
 
-        ArrayList<TbAdressVO> result = new ArrayList<>();
         //查询所有收货地址
         List<TbAddress> address = tbAddressDao.selectAddress(userId);
 
         if (address.isEmpty()){
-            return result;
+            return address;
         }
-        for (TbAddress tbAddress : address) {
-            TbAdressVO vo = new TbAdressVO();
-            //数据转换
-            BeanUtils.copyProperties(address,vo);
-            //及联查询所有具体地址
-            List<TbArea> tbArea = tbAreaDao.selectAllLevel(tbAddress.getAreaid());
-            //查询的省市县
-            vo.setAreas(tbArea);
-            result.add(vo);
 
-        }
-        return result;
+        return address;
     }
 
 
@@ -99,9 +88,9 @@ public class ManageServiceImpl implements ManageService {
     @Transactional(rollbackFor = Exception.class)
     public void commitAddress(TbAdressVO vo) {
 
-       if (StringUtils.equals(vo.getPriority(),"0")){
+       if (StringUtils.equals(vo.getIsDefault(),"0")){
            //将所有地址更新为1
-           tbAddressDao.updatePriorityByUserId(vo.getUserId(),'1');
+           tbAddressDao.updateIsDefaultByUserId(vo.getUserId(),'1');
        }
 
         TbAddress tbAddress = new TbAddress();

@@ -1,5 +1,6 @@
 package com.kangkang.service;
 
+import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -45,7 +46,7 @@ public interface KangkangFeign {
      */
     @LoadBalanced
     @GetMapping("/manage/selectAddress/")
-    List<TbAdressVO> selectAddress(@RequestParam("id") Integer id);
+    List<TbAddress> selectAddress(@RequestParam("id") Integer id);
 
 
     /**

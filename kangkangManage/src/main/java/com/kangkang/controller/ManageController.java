@@ -1,6 +1,7 @@
 package com.kangkang.controller;
 
 
+import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.UserService;
@@ -57,12 +58,12 @@ public class ManageController {
      * @return
      */
     @GetMapping("/queryAddress")
-    public ResponseCode<TbAdressVO> queryAddress(@RequestParam("userId") Integer userId){
+    public ResponseCode<TbAddress> queryAddress(@RequestParam("userId") Integer userId){
 
         ResponseCode save;
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-            List<TbAdressVO> address= userService.selectAddress(userId);
+            List<TbAddress> address= userService.selectAddress(userId);
 
 
             save=ResponseCode.message(200,address,"success");

@@ -40,6 +40,13 @@ spring:
           filters:
             - StripPrefix=2       #2、然后过滤掉前两位
 
+        #文件处理系统
+        - id: file
+          uri: lb://kangkang-file-process
+          predicates:
+            - Path=/mini/file/**
+          filters:
+            - StripPrefix=2       #2、然后过滤掉前两位
 
     nacos:
       discovery:

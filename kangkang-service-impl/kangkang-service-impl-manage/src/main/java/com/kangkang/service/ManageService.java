@@ -29,11 +29,11 @@ public interface ManageService {
     TbUser selectUser(TbUser tbUser);
 
     /**
-     * 获取收货地址
-     * @param id  用户id
+     * 通过openId查询用户地址
+     * @param openId
      * @return
      */
-    List<TbAddress> selectAddress(Integer id);
+    List<TbAddress> selectAddress(String openId);
 
     /**
      * 新增收货地址

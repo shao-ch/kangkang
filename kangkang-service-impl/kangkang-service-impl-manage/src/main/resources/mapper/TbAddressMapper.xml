@@ -4,7 +4,7 @@
 
 
     <select id="selectAddress" resultType="com.kangkang.manage.entity.TbAddress">
-        select * from tb_address a where a.id=#{id}
+        select * from tb_address a where a.openId=#{openId}
     </select>
 
 

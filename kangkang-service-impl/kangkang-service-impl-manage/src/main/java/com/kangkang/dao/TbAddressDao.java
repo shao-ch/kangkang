@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 public interface TbAddressDao extends BaseMapper<TbAddress> {
 
-    List<TbAddress> selectAddress(@Param("id") Integer id);
+    List<TbAddress> selectAddress(@Param("openId") String openId);
 
     void updateIsDefaultByUserId(@Param("openId")String openId,@Param("isDefault") char isDefault);
 }

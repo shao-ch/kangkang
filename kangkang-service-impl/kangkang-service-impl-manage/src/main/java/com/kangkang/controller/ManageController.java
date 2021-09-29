@@ -68,13 +68,13 @@ public class ManageController implements KangkangFeign {
 
 
     /**
-     * 获取收货地址
-     * @param id  用户id
+     * 通过openId查询用户地址
+     * @param openId
      * @return
      */
     @Override
-    public List<TbAddress> selectAddress(Integer id) {
-        return manageService.selectAddress(id);
+    public List<TbAddress> selectAddress(String openId) {
+        return manageService.selectAddress(openId);
     }
 
 

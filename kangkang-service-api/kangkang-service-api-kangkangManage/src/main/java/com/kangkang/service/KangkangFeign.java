@@ -46,7 +46,7 @@ public interface KangkangFeign {
      */
     @LoadBalanced
     @GetMapping("/manage/selectAddress/")
-    List<TbAddress> selectAddress(@RequestParam("id") Integer id);
+    List<TbAddress> selectAddress(@RequestParam("id") String id);
 
 
     /**

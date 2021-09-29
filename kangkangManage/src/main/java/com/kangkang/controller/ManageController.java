@@ -54,16 +54,16 @@ public class ManageController {
 
     /**
      * 收货地址查询
-     * @param userId
+     * @param openId
      * @return
      */
     @GetMapping("/queryAddress")
-    public ResponseCode<List<TbAddress>> queryAddress(@RequestParam("userId") Integer userId){
+    public ResponseCode<List<TbAddress>> queryAddress(@RequestParam("openId") String openId){
 
         ResponseCode save;
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-            List<TbAddress> address= userService.selectAddress(userId);
+            List<TbAddress> address= userService.selectAddress(openId);
 
 
             save=ResponseCode.message(200,address,"success");
@@ -80,7 +80,7 @@ public class ManageController {
      * @param vo
      * @return
      */
-    @GetMapping("/commitAddress")
+    @PostMapping("/commitAddress")
     public ResponseCode<Void> commitAddress(@RequestBody TbAdressVO vo){
 
         ResponseCode save;

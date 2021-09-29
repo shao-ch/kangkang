@@ -36,8 +36,10 @@ public class ManageServiceImpl implements ManageService {
 
     @Autowired
     private TbAreaDao tbAreaDao;
+
     /**
      * 注册账号
+     *
      * @param tbUser
      */
     @Override
@@ -49,6 +51,7 @@ public class ManageServiceImpl implements ManageService {
 
     /**
      * 通过openid查询用户
+     *
      * @param tbUser
      * @return
      */
@@ -63,6 +66,7 @@ public class ManageServiceImpl implements ManageService {
 
     /**
      * 通过id查询用户地址
+     *
      * @param userId userId
      * @return
      */
@@ -72,7 +76,7 @@ public class ManageServiceImpl implements ManageService {
         //查询所有收货地址
         List<TbAddress> address = tbAddressDao.selectAddress(userId);
 
-        if (address.isEmpty()){
+        if (address.isEmpty()) {
             return address;
         }
 
@@ -82,21 +86,25 @@ public class ManageServiceImpl implements ManageService {
 
     /**
      * 新增收货地址
+     *
      * @param vo
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void commitAddress(TbAdressVO vo) {
 
-       if (StringUtils.equals(vo.getIsDefault(),"0")){
-           //将所有地址更新为1
-           tbAddressDao.updateIsDefaultByUserId(vo.getUserId(),'1');
-       }
+        //设置默认地址
+        if (StringUtils.equals(vo.getIsDefault(), "0")) {
+            //将所有地址更新为1
+            tbAddressDao.updateIsDefaultByUserId(vo.getUserId(), '1');
+        }
 
         TbAddress tbAddress = new TbAddress();
-       //数据转换
-        BeanUtils.copyProperties(vo,tbAddress);
-
-        tbAddressDao.insert(tbAddress);
+        //数据转换
+        BeanUtils.copyProperties(vo, tbAddress);
+        //如果是更新操作id是不为空的
+        if (vo.getId() != null)
+            tbAddressDao.updateById(tbAddress);  //更新操作
+        tbAddressDao.insert(tbAddress);     //新增操作
     }
 }

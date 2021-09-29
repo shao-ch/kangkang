@@ -18,7 +18,7 @@ public class TbAddress {
 	/**
 	 * 用户id
 	 */
-    private Long userId;
+    private String openId;
 
 	/**
 	 * 收货人

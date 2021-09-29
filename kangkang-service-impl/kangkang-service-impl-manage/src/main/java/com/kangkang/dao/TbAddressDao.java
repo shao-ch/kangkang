@@ -18,5 +18,5 @@ public interface TbAddressDao extends BaseMapper<TbAddress> {
 
     List<TbAddress> selectAddress(@Param("id") Integer id);
 
-    void updateIsDefaultByUserId(@Param("userId")Long userId,@Param("isDefault") char isDefault);
+    void updateIsDefaultByUserId(@Param("openId")String openId,@Param("isDefault") char isDefault);
 }

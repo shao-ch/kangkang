@@ -9,6 +9,6 @@
 
 
     <update id="updateIsDefaultByUserId">
-        update tb_address  a set a.isDefault=#{isDefault} where a.user_id=#{userId}
+        update tb_address  a set a.isDefault=#{isDefault} where a.openId=#{openId}
     </update>
 </mapper>

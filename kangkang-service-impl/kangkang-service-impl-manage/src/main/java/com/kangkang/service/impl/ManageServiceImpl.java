@@ -96,7 +96,7 @@ public class ManageServiceImpl implements ManageService {
         //设置默认地址
         if (StringUtils.equals(vo.getIsDefault(), "0")) {
             //将所有地址更新为1
-            tbAddressDao.updateIsDefaultByUserId(vo.getUserId(), '1');
+            tbAddressDao.updateIsDefaultByUserId(vo.getOpenId(), '1');
         }
 
         TbAddress tbAddress = new TbAddress();

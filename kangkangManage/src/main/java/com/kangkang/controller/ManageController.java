@@ -58,7 +58,7 @@ public class ManageController {
      * @return
      */
     @GetMapping("/queryAddress")
-    public ResponseCode<TbAddress> queryAddress(@RequestParam("userId") Integer userId){
+    public ResponseCode<List<TbAddress>> queryAddress(@RequestParam("userId") Integer userId){
 
         ResponseCode save;
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存

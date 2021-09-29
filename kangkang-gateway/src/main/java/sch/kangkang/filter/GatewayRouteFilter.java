@@ -39,10 +39,11 @@ public class GatewayRouteFilter implements GlobalFilter, Ordered {
         //获取请求路径
         String path = request.getURI().getPath();
         //指定跳过哪个拦截器
-        if (path.endsWith("mini/manage/auth") || path.endsWith("/manage/api/signIn"))
+        if (path.endsWith("mini/manage/auth") || path.endsWith("/manage/api/signIn")) {
             exchange.getAttributes().put(SkipWitchFilter.USER_TOKEN_FILTER, true);
-        exchange.getAttributes().put(SkipWitchFilter.USER_TOKEN_FILTER, false);
-
+        } else {
+            exchange.getAttributes().put(SkipWitchFilter.USER_TOKEN_FILTER, false);
+        }
         //获取用户的token
         String token = request.getHeaders().getFirst("token");
 

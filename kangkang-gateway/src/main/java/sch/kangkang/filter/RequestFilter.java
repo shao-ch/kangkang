@@ -1,6 +1,8 @@
 package sch.kangkang.filter;
 
 import com.alibaba.fastjson.JSONObject;
+import com.kangkang.enumInfo.SkipWitchFilter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -21,12 +23,21 @@ import java.nio.charset.StandardCharsets;
  * @Date: 2021/9/9 11:33 上午
  * @Description: TODO
  */
+@Slf4j
 @Component
 public class RequestFilter implements GlobalFilter, Ordered {
     @Autowired
     private RedisTemplate redisTemplate;
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+        //这里要判断是否为登陆接口，如果是就直接跳过不需要去拿token了，key变了
+        boolean attribute = exchange.getAttribute(SkipWitchFilter.USER_TOKEN_FILTER);
+        if (attribute){
+            //跳过次过滤器
+            log.info("此路径--["+exchange.getRequest().getURI().getPath()+"]--跳过鉴权过滤器。");
+            return chain.filter(exchange);
+        }
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         //获取用户的token

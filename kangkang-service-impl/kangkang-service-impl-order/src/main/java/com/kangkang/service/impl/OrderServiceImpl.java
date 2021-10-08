@@ -14,6 +14,7 @@ import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
 import com.kangkang.store.viewObject.TbSkuVO;
+import com.kangkang.tools.ResultUtils;
 import com.kangkang.tools.SnowFlake;
 import com.kangkang.untils.MqUtils;
 import com.kangkang.untils.RedisUtils;
@@ -414,5 +415,39 @@ public class OrderServiceImpl implements OrderService {
         }
         //查询sku商品集合信息
         return tbSkuOrderDao.selectBatchIds(skuIds);
+    }
+
+
+    /**
+     * 查询订单数量    0-表示全部订单的数量，1-待付款订单数量，2-待收货订单数量，3-待评价订单数量
+     * @param openId
+     * @return
+     */
+    @Override
+    public ResultUtils<Map<String, Object>> queryOrderCount(String openId) {
+
+        HashMap<String, Object> map = new HashMap<>();
+
+        //查询全部订单
+        Integer allCount=tbOrderDao.selectAllOrderCount(openId,"0");
+        map.put("0",allCount);
+        //没有订单
+        if (allCount==0){
+            map.put("1",0);
+            map.put("2",0);
+            map.put("3",0);
+            return ResultUtils.result(map,"0",null);
+        }
+        //查询待付款订单数量
+        Integer noPay=tbOrderDao.selectAllOrderCount(openId,"1");
+        //查询待收货订单数量
+        Integer noReceive=tbOrderDao.selectAllOrderCount(openId,"2");
+        //查询待评价订单数量
+        Integer noComment=tbOrderDao.selectAllOrderCount(openId,"3");
+
+        map.put("1",noPay);
+        map.put("2",noReceive);
+        map.put("3",noComment);
+        return null;
     }
 }

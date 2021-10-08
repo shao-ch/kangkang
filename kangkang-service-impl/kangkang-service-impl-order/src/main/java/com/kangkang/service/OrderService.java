@@ -8,6 +8,7 @@ import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
+import com.kangkang.tools.ResultUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -75,4 +76,11 @@ public interface OrderService {
      * @return
      */
     List<TbSku> queryShoppingCar(String openId);
+
+    /**
+     * 查询订单数量
+     * @param openId
+     * @return
+     */
+    ResultUtils<Map<String, Object>> queryOrderCount(String openId);
 }

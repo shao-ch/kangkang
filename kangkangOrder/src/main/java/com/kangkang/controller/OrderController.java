@@ -11,6 +11,7 @@ import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
 import com.kangkang.tools.HttpStatusCode;
 import com.kangkang.tools.ResponseCode;
+import com.kangkang.tools.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -176,6 +177,31 @@ public class OrderController {
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {
             log.error("=====查询购物车数量服务异常=====：【"+ e+"】");
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
+
+
+
+    /**
+     * 查询订单数量
+     * @param openId
+     * @return
+     */
+    @PostMapping("/queryOrderCount")
+    public ResponseCode<Map<String,Object>> queryOrderCount(@RequestParam("openid") String openId){
+
+        log.info("=====查询订单数量======,接收参数为：【"+ JSONObject.toJSONString(openId)+"】");
+        try {
+            //查询订单数量
+            ResultUtils<Map<String,Object>> result=orderService.queryOrderCount(openId);
+
+            if (result.getFlag().equals("0")){
+                return ResponseCode.ok().body(result.getData(),"success");
+            }
+           return ResponseCode.message(500,null,result.getError());
+        } catch (Exception e) {
+            log.error("=====查询订单数量=====：【"+ e+"】");
             return ResponseCode.message(500,null,"服务异常");
         }
     }

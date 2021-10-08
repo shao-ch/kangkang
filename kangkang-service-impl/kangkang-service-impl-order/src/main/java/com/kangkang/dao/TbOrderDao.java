@@ -43,4 +43,10 @@ public interface TbOrderDao extends BaseMapper<TbOrder> {
      * @return
      */
     TbSku selectSkuInfo(@Param("skuId")Long skuId);
+
+    /**
+     * 查询全部订单
+     * @param openId
+     */
+    Integer selectAllOrderCount(@Param("skuId") String openId,@Param("flag") String flag);
 }

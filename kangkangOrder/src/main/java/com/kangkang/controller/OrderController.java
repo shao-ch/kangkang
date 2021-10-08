@@ -49,13 +49,14 @@ public class OrderController {
 
 
     /**
-     * 查询全部订单列表
+     * 查询订单列表  0-代表查询全部订单，1-代付款订单，2-待收货订单，3-待评价订单
+     * @param orderPageVO
      * @return
      */
     @PostMapping("/queryOrderList")
     public ResponseCode<IPage<Map<String,Object>>> queryOrderList(@RequestBody OrderPageVO orderPageVO){
 
-        log.info("=====查询全部订单列表======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");
+        log.info("=====查询订单列表======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");
         try {
 
 
@@ -64,7 +65,7 @@ public class OrderController {
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {
-            log.error("=====查询全部订单列表服务异常=====：【"+ e+"】");
+            log.error("=====查询订单列表服务异常=====：【"+ e+"】");
             return ResponseCode.message(500,null,"服务异常");
         }
     }

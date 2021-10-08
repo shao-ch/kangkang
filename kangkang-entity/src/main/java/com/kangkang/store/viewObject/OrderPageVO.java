@@ -21,4 +21,9 @@ public class OrderPageVO extends PageUtils {
      * 订单状态
      */
     private String orderStatus;
+
+    /**
+     * 查询状态:0-代表查询全部订单，1-代付款订单，2-待收货订单，3-待评价订单
+     */
+    private String queryOrderFlag;
 }

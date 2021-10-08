@@ -19,6 +19,18 @@
                 JOIN tb_sku c ON b.sku_id = c.id
         WHERE
             a.openId = #{openId}
+        --带付款的订单
+        <if test="flag=='1'.toString()">
+            and b.good_status='0'
+        </if>
+        --待收货订单
+        <if test="flag=='2'.toString()">
+            and b.good_status in ('1','3')
+        </if>
+          --待评价订单
+        <if test="flag=='3'.toString()">
+            and b.good_status in ('1','3') and b.evaluate_status='0'
+        </if>
     </select>
 
     <select id="selectPayingOrder" resultType="com.kangkang.store.entity.TbOrder">

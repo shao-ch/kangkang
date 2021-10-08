@@ -20,12 +20,13 @@ import java.util.Map;
 public interface TbOrderDao extends BaseMapper<TbOrder> {
 
     /**
-     * 查询所有订单
+     * 查询订单  0-代表查询全部订单，1-代付款订单，2-待收货订单，3-待评价订单
      * @param page
      * @param openId
      * @return
      */
-    Page<Map<String, Object>> queryInfoByOpenId(Page<Map<String, Object>> page,@Param("openId") String openId);
+    Page<Map<String, Object>> queryInfoByOpenId(Page<Map<String, Object>> page,@Param("openId") String openId,
+                                                @Param("flag") String flag);
 
     /**
      * 查询代付款的订单

@@ -282,7 +282,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 查询全部订单列表
+     * 查询订单列表  0-代表查询全部订单，1-代付款订单，2-待收货订单，3-待评价订单
      *
      * @param order
      * @return
@@ -290,9 +290,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Page<Map<String, Object>> queryOrderList(OrderPageVO order) {
         Page<Map<String, Object>> page = new Page<>(order.getPageIndex(), order.getPageSize());
-        //通过openid查询所有订单消息，并返回数据。要分页
+        //获取查询状态，也就是查询什么订单
+        String flag = order.getQueryOrderFlag();
 
-        Page<Map<String, Object>> result = tbOrderDao.queryInfoByOpenId(page, order.getOpenId());
+
+        Page<Map<String, Object>> result = tbOrderDao.queryInfoByOpenId(page, order.getOpenId(),flag);
 
         return result;
     }

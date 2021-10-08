@@ -98,6 +98,6 @@ public interface OrderFeignService {
      * @return
      */
     @LoadBalanced
-    @GetMapping(value = "order/queryShoppingCar")
+    @GetMapping(value = "order/queryOrderCount")
     ResultUtils<Map<String, Object>> queryOrderCount(@RequestParam("openId") String openId);
 }

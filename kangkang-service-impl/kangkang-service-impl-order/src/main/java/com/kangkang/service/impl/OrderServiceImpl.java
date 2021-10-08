@@ -144,12 +144,12 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public Map<String,Object> createOrder(OrderVO order) {
+    public Map<String, Object> createOrder(OrderVO order) {
         HashMap<String, Object> result = new HashMap<>();
         Boolean repeat = redisTemplate.opsForValue().setIfAbsent(order.getRepeatOrderFlag(), 1);
-        if (!repeat){
-            result.put("status","error");
-            result.put("data","订单不能重复");
+        if (!repeat) {
+            result.put("status", "error");
+            result.put("data", "订单不能重复");
             return result;
         }
 
@@ -235,16 +235,17 @@ public class OrderServiceImpl implements OrderService {
                 throw new RuntimeException("订单生成失败");
             }
         }
-        result.put("status","success");
-        result.put("data",order);
+        result.put("status", "success");
+        result.put("data", order);
         //此时将key存入redis，作为防止重复下订单的操作
-        redisTemplate.opsForValue().set(order.getRepeatOrderFlag(),1);
+        redisTemplate.opsForValue().set(order.getRepeatOrderFlag(), 1);
         return result;
     }
 
 
     /**
      * 查询代付款订单
+     *
      * @param orderPageVO
      * @return
      */
@@ -256,10 +257,10 @@ public class OrderServiceImpl implements OrderService {
 
         //查询订单数据
         Page<TbOrder> tbOrders = tbOrderDao.selectPayingOrder(new Page<>(orderPageVO.getPageIndex(), orderPageVO.getPageSize()),
-                orderPageVO.getOpenId(),orderPageVO.getOrderStatus());
+                orderPageVO.getOpenId(), orderPageVO.getOrderStatus());
         //数据的转入
-        BeanUtils.copyProperties(tbOrders,page);
-        if (tbOrders.getRecords().isEmpty()){
+        BeanUtils.copyProperties(tbOrders, page);
+        if (tbOrders.getRecords().isEmpty()) {
             return page;
         }
         //获取其他的详情数据
@@ -271,7 +272,7 @@ public class OrderServiceImpl implements OrderService {
             TbOrderDetail detail = tbOrderDetailDao.selectOne(new QueryWrapper<TbOrderDetail>().eq("tb_order_id", tbOrder.getId()));
             orderView.setTbOrderDetail(detail);
             //存入商品数据
-            TbSku tbSku=tbOrderDao.selectSkuInfo(detail.getSkuId());
+            TbSku tbSku = tbOrderDao.selectSkuInfo(detail.getSkuId());
             orderView.setTbSku(tbSku);
 
             result.add(orderView);
@@ -295,7 +296,7 @@ public class OrderServiceImpl implements OrderService {
         String flag = order.getQueryOrderFlag();
 
 
-        Page<Map<String, Object>> result = tbOrderDao.queryInfoByOpenId(page, order.getOpenId(),flag);
+        Page<Map<String, Object>> result = tbOrderDao.queryInfoByOpenId(page, order.getOpenId(), flag);
 
         return result;
     }
@@ -366,10 +367,11 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 添加购物车
-     * @param shoppingCar  isolation  事务的隔离级别
+     *
+     * @param shoppingCar isolation  事务的隔离级别
      */
     @Override
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
     public void addShoppingCar(TbShoppingCar shoppingCar) {
 
         tbShoppingCarDao.insert(shoppingCar);
@@ -377,6 +379,7 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 查询购物车数量
+     *
      * @param openId
      * @return
      */
@@ -385,17 +388,18 @@ public class OrderServiceImpl implements OrderService {
     public Integer getShopCarCount(String openId) {
 
         QueryWrapper<TbShoppingCar> wrapper = new QueryWrapper<>();
-        wrapper.eq("open_id",openId);
+        wrapper.eq("open_id", openId);
         return tbShoppingCarDao.selectCount(wrapper);
     }
 
     /**
      * 删除购物车信息
+     *
      * @param cars
      * @return
      */
     @Override
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
     public void deleteShoppingCar(List<Long> cars) {
         tbShoppingCarDao.deleteBatchIds(cars);
     }
@@ -403,14 +407,15 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 查询购物车内容
+     *
      * @param openId
      * @return
      */
     @Override
     public List<TbSku> queryShoppingCar(String openId) {
         ArrayList<TbSku> list = new ArrayList<>();
-        List<Long> skuIds=tbShoppingCarDao.selectSkuIds(openId);
-        if (skuIds.isEmpty()){
+        List<Long> skuIds = tbShoppingCarDao.selectSkuIds(openId);
+        if (skuIds.isEmpty()) {
             return list;
         }
         //查询sku商品集合信息
@@ -420,6 +425,7 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 查询订单数量    0-表示全部订单的数量，1-待付款订单数量，2-待收货订单数量，3-待评价订单数量
+     *
      * @param openId
      * @return
      */
@@ -427,27 +433,31 @@ public class OrderServiceImpl implements OrderService {
     public ResultUtils<Map<String, Object>> queryOrderCount(String openId) {
 
         HashMap<String, Object> map = new HashMap<>();
+        try {
+            //查询全部订单
+            Integer allCount = tbOrderDao.selectAllOrderCount(openId, "0");
+            map.put("0", allCount);
+            //没有订单
+            if (allCount == 0) {
+                map.put("1", 0);
+                map.put("2", 0);
+                map.put("3", 0);
+                return ResultUtils.result(map, "0", null);
+            }
+            //查询待付款订单数量
+            Integer noPay = tbOrderDao.selectAllOrderCount(openId, "1");
+            //查询待收货订单数量
+            Integer noReceive = tbOrderDao.selectAllOrderCount(openId, "2");
+            //查询待评价订单数量
+            Integer noComment = tbOrderDao.selectAllOrderCount(openId, "3");
 
-        //查询全部订单
-        Integer allCount=tbOrderDao.selectAllOrderCount(openId,"0");
-        map.put("0",allCount);
-        //没有订单
-        if (allCount==0){
-            map.put("1",0);
-            map.put("2",0);
-            map.put("3",0);
-            return ResultUtils.result(map,"0",null);
+            map.put("1", noPay);
+            map.put("2", noReceive);
+            map.put("3", noComment);
+        } catch (Exception e) {
+            log.error("=====查询订单数量=====：【" + e + "】");
+            return ResultUtils.result(map, "1", "查询订单数量失败：【"+e.getMessage()+"】");
         }
-        //查询待付款订单数量
-        Integer noPay=tbOrderDao.selectAllOrderCount(openId,"1");
-        //查询待收货订单数量
-        Integer noReceive=tbOrderDao.selectAllOrderCount(openId,"2");
-        //查询待评价订单数量
-        Integer noComment=tbOrderDao.selectAllOrderCount(openId,"3");
-
-        map.put("1",noPay);
-        map.put("2",noReceive);
-        map.put("3",noComment);
-        return null;
+        return ResultUtils.result(map, "0", null);
     }
 }

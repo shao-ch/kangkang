@@ -6,12 +6,14 @@ import com.kangkang.service.OrderFeignService;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.entity.TbShoppingCar;
+import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -87,5 +89,26 @@ public class OrderFeignController implements OrderFeignService {
     @Override
     public Integer getShopCarCount(String openId) {
         return orderService.getShopCarCount(openId);
+    }
+
+    /**
+     * 删除购物车信息
+     * @param cars
+     * @return
+     */
+    @Override
+    public void deleteShoppingCar(List<Long> cars) {
+        orderService.deleteShoppingCar(cars);
+    }
+
+
+    /**
+     * 查询购物车内容
+     * @param openId
+     * @return
+     */
+    @Override
+    public List<TbSku> queryShoppingCar(String openId) {
+        return orderService.queryShoppingCar(openId);
     }
 }

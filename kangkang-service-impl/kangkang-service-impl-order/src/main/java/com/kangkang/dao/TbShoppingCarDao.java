@@ -2,7 +2,10 @@ package com.kangkang.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kangkang.store.entity.TbShoppingCar;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @InterfaceName: TbShoppingCarDao  购物车
@@ -12,4 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TbShoppingCarDao extends BaseMapper<TbShoppingCar> {
+    List<Long> selectSkuIds(@Param("openId") String openId);
 }

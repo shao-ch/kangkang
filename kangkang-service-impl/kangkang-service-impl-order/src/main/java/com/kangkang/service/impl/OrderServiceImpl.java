@@ -1,7 +1,6 @@
 package com.kangkang.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.dao.*;
 import com.kangkang.enumInfo.RedisKeyPrefix;
@@ -58,6 +57,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private TbOrderDetailDao tbOrderDetailDao;
 
+    @Autowired
+    private TbSkuOrderDao tbSkuOrderDao;
     @Autowired
     private TbStockDao tbStockDao;
 
@@ -383,5 +384,33 @@ public class OrderServiceImpl implements OrderService {
         QueryWrapper<TbShoppingCar> wrapper = new QueryWrapper<>();
         wrapper.eq("open_id",openId);
         return tbShoppingCarDao.selectCount(wrapper);
+    }
+
+    /**
+     * 删除购物车信息
+     * @param cars
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED)
+    public void deleteShoppingCar(List<Long> cars) {
+        tbShoppingCarDao.deleteBatchIds(cars);
+    }
+
+
+    /**
+     * 查询购物车内容
+     * @param openId
+     * @return
+     */
+    @Override
+    public List<TbSku> queryShoppingCar(String openId) {
+        ArrayList<TbSku> list = new ArrayList<>();
+        List<Long> skuIds=tbShoppingCarDao.selectSkuIds(openId);
+        if (skuIds.isEmpty()){
+            return list;
+        }
+        //查询sku商品集合信息
+        return tbSkuOrderDao.selectBatchIds(skuIds);
     }
 }

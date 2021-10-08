@@ -5,14 +5,17 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbShoppingCar;
+import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
+import com.kangkang.tools.HttpStatusCode;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -129,4 +132,50 @@ public class OrderController {
         }
     }
 
+
+    /**
+     * 删除购物车信息
+     * @param cars
+     * @return
+     */
+    @PostMapping("/deleteShoppingCar")
+    public ResponseCode<String> deleteShoppingCar(@RequestParam("cars") List<Long> cars){
+
+        log.info("=====删除购物车信息======,接收参数为：【"+ JSONObject.toJSONString(cars)+"】");
+        try {
+            if (cars.isEmpty()){
+                return ResponseCode.message(500,null,"无商品信息需要删除");
+            }
+            //添加购物车
+            orderService.deleteShoppingCar(cars);
+
+            return ResponseCode.ok().body("删除成功","success");
+        } catch (Exception e) {
+            log.error("=====查询购物车数量服务异常=====：【"+ e+"】");
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
+
+
+
+
+    /**
+     * 查询购物车内容
+     * @param openId
+     * @return
+     */
+    @PostMapping("/queryShoppingCar")
+    public ResponseCode<List<TbSku>> queryShoppingCar(@RequestParam("openid") String openId){
+
+        log.info("=====查询购物车内容======,接收参数为：【"+ JSONObject.toJSONString(openId)+"】");
+        try {
+            //添加购物车
+            List<TbSku> result=orderService.queryShoppingCar(openId);
+
+            return ResponseCode.ok().body(result,"success");
+        } catch (Exception e) {
+            log.error("=====查询购物车数量服务异常=====：【"+ e+"】");
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
 }

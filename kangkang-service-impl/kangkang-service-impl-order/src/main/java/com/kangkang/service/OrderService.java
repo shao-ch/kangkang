@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.entity.TbShoppingCar;
+import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -59,4 +61,18 @@ public interface OrderService {
      * @return
      */
     Integer getShopCarCount(String openId);
+
+    /**
+     * 删除购物车信息
+     * @param cars
+     * @return
+     */
+    void deleteShoppingCar(List<Long> cars);
+
+    /**
+     * 查询购物车内容
+     * @param openId
+     * @return
+     */
+    List<TbSku> queryShoppingCar(String openId);
 }

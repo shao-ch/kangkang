@@ -370,4 +370,18 @@ public class OrderServiceImpl implements OrderService {
 
         tbShoppingCarDao.insert(shoppingCar);
     }
+
+    /**
+     * 查询购物车数量
+     * @param openId
+     * @return
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Integer getShopCarCount(String openId) {
+
+        QueryWrapper<TbShoppingCar> wrapper = new QueryWrapper<>();
+        wrapper.eq("open_id",openId);
+        return tbShoppingCarDao.selectCount(wrapper);
+    }
 }

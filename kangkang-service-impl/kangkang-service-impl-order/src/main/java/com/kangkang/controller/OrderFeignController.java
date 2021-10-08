@@ -77,4 +77,15 @@ public class OrderFeignController implements OrderFeignService {
     public void addShoppingCar(TbShoppingCar shoppingCar) {
         orderService.addShoppingCar(shoppingCar);
     }
+
+
+    /**
+     * 查询购物车数量
+     * @param openId
+     * @return
+     */
+    @Override
+    public Integer getShopCarCount(String openId) {
+        return orderService.getShopCarCount(openId);
+    }
 }

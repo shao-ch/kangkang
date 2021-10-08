@@ -52,4 +52,11 @@ public interface OrderService {
      * @param shoppingCar
      */
     void addShoppingCar(TbShoppingCar shoppingCar);
+
+    /**
+     * 查询购物车数量
+     * @param openId
+     * @return
+     */
+    Integer getShopCarCount(String openId);
 }

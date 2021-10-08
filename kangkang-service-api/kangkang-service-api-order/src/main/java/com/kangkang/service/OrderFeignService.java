@@ -9,6 +9,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.Map;
@@ -60,4 +61,13 @@ public interface OrderFeignService {
     @LoadBalanced
     @PostMapping(value = "order/addShoppingCar")
     void addShoppingCar(@RequestBody TbShoppingCar shoppingCar);
+
+    /**
+     * 查询购物车数量
+     * @param openId
+     * @return
+     */
+    @LoadBalanced
+    @GetMapping(value = "order/getShopCarCount")
+    Integer getShopCarCount(@RequestParam("openId")String openId);
 }

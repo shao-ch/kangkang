@@ -109,5 +109,24 @@ public class OrderController {
         }
     }
 
+    /**
+     * 查询购物车数量
+     * @param openId
+     * @return
+     */
+    @GetMapping("/getShopCarCount")
+    public ResponseCode<Integer> addShoppingCar(@RequestParam("openid") String openId){
+
+        log.info("=====查询购物车数量======,接收参数为：【"+ JSONObject.toJSONString(openId)+"】");
+        try {
+            //添加购物车
+            Integer count=orderService.getShopCarCount(openId);
+
+            return ResponseCode.ok().body(count,"success");
+        } catch (Exception e) {
+            log.error("=====查询购物车数量服务异常=====：【"+ e+"】");
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
 
 }

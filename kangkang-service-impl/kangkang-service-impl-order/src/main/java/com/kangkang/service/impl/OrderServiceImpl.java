@@ -10,10 +10,7 @@ import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.service.OrderService;
 import com.kangkang.serviceInvoke.InvokingStoreService;
-import com.kangkang.store.entity.TbOrder;
-import com.kangkang.store.entity.TbOrderDetail;
-import com.kangkang.store.entity.TbSku;
-import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.entity.*;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
@@ -27,6 +24,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
@@ -63,6 +61,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private TbStockDao tbStockDao;
 
+    @Autowired
+    private TbShoppingCarDao tbShoppingCarDao;
     @Autowired
     private DefaultMQProducer defaultMQProducer;
 
@@ -360,4 +360,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
+    /**
+     * 添加购物车
+     * @param shoppingCar  isolation  事务的隔离级别
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED)
+    public void addShoppingCar(TbShoppingCar shoppingCar) {
+
+        tbShoppingCarDao.insert(shoppingCar);
+    }
 }

@@ -34,8 +34,6 @@ public class ManageServiceImpl implements ManageService {
     @Autowired
     private TbAddressDao tbAddressDao;
 
-    @Autowired
-    private TbAreaDao tbAreaDao;
 
     /**
      * 注册账号

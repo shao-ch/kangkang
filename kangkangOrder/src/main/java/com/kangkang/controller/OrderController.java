@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderService;
+import com.kangkang.store.entity.TbShoppingCar;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
@@ -88,6 +89,25 @@ public class OrderController {
         }
     }
 
+    /**
+     * 添加购物车
+     * @param shoppingCar
+     * @return
+     */
+    @PostMapping("/addShoppingCar")
+    public ResponseCode<IPage<OrderView>> addShoppingCar(@RequestBody TbShoppingCar shoppingCar){
+
+        log.info("=====添加购物车======,接收参数为：【"+ JSONObject.toJSONString(shoppingCar)+"】");
+        try {
+            //添加购物车
+           orderService.addShoppingCar(shoppingCar);
+
+            return ResponseCode.ok().body(null,"success");
+        } catch (Exception e) {
+            log.error("=====添加购物车服务异常=====：【"+ e+"】");
+            return ResponseCode.message(500,null,"服务异常");
+        }
+    }
 
 
 }

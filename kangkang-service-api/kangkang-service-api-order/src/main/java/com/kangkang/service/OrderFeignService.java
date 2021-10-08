@@ -1,6 +1,7 @@
 package com.kangkang.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.store.entity.TbShoppingCar;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
@@ -51,5 +52,12 @@ public interface OrderFeignService {
     @LoadBalanced
     @PostMapping(value = "order/queryPayingOrder")
     Page<OrderView> queryPayingOrder(@RequestBody OrderPageVO orderPageVO);
-
+    /**
+     * 查添加购物车
+     * @param shoppingCar
+     * @return
+     */
+    @LoadBalanced
+    @PostMapping(value = "order/addShoppingCar")
+    void addShoppingCar(@RequestBody TbShoppingCar shoppingCar);
 }

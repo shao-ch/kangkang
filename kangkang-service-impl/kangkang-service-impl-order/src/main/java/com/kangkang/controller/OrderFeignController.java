@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderFeignService;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbOrder;
+import com.kangkang.store.entity.TbShoppingCar;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
@@ -65,5 +66,15 @@ public class OrderFeignController implements OrderFeignService {
     @Override
     public Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO) {
         return orderService.queryPayingOrder(orderPageVO);
+    }
+
+
+    /**
+     * 添加购物车
+     * @param shoppingCar
+     */
+    @Override
+    public void addShoppingCar(TbShoppingCar shoppingCar) {
+        orderService.addShoppingCar(shoppingCar);
     }
 }

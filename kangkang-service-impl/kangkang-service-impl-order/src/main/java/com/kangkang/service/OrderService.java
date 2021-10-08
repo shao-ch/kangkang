@@ -3,6 +3,7 @@ package com.kangkang.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbOrder;
+import com.kangkang.store.entity.TbShoppingCar;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
@@ -45,4 +46,10 @@ public interface OrderService {
      * @return
      */
     Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO);
+
+    /**
+     * 添加购物车
+     * @param shoppingCar
+     */
+    void addShoppingCar(TbShoppingCar shoppingCar);
 }

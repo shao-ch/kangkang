@@ -4,11 +4,11 @@
 
 
     <select id="selectAddress" resultType="com.kangkang.manage.entity.TbAddress">
-        select * from tb_address a where a.openId=#{openId}
+        select * from tb_address a where a.open_id=#{openId}
     </select>
 
 
     <update id="updateIsDefaultByUserId">
-        update tb_address  a set a.isDefault=#{isDefault} where a.openId=#{openId}
+        update tb_address  a set a.is_default=#{isDefault} where a.open_id=#{openId}
     </update>
 </mapper>

@@ -55,6 +55,6 @@ public interface KangkangFeign {
      * @return
      */
     @LoadBalanced
-    @GetMapping("/manage/commitAddress/")
+    @PostMapping("/manage/commitAddress/")
     void commitAddress(@RequestBody TbAdressVO vo);
 }

@@ -63,7 +63,6 @@ public class ManageController {
     public ResponseCode<List<TbAddress>> queryAddress(@RequestBody String json){
         logger.info("=====收货地址查询======,接收参数为：【"+ json+"】");
         ResponseCode save;
-        //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
             JSONObject jsonObject = JSONObject.parseObject(json);
             String openId = (String) jsonObject.get("openId");
@@ -86,6 +85,7 @@ public class ManageController {
     public ResponseCode<Void> commitAddress(@RequestBody TbAdressVO vo){
 
         ResponseCode save;
+        logger.info("=====保存地址======,接收参数为：【"+ JSONObject.toJSONString(vo)+"】");
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
             userService.commitAddress(vo);
@@ -99,4 +99,30 @@ public class ManageController {
         return save;
     }
 
+
+    /**
+     * 删除地址
+     * @param vo
+     * @return
+     */
+    @PostMapping("/deleteAddress")
+    public ResponseCode<Void> deleteAddress(@RequestBody TbAdressVO vo){
+
+        ResponseCode save;
+        logger.info("=====删除地址======,接收参数为：【"+ JSONObject.toJSONString(vo)+"】");
+
+
+        try {
+            userService.deleteAddress(vo);
+
+            if (vo.getId()==null){
+                return ResponseCode.message(500,null,"传参有误");
+            }
+            save=ResponseCode.message(200,null,"success");
+        } catch (Exception e) {
+            logger.error("=========删除地址========调用失败："+e.getMessage());
+            save=ResponseCode.message(500,null,"服务异常");
+        }
+        return save;
+    }
 }

@@ -40,4 +40,11 @@ public interface ManageService {
      * @param vo
      */
     void commitAddress(TbAdressVO vo);
+
+    /**
+     * 删除地址
+     * @param vo
+     * @return
+     */
+    void deleteAddress(TbAdressVO vo);
 }

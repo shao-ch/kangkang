@@ -105,4 +105,14 @@ public class ManageServiceImpl implements ManageService {
             tbAddressDao.updateById(tbAddress);  //更新操作
         tbAddressDao.insert(tbAddress);     //新增操作
     }
+
+    /**
+     * 删除地址
+     * @param vo
+     * @return
+     */
+    @Override
+    public void deleteAddress(TbAdressVO vo) {
+        tbAddressDao.deleteById(vo.getId());
+    }
 }

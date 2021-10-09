@@ -87,4 +87,14 @@ public class ManageController implements KangkangFeign {
     public void commitAddress(TbAdressVO vo) {
         manageService.commitAddress(vo);
     }
+
+    /**
+     * 删除地址
+     * @param vo
+     * @return
+     */
+    @Override
+    public void deleteAddress(TbAdressVO vo) {
+        manageService.deleteAddress(vo);
+    }
 }

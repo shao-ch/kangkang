@@ -57,4 +57,14 @@ public interface KangkangFeign {
     @LoadBalanced
     @PostMapping("/manage/commitAddress/")
     void commitAddress(@RequestBody TbAdressVO vo);
+
+
+    /**
+     * 删除地址
+     * @param vo
+     * @return
+     */
+    @LoadBalanced
+    @PostMapping("/manage/deleteAddress/")
+    void deleteAddress(@RequestBody TbAdressVO vo);
 }

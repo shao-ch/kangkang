@@ -10,6 +10,7 @@ import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
+import com.kangkang.store.viewObject.TbShoppingVO;
 import com.kangkang.tools.HttpStatusCode;
 import com.kangkang.tools.ResponseCode;
 import com.kangkang.tools.ResultUtils;
@@ -171,14 +172,14 @@ public class OrderController {
      */
     @ResponseBody
     @PostMapping("/queryShoppingCar")
-    public ResponseCode<List<TbSku>> queryShoppingCar(@RequestBody String json){
+    public ResponseCode<List<TbShoppingVO>> queryShoppingCar(@RequestBody String json){
 
         log.info("=====查询购物车内容======,接收参数为：【"+ JSONObject.toJSONString(json)+"】");
         try {
             //添加购物车
             JSONObject jsonObject = JSONObject.parseObject(json);
             String openId = (String) jsonObject.get("openId");
-            List<TbSku> result=orderService.queryShoppingCar(openId);
+            List<TbShoppingVO> result=orderService.queryShoppingCar(openId);
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {

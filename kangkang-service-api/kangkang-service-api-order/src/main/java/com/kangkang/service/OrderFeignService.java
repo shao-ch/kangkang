@@ -6,6 +6,7 @@ import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.viewObject.OrderPageVO;
 import com.kangkang.store.viewObject.OrderVO;
 import com.kangkang.store.viewObject.OrderView;
+import com.kangkang.store.viewObject.TbShoppingVO;
 import com.kangkang.tools.ResultUtils;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.*;
@@ -89,7 +90,7 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @GetMapping(value = "order/queryShoppingCar")
-    List<TbSku> queryShoppingCar(@RequestParam("openId") String openId);
+    List<TbShoppingVO> queryShoppingCar(@RequestParam("openId") String openId);
 
 
     /**

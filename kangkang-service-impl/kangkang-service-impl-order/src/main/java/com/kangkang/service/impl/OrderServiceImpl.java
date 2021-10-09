@@ -10,10 +10,7 @@ import com.kangkang.manage.entity.TbUser;
 import com.kangkang.service.OrderService;
 import com.kangkang.serviceInvoke.InvokingStoreService;
 import com.kangkang.store.entity.*;
-import com.kangkang.store.viewObject.OrderPageVO;
-import com.kangkang.store.viewObject.OrderVO;
-import com.kangkang.store.viewObject.OrderView;
-import com.kangkang.store.viewObject.TbSkuVO;
+import com.kangkang.store.viewObject.*;
 import com.kangkang.tools.ResultUtils;
 import com.kangkang.tools.SnowFlake;
 import com.kangkang.untils.MqUtils;
@@ -58,8 +55,6 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private TbOrderDetailDao tbOrderDetailDao;
 
-    @Autowired
-    private TbSkuOrderDao tbSkuOrderDao;
     @Autowired
     private TbStockDao tbStockDao;
 
@@ -412,14 +407,14 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public List<TbSku> queryShoppingCar(String openId) {
-        ArrayList<TbSku> list = new ArrayList<>();
-        List<Long> skuIds = tbShoppingCarDao.selectSkuIds(openId);
-        if (skuIds.isEmpty()) {
-            return list;
-        }
+    public List<TbShoppingVO> queryShoppingCar(String openId) {
+//        ArrayList<TbShoppingVO> list = new ArrayList<>();
+//        List<Long> skuIds = tbShoppingCarDao.selectSkuIds(openId);
+//        if (skuIds.isEmpty()) {
+//            return list;
+//        }
         //查询sku商品集合信息
-        return tbSkuOrderDao.selectBatchIds(skuIds);
+        return tbShoppingCarDao.selectShoppingInfo(openId);
     }
 
 

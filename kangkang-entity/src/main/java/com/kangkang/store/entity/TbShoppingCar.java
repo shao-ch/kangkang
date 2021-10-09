@@ -43,13 +43,13 @@ public class TbShoppingCar {
 	/**
 	 * 创建时间
 	 */
-    @TableField(value = "create_time" ,jdbcType = JdbcType.TIMESTAMP)
+    @TableField(value = "create_time" ,jdbcType = JdbcType.TIMESTAMP,update = "now()")
     private Date createTime;
 
 	/**
 	 * 更新时间
 	 */
-    @TableField(value = "update_time" ,jdbcType = JdbcType.TIMESTAMP)
+    @TableField(value = "update_time" ,jdbcType = JdbcType.TIMESTAMP,update = "now()")
     private Date updateTime;
 
 }

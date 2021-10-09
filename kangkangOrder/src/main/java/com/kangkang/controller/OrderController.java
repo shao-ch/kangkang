@@ -3,6 +3,7 @@ package com.kangkang.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbShoppingCar;
 import com.kangkang.store.entity.TbSku;
@@ -137,14 +138,16 @@ public class OrderController {
 
     /**
      * 删除购物车信息
-     * @param cars
+     * @param json
      * @return
      */
     @PostMapping("/deleteShoppingCar")
-    public ResponseCode<String> deleteShoppingCar(@RequestParam("cars") List<Long> cars){
+    public ResponseCode<String> deleteShoppingCar(@RequestBody String json){
 
-        log.info("=====删除购物车信息======,接收参数为：【"+ JSONObject.toJSONString(cars)+"】");
+        log.info("=====删除购物车信息======,接收参数为：【"+ JSONObject.toJSONString(json)+"】");
         try {
+            JSONObject jsonObject = JSONObject.parseObject(json);
+            List<Long> cars = (List<Long>) jsonObject.get("cars");
             if (cars.isEmpty()){
                 return ResponseCode.message(500,null,"无商品信息需要删除");
             }
@@ -163,15 +166,18 @@ public class OrderController {
 
     /**
      * 查询购物车内容
-     * @param openId
+     * @param json
      * @return
      */
+    @ResponseBody
     @PostMapping("/queryShoppingCar")
-    public ResponseCode<List<TbSku>> queryShoppingCar(@RequestParam("openid") String openId){
+    public ResponseCode<List<TbSku>> queryShoppingCar(@RequestBody String json){
 
-        log.info("=====查询购物车内容======,接收参数为：【"+ JSONObject.toJSONString(openId)+"】");
+        log.info("=====查询购物车内容======,接收参数为：【"+ JSONObject.toJSONString(json)+"】");
         try {
             //添加购物车
+            JSONObject jsonObject = JSONObject.parseObject(json);
+            String openId = (String) jsonObject.get("openId");
             List<TbSku> result=orderService.queryShoppingCar(openId);
 
             return ResponseCode.ok().body(result,"success");

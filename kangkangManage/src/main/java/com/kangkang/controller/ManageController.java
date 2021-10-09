@@ -1,6 +1,7 @@
 package com.kangkang.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
@@ -54,18 +55,19 @@ public class ManageController {
 
     /**
      * 收货地址查询
-     * @param openId
+     * @param json
      * @return
      */
-    @GetMapping("/queryAddress")
-    public ResponseCode<List<TbAddress>> queryAddress(@RequestParam("openId") String openId){
-
+    @ResponseBody
+    @PostMapping("/queryAddress")
+    public ResponseCode<List<TbAddress>> queryAddress(@RequestBody String json){
+        logger.info("=====收货地址查询======,接收参数为：【"+ json+"】");
         ResponseCode save;
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
+            JSONObject jsonObject = JSONObject.parseObject(json);
+            String openId = (String) jsonObject.get("openid");
             List<TbAddress> address= userService.selectAddress(openId);
-
-
             save=ResponseCode.message(200,address,"success");
         } catch (Exception e) {
             logger.error("调用失败："+e.getMessage());

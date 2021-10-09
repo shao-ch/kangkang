@@ -41,6 +41,12 @@ public class TbShoppingCar {
     private Long count;
 
 	/**
+	 * 单个商品的规格型号
+	 */
+	@TableField(value = "specifications" ,jdbcType = JdbcType.VARCHAR)
+	private String specifications;
+
+	/**
 	 * 创建时间
 	 */
     @TableField(value = "create_time" ,jdbcType = JdbcType.TIMESTAMP,update = "now()")

@@ -92,9 +92,9 @@ public class ManageServiceImpl implements ManageService {
     public void commitAddress(TbAdressVO vo) {
 
         //设置默认地址
-        if (StringUtils.equals(vo.getIsDefault(), "0")) {
+        if (StringUtils.equals(vo.getIsDefault(), "1")) {
             //将所有地址更新为1
-            tbAddressDao.updateIsDefaultByUserId(vo.getOpenId(), '1');
+            tbAddressDao.updateIsDefaultByUserId(vo.getOpenId(), '0');
         }
 
         TbAddress tbAddress = new TbAddress();

@@ -62,7 +62,7 @@ public class TbAddress {
 	 * 详细地址
 	 */
     @TableField(value = "detailAddress",jdbcType = JdbcType.DOUBLE)
-    private String detailAddress;
+    private String detailInfo;
 
 	/**
 	 * 县代码

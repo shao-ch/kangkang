@@ -61,7 +61,7 @@ public class TbAddress {
 	/**
 	 * 详细地址
 	 */
-    @TableField(value = "detailAddress",jdbcType = JdbcType.DOUBLE)
+    @TableField(value = "detailInfo",jdbcType = JdbcType.DOUBLE)
     private String detailInfo;
 
 	/**

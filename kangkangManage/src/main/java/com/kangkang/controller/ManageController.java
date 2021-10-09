@@ -66,7 +66,7 @@ public class ManageController {
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
             JSONObject jsonObject = JSONObject.parseObject(json);
-            String openId = (String) jsonObject.get("openid");
+            String openId = (String) jsonObject.get("openId");
             List<TbAddress> address= userService.selectAddress(openId);
             save=ResponseCode.message(200,address,"success");
         } catch (Exception e) {

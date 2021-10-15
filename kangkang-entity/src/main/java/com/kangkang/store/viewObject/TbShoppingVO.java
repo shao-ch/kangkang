@@ -32,6 +32,6 @@ public class TbShoppingVO extends TbShoppingCar {
     /**
      * 商品状态
      */
-    private Double goodStatus;
+    private String goodStatus;
 
 }

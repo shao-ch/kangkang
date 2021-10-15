@@ -8,7 +8,7 @@
 
 
     <select id="selectShoppingInfo"  resultType="com.kangkang.store.viewObject.TbShoppingVO">
-        SELECT a.id,b.image, b.price,a.count, a.specifications,b.title
+        SELECT a.id,b.image, b.price,a.count, a.specifications,b.title,b.status as goodStatus
         from tb_shopping_car a
                  JOIN tb_sku b on a.sku_id = b.id
         where a.open_id = #{openId}

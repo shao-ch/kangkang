@@ -28,4 +28,10 @@ public class TbShoppingVO extends TbShoppingCar {
     private Double price;
 
 
+
+    /**
+     * 商品状态
+     */
+    private Double goodStatus;
+
 }

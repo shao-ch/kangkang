@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,7 +30,10 @@ public class UserSignJob implements QuartzJob {
         List<TbSign> list = new ArrayList<>();
         for (String openid : users) {
             TbSign tbSign = new TbSign();
+            //存用户
             tbSign.setOpenid(openid);
+            //存当前日期
+            tbSign.setSignDate(new Date());
             list.add(tbSign);
         }
         //然后创建信息到签到表中

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: ManageController
@@ -84,8 +85,8 @@ public class ManageController implements KangkangFeign {
      * @return
      */
     @Override
-    public void commitAddress(TbAdressVO vo) {
-        manageService.commitAddress(vo);
+    public Map<String,Object> commitAddress(TbAdressVO vo) {
+        return manageService.commitAddress(vo);
     }
 
     /**

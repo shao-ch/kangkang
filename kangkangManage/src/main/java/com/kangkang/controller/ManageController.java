@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: ManageController
@@ -88,10 +89,13 @@ public class ManageController {
         logger.info("=====保存地址======,接收参数为：【"+ JSONObject.toJSONString(vo)+"】");
         //首先查询用户存不存在，不存在就去微信调取用户信息然后保存
         try {
-            userService.commitAddress(vo);
+          Map<String,Object> result=userService.commitAddress(vo);
+          if (result.get("result").equals("success")){
+              save=ResponseCode.message(200,null,"success");
+          }else {
+              save=ResponseCode.message(200,null,result.get("result").toString());
+          }
 
-
-            save=ResponseCode.message(200,null,"success");
         } catch (Exception e) {
             logger.error("调用失败："+e.getMessage());
             save=ResponseCode.message(500,null,"服务异常");

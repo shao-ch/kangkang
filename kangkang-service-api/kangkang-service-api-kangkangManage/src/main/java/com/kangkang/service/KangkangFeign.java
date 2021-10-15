@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @InterfaceName: KangkangFeign
@@ -56,7 +57,7 @@ public interface KangkangFeign {
      */
     @LoadBalanced
     @PostMapping("/manage/commitAddress/")
-    void commitAddress(@RequestBody TbAdressVO vo);
+    Map<String,Object> commitAddress(@RequestBody TbAdressVO vo);
 
 
     /**

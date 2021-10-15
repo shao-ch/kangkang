@@ -9,14 +9,18 @@ import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbArea;
 import com.kangkang.manage.viewObject.TbAdressVO;
 import com.kangkang.service.ManageService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: ManageServiceImpl
@@ -24,6 +28,7 @@ import java.util.List;
  * @Date: 2021/8/8 3:56 下午
  * @Description: TODO
  */
+@Slf4j
 @Service("manageService")
 public class ManageServiceImpl implements ManageService {
 
@@ -89,21 +94,35 @@ public class ManageServiceImpl implements ManageService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void commitAddress(TbAdressVO vo) {
+    public Map<String,Object> commitAddress(TbAdressVO vo) {
 
-        //设置默认地址
-        if (StringUtils.equals(vo.getIsDefault(), "1")) {
-            //将所有地址更新为1
-            tbAddressDao.updateIsDefaultByUserId(vo.getOpenId(), '0');
+        HashMap<String, Object> result = new HashMap<>();
+        try {
+            //设置默认地址
+            if (StringUtils.equals(vo.getIsDefault(), "1")) {
+                //将所有地址更新为1
+                tbAddressDao.updateIsDefaultByUserId(vo.getOpenId(), '0');
+            }
+
+            TbAddress tbAddress = new TbAddress();
+            //数据转换
+            BeanUtils.copyProperties(vo, tbAddress);
+
+
+            //如果是更新操作id是不为空的
+            if (vo.getId() != null){
+                tbAddressDao.updateById(tbAddress);  //更新操作
+            }else {
+                tbAddressDao.insert(tbAddress);     //新增操作
+            }
+            result.put("result","success");
+        } catch (BeansException e) {
+            log.info("新增地址失败======失败原因："+e);
+            result.put("result","后台异常，新增地址失败");
+            return result;
         }
 
-        TbAddress tbAddress = new TbAddress();
-        //数据转换
-        BeanUtils.copyProperties(vo, tbAddress);
-        //如果是更新操作id是不为空的
-        if (vo.getId() != null)
-            tbAddressDao.updateById(tbAddress);  //更新操作
-        tbAddressDao.insert(tbAddress);     //新增操作
+        return result;
     }
 
     /**

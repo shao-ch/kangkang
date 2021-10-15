@@ -43,7 +43,12 @@ public class OrderController {
     public ResponseCode<Map<String,Object>> createOrder(@RequestBody OrderVO orderVo){
         try {
             Map<String,Object> data = orderService.createOrder(orderVo);
-            return ResponseCode.message(200,data,"success");
+            if (data.get("status").equals("success")){
+                return ResponseCode.message(200,data,"success");
+            }else {
+                return ResponseCode.message(500,data,"创建失败");
+            }
+
         } catch (Exception e) {
             log.error("=====生成订单服务异常=====：【"+ e+"】");
             return ResponseCode.message(500,null,"服务异常");

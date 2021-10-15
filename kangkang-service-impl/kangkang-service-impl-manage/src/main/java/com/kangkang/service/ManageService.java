@@ -6,6 +6,7 @@ import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbAdressVO;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: ManageService
@@ -39,7 +40,7 @@ public interface ManageService {
      * 新增收货地址
      * @param vo
      */
-    void commitAddress(TbAdressVO vo);
+    Map<String,Object> commitAddress(TbAdressVO vo);
 
     /**
      * 删除地址

@@ -141,12 +141,12 @@ public class OrderServiceImpl implements OrderService {
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public Map<String, Object> createOrder(OrderVO order) {
         HashMap<String, Object> result = new HashMap<>();
-        Boolean repeat = redisTemplate.opsForValue().setIfAbsent(order.getRepeatOrderFlag(), 1);
-        if (!repeat) {
-            result.put("status", "error");
-            result.put("data", "订单不能重复");
-            return result;
-        }
+//        Boolean repeat = redisTemplate.opsForValue().setIfAbsent(order.getRepeatOrderFlag(), 1);
+//        if (!repeat) {
+//            result.put("status", "error");
+//            result.put("data", "订单不能重复");
+//            return result;
+//        }
 
         //定义一个flag变量来判断是否已经扣减库存了
         int flag = 0, lockStatus = 0;
@@ -316,8 +316,8 @@ public class OrderServiceImpl implements OrderService {
         detail.setGoodStatus(skuVo.getGoodStatus());
         //设置邮费
         detail.setPostFee(skuVo.getPostFee());
-        //设置评价状态  0-未评价，1-以评价
-        detail.setEvaluateStatus(skuVo.getEvaluateStatus());
+        //设置评价状态  0-未评价，1-以评价  初始创建订单默认是未评价
+        detail.setEvaluateStatus("0");
         detail.setCreateTime(new Date());
         detail.setUpdateTime(new Date());
 

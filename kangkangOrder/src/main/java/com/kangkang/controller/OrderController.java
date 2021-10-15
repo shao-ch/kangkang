@@ -15,9 +15,11 @@ import com.kangkang.tools.HttpStatusCode;
 import com.kangkang.tools.ResponseCode;
 import com.kangkang.tools.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -180,11 +182,18 @@ public class OrderController {
     public ResponseCode<List<TbShoppingVO>> queryShoppingCar(@RequestBody String json){
 
         log.info("=====查询购物车内容======,接收参数为：【"+ JSONObject.toJSONString(json)+"】");
+        List<Long> ids=new ArrayList<>();
         try {
             //添加购物车
             JSONObject jsonObject = JSONObject.parseObject(json);
             String openId = (String) jsonObject.get("openId");
-            List<TbShoppingVO> result=orderService.queryShoppingCar(openId);
+            List<String> list = (List<String>) jsonObject.get("id");
+            if (!list.isEmpty()){
+                for (String s : list) {
+                    ids.add(Long.valueOf(s));
+                }
+            }
+            List<TbShoppingVO> result=orderService.queryShoppingCar(openId,ids);
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {

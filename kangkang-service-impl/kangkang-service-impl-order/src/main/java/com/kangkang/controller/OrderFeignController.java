@@ -105,11 +105,12 @@ public class OrderFeignController implements OrderFeignService {
     /**
      * 查询购物车内容
      * @param openId
+     * @param ids
      * @return
      */
     @Override
-    public List<TbShoppingVO> queryShoppingCar(String openId) {
-        return orderService.queryShoppingCar(openId);
+    public List<TbShoppingVO> queryShoppingCar(String openId,List<Long> ids) {
+        return orderService.queryShoppingCar(openId,ids);
     }
 
 

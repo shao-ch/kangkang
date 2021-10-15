@@ -74,9 +74,10 @@ public interface OrderService {
     /**
      * 查询购物车内容
      * @param openId
+     * @param ids
      * @return
      */
-    List<TbShoppingVO> queryShoppingCar(String openId);
+    List<TbShoppingVO> queryShoppingCar(String openId,List<Long> ids);
 
     /**
      * 查询订单数量

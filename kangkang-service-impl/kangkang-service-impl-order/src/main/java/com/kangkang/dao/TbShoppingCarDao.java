@@ -18,5 +18,5 @@ import java.util.List;
 public interface TbShoppingCarDao extends BaseMapper<TbShoppingCar> {
     List<Long> selectSkuIds(@Param("openId") String openId);
 
-    List<TbShoppingVO> selectShoppingInfo(@Param("openId") String openId);
+    List<TbShoppingVO> selectShoppingInfo(@Param("openId") String openId,@Param("ids")List<Long> ids);
 }

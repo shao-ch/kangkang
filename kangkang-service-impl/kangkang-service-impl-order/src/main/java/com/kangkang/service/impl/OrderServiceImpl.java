@@ -404,17 +404,18 @@ public class OrderServiceImpl implements OrderService {
      * 查询购物车内容
      *
      * @param openId
+     * @param ids
      * @return
      */
     @Override
-    public List<TbShoppingVO> queryShoppingCar(String openId) {
+    public List<TbShoppingVO> queryShoppingCar(String openId,List<Long> ids) {
 //        ArrayList<TbShoppingVO> list = new ArrayList<>();
 //        List<Long> skuIds = tbShoppingCarDao.selectSkuIds(openId);
 //        if (skuIds.isEmpty()) {
 //            return list;
 //        }
         //查询sku商品集合信息
-        return tbShoppingCarDao.selectShoppingInfo(openId);
+        return tbShoppingCarDao.selectShoppingInfo(openId,ids);
     }
 
 

@@ -90,7 +90,7 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @GetMapping(value = "order/queryShoppingCar")
-    List<TbShoppingVO> queryShoppingCar(@RequestParam("openId") String openId);
+    List<TbShoppingVO> queryShoppingCar(@RequestParam("openId") String openId,@RequestParam("ids")List<Long> ids);
 
 
     /**

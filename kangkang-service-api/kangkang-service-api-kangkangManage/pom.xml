@@ -11,7 +11,7 @@
 
     <groupId>org.sch.api</groupId>
     <artifactId>kangkang-service-api-kangkangManage</artifactId>
-
+    <packaging>jar</packaging>
 
     <description>kangkang后台管理系统的接口</description>
 

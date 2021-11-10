@@ -10,13 +10,12 @@ import org.springframework.stereotype.Component;
  * @Date: 2021/10/12 5:06 下午
  * @Description: TODO
  */
-//@Component
+@Component
 @Slf4j
 public class TestJob implements QuartzJob {
 
     @Override
     public void excute() {
-
 
         log.info("-------定时任务正在执行--------");
 

@@ -25,7 +25,7 @@ import java.util.Map;
  * @Date: 2021/8/16 5:57 下午
  * @Description: TODO
  */
-@Component
+//@Component
 public class GatewayRouteFilter implements GlobalFilter, Ordered {
 
     private static final Logger log = LoggerFactory.getLogger(GatewayRouteFilter.class);

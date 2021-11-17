@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: 2021/8/17 3:20 下午
  * @Description: TODO
  */
-@Component
+//@Component
 public class UserTokenFilter implements GlobalFilter, Ordered {
 
     private static final Logger log = LoggerFactory.getLogger(UserTokenFilter.class);

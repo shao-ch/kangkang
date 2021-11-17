@@ -24,7 +24,7 @@ import java.nio.charset.StandardCharsets;
  * @Description: TODO
  */
 @Slf4j
-@Component
+//@Component
 public class RequestFilter implements GlobalFilter, Ordered {
     @Autowired
     private RedisTemplate redisTemplate;

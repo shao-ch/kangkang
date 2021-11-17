@@ -22,7 +22,18 @@ spring:
           predicates:
             - Path=/mini/store/**      #1、匹配规则，先通过断言进行匹配
           filters:
-            - StripPrefix=2       #2、然后过滤掉前两位
+          #注意：下面的配置必须和filters齐平
+          - StripPrefix=2       #2、然后过滤掉前两位
+#          - name: RequestRateLimiter
+#            args:
+#              #replenishRate: 每次补充令牌数量
+#              #burstCapacity: 令牌桶最大容量，突发请求数量
+#              #requestedTokens: 每次请求消耗令牌的数量
+#              #代表每秒限制请求一次
+#              redis-rate-limiter.replenishRate: 1    #允许用户每秒处理多少个请求
+#              redis-rate-limiter.burstCapacity: 1    #令牌桶的容量，允许在一秒内完成的最大的请求数量
+#              redis-rate-limiter.requestedTokens: 1    #每次请求消耗令牌的数量
+#              key-resolver: "#{@addHostKeyResolver}"  #使用什么方式的限流方式  这个是自己写的类  使用SpEL按名称引用bean
 
         #后台管理系统
         - id: manage
@@ -53,7 +64,12 @@ spring:
         server-addr: 110.40.235.203:8848
     sentinel:   #限流设置，如果需要，要在配置类中添加限流规则，要指定相应的服务，也就是上面的路由id
       transport:
-        dashboard: 110.40.235.203:8858
+#        dashboard: 110.40.235.203:8858
+        #限流模式注册到sentinel控制台，在控制台可以部署一些规则
+        dashboard: 127.0.0.1:8080
+        port: 8719
+        #服务启动直接建立心跳连接
+      eager: true
   redis:
     host: 110.40.235.203   #主机
     port: 6379          #端口
@@ -65,6 +81,8 @@ spring:
         max-idle: 10      #连接池中的最大空闲连接
         min-idle: 0       #连接池中的最小空闲连接
     timeout: 1000         #连接超时时间（毫秒）
+  main:
+    allow-bean-definition-overriding: true
 wx:
   open:
     app_id: wxedb4d43b2e668dce

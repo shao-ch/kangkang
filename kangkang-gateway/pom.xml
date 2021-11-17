@@ -31,6 +31,10 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+        </dependency>
         <!--流控-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

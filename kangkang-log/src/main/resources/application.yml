@@ -1,8 +1,8 @@
 server:
-  port: 8083
+  port: 8085
 spring:
   application:
-    name: kangkang-order
+    name: kangkang-log
   cloud:
     nacos:
       discovery:
@@ -11,6 +11,11 @@ spring:
     level:
       root: info
   #logging.level.org.springframework=info
+  elasticsearch:
+    rest:
+      uris: http://101.43.21.125:9200
+    jest:
+      connection-timeout: 10
 logging:
   level:
     org:

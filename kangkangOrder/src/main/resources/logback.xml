@@ -3,23 +3,33 @@
 
     <!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
     <property name="LOG_PATTERN"
-              value="[%d{yyyy-MM-dd HH\:mm\:ss}] [%p] [%c] %m%n" />
+              value="[%d{yyyy-MM-dd HH\:mm\:ss}] [%p] [%c] %m%n"/>
+
+<!--    从application.yml中获取属性信息-->
+    <springProperty scope="context" name="logstash-server" source="spring.logstash.server"/>
+    <springProperty scope="context" name="logstash-port" source="spring.logstash.port"/>
+    <springProperty scope="context" name="logstash-service-id" source="spring.application.name"/>
 
     <!-- 日志输出路径 -->
     <!-- 当前项目下的 logs文件夹 -->
-<!--    <property name="FILE_PATH" value="${user.dir}/logs/kangkang-order-service_%d{yyyy-MM-dd}.%i.log" />-->
-    <property name="FILE_PATH" value="${TPOL_HOME}/order/logs/kangkang-order-service_%d{yyyy-MM-dd}.%i.log" />
-<!--    <property name="FILE_PATH" value="/Users/shaochunhai/Desktop/xCodeProject/logs/kangkang-order-service_%d{yyyy-MM-dd}.%i.log" />-->
+    <!--    <property name="FILE_PATH" value="${user.dir}/logs/kangkang-order-service_%d{yyyy-MM-dd}.%i.log" />-->
+    <property name="FILE_PATH" value="${TPOL_HOME}/order/logs/kangkang-order-service_%d{yyyy-MM-dd}.%i.log"/>
+    <!--    <property name="FILE_PATH" value="/Users/shaochunhai/Desktop/xCodeProject/logs/kangkang-order-service_%d{yyyy-MM-dd}.%i.log" />-->
 
     <!-- 控制台输出日志 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--日志级别-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
         <encoder>
             <!-- 按照上面配置的LOG_PATTERN来打印日志 -->
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
+
     </appender>
 
-    <!--每天生成一个日志文件，保存30天的日志文件。rollingFile是用来切分文件的 -->
+    <!--本地日志保存：每天生成一个日志文件，保存30天的日志文件。rollingFile是用来切分文件的 -->
     <appender name="rollingFile"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -40,10 +50,41 @@
         </encoder>
     </appender>
 
+    <!--日志实时上传至elk做分析，这里是通过tcp做上传-->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <!--设置ip-->
+        <remoteHost>101.43.21.125</remoteHost>
+        <!--设置端口-->
+        <port>9600</port>
+        <!--设置编码方式，以及上传的字段及数据格式，也就是在es中有哪些字段-->
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
+            <!--这里作为logstash设置在es中的索引，通过服务名称去设置索引-->
+            <customFields>{"serviceId":"kangkang-order-service"}</customFields>
+            <!--如果想要不讲日志嵌入系统，就自定义字段，然后通过aop的方式去做日志的收集-->
+<!--            <includeMdcKeyName>startTime</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>endTime</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>requestRawJson</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>responseRawJson</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>responseTime</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>url</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>method</includeMdcKeyName>-->
+<!--            <includeMdcKeyName>path</includeMdcKeyName>-->
+        </encoder>
+
+    </appender>
+    <!--配置异步日志输出-->
+    <appender name="LOGSTASH-ASYN" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="LOGSTASH"/>
+    </appender>
+
+
     <!-- 日志输出级别 -->
     <!-- 级别大于 info 的都会记录-->
-    <root level="INFO"  >
-        <appender-ref ref="console" />
-        <appender-ref ref="rollingFile" />
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+        <!--日志输出到logstash-->
+        <appender-ref ref="LOGSTASH-ASYN"/>
     </root>
 </configuration>

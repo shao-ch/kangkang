@@ -49,7 +49,7 @@
         <!--设置编码方式，以及上传的字段及数据格式，也就是在es中有哪些字段-->
         <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
             <!--这里作为logstash设置在es中的索引，通过服务名称去设置索引-->
-            <customFields>{"serviceId":"kangkang-file-process"}</customFields>
+            <customFields>{"serviceId":"kangkang-log"}</customFields>
             <!--如果想要不讲日志嵌入系统，就自定义字段，然后通过aop的方式去做日志的收集-->
             <!--            <includeMdcKeyName>startTime</includeMdcKeyName>-->
             <!--            <includeMdcKeyName>endTime</includeMdcKeyName>-->
@@ -61,6 +61,7 @@
             <!--            <includeMdcKeyName>path</includeMdcKeyName>-->
         </encoder>
         <connectionStrategy>
+<!--            logstash输出日志如果有多个logstash IP或端口可以轮询负载各端口-->
             <roundRobin>
                 <connectionTTL>5 minutes</connectionTTL>
             </roundRobin>
@@ -78,6 +79,6 @@
         <appender-ref ref="console" />
         <appender-ref ref="rollingFile" />
         <!--日志输出到logstash-->
-        <appender-ref ref="LOGSTASH-ASYN"/>
+<!--        <appender-ref ref="LOGSTASH-ASYN"/>-->
     </root>
 </configuration>

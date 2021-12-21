@@ -17,6 +17,7 @@
         <module>kangkang-entity</module>
         <module>kangkangOrder</module>
         <module>kangkangFileProcess</module>
+        <module>kangkang-log</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -44,6 +45,9 @@
         <jasypt.version>3.0.3</jasypt.version>
         <rocket.client.version>4.7.1</rocket.client.version>
         <cloud.alibaba.version>2.2.0.RELEASE</cloud.alibaba.version>
+        <logstash-logback>5.3</logstash-logback>
+        <spring-data-elasticsearch>3.2.12.RELEASE</spring-data-elasticsearch>
+        <elasticsearch-client>6.3.2</elasticsearch-client>
     </properties>
 
     <parent>
@@ -56,8 +60,49 @@
 
     <dependencyManagement>
 
-
         <dependencies>
+
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch</groupId>-->
+<!--                <artifactId>elasticsearch</artifactId>-->
+<!--                <version>${elasticsearch-client}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; Java Low Level REST Client &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-client</artifactId>-->
+<!--                <version>${elasticsearch-client}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; Java High Level REST Client &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.elasticsearch</groupId>-->
+<!--                        <artifactId>elasticsearch</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.elasticsearch.client</groupId>-->
+<!--                        <artifactId>elasticsearch-rest-client</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--                <version>${elasticsearch-client}</version>-->
+<!--            </dependency>-->
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-elasticsearch</artifactId>
+                <version>${spring-data-elasticsearch}</version>
+            </dependency>
+            <!-- logaback整合elk做微服务的项目收集，依赖包 -->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback}</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -115,11 +160,11 @@
 
 
             <!-- 2. nacos-服务发现功能依赖 -->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--                <version>${nacos.version}</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+            <!--                <version>${nacos.version}</version>-->
+            <!--            </dependency>-->
             <!--  springboot openfeign rpc远程调用-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -198,12 +243,12 @@
                 </configuration>
             </plugin>
 
-<!--            父工程中是不能引入springboot打包插件，因为其他的一下common工程是不需要-->
-<!--            有main方法启动的，如果有就会报错-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
+            <!--            父工程中是不能引入springboot打包插件，因为其他的一下common工程是不需要-->
+            <!--            有main方法启动的，如果有就会报错-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 

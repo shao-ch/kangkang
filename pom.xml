@@ -46,8 +46,8 @@
         <rocket.client.version>4.7.1</rocket.client.version>
         <cloud.alibaba.version>2.2.0.RELEASE</cloud.alibaba.version>
         <logstash-logback>5.3</logstash-logback>
-        <spring-data-elasticsearch>3.2.12.RELEASE</spring-data-elasticsearch>
-        <elasticsearch-client>6.3.2</elasticsearch-client>
+<!--        <spring-data-elasticsearch>4.0.9.RELEASE</spring-data-elasticsearch>-->
+        <elasticsearch-client>7.4.2</elasticsearch-client>
     </properties>
 
     <parent>
@@ -62,6 +62,16 @@
 
         <dependencies>
 
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>transport</artifactId>-->
+<!--                <version>${elasticsearch-client}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--                <version>${elasticsearch-client}</version>-->
+<!--            </dependency>-->
 <!--            <dependency>-->
 <!--                <groupId>org.elasticsearch</groupId>-->
 <!--                <artifactId>elasticsearch</artifactId>-->
@@ -92,11 +102,11 @@
 <!--                <version>${elasticsearch-client}</version>-->
 <!--            </dependency>-->
 
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-elasticsearch</artifactId>
-                <version>${spring-data-elasticsearch}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.data</groupId>-->
+<!--                <artifactId>spring-data-elasticsearch</artifactId>-->
+<!--                <version>${spring-data-elasticsearch}</version>-->
+<!--            </dependency>-->
             <!-- logaback整合elk做微服务的项目收集，依赖包 -->
             <dependency>
                 <groupId>net.logstash.logback</groupId>

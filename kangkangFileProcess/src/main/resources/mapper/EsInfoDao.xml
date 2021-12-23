@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.file.dao.EsInfoDao">
+
+    <select id="queryAllStore" resultType="com.kangkang.ESVO.ESStoreVO">
+        select b.id skuId, a.id storeId,a.image storeImage,
+               a.specification storeSpecification,a.spec_argument StoreSpecArgument,
+               b.title skuTitle,b.image skuImage,b.price skuPrice,b.spec_params skuSpecParams,
+               b.status status
+        from tb_store a
+                 join tb_sku b on a.id = b.tb_store_id where b.es_version=0
+        order by b.id asc;
+    </select>
+
+    <update id="updateEsVersion">
+        update tb_sku a set a.es_version=#{esVersion} where a.id=#{skuId}
+    </update>
+
+</mapper>

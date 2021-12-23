@@ -4,6 +4,6 @@
 
 
     <select id="selectAll" resultType="com.kangkang.manage.entity.TbQuartz">
-        select * from tb_quartz
+        select * from tb_quartz where isOpen=1
     </select>
 </mapper>

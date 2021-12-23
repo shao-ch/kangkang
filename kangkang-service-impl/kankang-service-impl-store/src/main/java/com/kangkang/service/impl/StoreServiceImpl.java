@@ -3,6 +3,7 @@ package com.kangkang.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.ESVO.ESStoreVO;
 import com.kangkang.dao.TbAfterSaleDao;
 import com.kangkang.dao.TbCommentDao;
 import com.kangkang.dao.TbSkuDao;
@@ -18,8 +19,19 @@ import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.MatchAllQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,12 +60,35 @@ public class StoreServiceImpl implements StoreService {
     @Autowired
     private TbCommentDao tbCommentDao;
 
+    @Autowired
+    private ElasticsearchRestTemplate template;
+
+
     @Override
     @Transactional(readOnly = true)
     public Page<TbStoreVO> queryStoreInfo(PageUtils pageUtils) {
+        //首先判断索引存不存在
+        boolean b = template.indexExists(ESStoreVO.class);
+        if (!b){
+            log.info("该ESStoreVO的类所在的索引不存在");
+            return null;
+        }
+
+        //设置查询
+        NativeSearchQueryBuilder builder = new NativeSearchQueryBuilder();
+        //设置分页范围
+        builder.withPageable(PageRequest.of(pageUtils.getPageIndex()-1,pageUtils.getPageSize()));
+        //匹配全部数据,这里通过这个可以对数据进行筛选过滤
+        BoolQueryBuilder must = QueryBuilders.boolQuery().must(QueryBuilders.matchAllQuery());
+        builder.withQuery(must);
+        AggregatedPage<ESStoreVO> esStoreVOS = template.queryForPage(builder.build(), ESStoreVO.class);
+
+
         //获取首先的分页数据
         Page<TbStoreVO> page = new Page<>(pageUtils.getPageIndex(),pageUtils.getPageSize());
+
         Page<TbStoreVO> TbStoreVO = tbStoreDao.selectStoreInfo(page);
+
         return TbStoreVO;
     }
 

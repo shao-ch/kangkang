@@ -17,6 +17,14 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+        <!--        es查询-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+
+
         <!-- logaback整合elk做微服务的项目收集，依赖包 -->
         <dependency>
             <groupId>net.logstash.logback</groupId>

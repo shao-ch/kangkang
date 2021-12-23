@@ -1,33 +1,21 @@
 package com.kangkang.log.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kangkang.log.config.EsClientTemplate;
-import com.kangkang.log.entity.ESFileProcess;
-import com.kangkang.log.entity.LogQueryVO;
 import com.kangkang.log.service.LogQueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.action.search.SearchType;
-import org.elasticsearch.client.ElasticsearchClient;
 import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.cluster.metadata.AliasMetaData;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.*;
 
 /**

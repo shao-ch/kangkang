@@ -50,6 +50,11 @@ public class TbSku {
     private String status;
 
 	/**
+	 * 状态：1-以更新，0-未更新
+	 */
+	private String es_version;
+
+	/**
 	 * 创建时间
 	 */
     private java.util.Date createTime;

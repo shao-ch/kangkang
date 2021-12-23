@@ -18,6 +18,11 @@ spring:
     password: root123
   main:
     allow-bean-definition-overriding: true
+  elasticsearch:
+    rest:
+      uris: http://101.43.21.125:9200
+    jest:
+      connection-timeout: 10
 mybatis-plus:
   mapper-locations:
     - classpath*:/mapper/*.xml

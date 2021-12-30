@@ -30,21 +30,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 #rocketmq的配置信息
-rocketmq:
-  #mq的nameserver的地址
-  namesrvAddr: 42.192.79.7:9876
-  #生产者
-  producer:
-    #是否开启自动配置，是否将类注入spring容器
-    isOnOff: on
-    #发送同一类消息设置为同一个group，保证唯一默认不需要设置
-    groupName: kangkang-order-service-produce
-    #消息的最大长度，默认4M，也就是1024*4
-    maxMessageSize: 4096
-    #发送消息超市时间，默认为3000
-    sendMsgTimeOut: 3000
-    #消息发送失败重试次数，默认为2
-    retryTimesWhenSendFailed: 2
 mybatis-plus:
   mapper-locations:
     - classpath*:/mapper/*.xml

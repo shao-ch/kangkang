@@ -8,7 +8,7 @@ import com.kangkang.dao.TbAfterSaleDao;
 import com.kangkang.dao.TbCommentDao;
 import com.kangkang.dao.TbSkuDao;
 import com.kangkang.dao.TbStoreDao;
-import com.kangkang.dao.esstore.ESStoreVOReopository;
+import com.kangkang.enumInfo.RocketInfo;
 import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.StoreService;
@@ -19,9 +19,13 @@ import com.kangkang.store.entity.TbStore;
 import com.kangkang.store.viewObject.StoreSearchVO;
 import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.KangkangBeanUtils;
-import com.kangkang.tools.PageUtils;
+import com.kangkang.untils.MqUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.rocketmq.client.exception.MQBrokerException;
+import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -46,6 +50,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +77,9 @@ public class StoreServiceImpl implements StoreService {
 
     @Autowired
     private ElasticsearchRestTemplate template;
+
+    @Autowired
+    private DefaultMQProducer producer;
 
 
     @Override
@@ -221,6 +229,26 @@ public class StoreServiceImpl implements StoreService {
         List<TbAfterSale> tbAfterSales = tbAfterSaleDao.selectListByCid(cid);
         //将售后详情数据放入结果中
         result.setTbAfterSales(tbAfterSales);
+
+        //这里做一次评分的处理，使用mq
+        try {
+            HashMap<String, Object> mqInfo = new HashMap<>();
+            mqInfo.put(String.valueOf(tbStore.getId()),1);
+            MqUtils.send(producer, RocketInfo.SEND_STORE_SCORE_TOPIC, RocketInfo.SEND_STORE_SCORE_TAG, JSONObject.toJSONString(mqInfo));
+        } catch (MQBrokerException e) {
+            e.printStackTrace();
+            log.error("更新商品评分异常：",e);
+        } catch (RemotingException e) {
+            e.printStackTrace();
+            log.error("更新商品评分异常：",e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            log.error("更新商品评分异常：",e);
+        } catch (MQClientException e) {
+            e.printStackTrace();
+            log.error("更新商品评分异常：",e);
+        }
+
         return result;
     }
 

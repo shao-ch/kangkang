@@ -21,6 +21,15 @@ public class RocketInfo {
     public static final String SEND_ORDER_TOPIC="order_topic";
     public static final String SEND_ORDER_TAG="stock";
 
+
+    /**
+     * 发送更新商品评分的topic
+     */
+    public static final String SEND_STORE_SCORE_TOPIC="store_score_topic";
+    /**
+     * 发送更新商品评分的内容，在mq中意义不大
+     */
+    public static final String SEND_STORE_SCORE_TAG="storeId";
     /**
      * manage消费者组   按照服务来区分消费者组
      */

@@ -4,10 +4,7 @@ import com.kangkang.file.service.ConfigService;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -51,4 +48,20 @@ public class FileProcessController {
             return ResponseCode.status(500).body("服务异常");
         }
     }
+
+    /**
+     * 评论文件上传
+     *
+     * @param files
+     * @return
+     */
+    @GetMapping("/queryTest")
+    public ResponseCode<String> queryTest() {
+
+        configService.queryTest();
+
+            return ResponseCode.status(200).body("success");
+
+    }
+
 }

@@ -7,6 +7,7 @@ import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.viewObject.StoreSearchVO;
 import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import com.kangkang.tools.ResponseCode;
@@ -35,12 +36,12 @@ public class StoreController {
      * @return
      */
     @PostMapping("/queryStoreInfo")
-    public ResponseCode<IPage> queryStoreInfo(@RequestBody PageUtils pageUtils) {
+    public ResponseCode<List<TbStoreVO>> queryStoreInfo(@RequestBody StoreSearchVO storeSearchVO) {
 
-        Page<TbStoreVO> page = null;
+        List<TbStoreVO> list = null;
         try {
-            page = storeService.queryStoreInfo(pageUtils);
-            return ResponseCode.message(200, page, "success");
+            list = storeService.queryStoreInfo(storeSearchVO);
+            return ResponseCode.message(200, list, "success");
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseCode.message(500, null, "服务异常");

@@ -5,6 +5,7 @@ import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.viewObject.StoreSearchVO;
 import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -25,7 +26,7 @@ public interface KangkangApiService {
 
     @LoadBalanced
     @PostMapping(value = "store/queryStoreInfo")
-    Page<TbStoreVO> queryStoreInfo(@RequestBody PageUtils pageUtils);
+    List<TbStoreVO> queryStoreInfo(@RequestBody StoreSearchVO storeSearchVO);
 
 
     @LoadBalanced

@@ -28,4 +28,7 @@ public interface ConfigService {
      * @return
      */
     String commentFileUpload(List<MultipartFile> files) throws IOException;
+
+    void queryTest();
+
 }

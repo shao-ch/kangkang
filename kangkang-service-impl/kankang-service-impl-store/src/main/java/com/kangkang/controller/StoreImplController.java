@@ -7,6 +7,7 @@ import com.kangkang.service.KangkangApiService;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.viewObject.StoreSearchVO;
 import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +27,8 @@ public class StoreImplController implements KangkangApiService {
     @Resource
     private StoreService storeService;
     @Override
-    public Page<TbStoreVO> queryStoreInfo(PageUtils pageUtils) {
-        return storeService.queryStoreInfo(pageUtils);
+    public List<TbStoreVO> queryStoreInfo(StoreSearchVO storeSearchVO) {
+        return storeService.queryStoreInfo(storeSearchVO);
     }
 
 

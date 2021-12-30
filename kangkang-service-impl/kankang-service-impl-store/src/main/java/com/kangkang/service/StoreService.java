@@ -5,6 +5,7 @@ import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
+import com.kangkang.store.viewObject.StoreSearchVO;
 import com.kangkang.store.viewObject.TbStoreVO;
 import com.kangkang.tools.PageUtils;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * @Description: TODO
  */
 public interface StoreService {
-    Page<TbStoreVO> queryStoreInfo(PageUtils pageUtils);
+    List<TbStoreVO> queryStoreInfo(StoreSearchVO storeSearchVO);
 
 
     /**

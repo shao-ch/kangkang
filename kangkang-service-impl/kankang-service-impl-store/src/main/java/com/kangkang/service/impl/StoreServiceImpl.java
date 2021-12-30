@@ -8,6 +8,7 @@ import com.kangkang.dao.TbAfterSaleDao;
 import com.kangkang.dao.TbCommentDao;
 import com.kangkang.dao.TbSkuDao;
 import com.kangkang.dao.TbStoreDao;
+import com.kangkang.dao.esstore.ESStoreVOReopository;
 import com.kangkang.manage.entity.TbComment;
 import com.kangkang.manage.viewObject.TbCommentVO;
 import com.kangkang.service.StoreService;
@@ -15,29 +16,38 @@ import com.kangkang.store.entity.TbAfterSale;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
+import com.kangkang.store.viewObject.StoreSearchVO;
 import com.kangkang.store.viewObject.TbStoreVO;
+import com.kangkang.tools.KangkangBeanUtils;
 import com.kangkang.tools.PageUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.aggregations.Aggregation;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.Aggregations;
+import org.elasticsearch.search.aggregations.bucket.terms.ParsedLongTerms;
+import org.elasticsearch.search.aggregations.bucket.terms.Terms;
+import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
+import org.elasticsearch.search.aggregations.metrics.tophits.ParsedTopHits;
+import org.elasticsearch.search.aggregations.metrics.tophits.TopHitsAggregationBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: StoreServiceImpl
@@ -66,53 +76,145 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<TbStoreVO> queryStoreInfo(PageUtils pageUtils) {
-        //首先判断索引存不存在
-        boolean b = template.indexExists(ESStoreVO.class);
-        if (!b){
-            log.info("该ESStoreVO的类所在的索引不存在");
-            return null;
+    public List<TbStoreVO> queryStoreInfo(StoreSearchVO storeSearchVO) {
+        /**
+         * 这里是高亮处理
+         * new HighlightBuilder.Field("name").preTags(preTag).postTags(postTag),
+         *                         new HighlightBuilder.Field("description").preTags(preTag).postTags(postTag)).build()
+         */
+        /**构建查询,
+         * multiMatchQuery  多字段查询
+         * matchQuery 单个字段匹配
+         * match会对你所查询的条件进行分词，然后搜索，term不会对你查询的内容进行过滤，我的需求是不过滤，直接使用完全匹配(term)
+         */
+        BoolQueryBuilder boolQuery;
+        ArrayList<Integer> idContext = new ArrayList<>();
+        ArrayList<TbStoreVO> result = new ArrayList<>();
+        if (storeSearchVO.getSearchInfo() != null) {
+            //搜索框的查询消息
+            boolQuery = QueryBuilders.boolQuery();
+            boolQuery.must(QueryBuilders.termQuery("skuTitle", storeSearchVO.getSearchInfo()));
+
+        } else {
+            //查询喜好
+            String like = "手机";
+            boolQuery = QueryBuilders.boolQuery();
+            if (null != like) {
+                boolQuery.must(QueryBuilders.termQuery("skuTitle", like));
+            }
         }
 
-        //设置查询
-        NativeSearchQueryBuilder builder = new NativeSearchQueryBuilder();
-        //设置分页范围
-        builder.withPageable(PageRequest.of(pageUtils.getPageIndex()-1,pageUtils.getPageSize()));
-        //匹配全部数据,这里通过这个可以对数据进行筛选过滤
-        BoolQueryBuilder must = QueryBuilders.boolQuery().must(QueryBuilders.matchAllQuery());
-        builder.withQuery(must);
-        AggregatedPage<ESStoreVO> esStoreVOS = template.queryForPage(builder.build(), ESStoreVO.class);
 
+        List<Aggregation> aggregations = getAggregations(boolQuery);
+        //获取聚合数据
+        for (Aggregation aggregation : aggregations) {
+            //聚合转换成解析对象
+            ParsedLongTerms agg = (ParsedLongTerms) aggregation;
+            //获取你的分组数据
+            List<? extends Terms.Bucket> buckets = agg.getBuckets();
+            //根据商品id分组取id最大的，后期加入访问量数据
+            if (!buckets.isEmpty()) {
+                for (Terms.Bucket aaa : buckets) {
+                    Aggregations ccc = aaa.getAggregations();
+                    List<Aggregation> ddd = ccc.asList();
+                    if (!ddd.isEmpty()) {
+                        for (Aggregation eee : ddd) {
+                            ParsedTopHits fff = (ParsedTopHits) eee;
+                            SearchHits hits = fff.getHits();
+                            SearchHit[] hits1 = hits.getHits();
+                            if (hits1 != null && hits1.length > 0) {
+                                for (SearchHit sea : hits1) {
+                                    String id = sea.getId();
+                                    idContext.add(Integer.valueOf(id));
+                                    Map<String, Object> sourceAsMap = sea.getSourceAsMap();
+                                    ESStoreVO esStoreVO = KangkangBeanUtils.mapToBean(sourceAsMap, ESStoreVO.class);
+                                    //数据转化
+                                    TbStoreVO tbStoreVO=esStoreToTbStoreVO(esStoreVO);
+                                    result.add(tbStoreVO);
+                                }
+                            }
+                        }
+                    }
 
-        //获取首先的分页数据
-        Page<TbStoreVO> page = new Page<>(pageUtils.getPageIndex(),pageUtils.getPageSize());
+                }
+            }
 
-        Page<TbStoreVO> TbStoreVO = tbStoreDao.selectStoreInfo(page);
+        }
+        //二次补录信息凑够首页的50条消息，目前设置为2条
+        if (idContext.size() < 2) {
+            BoolQueryBuilder builder1 = QueryBuilders.boolQuery();
+            builder1.mustNot(QueryBuilders.termsQuery("_id", result));
+            List<Aggregation> aggregationList = getAggregations(builder1);
 
-        return TbStoreVO;
+            for (Aggregation aggregation : aggregationList) {
+                //聚合转换成解析对象
+                ParsedLongTerms ccc = (ParsedLongTerms) aggregation;
+                //获取你的分组数据
+                List<? extends Terms.Bucket> f = ccc.getBuckets();
+                //根据商品id分组取id最大的，后期加入访问量数据
+                for (Terms.Bucket aaa : f) {
+                    Aggregations g = aaa.getAggregations();
+                    List<Aggregation> ddd = g.asList();
+                    for (Aggregation eee : ddd) {
+                        ParsedTopHits fff = (ParsedTopHits) eee;
+                        SearchHits hits = fff.getHits();
+                        SearchHit[] hits1 = hits.getHits();
+                        for (SearchHit sea : hits1) {
+                            Map<String, Object> sourceAsMap = sea.getSourceAsMap();
+                            ESStoreVO esStoreVO = KangkangBeanUtils.mapToBean(sourceAsMap, ESStoreVO.class);
+                            TbStoreVO tbStoreVO=esStoreToTbStoreVO(esStoreVO);
+                            result.add(tbStoreVO);
+
+                        }
+                    }
+
+                }
+            }
+
+        }
+        //数据返回
+        return result;
+    }
+
+    /**
+     * 将es查询的数据转化成前台要的数据
+     * @param es
+     * @return
+     */
+    private TbStoreVO esStoreToTbStoreVO(ESStoreVO es) {
+        TbStoreVO tbStoreVO = new TbStoreVO();
+        tbStoreVO.setSkuId(es.getSkuId());
+        tbStoreVO.setPrice(es.getSkuPrice());
+        tbStoreVO.setTitle(es.getSkuTitle());
+        tbStoreVO.setId(es.getStoreId());
+        tbStoreVO.setImage(es.getStoreImage());
+        tbStoreVO.setSpecification(es.getStoreSpecification());
+        tbStoreVO.setSpecArgument(es.getStoreSpecArgument());
+        return tbStoreVO;
     }
 
 
     /**
      * 通过id查询商品详细信息
+     *
      * @param id
      * @return
      */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED,readOnly = true)   //这里要设置只读
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)   //这里要设置只读
     public TbStoreVO getStoreDetail(Long id) {
 
         TbStoreVO result = new TbStoreVO();
         QueryWrapper<TbStore> wrapper = new QueryWrapper<>();
         //第一步查询商品详情实体
-        wrapper.eq("id",id);
+        wrapper.eq("id", id);
         TbStore tbStore = tbStoreDao.selectOne(wrapper);
         Object specArgument = tbStore.getSpecArgument();
         List<String> parse = (List<String>) JSONObject.parse(specArgument.toString());
-        log.info("转化的数据为："+JSONObject.toJSONString(parse));
+        log.info("转化的数据为：" + JSONObject.toJSONString(parse));
         tbStore.setSpecArgument(JSONObject.toJSON(parse));
         //bean的转化
-        BeanUtils.copyProperties(tbStore,result);
+        BeanUtils.copyProperties(tbStore, result);
         //获取cid
         Long cid = tbStore.getTbCategoryId();
         //通过cid查询详情信息
@@ -125,6 +227,7 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 立即购买 获取商品实体数据
+     *
      * @param skuId
      * @return
      */
@@ -140,6 +243,7 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 查询库存
+     *
      * @param tbSkuId
      * @return
      */
@@ -150,6 +254,7 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 通过主键获取sku商品主体信息
+     *
      * @param skuIds
      */
     @Override
@@ -160,19 +265,21 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 新增评论
+     *
      * @param tbCommentVO
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void addComment(TbCommentVO tbCommentVO) {
         TbComment tbComment = new TbComment();
-        BeanUtils.copyProperties(tbCommentVO,tbComment);
+        BeanUtils.copyProperties(tbCommentVO, tbComment);
         tbCommentDao.insert(tbComment);
     }
 
 
     /**
      * 查询累计评论
+     *
      * @param tbCommentVO
      * @return
      */
@@ -192,17 +299,41 @@ public class StoreServiceImpl implements StoreService {
      * 点赞数
      *
      * @param flag 0-带表减1，1-代表加1
-     * @param id  评论表的id
+     * @param id   评论表的id
      * @return
      */
     @Override
-    @Transactional(rollbackFor = Exception.class,timeout = 1000)
+    @Transactional(rollbackFor = Exception.class, timeout = 1000)
     public Integer clickZAN(String flag, Long id) {
         if ("0".equals(flag))
-         tbCommentDao.reduceZANById(id);
-        tbCommentDao.addZANById (id);
+            tbCommentDao.reduceZANById(id);
+        tbCommentDao.addZANById(id);
 
         //然后查询结果
         return tbCommentDao.selectZANById(id);
+    }
+
+
+    private List<Aggregation> getAggregations(QueryBuilder builder) {
+        //构建聚合
+        TermsAggregationBuilder termsAgg = AggregationBuilders.terms("aaa").field("storeId");  //这里按照某个字段做聚合
+        TopHitsAggregationBuilder size = AggregationBuilders.topHits("top_score").sort("skuId", SortOrder.DESC)
+                .from(0).size(1);
+        termsAgg.subAggregation(size);
+
+        //这里要做的就是分组排序取第一个
+
+        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+
+        queryBuilder.withIndices("kangkang_store_info");
+        queryBuilder.withTypes("doc");
+        queryBuilder.withQuery(builder);
+        queryBuilder.addAggregation(termsAgg);
+        AggregatedPage<ESStoreVO> esStoreVOS = template.queryForPage(queryBuilder.build(), ESStoreVO.class);
+        //下面是获取buckdet桶的数据
+        Aggregations aggs = esStoreVOS.getAggregations();
+        //有可能有多条数据
+        List<Aggregation> aggregations = aggs.asList();
+        return aggregations;
     }
 }

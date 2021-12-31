@@ -80,6 +80,12 @@ public class ESStoreVO {
     private String status;
 
 
+    /**
+     * 访问量，默认是0
+     */
+    @Field(type = FieldType.Long)
+    private Long visitCount=0L;
+
 
 
 }

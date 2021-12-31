@@ -36,3 +36,17 @@ file:
   username: root
   password: donghehe1993
   commentPath: /home/developer/media/comment
+
+rocketmq:
+  #消费者
+  consumer:
+    namesrvAddr: 42.192.79.7:9876
+    #是否开启自动配置
+    isOnOff: on
+    #发送同一类消息设置为同一个group，保证唯一默认不需要设置
+    groupName: kangkang-fileprocess-consumer
+    #消费者线程数，根据实际业务来，如果有阻塞可以适当的放大些
+    consumeThreadMin: 5
+    consumeThreadMax: 32
+    #设置一次消费信心的条数  默认为1
+    consumeMessageBatchMaxSize: 1

@@ -16,4 +16,13 @@
         update tb_sku a set a.es_version=#{esVersion} where a.id=#{skuId}
     </update>
 
+    <update id="updateEsFlag">
+        update tb_store a set a.es_flag=#{esFlag} where a.id=#{storeId}
+    </update>
+
+
+    <select id="queryAllStoreInfo" resultType="com.kangkang.ESVO.ESStoreStatisVO">
+        select id, image, specification, spec_argument specArgument,
+        tb_category_id tbCategoryId from tb_store where es_flag='0';
+    </select>
 </mapper>

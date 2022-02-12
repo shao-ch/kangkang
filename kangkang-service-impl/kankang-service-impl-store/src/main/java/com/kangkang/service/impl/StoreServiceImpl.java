@@ -42,13 +42,16 @@ import org.elasticsearch.search.aggregations.metrics.tophits.TopHitsAggregationB
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,6 +84,9 @@ public class StoreServiceImpl implements StoreService {
     @Autowired
     private DefaultMQProducer producer;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
 
     @Override
     @Transactional(readOnly = true)
@@ -96,24 +102,60 @@ public class StoreServiceImpl implements StoreService {
          * match会对你所查询的条件进行分词，然后搜索，term不会对你查询的内容进行过滤，我的需求是不过滤，直接使用完全匹配(term)
          */
         BoolQueryBuilder boolQuery;
-        ArrayList<Integer> idContext = new ArrayList<>();
+        ArrayList<Long> idContext = new ArrayList<>();
         ArrayList<TbStoreVO> result = new ArrayList<>();
+        List<String> likeContext = null;
+
+        //查询此用户的喜好
+        Object o = redisTemplate.opsForValue().get(storeSearchVO.getLoginName());
+
         if (storeSearchVO.getSearchInfo() != null) {
+            //这里是一个算法，就是记录用户最近查询的十条喜好
+            if (o == null) {
+                //这里面代表是该用户没有任何喜好
+                likeContext = new ArrayList<>();
+                likeContext.add(storeSearchVO.getSearchInfo());
+                String s = JSONObject.toJSONString(likeContext);
+                //使用原子操作，防止存在同一个用户的多条喜好记录
+                redisTemplate.opsForValue().setIfAbsent(storeSearchVO.getLoginName(), s);
+
+            } else {  //说明用户有喜好
+
+                likeContext = JSONObject.parseArray(o.toString(), String.class);
+                //如果list中不包含并且list转化的字符串中也不包含该词那就存入喜好容器
+                if ((!likeContext.contains(storeSearchVO.getSearchInfo())) && (!o.toString().contains(storeSearchVO.getSearchInfo()))) {
+                    likeContext.add(storeSearchVO.getSearchInfo());
+                    String s = JSONObject.toJSONString(likeContext);
+                    //使用原子操作，防止存在同一个用户的多条喜好记录
+                    redisTemplate.opsForValue().getAndSet(storeSearchVO.getLoginName(), s);
+                }
+            }
+
             //搜索框的查询消息
             boolQuery = QueryBuilders.boolQuery();
-            boolQuery.must(QueryBuilders.termQuery("skuTitle", storeSearchVO.getSearchInfo()));
+
+            boolQuery.should(QueryBuilders.matchQuery("skuTitle", storeSearchVO.getSearchInfo()));
 
         } else {
             //查询喜好
-            String like = "手机";
-            boolQuery = QueryBuilders.boolQuery();
-            if (null != like) {
-                boolQuery.must(QueryBuilders.termQuery("skuTitle", like));
+            if (o == null) {
+                likeContext = new ArrayList<>();
+            }else {
+                likeContext = JSONObject.parseArray(o.toString(), String.class);
             }
+
+            boolQuery = QueryBuilders.boolQuery();
+
+            //查询喜好数据
+            for (String like : likeContext) {
+                boolQuery.should(QueryBuilders.matchQuery("skuTitle", like));
+            }
+//            boolQuery.should(QueryBuilders("skuTitle", likeContext));   这里要用多条件查询，也就是es中的or，下面也是一样
+
         }
 
 
-        List<Aggregation> aggregations = getAggregations(boolQuery);
+        List<Aggregation> aggregations = getAggregations(boolQuery,1);
         //获取聚合数据
         for (Aggregation aggregation : aggregations) {
             //聚合转换成解析对象
@@ -133,26 +175,27 @@ public class StoreServiceImpl implements StoreService {
                             if (hits1 != null && hits1.length > 0) {
                                 for (SearchHit sea : hits1) {
                                     String id = sea.getId();
-                                    idContext.add(Integer.valueOf(id));
+                                    idContext.add(Long.valueOf(id));
                                     Map<String, Object> sourceAsMap = sea.getSourceAsMap();
                                     ESStoreVO esStoreVO = KangkangBeanUtils.mapToBean(sourceAsMap, ESStoreVO.class);
                                     //数据转化
-                                    TbStoreVO tbStoreVO=esStoreToTbStoreVO(esStoreVO);
+                                    TbStoreVO tbStoreVO = esStoreToTbStoreVO(esStoreVO);
                                     result.add(tbStoreVO);
                                 }
                             }
                         }
                     }
-
                 }
             }
 
         }
         //二次补录信息凑够首页的50条消息，目前设置为2条
-        if (idContext.size() < 2) {
+        if (idContext.size() < 1) {
             BoolQueryBuilder builder1 = QueryBuilders.boolQuery();
+            //这里是说明不包含上面查询的数据
             builder1.mustNot(QueryBuilders.termsQuery("_id", result));
-            List<Aggregation> aggregationList = getAggregations(builder1);
+            //这里设置首页数据
+            List<Aggregation> aggregationList = getAggregations(builder1,1);
 
             for (Aggregation aggregation : aggregationList) {
                 //聚合转换成解析对象
@@ -170,7 +213,7 @@ public class StoreServiceImpl implements StoreService {
                         for (SearchHit sea : hits1) {
                             Map<String, Object> sourceAsMap = sea.getSourceAsMap();
                             ESStoreVO esStoreVO = KangkangBeanUtils.mapToBean(sourceAsMap, ESStoreVO.class);
-                            TbStoreVO tbStoreVO=esStoreToTbStoreVO(esStoreVO);
+                            TbStoreVO tbStoreVO = esStoreToTbStoreVO(esStoreVO);
                             result.add(tbStoreVO);
 
                         }
@@ -186,6 +229,7 @@ public class StoreServiceImpl implements StoreService {
 
     /**
      * 将es查询的数据转化成前台要的数据
+     *
      * @param es
      * @return
      */
@@ -233,20 +277,20 @@ public class StoreServiceImpl implements StoreService {
         //这里做一次评分的处理，使用mq
         try {
             HashMap<String, Object> mqInfo = new HashMap<>();
-            mqInfo.put(String.valueOf(tbStore.getId()),1);
+            mqInfo.put(String.valueOf(tbStore.getId()), 1);
             MqUtils.send(producer, RocketInfo.SEND_STORE_SCORE_TOPIC, RocketInfo.SEND_STORE_SCORE_TAG, JSONObject.toJSONString(mqInfo));
         } catch (MQBrokerException e) {
             e.printStackTrace();
-            log.error("更新商品评分异常：",e);
+            log.error("更新商品评分异常：", e);
         } catch (RemotingException e) {
             e.printStackTrace();
-            log.error("更新商品评分异常：",e);
+            log.error("更新商品评分异常：", e);
         } catch (InterruptedException e) {
             e.printStackTrace();
-            log.error("更新商品评分异常：",e);
+            log.error("更新商品评分异常：", e);
         } catch (MQClientException e) {
             e.printStackTrace();
-            log.error("更新商品评分异常：",e);
+            log.error("更新商品评分异常：", e);
         }
 
         return result;
@@ -342,12 +386,13 @@ public class StoreServiceImpl implements StoreService {
     }
 
 
-    private List<Aggregation> getAggregations(QueryBuilder builder) {
+    private List<Aggregation> getAggregations(QueryBuilder builder,Integer dataSize) {
         //构建聚合
-        TermsAggregationBuilder termsAgg = AggregationBuilders.terms("aaa").field("storeId");  //这里按照某个字段做聚合
+        TermsAggregationBuilder termsAgg = AggregationBuilders.terms("aaa").field("storeId").size(dataSize);  //这里按照某个字段做聚合
         TopHitsAggregationBuilder size = AggregationBuilders.topHits("top_score").sort("skuId", SortOrder.DESC)
                 .from(0).size(1);
         termsAgg.subAggregation(size);
+
 
         //这里要做的就是分组排序取第一个
 
@@ -356,6 +401,7 @@ public class StoreServiceImpl implements StoreService {
         queryBuilder.withIndices("kangkang_store_info");
         queryBuilder.withTypes("doc");
         queryBuilder.withQuery(builder);
+       //这里设置需要查询多少条数据
         queryBuilder.addAggregation(termsAgg);
         AggregatedPage<ESStoreVO> esStoreVOS = template.queryForPage(queryBuilder.build(), ESStoreVO.class);
         //下面是获取buckdet桶的数据

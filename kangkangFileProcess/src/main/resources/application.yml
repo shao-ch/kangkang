@@ -32,15 +32,16 @@ mybatis-plus:
 
 
 file:
-  hostname: 42.192.79.7
-  username: root
-  password: donghehe1993
-  commentPath: /home/developer/media/comment
+  hostname: 124.222.55.62
+  username: sch
+  password: sch1234
+  commentPath: /home/sch/media/comment
 
 rocketmq:
   #消费者
   consumer:
-    namesrvAddr: 42.192.79.7:9876
+    namesrvAddr: 124.222.55.62:9876
+
     #是否开启自动配置
     isOnOff: on
     #发送同一类消息设置为同一个group，保证唯一默认不需要设置

@@ -70,7 +70,7 @@ public class RocketmqMessageProcessor implements MessageListenerConcurrently {
                 String storeId = strings.iterator().next();
                 //构建更新条件，我这边是通过商品的类型去更新的，也就是storeId
                 UpdateByQueryRequest request = new UpdateByQueryRequest();
-                request.indices("kangkang_store_info");
+                request.indices("kangkang_store_statis_info");
                 request.setDocTypes("doc");
                 /**这个设置就是说在并发的时候，会存在两个线程同时修改一条数据，这个参数设置就是位了防止冲突
                  * 也就是说在刷新索引的时候，又有修改进来了，或者报错的时候，这里的更新操作已经做了，就不会回滚了

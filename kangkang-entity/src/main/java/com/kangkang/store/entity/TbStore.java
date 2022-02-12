@@ -42,6 +42,11 @@ public class TbStore {
     private Long tbCategoryId;
 
 	/**
+	 * 是否同步到es的状态标志
+	 */
+	private String esFlag;
+
+	/**
 	 * 创建时间
 	 */
     private Date createTime;

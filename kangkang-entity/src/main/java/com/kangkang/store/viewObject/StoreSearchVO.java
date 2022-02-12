@@ -13,4 +13,6 @@ import lombok.Data;
 public class StoreSearchVO extends PageUtils {
 
     private String searchInfo;
+
+    private String loginName;
 }

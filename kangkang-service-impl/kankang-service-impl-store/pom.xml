@@ -12,6 +12,11 @@
     <artifactId>kankang-service-impl-store</artifactId>
 
     <dependencies>
+        <!--redis的依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

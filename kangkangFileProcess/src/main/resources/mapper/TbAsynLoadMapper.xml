@@ -26,7 +26,7 @@
 
     <select id="querySqlTask" resultType="com.kangkang.fileLoad.entity.Message">
         select  id, excute_sql, params, status, result, path
-        from tb_asyn_load_control limit 0,10;
+        from tb_asyn_load_control where status=1 limit 0,10;
     </select>
 
     <update id="updateCreateStatus">
@@ -36,4 +36,8 @@
     <select id="executorSql" parameterType="map" resultType="map">
         ${sql}
     </select>
+
+    <update id="updateStatusToSuccess" parameterType="long">
+        update tb_asyn_load_control set status=2,result='已完成' where id=#{id};
+    </update>
 </mapper>

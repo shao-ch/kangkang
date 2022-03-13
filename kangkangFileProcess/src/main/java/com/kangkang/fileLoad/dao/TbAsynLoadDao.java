@@ -33,4 +33,10 @@ public interface TbAsynLoadDao extends BaseMapper<TbAsynLoadControl> {
      * @return
      */
     Map<String, Object> executorSql(@Param("sql") String excuteSql, @Param("p") Map<String, Object> params);
+
+    /**
+     * 通过id将完成的数据更新为已完成
+     * @param id
+     */
+    void updateStatusToSuccess(@Param("id") Long id);
 }

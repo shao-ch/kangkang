@@ -103,7 +103,7 @@ public class DownLoadChannel extends AbstractDataChannel {
                         //这里就是文件处理的逻辑
 
                         //然后将状态更新为已完成
-
+                        tbAsynLoadService.updateStatusToSuccess(take.getId());
 
                     }
                 });

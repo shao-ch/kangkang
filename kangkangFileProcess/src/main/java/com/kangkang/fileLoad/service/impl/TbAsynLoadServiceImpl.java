@@ -42,4 +42,13 @@ public class TbAsynLoadServiceImpl implements TbAsynLoadService {
     public Map<String, Object> executorSql(String excuteSql, Map<String, Object> params) {
         return   tbAsynLoadDao.executorSql(excuteSql,params);
     }
+
+    /**
+     * 通过id将完成的数据更新为已完成
+     * @param id
+     */
+    @Override
+    public void updateStatusToSuccess(Long id) {
+        tbAsynLoadDao.updateStatusToSuccess(id);
+    }
 }

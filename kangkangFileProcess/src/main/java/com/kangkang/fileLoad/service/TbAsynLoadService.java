@@ -29,4 +29,10 @@ public interface TbAsynLoadService {
      * @return
      */
     Map<String, Object> executorSql(String excuteSql,Map<String,Object> params);
+
+    /**
+     * 通过id将完成的数据更新为已完成
+     * @param id
+     */
+    void updateStatusToSuccess(Long id);
 }

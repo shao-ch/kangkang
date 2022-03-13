@@ -39,7 +39,7 @@ public class TbAsynLoadServiceImpl implements TbAsynLoadService {
     }
 
     @Override
-    public Map<String, Object> executorSql(String excuteSql, Map<String, Object> p) {
-        return   tbAsynLoadDao.executorSql(excuteSql,p);
+    public Map<String, Object> executorSql(String excuteSql, Map<String, Object> params) {
+        return   tbAsynLoadDao.executorSql(excuteSql,params);
     }
 }

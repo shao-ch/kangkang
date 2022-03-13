@@ -32,5 +32,5 @@ public interface TbAsynLoadDao extends BaseMapper<TbAsynLoadControl> {
      * @param p  这是参数
      * @return
      */
-    Map<String, Object> executorSql(@Param("sql") String excuteSql, @Param("param") Map<String, Object> p);
+    Map<String, Object> executorSql(@Param("sql") String excuteSql, @Param("p") Map<String, Object> params);
 }

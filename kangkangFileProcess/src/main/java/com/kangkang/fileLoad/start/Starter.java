@@ -5,6 +5,7 @@ import com.kangkang.fileLoad.channel.Channel;
 import com.kangkang.fileLoad.channel.DownLoadChannel;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -17,8 +18,9 @@ import java.util.Map;
  * @Date: 2022/3/12 10:01 上午
  * @Description: TODO
  */
-public class Starter implements ApplicationContextAware {
+public class Starter {
 
+    @Autowired
     private List<Channel> channels;
 
     @Autowired
@@ -28,7 +30,16 @@ public class Starter implements ApplicationContextAware {
     public void start(){
         //管道启动类
         for (Channel channel : channels) {
-            channel.start();
+            Map<String, String> switchs = switchProperties.getSwitchs();
+            //循环遍历channel开关,然后将对象注入channel容器中
+            switchs.forEach((key,value)->{
+
+                System.out.println("==================["+key+"]------------>["+value+"]==================");
+                if (value.equals("on")&&key.toLowerCase().equals(channel.getName().toLowerCase())){
+                    channel.start();
+                }
+            });
+
         }
     }
 
@@ -37,20 +48,5 @@ public class Starter implements ApplicationContextAware {
         for (Channel channel : channels) {
             channel.stop();
         }
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext context) throws BeansException {
-
-        Map<String, String> switchs = switchProperties.getSwitchs();
-        //循环遍历channel开关,然后将对象注入channel容器中
-        switchs.forEach((key,value)->{
-
-            System.out.println("==================["+key+"]------------>["+value+"]==================");
-            if (value.equals("on")){
-               Channel channel= (Channel) context.getBean(key);
-               channels.add(channel);
-            }
-        });
     }
 }

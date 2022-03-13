@@ -37,9 +37,10 @@ public class DownLoadChannel extends AbstractDataChannel {
         schedulForStatus.scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {
+                log.info("=================正在将创建的任务更新为处理中=================");
                 tbAsynLoadService.updateCreateStatus();
             }
-        },0,1,TimeUnit.SECONDS);
+        },0,10,TimeUnit.SECONDS);
 
         //创建一个定时任务去执行poll，也就是放入队列操作
         ScheduledExecutorService scheduled = Executors.newScheduledThreadPool(1);
@@ -51,7 +52,10 @@ public class DownLoadChannel extends AbstractDataChannel {
             @Override
             public void run() {
                 try {
+                    log.info("=================获取任务=================");
                     list = tbAsynLoadService.querySqlTask();
+
+                    log.info("=================任务为=================："+JSONObject.toJSONString(list));
                     if (list.isEmpty()) {
                         log.info("=========没有需要执行的excel任务=============");
                         return;
@@ -66,7 +70,7 @@ public class DownLoadChannel extends AbstractDataChannel {
                 }
 
             }
-        },0,1, TimeUnit.SECONDS);
+        },0,10, TimeUnit.SECONDS);
     }
 
 
@@ -79,6 +83,7 @@ public class DownLoadChannel extends AbstractDataChannel {
             try {
                 //这里不需要判空，如果没有取到数据就会阻塞
                 final Message take = queue.take();
+                log.info("=================获取任务=================："+JSONObject.toJSONString(take));
                 //这里开启多线程去执行任务
                 getExecutor().execute(new Runnable() {
                     @Override
@@ -86,12 +91,20 @@ public class DownLoadChannel extends AbstractDataChannel {
                         //将参数转map
                         HashMap<String,Object> map;
                         String params = take.getParams();
+                        log.info("=================获取sql=================："+take.getExcuteSql());
+                        log.info("=================获取参数=================："+params);
                         if (params==null){
                             map=new HashMap<>();
                         }else {
                             map=JSONObject.parseObject(params, (Type) Map.class);
                         }
                         Map<String,Object> result=tbAsynLoadService.executorSql(take.getExcuteSql(),map);
+                        log.info("=================输出结果=================："+JSONObject.toJSONString(result));
+                        //这里就是文件处理的逻辑
+
+                        //然后将状态更新为已完成
+
+
                     }
                 });
             } catch (InterruptedException e) {
@@ -99,5 +112,10 @@ public class DownLoadChannel extends AbstractDataChannel {
                 log.error("获取信息异常：",e);
             }
         }
+    }
+
+    @Override
+    public String getName() {
+        return this.getClass().getSimpleName();
     }
 }

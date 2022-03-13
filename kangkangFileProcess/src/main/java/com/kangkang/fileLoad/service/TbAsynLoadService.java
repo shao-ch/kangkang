@@ -22,5 +22,11 @@ public interface TbAsynLoadService {
      */
     void updateCreateStatus();
 
-    Map<String, Object> executorSql(String excuteSql,Map<String,Object> p);
+    /**
+     * 自定义sql
+     * @param excuteSql
+     * @param params
+     * @return
+     */
+    Map<String, Object> executorSql(String excuteSql,Map<String,Object> params);
 }

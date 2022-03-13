@@ -20,7 +20,7 @@ import org.springframework.context.annotation.PropertySource;
 @EnableFeignClients
 @PropertySource(value = "classpath:properties/conf_pro.properties")
 @ServletComponentScan({"com.kangkang.config"})
-@MapperScan("com.kangkang.file.dao")
+@MapperScan({"com.kangkang.file.dao","com.kangkang.fileLoad.dao"})
 public class FileProcessApplication {
 
     public static void main(String[] args) {

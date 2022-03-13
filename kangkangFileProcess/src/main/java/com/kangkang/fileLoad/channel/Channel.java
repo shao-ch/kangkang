@@ -7,7 +7,8 @@ package com.kangkang.fileLoad.channel;
  * @Description: TODO
  */
 public interface Channel {
-
+    //获取类名
+    String getName();
     //管道启动
     void start();
 

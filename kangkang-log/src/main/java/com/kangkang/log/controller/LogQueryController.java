@@ -1,12 +1,9 @@
 package com.kangkang.log.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.kangkang.log.entity.LogQueryVO;
 import com.kangkang.log.service.LogQueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

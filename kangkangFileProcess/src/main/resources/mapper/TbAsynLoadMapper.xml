@@ -1,0 +1,39 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.fileLoad.dao.TbAsynLoadDao">
+
+    <resultMap id="baseMap" type="com.kangkang.manage.entity.TbAsynLoadControl">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="excuteSql" column="excute_sql" jdbcType="VARCHAR"/>
+        <result property="params" column="params" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="CHAR"/>
+        <result property="result" column="result" jdbcType="VARCHAR"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="className" column="class_name" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <resultMap id="taskMap" type="com.kangkang.manage.entity.TbAsynLoadControl">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="excuteSql" column="excute_sql" jdbcType="VARCHAR"/>
+        <result property="params" column="params" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="CHAR"/>
+        <result property="result" column="result" jdbcType="VARCHAR"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="className" column="class_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="querySqlTask" resultType="com.kangkang.fileLoad.entity.Message">
+        select  id, excute_sql, params, status, result, path
+        from tb_asyn_load_control limit 0,10;
+    </select>
+
+    <update id="updateCreateStatus">
+        update tb_asyn_load_control set status=1,result='处理中' where status=0;
+    </update>
+
+    <select id="executorSql" parameterType="map" resultType="map">
+        ${sql}
+    </select>
+</mapper>

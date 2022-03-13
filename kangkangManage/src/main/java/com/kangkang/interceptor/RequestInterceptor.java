@@ -1,6 +1,7 @@
 package com.kangkang.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -42,7 +43,7 @@ public class RequestInterceptor implements HandlerInterceptor {
             HashMap<String, Object> map = new HashMap<>();
             map.put("code",403);
             map.put("data","拒绝操作");
-            response.getWriter().print(JSONObject.toJSON(map));
+            response.getWriter().print(JSONObject.toJSONString(map));
 
             return false;
         }

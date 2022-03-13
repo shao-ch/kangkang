@@ -37,6 +37,11 @@ public class EsStoreStatisSyncJob implements QuartzJob {
             log.info("=====表tb_store的统计数据更新到es开始执行====");
             List<ESStoreStatisVO> esStoreStatisVOS = esInfoDao.queryAllStoreInfo();
 
+            if (esStoreStatisVOS.size()<=0){
+                log.info("tb_store中没有所需要更新，数据条数为：["+esStoreStatisVOS.size()+"]");
+                return;
+            }
+
             //首先判断是否有索引
             boolean exists = template.indexExists(ESStoreStatisVO.class);
             //如果不存在就创建索引

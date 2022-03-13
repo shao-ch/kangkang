@@ -38,7 +38,7 @@ public class ESStoreStatisVO {
     /**
      * 特有商品公共参数
      */
-    @Field(type = FieldType.Object)
+    @Field(type = FieldType.Text)
     private Object specArgument;
 
     /**

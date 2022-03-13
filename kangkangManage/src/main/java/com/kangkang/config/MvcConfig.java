@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Date: 2021/8/21 3:39 下午
  * @Description: TODO
  */
-@Configuration
+//@Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
     @Autowired
@@ -21,7 +21,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        //将自定义的拦截器放入mvc中
+        //将自定义的拦截器放入mvc中，这里是可以制定/interceptor下的拦截器的顺序，如果preHandle有一个是false，则就不往下执行了
         registry.addInterceptor(requestInterceptor);
         WebMvcConfigurer.super.addInterceptors(registry);
     }

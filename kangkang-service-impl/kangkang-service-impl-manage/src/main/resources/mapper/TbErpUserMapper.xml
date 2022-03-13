@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.ERP.dao.TbErpUserDao">
+
+    <resultMap id="tbErpUser" type="com.kangkang.manage.entity.TbErpUser">
+        <id property="id" column="id"/>
+        <result property="telephone" column="telephone"/>
+        <result property="openid" column="openid"/>
+        <result property="identityCard" column="identity_card"/>
+        <result property="identityImage" column="identity_image"/>
+        <result property="realName" column="real_name"/>
+        <result property="nowaddress" column="nowaddress"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="createDate" column="create_date"/>
+    </resultMap>
+
+    <select id="selectErpUser" parameterType="com.kangkang.manage.entity.TbErpUser"
+            resultType="com.kangkang.manage.entity.TbErpUser">
+        select * from tb_erp_user a where 1=1
+        <if test="tbErpUser.telephone!=null">
+            and telephone=#{tbErpUser.telephone}
+        </if>
+        <if test="tbErpUser.openid">
+           and openid=#{tbErpUser.openid}
+        </if>
+    </select>
+</mapper>

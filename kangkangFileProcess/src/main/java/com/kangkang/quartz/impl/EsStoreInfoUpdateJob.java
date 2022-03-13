@@ -43,6 +43,11 @@ public class EsStoreInfoUpdateJob implements QuartzJob {
             log.info("=====数据库的数据更新到es开始执行====");
             List<ESStoreVO> esStoreVOS = esInfoDao.queryAllStore();
 
+            if (esStoreVOS.size()<=0){
+                log.error("tb_sku中没有所需要更新，数据条数为：["+esStoreVOS.size()+"]");
+                return;
+            }
+
             //首先判断是否有索引
             boolean exists = template.indexExists(ESStoreVO.class);
             //如果不存在就创建索引

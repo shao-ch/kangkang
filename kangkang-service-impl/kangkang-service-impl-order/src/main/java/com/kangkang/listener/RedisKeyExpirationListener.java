@@ -9,7 +9,7 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.stereotype.Component;
 
 /**
- * @ClassName: RedisKeyExpirationListener
+ * @ClassName: RedisKeyExpirationListener  redis的事件监听器
  * @Author: shaochunhai
  * @Date: 2021/8/18 5:42 下午
  * @Description: TODO

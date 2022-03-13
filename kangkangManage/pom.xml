@@ -15,7 +15,6 @@
     <description>kangkang商城后台管理系统</description>
 
     <dependencies>
-
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>

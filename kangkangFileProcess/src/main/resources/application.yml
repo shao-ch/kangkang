@@ -27,6 +27,8 @@ ribbon:
   #指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 50000
 mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #这个是要打印sql语句在日志中
   mapper-locations:
     - classpath*:/mapper/*.xml
 

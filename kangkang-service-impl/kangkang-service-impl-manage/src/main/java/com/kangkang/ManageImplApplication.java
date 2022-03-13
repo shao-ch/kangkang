@@ -15,7 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan("com.kangkang.dao")
+@MapperScan(basePackages = {"com.kangkang.dao","com.kangkang.ERP.dao"})
 public class ManageImplApplication {
 
     public static void main(String[] args) {

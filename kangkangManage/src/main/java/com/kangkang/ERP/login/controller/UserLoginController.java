@@ -4,10 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.util.Md5Utils;
 import com.kangkang.ERP.login.service.ERPUserService;
 import com.kangkang.manage.entity.TbErpUser;
-import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.viewObject.TbErpUserVO;
 import com.kangkang.tools.ConverUtils;
-import com.kangkang.tools.KangkangBeanUtils;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -15,8 +13,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.util.Map;
 
 /**

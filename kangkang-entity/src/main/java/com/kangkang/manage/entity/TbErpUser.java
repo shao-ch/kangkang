@@ -23,16 +23,22 @@ public class TbErpUser {
     private Long id;
 
 	/**
-	 * 电话号码，有可能是通过微信注册
+	 * 用户名
 	 */
-    @TableField(value = "telephone" ,jdbcType = JdbcType.CHAR)
-    private String telephone;
+    @TableField(value = "username" ,jdbcType = JdbcType.CHAR)
+    private String username;
 
 	/**
-	 * 微信公开的id，可能为null
+	 * 用户密码
 	 */
-    @TableField(value = "openid" ,jdbcType = JdbcType.VARCHAR)
-    private String openid;
+	@TableField(value = "password" ,jdbcType = JdbcType.CHAR)
+	private String password;
+
+	/**
+	 * 电话号码，有可能是通过微信注册
+	 */
+	@TableField(value = "telephone" ,jdbcType = JdbcType.CHAR)
+	private String telephone;
 
 	/**
 	 * 身份证号码
@@ -71,5 +77,6 @@ public class TbErpUser {
 	 */
     @TableField(value = "nowaddress" ,jdbcType = JdbcType.VARCHAR)
     private String nowaddress;
+
 
 }

@@ -161,29 +161,37 @@ public class OrderServiceImpl implements OrderService {
             flag = 0;
             lockStatus = 0;
             try {
-                //这里去redis里面查，如果没有就去数据库查，然后更新缓存。分布式锁   --先去扣减库存，成功了在进行订单的生成
-                boolean b = RedisUtils.decrement(redisTemplate, RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId());
-                if (!b) {
-                    //获取分布式锁信息
-                    Boolean lock = redisTemplate.opsForValue().setIfAbsent(RedisKeyPrefix.STOCK_LOCK_KEY + skuVo.getId(), 0);
-                    //将锁放入容器中，如果失败要回滚
+                //获取分布式锁信息
+                Boolean lock = redisTemplate.opsForValue().setIfAbsent(RedisKeyPrefix.STOCK_LOCK_KEY + skuVo.getId(), 0);
+
+                if (lock) {
+                    //获取成功了之后，将锁放入容器中，如果失败要回滚
                     lockKey.add(RedisKeyPrefix.STOCK_LOCK_KEY + skuVo.getId());
+                    //锁状态+1
                     lockStatus += 1;
-                    //如果获取锁成功就去redis生成库存数据
-                    synchronized (this) {   //这里要进行加锁处理，防止出现脏读问题
-                        if (lock) {
-                            //获取锁成功就将缓存更新
-                            Integer stock = tbStockDao.queryStockById(skuVo.getId());
-                            redisTemplate.opsForValue().set(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId(), stock);
-                            flag += 1;
-                        } else {
-                            //这里做一次查询，如果还是没有缓存,就去更新数据库
-                            if (redisTemplate.opsForValue().get(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId()) == null) {
-                                tbStockDao.updateStockById(skuVo.getId());
-                            }
-                            flag += 1;
-                        }
+                    // --扣减库存，成功了在进行订单的生成
+                    boolean b = RedisUtils.decrement(redisTemplate, RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId());
+                   //缓存成功了更新数据库，这里可以异步
+                    if (b){
+                        tbStockDao.updateStockById(skuVo.getId());
+                        flag += 1;
                     }
+
+//                    //如果获取锁成功就去redis生成库存数据
+//                    synchronized (this) {   //这里要进行加锁处理，防止出现脏读问题
+//                        if (lock) {
+//                            //获取锁成功就将缓存更新
+//                            Integer stock = tbStockDao.queryStockById(skuVo.getId());
+//                            redisTemplate.opsForValue().set(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId(), stock);
+//
+//                        } else {
+//                            //这里做一次查询，如果还是没有缓存,就去更新数据库
+//                            if (redisTemplate.opsForValue().get(RedisKeyPrefix.STOCK_PREFIX_KEY + skuVo.getId()) == null) {
+//                                tbStockDao.updateStockById(skuVo.getId());
+//                            }
+//                            flag += 1;
+//                        }
+//                    }
                 } else {
                     flag += 1;
                 }

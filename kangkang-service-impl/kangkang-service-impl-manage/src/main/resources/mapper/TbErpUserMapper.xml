@@ -5,7 +5,9 @@
     <resultMap id="tbErpUser" type="com.kangkang.manage.entity.TbErpUser">
         <id property="id" column="id"/>
         <result property="telephone" column="telephone"/>
-        <result property="openid" column="openid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="telephone" column="telephone"/>
         <result property="identityCard" column="identity_card"/>
         <result property="identityImage" column="identity_image"/>
         <result property="realName" column="real_name"/>
@@ -20,8 +22,8 @@
         <if test="tbErpUser.telephone!=null">
             and telephone=#{tbErpUser.telephone}
         </if>
-        <if test="tbErpUser.openid">
-           and openid=#{tbErpUser.openid}
+        <if test="tbErpUser.username!=null">
+            or username=#{tbErpUser.username}
         </if>
     </select>
 </mapper>

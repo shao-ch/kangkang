@@ -1,14 +1,23 @@
 package com.kangkang.ERP.login.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.nacos.common.util.Md5Utils;
 import com.kangkang.ERP.login.service.ERPUserService;
 import com.kangkang.manage.entity.TbErpUser;
 import com.kangkang.manage.entity.TbUser;
+import com.kangkang.manage.viewObject.TbErpUserVO;
+import com.kangkang.tools.ConverUtils;
+import com.kangkang.tools.KangkangBeanUtils;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.Map;
 
 /**
  * @ClassName: UserLoginController  后台管理系统用户登录
@@ -30,7 +39,7 @@ public class UserLoginController {
      */
     @ResponseBody
     @PostMapping("/userRegister")
-    public ResponseCode<String> kkLogin(@RequestBody TbErpUser tbErpUser){
+    public ResponseCode<String> kkLogin(@RequestBody TbErpUserVO tbErpUser){
 
         ResponseCode save;
         //首先查询用户存不存在，通过电话号码，或者微信的openid，目前只有两个
@@ -38,14 +47,30 @@ public class UserLoginController {
             log .info("===后台用户注册====,传入的参数为："+ JSONObject.toJSONString(tbErpUser));
 
             if (StringUtils.isEmpty(tbErpUser.getTelephone())
-                    &&StringUtils.isEmpty(tbErpUser.getOpenid())){
-                return ResponseCode.message(500,"电话和微信标识不能同时为空","success");
+                    ||StringUtils.isEmpty(tbErpUser.getUsername())||
+                    StringUtils.isEmpty(tbErpUser.getPassword())){
+                return ResponseCode.message(500,"用户名/密码/电话不能为空","success");
             }
 
+            /**
+             * 通过电话号码或者用户名去查询
+             */
             TbErpUser user= erpUserService.selectErpUser(tbErpUser);
 
             //如果用户为null，要为该用户在我们系统生成一个用户
             if (user==null){
+                TbErpUser userInfo = new TbErpUser();
+                //属性转移
+                BeanUtils.copyProperties(tbErpUser,userInfo);
+
+                //通过不同的方式获取不同的用户名 0-代表电话注册，1-用户注册
+                if ("0".equals(tbErpUser.getRegistyType())){
+                    String userName = ConverUtils.getRandomUserName();
+                    userInfo.setUsername(userName);
+                    //设置用户密码，默认密码为123456
+                    userInfo.setPassword(Md5Utils.getMD5("123456", "UTF-8"));
+                }
+
                 user= erpUserService.saveErpUser(tbErpUser);
                 save=ResponseCode.message(200,user,"success");
             }else {
@@ -71,9 +96,12 @@ public class UserLoginController {
         log.info("===验证码生成并发送短信====,传入的参数为："+ JSONObject.toJSONString(telephone));
         try {
             String flag=erpUserService.sendVerifyCode(telephone);
-            if ("ok".equals(flag))
+            if ("ok".equals(flag)) {
                 save = ResponseCode.message(200, flag, "success");
-            save = ResponseCode.message(200, flag, "success");
+            } else {
+                save = ResponseCode.message(400, flag, "failed");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             log.error("=====登录验证码异常======",e);
@@ -83,6 +111,37 @@ public class UserLoginController {
         return save;
     }
 
+    /**
+     * 后台管理系统登录
+     * @param tbErpUser
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/ERPLogin")
+    public ResponseCode<String> erpLogin(@RequestBody TbErpUserVO tbErpUser){
+        ResponseCode save;
+        log.info("===康康后台管理系统登录====,传入的参数为："+ JSONObject.toJSONString(tbErpUser));
+        try {
+            Map<String,Object> map=erpUserService.erpLogin(tbErpUser);
 
+            /**
+             * 判断信息
+             */
+            if ("ok".equals(map.get("flag"))){
+                save = ResponseCode.message(200, map.get("message"), "登陆成功");
+            }else {
+                save = ResponseCode.message(200, map.get("message"), "登录失败");
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("=====登录异常======",e);
+            save = ResponseCode.message(200, "服务异常", "success");
+        }
+
+        return save;
+    }
 
 }

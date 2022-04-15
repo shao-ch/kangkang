@@ -46,3 +46,4 @@ rocketmq:
     consumeThreadMax: 32
     #设置一次消费信心的条数  默认为1
     consumeMessageBatchMaxSize: 1
+

@@ -1,10 +1,13 @@
 package com.kangkang.ERP;
 
 import com.kangkang.manage.entity.TbErpUser;
+import com.kangkang.manage.viewObject.TbErpUserVO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 /**
  * @InterfaceName: ERPUserFeign  erp的用户信息
@@ -37,4 +40,13 @@ public interface ERPUserFeign {
     @PostMapping(value = "manage/sendVerifyCode/")
     String sendVerifyCode(@RequestParam("telephone") String telephone);
 
+
+    /**
+     * 后台管理系统登录
+     * @param tbErpUser
+     * @return
+     */
+    @LoadBalanced
+    @PostMapping(value = "manage/ERPLogin/")
+    Map<String,Object> erpLogin(@RequestBody TbErpUserVO tbErpUser);
 }

@@ -81,6 +81,32 @@ spring:
         max-idle: 10      #连接池中的最大空闲连接
         min-idle: 0       #连接池中的最小空闲连接
     timeout: 1000         #连接超时时间（毫秒）
+
+
+#      #写入  配置redis的集群的读写分离
+#      master:
+#        database: 0
+#        host: 127.0.0.1
+#        port: 6379
+#        timeout: 20000
+#        password: xxx
+#        pool:
+#          maxActive: 8
+#          minIdle: 0
+#          maxIdle: 8
+#          maxWait: -1
+#        #只读
+#      lbs:
+#        database: 0
+#        host: 127.0.1.1
+#        port: 8099
+#        timeout: 20000
+#        password: xxx
+#        pool:
+#          maxActive: 8
+#          minIdle: 0
+#          maxIdle: 8
+#          maxWait: -1
   main:
     allow-bean-definition-overriding: true
 wx:

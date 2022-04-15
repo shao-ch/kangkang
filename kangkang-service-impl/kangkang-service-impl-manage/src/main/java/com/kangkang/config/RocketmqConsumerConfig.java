@@ -5,6 +5,7 @@ import com.kangkang.listener.RocketmqMessageProcessor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
+import org.apache.rocketmq.client.consumer.rebalance.AllocateMessageQueueAveragely;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
@@ -61,6 +62,10 @@ public class RocketmqConsumerConfig {
          */
         consumer.setMessageModel(MessageModel.CLUSTERING);
 
+        /**
+         * 这里设置负载消费
+         */
+        consumer.setAllocateMessageQueueStrategy(new AllocateMessageQueueAveragely());
         try {
             /**
              * 设置消费者订阅消息

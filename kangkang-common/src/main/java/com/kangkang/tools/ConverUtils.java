@@ -3,6 +3,9 @@ package com.kangkang.tools;
 import com.alibaba.fastjson.JSONObject;
 
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -59,6 +62,36 @@ public class ConverUtils {
         return t;
     }
 
+
+    /**
+     * 获取随机用户名，这个是按照时间错加密来获取的用户名
+     * @return
+     */
+    public static String getRandomUserName(){
+        StringBuffer stringBuffer = null;
+        try {
+            long time = System.currentTimeMillis();
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+
+            byte[] digest = md5.digest(Long.toString(time).getBytes(StandardCharsets.UTF_8));
+
+            stringBuffer = new StringBuffer();
+            String temp = null;
+            for (int i=0;i<digest.length;i++){
+                temp = Integer.toHexString(digest[i] & 0xFF);
+                if (temp.length()==1){
+                    //1得到一位的进行补0操作
+                    stringBuffer.append("0");
+                }
+                stringBuffer.append(temp);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+
+        }
+
+        return stringBuffer.toString();
+    }
     /**
      * 数组转化为json
      * @param specArgument

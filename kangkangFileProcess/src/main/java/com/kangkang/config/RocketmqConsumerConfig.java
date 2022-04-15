@@ -61,6 +61,7 @@ public class RocketmqConsumerConfig {
          */
         consumer.setMessageModel(MessageModel.CLUSTERING);
 
+
         try {
             /**
              * 设置消费者订阅消息

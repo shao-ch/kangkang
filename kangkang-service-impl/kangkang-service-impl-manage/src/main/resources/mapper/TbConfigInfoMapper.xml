@@ -11,7 +11,7 @@
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
-    <select id="queryAllConfig" resultType="java.util.HashMap">
+    <select id="queryAllConfig" resultType="java.util.Map">
         select conf_key confKey,conf_value confValue from tb_conf_info;
     </select>
 </mapper>

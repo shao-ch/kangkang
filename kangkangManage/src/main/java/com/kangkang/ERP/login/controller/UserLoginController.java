@@ -85,7 +85,6 @@ public class UserLoginController {
      * @param telephone
      * @return
      */
-    @ResponseBody
     @PostMapping("/sendVerifyCode")
     public ResponseCode<String> sendVerifyCode(@RequestParam(value = "telephone",required = true) String telephone){
         ResponseCode save;
@@ -95,7 +94,7 @@ public class UserLoginController {
             if ("ok".equals(flag)) {
                 save = ResponseCode.message(200, flag, "success");
             } else {
-                save = ResponseCode.message(400, flag, "failed");
+                save = ResponseCode.message(200, flag, "failed");
             }
 
         } catch (Exception e) {

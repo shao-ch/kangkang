@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @InterfaceName: ConfigService  配置类服务
@@ -20,7 +21,7 @@ public interface ConfigService {
      * 查询所有配置类信息
      * @return
      */
-    HashMap<String, String> initConfigData();
+    List<Map<String, String>> initConfigData();
 
     /**
      * 文件上传

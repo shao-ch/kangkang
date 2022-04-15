@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: ConfigServiceImpl
@@ -30,9 +32,9 @@ public class ConfigServiceImpl implements ConfigService {
      * @return
      */
     @Override
-    public HashMap<String, String> initConfigData() {
+    public List<Map<String,String>> initConfigData() {
 
-       final HashMap<String, String> result = tbConfigInfoDao.queryAllConfig();
+       final List<Map<String,String>> result = tbConfigInfoDao.queryAllConfig();
         return result;
     }
 

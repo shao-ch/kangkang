@@ -5,6 +5,8 @@ import com.kangkang.manage.entity.TbConfInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @InterfaceName: TbConfigInfoDao
@@ -19,5 +21,5 @@ public interface TbConfigInfoDao extends BaseMapper<TbConfInfo> {
      * 查询所有配置信息
      * @return
      */
-    HashMap<String, String> queryAllConfig();
+    List<Map<String, String>> queryAllConfig();
 }

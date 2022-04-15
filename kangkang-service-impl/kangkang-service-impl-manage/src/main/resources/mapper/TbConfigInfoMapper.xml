@@ -1,0 +1,17 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.dao.TbConfigInfoDao">
+
+    <resultMap id="baseMap" type="com.kangkang.manage.entity.TbConfInfo">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="confKey" column="conf_key" jdbcType="VARCHAR"/>
+        <result property="confValue" column="conf_value" jdbcType="VARCHAR"/>
+        <result property="decription" column="decription" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="queryAllConfig" resultType="java.util.HashMap">
+        select conf_key confKey,conf_value confValue from tb_conf_info;
+    </select>
+</mapper>

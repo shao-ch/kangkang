@@ -69,7 +69,7 @@ public class ConfigServiceImpl implements ConfigService {
     @Override
     public HashMap<String, String> initConfigData() {
 
-        HashMap<String, String> result = tbConfigInfoDao.queryAllConfig();
+       final HashMap<String, String> result = tbConfigInfoDao.queryAllConfig();
         return result;
     }
 

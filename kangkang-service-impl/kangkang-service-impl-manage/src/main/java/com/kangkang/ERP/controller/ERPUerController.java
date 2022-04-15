@@ -30,6 +30,8 @@ public class ERPUerController implements ERPUserFeign {
     @Autowired
     private ERPUserService erpUserService;
 
+    @Autowired
+    private TXSmsUtils txSmsUtils;
     /**
      * 注册时查询此用户是否已经被注册了
      * @param tbErpUser
@@ -66,7 +68,7 @@ public class ERPUerController implements ERPUserFeign {
             redisTemplate.opsForValue().set(telephone,rodomNum,5*60, TimeUnit.SECONDS);
             String[] phones={telephone};
             String[] context={rodomNum,"5"};
-            SendStatus sendStatus = TXSmsUtils.sendSMS(phones, context, "1");
+            SendStatus sendStatus = txSmsUtils.sendSMS(phones, context, "1");
             log.info("====腾讯云短信返回的信息为===="+sendStatus.getMessage());
             if (sendStatus.getCode() != null && sendStatus.getCode().equals("Ok")) {
                 return "ok";

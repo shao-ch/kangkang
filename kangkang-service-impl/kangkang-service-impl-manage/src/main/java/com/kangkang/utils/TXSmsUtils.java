@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
+import com.kangkang.config.ConfigDataContext;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
@@ -13,7 +14,9 @@ import com.tencentcloudapi.sms.v20190711.SmsClient;
 import com.tencentcloudapi.sms.v20190711.models.SendSmsRequest;
 import com.tencentcloudapi.sms.v20190711.models.SendSmsResponse;
 import com.tencentcloudapi.sms.v20190711.models.SendStatus;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 import java.util.Random;
@@ -24,16 +27,26 @@ import java.util.Random;
  * @Date: 2022/3/2 4:53 下午
  * @Description: TODO
  */
-public class TXSmsUtils {
-    private final static String appurl = "sms.tencentcloudapi.com";
-    private final static String SDKAppID = "1400638006";
-    private final static String secretId = "AKIDCDzUifLjqgGZaKp42j9JCo9D0WkhPq0t";
-    private final static String secretKey = "e17wUllUv60dy3tSmrgEWXHkwrVsynMg";
-    private final static String SDKAppKey = "46790171cc7110d560f07049543eea16";
-    //短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，可登录 [短信控制台] 查看签名信息
-    private final static String SIGN = "学习空间个人网";
-    private final static String TEMPLATEID = "1318883";
 
+@Component
+public class TXSmsUtils {
+    private  static String SDKAppID;
+    private  static String secretId;
+    private  static String secretKey;
+    //短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，可登录 [短信控制台] 查看签名信息
+    private  static String SIGN;
+    private  static String TEMPLATEID;
+
+    //初始化代码块信息
+    static {
+        SDKAppID= ConfigDataContext.getValue("SDKAppID");
+        secretId= ConfigDataContext.getValue("secretId");
+        secretKey= ConfigDataContext.getValue("secretKey");
+        SIGN= ConfigDataContext.getValue("SIGN");
+        TEMPLATEID= ConfigDataContext.getValue("TEMPLATEID");
+    }
+
+    //或者@PostConstruct也行
 
     /**
      *
@@ -43,7 +56,7 @@ public class TXSmsUtils {
      * @return
      * @throws TencentCloudSDKException
      */
-    public static SendStatus sendSMS(String[] phoneNumbers,String[] templateParamSet,String type) throws TencentCloudSDKException {
+    public  SendStatus sendSMS(String[] phoneNumbers,String[] templateParamSet,String type) throws TencentCloudSDKException {
 
         //获取腾讯云认证
         Credential credential = new Credential(secretId, secretKey);
@@ -112,7 +125,7 @@ public class TXSmsUtils {
         String[] phones = {"+8619109624826"};
         String[] context={rodomNum,"5"};
 
-        SendStatus sendStatus = sendSMS(phones, context, "1");
+        SendStatus sendStatus = new TXSmsUtils().sendSMS(phones, context, "1");
 
         System.out.println("sendSmsResponse = " + sendStatus.getCode());
         System.out.println("sendSmsResponse = " + sendStatus.getMessage());

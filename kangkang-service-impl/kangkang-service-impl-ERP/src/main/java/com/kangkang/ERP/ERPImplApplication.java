@@ -1,4 +1,4 @@
-package com.kangkang;
+package com.kangkang.ERP;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * @ClassName: ManageImplApplication
+ * @ClassName: ERPImplApplication
  * @Author: shaochunhai
  * @Date: 2021/8/7 3:34 下午
  * @Description: TODO
@@ -15,11 +15,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan(basePackages = {"com.kangkang.dao"})
-public class ManageImplApplication {
+@MapperScan(basePackages = {"com.kangkang.ERP.dao"})
+public class ERPImplApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(ManageImplApplication.class,args);
+        SpringApplication.run(ERPImplApplication.class,args);
     }
 }

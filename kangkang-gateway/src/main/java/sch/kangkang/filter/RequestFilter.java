@@ -31,11 +31,22 @@ public class RequestFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
+        //获取系统标志
+        String sysflag = exchange.getRequest().getHeaders().getFirst("SYSF");
+
+        if (!"store".equals(sysflag)){
+            //跳过次过滤器
+            log.info("此系统为--["+sysflag+"]--跳过鉴权过滤器。");
+            exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "1");
+            return chain.filter(exchange);
+        }
+
         //这里要判断是否为登陆接口，如果是就直接跳过不需要去拿token了，key变了
-        boolean attribute = exchange.getAttribute(SkipWitchFilter.USER_TOKEN_FILTER);
-        if (attribute){
+        Object attribute = exchange.getAttribute(SkipWitchFilter.USER_TOKEN_FILTER);
+        if (attribute==null||(boolean) attribute){
             //跳过次过滤器
             log.info("此路径--["+exchange.getRequest().getURI().getPath()+"]--跳过鉴权过滤器。");
+            exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "1");
             return chain.filter(exchange);
         }
         ServerHttpRequest request = exchange.getRequest();
@@ -58,6 +69,7 @@ public class RequestFilter implements GlobalFilter, Ordered {
 
         //将token刷新
         exchange.getRequest().mutate().header("token",actureToken).build();
+        exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "1");
         return chain.filter(exchange);
     }
 

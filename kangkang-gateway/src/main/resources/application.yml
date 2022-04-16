@@ -58,6 +58,22 @@ spring:
             - Path=/mini/file/**
           filters:
             - StripPrefix=2       #2、然后过滤掉前两位
+        #订单管理系统
+        - id: order
+          uri: lb://kangkang-order
+          predicates:
+            - Path=/mini/order/**
+          filters:
+            - StripPrefix=2       #2、然后过滤掉前两位
+
+        #文件处理系统
+        - id: ERP
+          uri: lb://ERP-service
+          predicates:
+            - Path=/mini/erp/**
+          filters:
+            - StripPrefix=2       #2、然后过滤掉前两位
+
 
     nacos:
       discovery:

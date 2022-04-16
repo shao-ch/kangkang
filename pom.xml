@@ -18,6 +18,9 @@
         <module>kangkangOrder</module>
         <module>kangkangFileProcess</module>
         <module>kangkang-log</module>
+        <module>kagnkang-ERP</module>
+        <module>kangkang-service-api/kangkang-service-api-ERP</module>
+        <module>kangkang-service-impl/kangkang-service-impl-ERP</module>
     </modules>
 
     <packaging>pom</packaging>

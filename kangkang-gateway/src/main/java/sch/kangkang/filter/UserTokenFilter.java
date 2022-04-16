@@ -45,28 +45,55 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        //获取系统标志
+        String sysflag = exchange.getRequest().getHeaders().getFirst("SYSF");
+
+        if (!"store".equals(sysflag)) {
+            //跳过次过滤器
+            log.info("此系统为--[" + sysflag + "]--跳过鉴权过滤器。");
+            exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "1");
+            return chain.filter(exchange);
+        }
+
         log.info("=======进入token检验过滤器=====");
         boolean attribute = exchange.getAttribute(SkipWitchFilter.USER_TOKEN_FILTER);
-        if (!attribute){
+        if (!attribute) {
             //跳过次过滤器
-            log.info("此路径--["+exchange.getRequest().getURI().getPath()+"]--跳过鉴权过滤器。");
+            log.info("此路径--[" + exchange.getRequest().getURI().getPath() + "]--跳过鉴权过滤器。");
+            exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "1");
             return chain.filter(exchange);
         }
         //获取response
         ServerHttpResponse response = exchange.getResponse();
         try {
-            ServerHttpRequest request = exchange.getRequest();
             //获取用户的token
-            String token = request.getHeaders().getFirst("token");
-            log.info("=======获取用户token：【"+token+"】=====");
+            String token = exchange.getRequest().getHeaders().getFirst("token");
+
             //获取用户的code
-            String code = request.getHeaders().getFirst("W_X_CODE");
+            String code = exchange.getRequest().getHeaders().getFirst("W_X_CODE");
+
+            //判断是否携带了token并且code部位空
+            if (token == null && code == null) {
+                response.getHeaders().set("Content-type", "text/html;charset=UTF-8");
+                response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("code", "415");
+                jsonObject.put("data", "请登陆后在操作");
+                DataBuffer wrap = response.bufferFactory().wrap(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
+
+                //没有token就返回拒绝登陆
+                return response.writeWith(Mono.just(wrap));
+
+            }
+
+
+            log.info("=======获取用户token：【" + token + "】=====");
 
             if (token == null) {
                 //如果code不为空就去请求wx接口
                 if (code != null) {
                     String wxUrl = getUrl(code);
-                    log.info("=======获取微信请求地址：【"+wxUrl+"】=====");
+                    log.info("=======获取微信请求地址：【" + wxUrl + "】=====");
                     //获取wx返回结果
                     String wxresult = sendWx(wxUrl);
 
@@ -76,19 +103,19 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
                         //直接返回数据
                         return getReturnData(response, "调用微信接口失败", "415");
                     }
-                    if (map.get("errcode")!=null) {
+                    if (map.get("errcode") != null) {
                         return getReturnData(response, map.get("errmsg").toString(), "415");
                     }
                     //成功之后这里要对信息进行jwt加密处理，存入redis，然后返回给前端
                     String getToken = JwtUtils.generateJsonWebToken(map);
-                    log.info("=======用户的token为：【"+wxUrl+"】=====");
+                    log.info("=======用户的token为：【" + wxUrl + "】=====");
                     Object openid = map.get("openid");
                     //对token加密处理
-                    String tokens= Base64Utils.encodeToString(openid.toString().getBytes(StandardCharsets.UTF_8));
+                    String tokens = Base64Utils.encodeToString(openid.toString().getBytes(StandardCharsets.UTF_8));
                     //判断token是否存在，如果已经存在直接返回
                     if (redisTemplate.opsForValue().get(tokens) != null) {
-                        log.info("=======用户的token已存在，为：【"+redisTemplate.opsForValue().get(tokens)+"】=====");
-                        return  getMono(response, "200", openid, tokens);
+                        log.info("=======用户的token已存在，为：【" + redisTemplate.opsForValue().get(tokens) + "】=====");
+                        return getMono(response, "200", openid, tokens);
                     }
                     //将token存入redis
                     redisTemplate.opsForValue().set(tokens, getToken, WxUtil.redis_Timeout, TimeUnit.HOURS);
@@ -102,25 +129,27 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
                 String actureToken = (String) redisTemplate.opsForValue().get(token);
 
                 //判断缓存中是不是不存在，或者本身token自己过期了
-                if (actureToken == null||checkToken(actureToken)) {
+                if (actureToken == null || checkToken(actureToken)) {
                     return getReturnData(response, "token以失效,请重新登陆", "415");
                 }
                 //设置请求头权限，不然会报java.lang.UnsupportedOperationException，因为所有的请求头是没有修改的权限
 
-                exchange.getRequest().mutate().header("token",actureToken).build();
+                exchange.getRequest().mutate().header("token", actureToken).build();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("===网关服务异常===："+e);
+            log.error("===网关服务异常===：" + e);
 
             return getReturnData(response, "网关服务异常", "500");
         }
         //继续往后面的服务传
+        exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "1");
         return chain.filter(exchange);
     }
 
     /**
      * 将认证成功的数据返回给前端
+     *
      * @param response
      * @param code
      * @param openid
@@ -134,7 +163,7 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("token", tokens);
         data.put("openid", openid);
-        jsonObject.put("data",data);
+        jsonObject.put("data", data);
         DataBuffer wrap = response.bufferFactory().wrap(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
         //没有token就返回拒绝登陆
         return response.writeWith(Mono.just(wrap));
@@ -143,7 +172,8 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
 
     /**
      * 检查token本身是否失效
-     * @param token   true  代表token已经过期
+     *
+     * @param token true  代表token已经过期
      * @return
      */
     private boolean checkToken(String token) {
@@ -155,6 +185,7 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
 
     /**
      * 拒绝请求之后 --->响应数据信息
+     *
      * @param response
      * @param errorMsg
      * @param code
@@ -177,7 +208,7 @@ public class UserTokenFilter implements GlobalFilter, Ordered {
      *
      * @param wxUrl
      */
-    private String  sendWx(String wxUrl) {
+    private String sendWx(String wxUrl) {
 
         HttpURLConnection connection = null;
         BufferedReader reader = null;

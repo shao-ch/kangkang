@@ -41,29 +41,12 @@ public class GatewayRouteFilter implements GlobalFilter, Ordered {
         //指定跳过哪个拦截器
         if (path.endsWith("mini/manage/auth") || path.endsWith("/manage/api/signIn")) {
             exchange.getAttributes().put(SkipWitchFilter.USER_TOKEN_FILTER, true);
+        } else if (path.endsWith("/mini/manage/erp/ERPLogin")) {
+            exchange.getAttributes().put(SkipWitchFilter.ERP_TOKEN_FILTER, true);
         } else {
             exchange.getAttributes().put(SkipWitchFilter.USER_TOKEN_FILTER, false);
         }
-        //获取用户的token
-        String token = request.getHeaders().getFirst("token");
-
-        //获取用户的code
-        String code = request.getHeaders().getFirst("W_X_CODE");
-
-        ServerHttpResponse response = exchange.getResponse();
-        //判断是否携带了token并且code部位空
-        if (token == null && code == null) {
-            response.getHeaders().set("Content-type", "text/html;charset=UTF-8");
-            response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("code", "415");
-            jsonObject.put("data", "请登陆后在操作");
-            DataBuffer wrap = response.bufferFactory().wrap(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
-
-            //没有token就返回拒绝登陆
-            return response.writeWith(Mono.just(wrap));
-
-        }
+        exchange.getAttributes().put(SkipWitchFilter.INIT_FILTER, "0");
         return chain.filter(exchange);
     }
 

@@ -9,9 +9,18 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/kangkang-service-api-ERP/pom.xml" />
         <option value="$PROJECT_DIR$/kangkang-service-api-kangkangManage/pom.xml" />
+        <option value="$PROJECT_DIR$/kangkang-service-impl-ERP/pom.xml" />
       </set>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/resources/mapper/TbAddressMapper.xml" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/resources/mapper/TbAreaMapper.xml" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/resources/mapper/TbCategoryMapper.xml" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/resources/mapper/TbErpUserMapper.xml" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/resources/mapper/TbStockManageMapper.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

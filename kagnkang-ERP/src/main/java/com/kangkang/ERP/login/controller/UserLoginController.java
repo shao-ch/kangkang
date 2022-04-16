@@ -15,7 +15,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
-import sun.security.rsa.RSAUtil;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -95,7 +94,7 @@ public class UserLoginController {
      * @return
      */
     @CrossOrigin
-    @PostMapping("/sendVerifyCode")
+    @GetMapping("/sendVerifyCode")
     public ResponseCode<String> sendVerifyCode(@RequestParam(value = "telephone",required = true) String telephone){
         ResponseCode save;
         log.info("===验证码生成并发送短信====,传入的参数为："+ JSONObject.toJSONString(telephone));

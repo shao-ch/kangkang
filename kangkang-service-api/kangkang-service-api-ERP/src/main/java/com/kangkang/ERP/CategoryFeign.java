@@ -1,9 +1,9 @@
-package com.kangkang.service;
+package com.kangkang.ERP;
 
 import com.kangkang.manage.entity.TbCategory;
 import com.kangkang.manage.viewObject.TbCategoryVO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;

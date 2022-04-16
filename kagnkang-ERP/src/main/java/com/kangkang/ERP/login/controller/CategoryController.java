@@ -1,9 +1,9 @@
-package com.kangkang.controller;
+package com.kangkang.ERP.login.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.kangkang.ERP.login.service.CategoryService;
 import com.kangkang.manage.entity.TbCategory;
 import com.kangkang.manage.viewObject.TbCategoryVO;
-import com.kangkang.service.CategoryService;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/cate")
+@RequestMapping("/api")
 public class CategoryController {
 
     @Autowired

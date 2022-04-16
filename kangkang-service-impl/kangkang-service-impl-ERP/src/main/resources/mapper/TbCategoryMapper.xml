@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.ERP.dao.TbCategoryDao">
+
+
+    <select id="queryCategoryInfoByParendId" resultType="com.kangkang.manage.entity.TbCategory">
+        select * from tb_category where parent_id=#{parentId}
+    </select>
+</mapper>

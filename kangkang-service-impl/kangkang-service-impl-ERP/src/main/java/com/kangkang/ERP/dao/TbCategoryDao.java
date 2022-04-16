@@ -1,4 +1,4 @@
-package com.kangkang.dao;
+package com.kangkang.ERP.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kangkang.manage.entity.TbCategory;

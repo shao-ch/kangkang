@@ -1,9 +1,9 @@
-package com.kangkang.service.impl;
+package com.kangkang.ERP.service.impl;
 
-import com.kangkang.dao.TbCategoryDao;
+import com.kangkang.ERP.dao.TbCategoryDao;
+import com.kangkang.ERP.service.AcCategoryService;
 import com.kangkang.manage.entity.TbCategory;
 import com.kangkang.manage.viewObject.TbCategoryVO;
-import com.kangkang.service.AcCategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

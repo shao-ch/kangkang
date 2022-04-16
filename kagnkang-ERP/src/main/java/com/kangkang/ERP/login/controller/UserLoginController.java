@@ -41,6 +41,7 @@ public class UserLoginController {
      * @param tbErpUser
      * @return
      */
+    @CrossOrigin
     @ResponseBody
     @PostMapping("/userRegister")
     public ResponseCode<String> kkLogin(@RequestBody TbErpUserVO tbErpUser){
@@ -93,6 +94,7 @@ public class UserLoginController {
      * @param telephone
      * @return
      */
+    @CrossOrigin
     @PostMapping("/sendVerifyCode")
     public ResponseCode<String> sendVerifyCode(@RequestParam(value = "telephone",required = true) String telephone){
         ResponseCode save;

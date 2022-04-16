@@ -1,7 +1,5 @@
 package com.kangkang.log.service;
 
-import com.kangkang.log.entity.LogQueryVO;
-
 /**
  * @InterfaceName: LogQyeryService  日志查询的服务接口
  * @Author: shaochunhai

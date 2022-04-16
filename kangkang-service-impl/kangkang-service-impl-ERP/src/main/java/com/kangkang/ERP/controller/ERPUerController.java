@@ -97,6 +97,17 @@ public class ERPUerController implements ERPUserFeign {
          */
         if ("0".equals(tbErpUser.getLoginType())) {
 
+            /**
+             * 查询是否有此用户
+             */
+            TbErpUser user = selectErpUser(tbErpUser);
+
+            if (user==null){
+                log.info("此用户为登录的新用户，此用户注册成功！！！");
+                map.put("flag","ok");
+                map.put("message","无此用户,请先注册用户！");
+                return map;
+            }
         } else if ("1".equals(tbErpUser.getLoginType())) {  //短信验证码登录
             //查看验证码
             Object o = redisTemplate.opsForValue().get(tbErpUser.getTelephone());

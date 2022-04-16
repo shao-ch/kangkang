@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
  * @Description: TODO
  */
 @Slf4j
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class UserLoginController {
@@ -40,7 +41,6 @@ public class UserLoginController {
      * @param tbErpUser
      * @return
      */
-    @CrossOrigin
     @ResponseBody
     @PostMapping("/userRegister")
     public ResponseCode<String> kkLogin(@RequestBody TbErpUserVO tbErpUser){
@@ -93,7 +93,6 @@ public class UserLoginController {
      * @param telephone
      * @return
      */
-    @CrossOrigin
     @GetMapping("/sendVerifyCode")
     public ResponseCode<String> sendVerifyCode(@RequestParam(value = "telephone",required = true) String telephone){
         ResponseCode save;
@@ -145,12 +144,12 @@ public class UserLoginController {
                 map.put("token",token);
                 save = ResponseCode.message(200, map, "登陆成功");
             }else {
-                save = ResponseCode.message(200, null, "登录失败");
+                save = ResponseCode.message(201, map.get("message"), "登录失败");
             }
         } catch (Exception e) {
             e.printStackTrace();
             log.error("=====登录异常======",e);
-            save = ResponseCode.message(200, "服务异常", "success");
+            save = ResponseCode.message(500, "服务异常", "success");
         }
 
         return save;

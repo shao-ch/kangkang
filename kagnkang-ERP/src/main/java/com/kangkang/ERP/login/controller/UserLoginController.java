@@ -3,6 +3,8 @@ package com.kangkang.ERP.login.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.util.Md5Utils;
 import com.kangkang.ERP.login.service.ERPUserService;
+import com.kangkang.ERP.mynote.ParamsAOP;
+import com.kangkang.ERP.mynote.ParamsAnalysis;
 import com.kangkang.manage.entity.TbErpUser;
 import com.kangkang.manage.viewObject.TbErpUserVO;
 import com.kangkang.tools.ConverUtils;
@@ -94,15 +96,16 @@ public class UserLoginController {
      * @return
      */
     @GetMapping("/sendVerifyCode")
-    public ResponseCode<String> sendVerifyCode(@RequestParam(value = "telephone",required = true) String telephone){
+    @ParamsAOP(parmsName = "telephone",rule = "^1(3[0-9]|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\\d{8}$")
+    public ResponseCode<Map<String,Object>> sendVerifyCode(@RequestParam(value = "telephone",required = true)  String telephone){
         ResponseCode save;
         log.info("===验证码生成并发送短信====,传入的参数为："+ JSONObject.toJSONString(telephone));
         try {
-            String flag=erpUserService.sendVerifyCode(telephone);
-            if ("ok".equals(flag)) {
-                save = ResponseCode.message(200, flag, "success");
+            Map<String,Object> map=erpUserService.sendVerifyCode(telephone);
+            if ("ok".equals(map.get("flag"))) {
+                save = ResponseCode.message(200, map, "success");
             } else {
-                save = ResponseCode.message(200, flag, "failed");
+                save = ResponseCode.message(201, map, "failed");
             }
 
         } catch (Exception e) {
@@ -119,6 +122,9 @@ public class UserLoginController {
      * @param tbErpUser
      * @return
      */
+    @ParamsAOP(parmsName = "telephone",
+            rule = "^1(3[0-9]|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\\d{8}$",
+    classz = TbErpUserVO.class)
     @ResponseBody
     @PostMapping("/ERPLogin")
     public ResponseCode<Map<String,Object>> erpLogin(@RequestBody TbErpUserVO tbErpUser){

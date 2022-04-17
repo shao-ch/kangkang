@@ -38,7 +38,7 @@ public interface ERPUserFeign {
 
     @LoadBalanced
     @PostMapping(value = "manage/sendVerifyCode/")
-    String sendVerifyCode(@RequestParam("telephone") String telephone);
+    Map<String,Object> sendVerifyCode(@RequestParam("telephone") String telephone);
 
 
     /**

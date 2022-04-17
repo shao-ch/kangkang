@@ -58,7 +58,8 @@ public class ERPUerController implements ERPUserFeign {
      * @return
      */
     @Override
-    public String sendVerifyCode(String telephone) {
+    public Map<String,Object> sendVerifyCode(String telephone) {
+        HashMap<String, Object> map = new HashMap<>();
         //获取验证码
         String rodomNum = TXSmsUtils.getRodomNum();
         //发送短信
@@ -70,14 +71,20 @@ public class ERPUerController implements ERPUserFeign {
             SendStatus sendStatus = txSmsUtils.sendSMS(phones, context, "1");
             log.info("====腾讯云短信返回的信息为===="+sendStatus.getMessage());
             if (sendStatus.getCode() != null && sendStatus.getCode().equals("Ok")) {
-                return "ok";
+                map.put("flag","ok");
+                map.put("message",rodomNum);
+                return map;
             } else {
-                return sendStatus.getMessage();
+                map.put("flag","fail");
+                map.put("message",sendStatus.getMessage());
+                return map;
             }
 
         } catch (Exception e) {
             log.error("==发送短信失败==",e);
-            return e.getMessage();
+            map.put("flag","error");
+            map.put("message",e.getMessage());
+            return map;
         }
     }
 

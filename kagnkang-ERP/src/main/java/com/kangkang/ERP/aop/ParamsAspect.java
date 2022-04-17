@@ -122,7 +122,7 @@ public class ParamsAspect {
             response.setContentType("application/json; charset=utf-8");
             response.getWriter().write(JSONObject.toJSONString(map));
 
-            log.info("值为："+arg+"========"+message);
+            log.info("值为：["+arg+"]========"+message);
             return true;
         }
         return false;

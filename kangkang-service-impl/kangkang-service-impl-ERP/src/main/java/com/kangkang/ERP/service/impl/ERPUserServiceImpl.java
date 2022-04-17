@@ -38,4 +38,14 @@ public class ERPUserServiceImpl implements ERPUserService {
         tbErpUserDao.insert(tbErpUser);
         return tbErpUser;
     }
+
+    /**
+     * 通过用户名和密码查询
+     * @param tbErpUser
+     * @return
+     */
+    @Override
+    public TbErpUser selectErpByUserAndPassword(TbErpUser tbErpUser) {
+        return tbErpUserDao.selectErpByUserAndPassword(tbErpUser);
+    }
 }

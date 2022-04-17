@@ -20,4 +20,6 @@ public interface TbErpUserDao extends BaseMapper<TbErpUser> {
      * @return
      */
     TbErpUser selectErpUser(@Param("tbErpUser") TbErpUser tbErpUser);
+
+    TbErpUser selectErpByUserAndPassword(@Param("tbErpUser") TbErpUser tbErpUser);
 }

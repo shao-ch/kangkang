@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -140,7 +141,10 @@ public class UserLoginController {
                 //将token存入redis
                 String jwtInfo = JwtUtils.generateJsonERPToken(map);
 
-                TbErpUser user = (TbErpUser) map.get("user");
+                //使用feign一定要注意，底层都是将数据转化成linkhashmap的
+                String mapUser =JSONObject.toJSONString(map.get("user"));
+                //如果使用feign带有实体对象的话就要做进一步转化
+                TbErpUser user = JSONObject.parseObject(mapUser, TbErpUser.class);
 
                 //token的生成规则为：用户名+":"+电话号码
                 String token = KBase64Utils.encode(user.getUsername() + ":" + user.getTelephone());

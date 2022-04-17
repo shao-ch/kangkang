@@ -6,6 +6,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -47,6 +48,7 @@ public interface ERPUserFeign {
      * @return
      */
     @LoadBalanced
+    @ResponseBody
     @PostMapping(value = "manage/ERPLogin/")
     Map<String,Object> erpLogin(@RequestBody TbErpUserVO tbErpUser);
 }

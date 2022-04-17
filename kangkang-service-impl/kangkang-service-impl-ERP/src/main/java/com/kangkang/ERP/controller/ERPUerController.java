@@ -1,14 +1,21 @@
 package com.kangkang.ERP.controller;
 
+import com.alibaba.nacos.common.util.Md5Utils;
 import com.kangkang.ERP.ERPUserFeign;
 import com.kangkang.ERP.config.TXSmsUtils;
 import com.kangkang.ERP.service.ERPUserService;
 import com.kangkang.manage.entity.TbErpUser;
 import com.kangkang.manage.viewObject.TbErpUserVO;
+import com.kangkang.tools.AESUtils;
+import com.kangkang.tools.ConverUtils;
 import com.tencentcloudapi.sms.v20190711.models.SendStatus;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -104,19 +111,37 @@ public class ERPUerController implements ERPUserFeign {
         HashMap<String, Object> map = new HashMap<>();
 
         /**
-         * 微信登录
+         * 入参数据
+         */
+        TbErpUser userRc = new TbErpUser();
+        BeanUtils.copyProperties(tbErpUser,userRc);
+        /**
+         * 用户名和密码
          */
         if ("0".equals(tbErpUser.getLoginType())) {
 
             /**
              * 查询是否有此用户
              */
-            TbErpUser user = selectErpUser(tbErpUser);
+            //这里将密码进行加密处理
+            String password=userRc.getPassword();
+            //这里做aes的解密处理然后再做MD5加密做判断
+            password = AESUtils.aesDecrypt(password);
+            log.info("解密后的密码为："+password);
+            password=Md5Utils.getMD5(password, "UTF-8");
+            userRc.setPassword(password);
+
+            TbErpUser user = erpUserService.selectErpByUserAndPassword(userRc);;
 
             if (user==null){
-                log.info("此用户为登录的新用户，此用户注册成功！！！");
+                log.info("用户名或密码错误");
+                map.put("flag","fail");
+                map.put("message","用户名或密码错误！");
+                return map;
+            }else {
                 map.put("flag","ok");
-                map.put("message","无此用户,请先注册用户！");
+                map.put("user",user);
+                map.put("message","登录成功");
                 return map;
             }
         } else if ("1".equals(tbErpUser.getLoginType())) {  //短信验证码登录
@@ -132,11 +157,17 @@ public class ERPUerController implements ERPUserFeign {
             /**
              * 查询是否有此用户
              */
-            TbErpUser user = selectErpUser(tbErpUser);
+            TbErpUser user = erpUserService.selectErpUser(userRc);;
 
             if (user==null){
                 //用户注册
-                saveErpUser(tbErpUser);
+                String userName = ConverUtils.getRandomUserName();
+                userRc.setUsername(userName);
+                //设置用户密码，默认密码为123456
+                userRc.setPassword(Md5Utils.getMD5("123456", "UTF-8"));
+                erpUserService.save(userRc);
+                //这里要讲插入的数据交给user
+                user=userRc;
                 log.info("此用户为登录的新用户，此用户注册成功！！！");
             }
             map.put("flag","ok");

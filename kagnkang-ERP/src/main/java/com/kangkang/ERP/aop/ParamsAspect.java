@@ -81,6 +81,10 @@ public class ParamsAspect {
                 }
             }else {
                 Object value = ReflexObjectUtil.getValueByKey(args[i], s);
+                //如果没有匹配到不做规则的校验
+                if (value==null){
+                    break;
+                }
                 if (ruleMatchCheck(response, regex,
                         "[" + parameters[i].getName() + "]该参数对象中【" + parameters[i].getName() + "】此属性不符个规则！", value)){
                     return;

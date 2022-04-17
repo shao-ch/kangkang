@@ -18,4 +18,6 @@ public interface ERPUserService {
      * @return
      */
     TbErpUser save(TbErpUser tbErpUser);
+
+    TbErpUser selectErpByUserAndPassword(TbErpUser tbErpUser);
 }

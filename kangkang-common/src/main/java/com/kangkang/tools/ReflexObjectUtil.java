@@ -1,10 +1,7 @@
 package com.kangkang.tools;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName: ReflexObjectUtil  反射工具类
@@ -16,7 +13,7 @@ public class ReflexObjectUtil {
     /**
      * 单个对象的所有键值
      *
-     * @param object  单个对象
+     * @param obj  单个对象
      * @return Map<String, Object> map 所有 String键 Object值
      */
     public static Map<String, Object> getKeyAndValue(Object obj) {
@@ -56,26 +53,21 @@ public class ReflexObjectUtil {
 
     /**
      * 单个对象的某个键的值
-     *
-     * @param object
-     *            对象
-     *
-     * @param key
-     *            键
-     *
+     * @param obj 对象
+     * @param key 键
      * @return Object 键在对象中所对应得值 没有查到时返回空字符串
      */
     public static Object getValueByKey(Object obj, String key) {
         // 得到类对象
         Class userCla = (Class) obj.getClass();
         /* 得到类中的所有属性集合 */
-        Field[] fs = userCla.getDeclaredFields();
+        Field[] fs = getAllField(userCla);
         for (int i = 0; i < fs.length; i++) {
             Field f = fs[i];
             f.setAccessible(true); // 设置些属性是可以访问的
             try {
 
-                if (f.getName().endsWith(key)) {
+                if (f.getName().equals(key)) {
                     System.out.println("单个对象的某个键的值==反射==" + f.get(obj));
                     return f.get(obj);
                 }
@@ -87,6 +79,23 @@ public class ReflexObjectUtil {
         }
         // 没有查到时返回空字符串
         return "";
+    }
+
+    /**
+     * 获取有属性，子类和父类的所有属性
+     * @param classz
+     * @return
+     */
+    private static Field[] getAllField(Class classz) {
+
+        ArrayList<Field> fieldList = new ArrayList<>();
+
+        while (classz!=null){
+            fieldList.addAll(new ArrayList<>(Arrays.asList(classz.getDeclaredFields())));
+            classz=classz.getSuperclass();
+        }
+        Field[] fields=new Field[fieldList.size()];
+        return fieldList.toArray(fields);
     }
 
     /**
@@ -155,4 +164,7 @@ public class ReflexObjectUtil {
         System.out.println("多个（列表）对象的某个键的值列表====" + list.toString());
         return list;
     }
+
+
+
 }

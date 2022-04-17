@@ -74,17 +74,25 @@ public class ParamsAspect {
             if (parameters[i].getParameterizedType().getTypeName().equals(String.class.getName())) {
                 if (s.equals(parameters[i].getName())) {
                     //规则内容的匹配校验
-                    ruleMatchCheck(response, regex,
-                            "【" + parameters[i].getName() + "】此属性不符个规则！", args[i]);
+                    if (ruleMatchCheck(response, regex,
+                            "【" + parameters[i].getName() + "】此属性不符个规则！", args[i])){
+                        return;
+                    }
                 }
             }else {
                 Object value = ReflexObjectUtil.getValueByKey(args[i], s);
-                ruleMatchCheck(response,regex,
-                        "["+parameters[i].getName()+"]该参数对象中【" + parameters[i].getName() + "】此属性不符个规则！",value);
+                if (ruleMatchCheck(response, regex,
+                        "[" + parameters[i].getName() + "]该参数对象中【" + parameters[i].getName() + "】此属性不符个规则！", value)){
+                    return;
+                };
             }
         }
         //执行目标方法
-        joinPoint.proceed();
+        Object proceed = joinPoint.proceed();
+
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("application/json; charset=utf-8");
+        response.getWriter().write(JSONObject.toJSONString(proceed));
     }
 
     /**
@@ -95,7 +103,7 @@ public class ParamsAspect {
      * @param arg           参数实际数据
      * @throws IOException
      */
-    private void ruleMatchCheck(HttpServletResponse response, String regex,
+    private boolean ruleMatchCheck(HttpServletResponse response, String regex,
                            String message, Object arg) throws IOException {
 
         //载入规则
@@ -114,8 +122,10 @@ public class ParamsAspect {
             response.setContentType("application/json; charset=utf-8");
             response.getWriter().write(JSONObject.toJSONString(map));
 
-            return;
+            log.info("值为："+arg+"========"+message);
+            return true;
         }
+        return false;
     }
 
 }

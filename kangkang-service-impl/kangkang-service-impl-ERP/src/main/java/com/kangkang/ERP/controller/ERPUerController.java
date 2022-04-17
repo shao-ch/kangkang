@@ -68,17 +68,21 @@ public class ERPUerController implements ERPUserFeign {
             redisTemplate.opsForValue().set(telephone,rodomNum,5*60, TimeUnit.SECONDS);
             String[] phones={telephone};
             String[] context={rodomNum,"5"};
-            SendStatus sendStatus = txSmsUtils.sendSMS(phones, context, "1");
-            log.info("====腾讯云短信返回的信息为===="+sendStatus.getMessage());
-            if (sendStatus.getCode() != null && sendStatus.getCode().equals("Ok")) {
-                map.put("flag","ok");
-                map.put("message",rodomNum);
-                return map;
-            } else {
-                map.put("flag","fail");
-                map.put("message",sendStatus.getMessage());
-                return map;
-            }
+//            SendStatus sendStatus = txSmsUtils.sendSMS(phones, context, "1");
+
+//            log.info("====腾讯云短信返回的信息为===="+sendStatus.getMessage());
+//            if (sendStatus.getCode() != null && sendStatus.getCode().equals("Ok")) {
+//                map.put("flag","ok");
+//                map.put("message",rodomNum);
+//                return map;
+//            } else {
+//                map.put("flag","fail");
+//                map.put("message",sendStatus.getMessage());
+//                return map;
+//            }
+            map.put("flag","ok");
+            map.put("message",rodomNum);
+            return map;
 
         } catch (Exception e) {
             log.error("==发送短信失败==",e);

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -46,12 +47,12 @@ public class ParamsAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 
         HttpServletResponse response = attributes.getResponse();
-        ServerHttpRequest request = (ServerHttpRequest) attributes.getRequest();
+        HttpServletRequest request = attributes.getRequest();
 
         //获取标志
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        log.info("=========接口路径为:{" + request.getURI().getPath() + "}==========");
+        log.info("=========接口路径为:{" +request.getRequestURI() + "}==========");
         //获取注解
         ParamsAOP annotation = method.getAnnotation(ParamsAOP.class);
 
@@ -90,7 +91,7 @@ public class ParamsAspect {
      * 规则匹配
      * @param response
      * @param regex         正则表达式
-     * @param parameter     反射参数对象
+     * @param message       返回给前台的信息
      * @param arg           参数实际数据
      * @throws IOException
      */

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2021/8/5 2:53 下午
  * @Description: TODO
  */
-@Configuration
+//@Configuration
 public class FeignConfig {
 
 //    @LoadBalanced
@@ -35,10 +35,10 @@ public class FeignConfig {
      *
      * @return
      */
-    @Bean
-    public IRule myRule(){
-       return new AvailabilityFilteringRule();
-    }
+//    @Bean  如果已经配置了ribbon就不要在这里设置规则了，不然就会一feign优先，配置文件中的ribbon就会失效
+//    public IRule myRule(){
+//       return new AvailabilityFilteringRule();
+//    }
 
 
     /**

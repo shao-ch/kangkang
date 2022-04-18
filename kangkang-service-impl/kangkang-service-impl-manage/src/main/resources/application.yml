@@ -20,7 +20,7 @@ spring:
     timeout: 1000         #连接超时时间（毫秒）
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://110.40.235.203:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://124.222.61.160:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: root123
   main:

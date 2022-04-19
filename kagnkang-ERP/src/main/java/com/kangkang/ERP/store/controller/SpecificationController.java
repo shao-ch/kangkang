@@ -30,7 +30,7 @@ public class SpecificationController {
     private SpecificationService specificationService;
     /**
      * 添加/更新商品规格
-     * @param tbSpecificationVO
+     * @param json
      * @return
      */
     @ResponseBody
@@ -52,6 +52,8 @@ public class SpecificationController {
              */
             if (tbSpecification.getId()!=null){
                 specificationService.updateSpecificationById(tbSpecification);
+                //更新成功
+                log.info("=========["+tbSpecification.getRuleName()+"]规格参数个更新成功===========");
                 save=ResponseCode.message(200,"更新成功","success");
                 return save;
             }

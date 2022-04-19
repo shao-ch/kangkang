@@ -1,0 +1,24 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kangkang.ERP.dao.SpecificationDao">
+
+    <resultMap id="sepc01" type="com.kangkang.store.entity.TbSpecification">
+        <id property="id" column="id"/>
+        <result property="ruleName" column="rule_name"/>
+        <result property="attrName" column="attr_name"/>
+        <result property="attrValue" column="attr_value"/>
+        <result property="spec" column="spec_property"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateDate" column="update_date"/>
+    </resultMap>
+
+    <select id="querySpecification" resultMap="sepc01">
+        select id, rule_name, attr_name, attr_value, spec_property from tb_specification
+        <where>
+            <if test="tbSpecificationVO.ruleName!=null and tbSpecificationVO.ruleName!=''">
+                and rule_name like concat('%',#{tbSpecificationVO.rule_name},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

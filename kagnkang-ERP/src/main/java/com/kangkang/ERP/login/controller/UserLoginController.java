@@ -3,8 +3,8 @@ package com.kangkang.ERP.login.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.util.Md5Utils;
 import com.kangkang.ERP.login.service.ERPUserService;
+
 import com.kangkang.ERP.mynote.ParamsAOP;
-import com.kangkang.ERP.mynote.ParamsAnalysis;
 import com.kangkang.manage.entity.TbErpUser;
 import com.kangkang.manage.viewObject.TbErpUserVO;
 import com.kangkang.tools.ConverUtils;
@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 

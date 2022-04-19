@@ -35,12 +35,14 @@ public class SpecificationController {
      */
     @ResponseBody
     @PostMapping("/addSpecification")
-    public ResponseCode<String> addSpecification(@RequestBody TbSpecificationVO tbSpecificationVO){
+    public ResponseCode<String> addSpecification(@RequestBody String json){
 
         ResponseCode<String> save;
         try {
-            log .info("===添加商品规格====,传入的参数为："+ JSONObject.toJSONString(tbSpecificationVO));
+            log .info("===添加商品规格====,传入的参数为："+ JSONObject.toJSONString(json));
 
+
+            TbSpecificationVO tbSpecificationVO = JSONObject.parseObject(json, TbSpecificationVO.class);
             TbSpecification tbSpecification = new TbSpecification();
             //属性转移
             BeanUtils.copyProperties(tbSpecificationVO,tbSpecification);

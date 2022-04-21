@@ -29,7 +29,7 @@ public class ERPUserServiceImpl implements ERPUserService {
 
     /**
      * 用户注册信息
-     * @param tbUser
+     * @param tbErpUser
      * @return
      */
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)

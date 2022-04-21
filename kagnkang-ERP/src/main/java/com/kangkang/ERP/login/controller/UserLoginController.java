@@ -158,7 +158,7 @@ public class UserLoginController {
         } catch (Exception e) {
             e.printStackTrace();
             log.error("=====登录异常======",e);
-            save = ResponseCode.message(500, "服务异常", "success");
+            save = ResponseCode.message(500, "服务异常", "服务异常");
         }
 
         return save;

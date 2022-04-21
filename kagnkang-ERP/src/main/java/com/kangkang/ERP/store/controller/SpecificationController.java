@@ -68,19 +68,27 @@ public class SpecificationController {
     }
 
 
-
-
     /**
      * 查询商品规格
-     *
-     * @param tbSpecificationVO 查询规格的入参
+     * @param ruleName  规则名称
+     * @param pageIndex 页码
+     * @param pageSize  每页查询的数据条数
      * @return
      */
+
+
     @GetMapping("/querySpecification")
-    public ResponseCode<Page<TbSpecification>> querySpecification(@RequestBody TbSpecificationVO tbSpecificationVO) {
+    public ResponseCode<Page<TbSpecification>> querySpecification(@RequestParam("ruleName") String ruleName,
+                                                                  @RequestParam(value = "pageIndex",required = false) Integer pageIndex,
+                                                                  @RequestParam(value = "pageSize",required = false) Integer pageSize) {
 
         Page<TbSpecification> list = null;
         try {
+            TbSpecificationVO tbSpecificationVO = new TbSpecificationVO();
+            tbSpecificationVO.setRuleName(ruleName);
+            tbSpecificationVO.setPageIndex(pageIndex);
+            tbSpecificationVO.setPageSize(pageSize);
+            log.info("===查询商品规格====,传入的参数为："+JSONObject.toJSONString(tbSpecificationVO));
             list = specificationService.querySpecification(tbSpecificationVO);
             return ResponseCode.message(200, list, "success");
         } catch (Exception e) {

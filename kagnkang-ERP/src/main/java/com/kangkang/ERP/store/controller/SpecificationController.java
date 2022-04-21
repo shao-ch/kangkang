@@ -105,7 +105,7 @@ public class SpecificationController {
      * @param ids id的集合
      * @return
      */
-    @PostMapping ("/deleteSpecification")
+    @DeleteMapping ("/deleteSpecification")
     public ResponseCode<String> deleteSpecification(@RequestBody List<Long> ids) {
 
         try {

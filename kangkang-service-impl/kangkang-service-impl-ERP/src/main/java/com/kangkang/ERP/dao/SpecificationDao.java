@@ -3,7 +3,7 @@ package com.kangkang.ERP.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbSpecification;
-import com.kangkang.store.viewObject.TbSpecificationVO;
+import com.kangkang.store.dtoObject.TbSpecificationDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -19,8 +19,8 @@ public interface SpecificationDao extends BaseMapper<TbSpecification> {
     /**
      * 分页查询规格数据
      * @param page
-     * @param tbSpecificationVO
+     * @param tbSpecificationDTO
      * @return
      */
-    Page<TbSpecification> querySpecification(Page<TbSpecification> page,@Param("tbSpecificationVO") TbSpecificationVO tbSpecificationVO);
+    Page<TbSpecification> querySpecification(Page<TbSpecification> page,@Param("tbSpecificationVO") TbSpecificationDTO tbSpecificationDTO);
 }

@@ -13,7 +13,7 @@ import com.kangkang.store.entity.TbOrder;
 import com.kangkang.store.entity.TbOrderDetail;
 import com.kangkang.store.entity.TbShoppingCar;
 import com.kangkang.store.entity.TbSku;
-import com.kangkang.store.viewObject.*;
+import com.kangkang.store.dtoObject.*;
 import com.kangkang.tools.ResultUtils;
 import com.kangkang.tools.SnowFlake;
 import com.kangkang.untils.MqUtils;
@@ -73,11 +73,11 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public Map<String, Object> queryOrder(OrderVO order) {
+    public Map<String, Object> queryOrder(OrderDTO order) {
 
         HashMap<String, Object> result = new HashMap<>();
         try {
-            OrderVO vo = new OrderVO();
+            OrderDTO vo = new OrderDTO();
             //查询sku商品信息
             List<Long> skuIds = order.getSkuIds();
 
@@ -88,8 +88,8 @@ public class OrderServiceImpl implements OrderService {
                 return result;
             }
             //数据转化
-            ArrayList<TbSkuVO> tbSkuVOS = getTbSkuVOS(skus);
-            vo.setTbSkus(tbSkuVOS);
+            ArrayList<TbSkuDTO> tbSkuDTOS = getTbSkuVOS(skus);
+            vo.setTbSkus(tbSkuDTOS);
             //查询用户信息
             Long userId = order.getUserId();
             TbUser tbUser = tbUserDao.selectById(userId);
@@ -123,14 +123,14 @@ public class OrderServiceImpl implements OrderService {
      * @param skus
      * @return
      */
-    private ArrayList<TbSkuVO> getTbSkuVOS(List<TbSku> skus) {
-        ArrayList<TbSkuVO> tbSkuVOS = new ArrayList<>();
+    private ArrayList<TbSkuDTO> getTbSkuVOS(List<TbSku> skus) {
+        ArrayList<TbSkuDTO> tbSkuDTOS = new ArrayList<>();
         for (TbSku tbSku : skus) {
-            TbSkuVO tbSkuVO = new TbSkuVO();
-            BeanUtils.copyProperties(tbSku, tbSkuVO);
-            tbSkuVOS.add(tbSkuVO);
+            TbSkuDTO tbSkuDTO = new TbSkuDTO();
+            BeanUtils.copyProperties(tbSku, tbSkuDTO);
+            tbSkuDTOS.add(tbSkuDTO);
         }
-        return tbSkuVOS;
+        return tbSkuDTOS;
     }
 
 
@@ -141,7 +141,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public Map<String, Object> createOrder(OrderVO order) {
+    public Map<String, Object> createOrder(OrderDTO order) {
         HashMap<String, Object> result = new HashMap<>();
 //        Boolean repeat = redisTemplate.opsForValue().setIfAbsent(order.getRepeatOrderFlag(), 1);
 //        if (!repeat) {
@@ -157,8 +157,8 @@ public class OrderServiceImpl implements OrderService {
         ArrayList<String> lockKey = new ArrayList<>();
         TbOrder tbOrder = insertOrder(order);
         //然后生成订单向平表
-        List<TbSkuVO> tbSkus = order.getTbSkus();
-        for (TbSkuVO skuVo : tbSkus) {
+        List<TbSkuDTO> tbSkus = order.getTbSkus();
+        for (TbSkuDTO skuVo : tbSkus) {
             //重置状态
             flag = 0;
             lockStatus = 0;
@@ -251,18 +251,18 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 查询代付款订单
      *
-     * @param orderPageVO
+     * @param orderPageDTO
      * @return
      */
     @Override
-    public Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO) {
+    public Page<OrderView> queryPayingOrder(OrderPageDTO orderPageDTO) {
         ArrayList<OrderView> result = new ArrayList<>();
         //第一步查询所有代付款订单
-        Page<OrderView> page = new Page<>(orderPageVO.getPageIndex(), orderPageVO.getPageSize());
+        Page<OrderView> page = new Page<>(orderPageDTO.getPageIndex(), orderPageDTO.getPageSize());
 
         //查询订单数据
-        Page<TbOrder> tbOrders = tbOrderDao.selectPayingOrder(new Page<>(orderPageVO.getPageIndex(), orderPageVO.getPageSize()),
-                orderPageVO.getOpenId(), orderPageVO.getOrderStatus());
+        Page<TbOrder> tbOrders = tbOrderDao.selectPayingOrder(new Page<>(orderPageDTO.getPageIndex(), orderPageDTO.getPageSize()),
+                orderPageDTO.getOpenId(), orderPageDTO.getOrderStatus());
         //数据的转入
         BeanUtils.copyProperties(tbOrders, page);
         if (tbOrders.getRecords().isEmpty()) {
@@ -295,7 +295,7 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public Page<Map<String, Object>> queryOrderList(OrderPageVO order) {
+    public Page<Map<String, Object>> queryOrderList(OrderPageDTO order) {
         Page<Map<String, Object>> page = new Page<>(order.getPageIndex(), order.getPageSize());
         //获取查询状态，也就是查询什么订单
         String flag = order.getQueryOrderFlag();
@@ -312,7 +312,7 @@ public class OrderServiceImpl implements OrderService {
      * @param tbOrder
      * @param skuVo
      */
-    private void generateOrderDetail(TbOrder tbOrder, TbSkuVO skuVo) {
+    private void generateOrderDetail(TbOrder tbOrder, TbSkuDTO skuVo) {
         TbOrderDetail detail = new TbOrderDetail();
         //设置订单id
         detail.setTbOrderId(tbOrder.getId());
@@ -340,7 +340,7 @@ public class OrderServiceImpl implements OrderService {
      * @param order
      * @return
      */
-    private TbOrder insertOrder(OrderVO order) {
+    private TbOrder insertOrder(OrderDTO order) {
         TbOrder tbOrder = new TbOrder();
         //设置用户id
         tbOrder.setOpenId(order.getOpenId());
@@ -418,7 +418,7 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public List<TbShoppingVO> queryShoppingCar(String openId,List<Long> ids) {
+    public List<TbShoppingDTO> queryShoppingCar(String openId, List<Long> ids) {
 //        ArrayList<TbShoppingVO> list = new ArrayList<>();
 //        List<Long> skuIds = tbShoppingCarDao.selectSkuIds(openId);
 //        if (skuIds.isEmpty()) {

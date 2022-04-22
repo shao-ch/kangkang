@@ -3,7 +3,7 @@ package com.kangkang.service;
 
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
-import com.kangkang.manage.viewObject.TbAdressVO;
+import com.kangkang.manage.dtoObject.TbAdressDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -40,12 +40,12 @@ public interface ManageService {
      * 新增收货地址
      * @param vo
      */
-    Map<String,Object> commitAddress(TbAdressVO vo);
+    Map<String,Object> commitAddress(TbAdressDTO vo);
 
     /**
      * 删除地址
      * @param vo
      * @return
      */
-    void deleteAddress(TbAdressVO vo);
+    void deleteAddress(TbAdressDTO vo);
 }

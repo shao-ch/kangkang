@@ -2,7 +2,7 @@ package com.kangkang.ERP;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbSpecification;
-import com.kangkang.store.viewObject.TbSpecificationVO;
+import com.kangkang.store.dtoObject.TbSpecificationDTO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,11 +37,11 @@ public interface SpecificationFeign {
 
     /**
      * 查询商品规格
-     * @param tbSpecificationVO
+     * @param tbSpecificationDTO
      */
     @LoadBalanced
     @PostMapping(value = "spec/querySpecification/")
-    Page<TbSpecification> querySpecification(@RequestBody TbSpecificationVO tbSpecificationVO);
+    Page<TbSpecification> querySpecification(@RequestBody TbSpecificationDTO tbSpecificationDTO);
 
 
     /**

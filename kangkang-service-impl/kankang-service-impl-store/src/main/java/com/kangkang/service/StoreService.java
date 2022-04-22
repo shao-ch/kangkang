@@ -2,12 +2,11 @@ package com.kangkang.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.manage.entity.TbComment;
-import com.kangkang.manage.viewObject.TbCommentVO;
+import com.kangkang.manage.dtoObject.TbCommentDTO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.viewObject.StoreSearchVO;
-import com.kangkang.store.viewObject.TbStoreVO;
-import com.kangkang.tools.PageUtils;
+import com.kangkang.store.dtoObject.StoreSearchDTO;
+import com.kangkang.store.dtoObject.TbStoreDTO;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
  * @Description: TODO
  */
 public interface StoreService {
-    List<TbStoreVO> queryStoreInfo(StoreSearchVO storeSearchVO);
+    List<TbStoreDTO> queryStoreInfo(StoreSearchDTO storeSearchDTO);
 
 
     /**
@@ -26,7 +25,7 @@ public interface StoreService {
      * @param id
      * @return
      */
-    TbStoreVO getStoreDetail(Long id);
+    TbStoreDTO getStoreDetail(Long id);
 
     /**
      * 立即购买 获取商品实体数据
@@ -51,16 +50,16 @@ public interface StoreService {
 
     /**
      * 新增评论
-     * @param tbCommentVO
+     * @param tbCommentDTO
      */
-    void addComment(TbCommentVO tbCommentVO);
+    void addComment(TbCommentDTO tbCommentDTO);
 
     /**
      * 查询累计评论
-     * @param tbCommentVO
+     * @param tbCommentDTO
      * @return
      */
-    Page<TbComment> queryCommentInfo(TbCommentVO tbCommentVO);
+    Page<TbComment> queryCommentInfo(TbCommentDTO tbCommentDTO);
 
     /**
      * 点赞数

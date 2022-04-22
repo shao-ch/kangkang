@@ -1,7 +1,7 @@
 package com.kangkang.ERP.service;
 
 import com.kangkang.store.entity.TbSpecification;
-import com.kangkang.store.viewObject.TbSpecificationVO;
+import com.kangkang.store.dtoObject.TbSpecificationDTO;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;
@@ -30,9 +30,9 @@ public interface ERPSpecificationService {
 
     /**
      * 查询商品规格
-     * @param tbSpecificationVO
+     * @param tbSpecificationDTO
      */
-    Page<TbSpecification> querySpecification(TbSpecificationVO tbSpecificationVO);
+    Page<TbSpecification> querySpecification(TbSpecificationDTO tbSpecificationDTO);
 
     /**
      * 批量删除规格

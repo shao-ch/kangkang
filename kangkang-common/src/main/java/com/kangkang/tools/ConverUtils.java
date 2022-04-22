@@ -1,6 +1,9 @@
 package com.kangkang.tools;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kangkang.annotation.common.FieldConvert;
 
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
@@ -8,9 +11,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName: ConverUtils
@@ -106,4 +107,115 @@ public class ConverUtils {
         }
         return JSONObject.toJSONString(map);
     }
+
+    /**
+     * 分页数据转化成本项目的格式
+     * @param page
+     * @param tClass
+     * @param <T>
+     * @return
+     */
+    public static <T> PageInfo<T> pageConver (Page<T> page){
+
+        PageInfo<T> tPageInfo = new PageInfo<>();
+
+        tPageInfo.setData(page.getRecords());
+
+        tPageInfo.setSize(page.getSize());
+        tPageInfo.setTotal(page.getTotal());
+        return tPageInfo;
+
+    }
+
+    /**
+     * 数据格式转化
+     * @param jsonObject  json数据
+     * @param tClass    转化的类型
+     * @param <T>    返回的值
+     * @return
+     */
+
+    public static <T> T dataConvert (JSONObject jsonObject,Class<T> clasz) throws InstantiationException, IllegalAccessException {
+
+        //获取所有的属性，包括父类的属性
+        ArrayList<Field> fieldList = new ArrayList<>();
+        Object obj = clasz.newInstance();
+
+        Class<? super T> superclass =clasz;
+        while (superclass!=null){
+            fieldList.addAll(new ArrayList<>(Arrays.asList(clasz.getDeclaredFields())));
+            superclass = clasz.getSuperclass();
+        }
+        Field[] fields=new Field[fieldList.size()];
+        //数组转化
+        fields = fieldList.toArray(fields);
+        //做属性的注入
+        for (Field field : fields) {
+
+            field.setAccessible(true);
+
+            String fieldName = field.getName();
+
+            //获取属性上的是否含有FieldConvert注解
+            FieldConvert fieldConvert = field.getAnnotation(FieldConvert.class);
+            //判断是否是null
+            if (fieldConvert==null){
+                //然后根据数据类型做数据的转化
+                if (field.getType()==String.class){
+                    String str = jsonObject.getString(fieldName);
+                    field.set(obj,str);
+                }else if (field.getType()==boolean.class){
+                    boolean str=  jsonObject.getBoolean(fieldName);
+                    field.set(obj,str);
+                }else if (field.getType()==Date.class){
+                    Date str=  jsonObject.getDate(fieldName);
+                    field.set(obj,str);
+                }else if (field.getType()==Integer.class||field.getType()==int.class){
+                    Integer str=  jsonObject.getInteger(fieldName);
+                    field.set(obj,str);
+                }else if (field.getType()==String[].class){  //数组转化
+                    //数据转化
+                    JSONArray jsonArray = jsonObject.getJSONArray(fieldName);
+                    //转化成数组
+                    String[] strings = jsonArray.toJavaObject(String[].class);
+                    field.set(obj,strings);
+                }else if (field.getType()==List.class){  //list集合
+                    //数据转化
+                    JSONArray jsonArray = jsonObject.getJSONArray(fieldName);
+                    //转化成数组
+                    List<String> s = jsonArray.toJavaList(String.class);
+                    field.set(obj,s);
+                }else {  //否则这里做个强转的类型，如果转化异常的情况下就抛异常
+                    String str = (String) jsonObject.get(fieldName);
+                    field.set(obj,str);
+                }
+            }else {
+                //首先进行第一步的数据类型转化
+                Class<?> type = field.getType();
+                if (type==List.class){
+
+                }
+
+                String[] parmNames = fieldConvert.parmName();
+
+                //获取注解的类型
+                Class[] paramsTypes = fieldConvert.paramsType();
+
+                //抛异常，参数和类型不匹配
+                if (parmNames.length!=paramsTypes.length){
+                    throw new RuntimeException("=========参数名称数量和参数类型的数量不一致==========");
+                }
+                //解析数据
+
+
+            }
+        }
+
+        return null;
+
+    }
+
+
+
+
 }

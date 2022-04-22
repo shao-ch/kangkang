@@ -3,7 +3,7 @@ package com.kangkang.ERP.controller;
 import com.kangkang.ERP.SpecificationFeign;
 import com.kangkang.ERP.service.ERPSpecificationService;
 import com.kangkang.store.entity.TbSpecification;
-import com.kangkang.store.viewObject.TbSpecificationVO;
+import com.kangkang.store.dtoObject.TbSpecificationDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -45,11 +45,11 @@ public class SpecificationImplController implements SpecificationFeign {
 
     /**
      * 查询商品规格
-     * @param tbSpecificationVO
+     * @param tbSpecificationDTO
      */
     @Override
-    public Page<TbSpecification> querySpecification(TbSpecificationVO tbSpecificationVO) {
-        return erpSpecificationService.querySpecification(tbSpecificationVO);
+    public Page<TbSpecification> querySpecification(TbSpecificationDTO tbSpecificationDTO) {
+        return erpSpecificationService.querySpecification(tbSpecificationDTO);
     }
 
     /**

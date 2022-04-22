@@ -1,0 +1,920 @@
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:44] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:36:44] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:36:44] [INFO] [com.kangkang.FileProcessApplication] No active profile set, falling back to default profiles: default
+[2022-02-14 16:36:45] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:36:45] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 45ms. Found 2 Elasticsearch repository interfaces.
+[2022-02-14 16:36:45] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:36:45] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-14 16:36:45] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'ESStoreVORepository' and 'com.kangkang.file.dao.esdao.ESStoreVORepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:36:45] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'esStoreStatisRepository' and 'com.kangkang.file.dao.esdao.EsStoreStatisRepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:36:45] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=f815dcd8-0eb2-3935-bce7-c550a454ee46
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:36:45] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:36:45] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:36:45] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8084 (http)
+[2022-02-14 16:36:45] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:36:45] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-14 16:36:45] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-14 16:36:45] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-14 16:36:45] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 817 ms
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:36:45] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:36:46] [INFO] [com.kangkang.file.config.InitDataConfig] =========开始获取配置信息============
+[2022-02-14 16:36:46] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[2022-02-14 16:36:46] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[2022-02-14 16:36:46] [INFO] [com.kangkang.file.config.InitDataConfig] {confValue=bb, confKey=aa}
+[2022-02-14 16:36:46] [INFO] [com.kangkang.file.config.InitDataConfig] 这里可以做一些属性的初始化的工作。。。。。
+[2022-02-14 16:36:46] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:36:46] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=Mapping definition for [skuTitle] has unsupported parameters:  [analyzer : ik_max_word]]
+[2022-02-14 16:36:46] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:36:50] [INFO] [com.kangkang.config.RocketmqConsumerConfig] consumer 创建成功 groupName=kangkang-fileprocess-consumer,  namesrvAddr=124.222.55.62:9876
+[2022-02-14 16:36:50] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:36:50] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:36:50] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:36:50] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:36:50] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:36:50] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-14 16:36:50] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-14 16:36:50] [INFO] [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[2022-02-14 16:36:50] [INFO] [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2022-02-14 16:36:50] [INFO] [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[2022-02-14 16:36:50] [INFO] [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[2022-02-14 16:36:50] [INFO] [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2022-02-14 16:36:50] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2022-02-14 16:36:50] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[2022-02-14 16:36:50] [INFO] [org.quartz.core.QuartzScheduler] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3562e7c7
+[2022-02-14 16:36:50] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Starting Quartz Scheduler now
+[2022-02-14 16:36:50] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2022-02-14 16:36:50] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:36:50] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8084 (http) with context path ''
+[2022-02-14 16:36:50] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP kangkang-file-process 192.168.251.2:8084 register finished
+[2022-02-14 16:36:50] [INFO] [com.kangkang.FileProcessApplication] Started FileProcessApplication in 6.639 seconds (JVM running for 7.358)
+[2022-02-14 16:37:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:37:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:37:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:37:00] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:37:00] [ERROR] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 将数据库的数据更新到es中,异常信息为：
+org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:177)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2053)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2030)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1777)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1734)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1696)
+	at org.elasticsearch.client.RestHighLevelClient.index(RestHighLevelClient.java:928)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.index(ElasticsearchRestTemplate.java:696)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at com.kangkang.quartz.impl.EsStoreStatisSyncJob.excute(EsStoreStatisSyncJob.java:56)
+	at com.kangkang.file.utils.QuartzTask.run(QuartzTask.java:24)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:936)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:233)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1764)
+		... 42 common frames omitted
+	Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:552)
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:537)
+		at org.apache.http.concurrent.BasicFuture.completed(BasicFuture.java:122)
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.responseCompleted(DefaultClientExchangeHandlerImpl.java:181)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.processResponse(HttpAsyncRequestExecutor.java:448)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.inputReady(HttpAsyncRequestExecutor.java:338)
+		at org.apache.http.impl.nio.DefaultNHttpClientConnection.consumeInput(DefaultNHttpClientConnection.java:265)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:81)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:39)
+		at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:114)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:162)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:337)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:315)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:276)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+		... 1 common frames omitted
+[2022-02-14 16:37:59] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:37:59] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:38:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:38:00] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:38:00] [ERROR] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 将数据库的数据更新到es中,异常信息为：
+org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:177)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2053)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2030)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1777)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1734)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1696)
+	at org.elasticsearch.client.RestHighLevelClient.index(RestHighLevelClient.java:928)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.index(ElasticsearchRestTemplate.java:696)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at com.kangkang.quartz.impl.EsStoreStatisSyncJob.excute(EsStoreStatisSyncJob.java:56)
+	at com.kangkang.file.utils.QuartzTask.run(QuartzTask.java:24)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:936)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:233)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1764)
+		... 42 common frames omitted
+	Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:552)
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:537)
+		at org.apache.http.concurrent.BasicFuture.completed(BasicFuture.java:122)
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.responseCompleted(DefaultClientExchangeHandlerImpl.java:181)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.processResponse(HttpAsyncRequestExecutor.java:448)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.inputReady(HttpAsyncRequestExecutor.java:338)
+		at org.apache.http.impl.nio.DefaultNHttpClientConnection.consumeInput(DefaultNHttpClientConnection.java:265)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:81)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:39)
+		at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:114)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:162)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:337)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:315)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:276)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+		... 1 common frames omitted
+[2022-02-14 16:39:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:39:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:39:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:39:00] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:39:00] [ERROR] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 将数据库的数据更新到es中,异常信息为：
+org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:177)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2053)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2030)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1777)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1734)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1696)
+	at org.elasticsearch.client.RestHighLevelClient.index(RestHighLevelClient.java:928)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.index(ElasticsearchRestTemplate.java:696)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at com.kangkang.quartz.impl.EsStoreStatisSyncJob.excute(EsStoreStatisSyncJob.java:56)
+	at com.kangkang.file.utils.QuartzTask.run(QuartzTask.java:24)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:936)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:233)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1764)
+		... 42 common frames omitted
+	Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:552)
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:537)
+		at org.apache.http.concurrent.BasicFuture.completed(BasicFuture.java:122)
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.responseCompleted(DefaultClientExchangeHandlerImpl.java:181)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.processResponse(HttpAsyncRequestExecutor.java:448)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.inputReady(HttpAsyncRequestExecutor.java:338)
+		at org.apache.http.impl.nio.DefaultNHttpClientConnection.consumeInput(DefaultNHttpClientConnection.java:265)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:81)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:39)
+		at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:114)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:162)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:337)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:315)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:276)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+		... 1 common frames omitted
+[2022-02-14 16:39:56] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:39:56] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Shutting down Quartz Scheduler
+[2022-02-14 16:39:56] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2022-02-14 16:39:56] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:39:56] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2022-02-14 16:39:56] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-14 16:39:56] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-14 16:39:56] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:00] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:40:00] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:40:00] [INFO] [com.kangkang.FileProcessApplication] No active profile set, falling back to default profiles: default
+[2022-02-14 16:40:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:40:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 40ms. Found 2 Elasticsearch repository interfaces.
+[2022-02-14 16:40:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:40:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-14 16:40:01] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'ESStoreVORepository' and 'com.kangkang.file.dao.esdao.ESStoreVORepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:40:01] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'esStoreStatisRepository' and 'com.kangkang.file.dao.esdao.EsStoreStatisRepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:40:01] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=f815dcd8-0eb2-3935-bce7-c550a454ee46
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:40:01] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:40:01] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:40:01] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8084 (http)
+[2022-02-14 16:40:01] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:40:01] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-14 16:40:01] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-14 16:40:01] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-14 16:40:01] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 899 ms
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:40:01] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:40:02] [INFO] [com.kangkang.file.config.InitDataConfig] =========开始获取配置信息============
+[2022-02-14 16:40:02] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[2022-02-14 16:40:02] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[2022-02-14 16:40:02] [INFO] [com.kangkang.file.config.InitDataConfig] {confValue=bb, confKey=aa}
+[2022-02-14 16:40:02] [INFO] [com.kangkang.file.config.InitDataConfig] 这里可以做一些属性的初始化的工作。。。。。
+[2022-02-14 16:40:02] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:40:02] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=Mapping definition for [skuTitle] has unsupported parameters:  [analyzer : ik_max_word]]
+[2022-02-14 16:40:02] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:40:02] [INFO] [com.kangkang.config.RocketmqConsumerConfig] consumer 创建成功 groupName=kangkang-fileprocess-consumer,  namesrvAddr=124.222.55.62:9876
+[2022-02-14 16:40:02] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:40:02] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:40:02] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:40:02] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:40:03] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:40:03] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-14 16:40:03] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-14 16:40:04] [INFO] [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[2022-02-14 16:40:04] [INFO] [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2022-02-14 16:40:04] [INFO] [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[2022-02-14 16:40:04] [INFO] [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[2022-02-14 16:40:04] [INFO] [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2022-02-14 16:40:04] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2022-02-14 16:40:04] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[2022-02-14 16:40:04] [INFO] [org.quartz.core.QuartzScheduler] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@995ad50
+[2022-02-14 16:40:04] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Starting Quartz Scheduler now
+[2022-02-14 16:40:04] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2022-02-14 16:40:04] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:40:04] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8084 (http) with context path ''
+[2022-02-14 16:40:04] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP kangkang-file-process 192.168.251.2:8084 register finished
+[2022-02-14 16:40:04] [INFO] [com.kangkang.FileProcessApplication] Started FileProcessApplication in 4.379 seconds (JVM running for 5.679)
+[2022-02-14 16:41:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:41:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:41:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:41:31] [WARN] [com.zaxxer.hikari.pool.HikariPool] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58s625ms).
+[2022-02-14 16:41:34] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:41:52] [ERROR] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 将数据库的数据更新到es中,异常信息为：
+org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:177)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2053)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2030)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1777)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1734)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1696)
+	at org.elasticsearch.client.RestHighLevelClient.index(RestHighLevelClient.java:928)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.index(ElasticsearchRestTemplate.java:696)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at com.kangkang.quartz.impl.EsStoreStatisSyncJob.excute(EsStoreStatisSyncJob.java:56)
+	at com.kangkang.file.utils.QuartzTask.run(QuartzTask.java:24)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:936)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:233)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1764)
+		... 43 common frames omitted
+	Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:552)
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:537)
+		at org.apache.http.concurrent.BasicFuture.completed(BasicFuture.java:122)
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.responseCompleted(DefaultClientExchangeHandlerImpl.java:181)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.processResponse(HttpAsyncRequestExecutor.java:448)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.inputReady(HttpAsyncRequestExecutor.java:338)
+		at org.apache.http.impl.nio.DefaultNHttpClientConnection.consumeInput(DefaultNHttpClientConnection.java:265)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:81)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:39)
+		at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:114)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:162)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:337)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:315)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:276)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+		... 1 common frames omitted
+[2022-02-14 16:41:55] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:41:55] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Shutting down Quartz Scheduler
+[2022-02-14 16:41:55] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2022-02-14 16:41:55] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:41:55] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2022-02-14 16:41:55] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-14 16:41:55] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-14 16:41:55] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:42:35] [INFO] [com.kangkang.FileProcessApplication] No active profile set, falling back to default profiles: default
+[2022-02-14 16:42:35] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:42:35] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 29ms. Found 2 Elasticsearch repository interfaces.
+[2022-02-14 16:42:35] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:42:35] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-14 16:42:35] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'ESStoreVORepository' and 'com.kangkang.file.dao.esdao.ESStoreVORepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:42:35] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'esStoreStatisRepository' and 'com.kangkang.file.dao.esdao.EsStoreStatisRepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:42:35] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=f815dcd8-0eb2-3935-bce7-c550a454ee46
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:42:35] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:42:35] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:42:35] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8084 (http)
+[2022-02-14 16:42:35] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:42:35] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-14 16:42:35] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-14 16:42:35] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-14 16:42:35] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 667 ms
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:42:35] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:42:36] [INFO] [com.kangkang.file.config.InitDataConfig] =========开始获取配置信息============
+[2022-02-14 16:42:36] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[2022-02-14 16:42:36] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[2022-02-14 16:42:36] [INFO] [com.kangkang.file.config.InitDataConfig] {confValue=bb, confKey=aa}
+[2022-02-14 16:42:36] [INFO] [com.kangkang.file.config.InitDataConfig] 这里可以做一些属性的初始化的工作。。。。。
+[2022-02-14 16:42:36] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:42:36] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=Mapping definition for [skuTitle] has unsupported parameters:  [analyzer : ik_max_word]]
+[2022-02-14 16:42:36] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:42:36] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=illegal_argument_exception, reason=Can't merge a non object mapping [specArgument] with an object mapping [specArgument]]
+[2022-02-14 16:42:36] [INFO] [com.kangkang.config.RocketmqConsumerConfig] consumer 创建成功 groupName=kangkang-fileprocess-consumer,  namesrvAddr=124.222.55.62:9876
+[2022-02-14 16:42:37] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:42:37] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:42:37] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:42:37] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:42:37] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:42:37] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-14 16:42:37] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-14 16:42:37] [INFO] [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[2022-02-14 16:42:37] [INFO] [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2022-02-14 16:42:37] [INFO] [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[2022-02-14 16:42:37] [INFO] [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[2022-02-14 16:42:37] [INFO] [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2022-02-14 16:42:37] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2022-02-14 16:42:37] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[2022-02-14 16:42:37] [INFO] [org.quartz.core.QuartzScheduler] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@563172d3
+[2022-02-14 16:42:37] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Starting Quartz Scheduler now
+[2022-02-14 16:42:37] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2022-02-14 16:42:37] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:42:37] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8084 (http) with context path ''
+[2022-02-14 16:42:37] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP kangkang-file-process 192.168.251.2:8084 register finished
+[2022-02-14 16:42:37] [INFO] [com.kangkang.FileProcessApplication] Started FileProcessApplication in 2.775 seconds (JVM running for 3.58)
+[2022-02-14 16:43:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:43:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:43:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:43:00] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:43:00] [ERROR] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 将数据库的数据更新到es中,异常信息为：
+org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:177)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2053)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2030)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1777)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1734)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1696)
+	at org.elasticsearch.client.RestHighLevelClient.index(RestHighLevelClient.java:928)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.index(ElasticsearchRestTemplate.java:696)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at com.kangkang.quartz.impl.EsStoreStatisSyncJob.excute(EsStoreStatisSyncJob.java:56)
+	at com.kangkang.file.utils.QuartzTask.run(QuartzTask.java:24)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:936)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:233)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1764)
+		... 42 common frames omitted
+	Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:552)
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:537)
+		at org.apache.http.concurrent.BasicFuture.completed(BasicFuture.java:122)
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.responseCompleted(DefaultClientExchangeHandlerImpl.java:181)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.processResponse(HttpAsyncRequestExecutor.java:448)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.inputReady(HttpAsyncRequestExecutor.java:338)
+		at org.apache.http.impl.nio.DefaultNHttpClientConnection.consumeInput(DefaultNHttpClientConnection.java:265)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:81)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:39)
+		at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:114)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:162)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:337)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:315)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:276)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+		... 1 common frames omitted
+[2022-02-14 16:43:09] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:43:09] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Shutting down Quartz Scheduler
+[2022-02-14 16:43:09] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2022-02-14 16:43:09] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:43:09] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2022-02-14 16:43:09] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-14 16:43:09] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-14 16:43:09] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:47] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:43:47] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:43:47] [INFO] [com.kangkang.FileProcessApplication] No active profile set, falling back to default profiles: default
+[2022-02-14 16:43:48] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:43:48] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 39ms. Found 2 Elasticsearch repository interfaces.
+[2022-02-14 16:43:48] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:43:48] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-14 16:43:48] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'ESStoreVORepository' and 'com.kangkang.file.dao.esdao.ESStoreVORepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:43:48] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'esStoreStatisRepository' and 'com.kangkang.file.dao.esdao.EsStoreStatisRepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:43:48] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=f815dcd8-0eb2-3935-bce7-c550a454ee46
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:43:48] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:43:48] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:43:48] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8084 (http)
+[2022-02-14 16:43:48] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:43:48] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-14 16:43:48] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-14 16:43:48] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-14 16:43:48] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 857 ms
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:43:48] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:43:49] [INFO] [com.kangkang.file.config.InitDataConfig] =========开始获取配置信息============
+[2022-02-14 16:43:49] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[2022-02-14 16:43:49] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[2022-02-14 16:43:49] [INFO] [com.kangkang.file.config.InitDataConfig] {confValue=bb, confKey=aa}
+[2022-02-14 16:43:49] [INFO] [com.kangkang.file.config.InitDataConfig] 这里可以做一些属性的初始化的工作。。。。。
+[2022-02-14 16:43:49] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:43:49] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=Mapping definition for [skuTitle] has unsupported parameters:  [analyzer : ik_max_word]]
+[2022-02-14 16:43:49] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:43:49] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=illegal_argument_exception, reason=Can't merge a non object mapping [specArgument] with an object mapping [specArgument]]
+[2022-02-14 16:43:50] [INFO] [com.kangkang.config.RocketmqConsumerConfig] consumer 创建成功 groupName=kangkang-fileprocess-consumer,  namesrvAddr=124.222.55.62:9876
+[2022-02-14 16:43:50] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:43:50] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:43:50] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:43:50] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:43:50] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:43:50] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-14 16:43:51] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-14 16:43:51] [INFO] [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[2022-02-14 16:43:51] [INFO] [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2022-02-14 16:43:51] [INFO] [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[2022-02-14 16:43:51] [INFO] [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[2022-02-14 16:43:51] [INFO] [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2022-02-14 16:43:51] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2022-02-14 16:43:51] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[2022-02-14 16:43:51] [INFO] [org.quartz.core.QuartzScheduler] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@63262071
+[2022-02-14 16:43:51] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Starting Quartz Scheduler now
+[2022-02-14 16:43:51] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2022-02-14 16:43:51] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:43:51] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8084 (http) with context path ''
+[2022-02-14 16:43:51] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP kangkang-file-process 192.168.251.2:8084 register finished
+[2022-02-14 16:43:51] [INFO] [com.kangkang.FileProcessApplication] Started FileProcessApplication in 4.821 seconds (JVM running for 5.55)
+[2022-02-14 16:44:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:44:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:44:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:44:10] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:44:14] [ERROR] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 将数据库的数据更新到es中,异常信息为：
+org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:177)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2053)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2030)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1777)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1734)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1696)
+	at org.elasticsearch.client.RestHighLevelClient.index(RestHighLevelClient.java:928)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.index(ElasticsearchRestTemplate.java:696)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy112.save(Unknown Source)
+	at com.kangkang.quartz.impl.EsStoreStatisSyncJob.excute(EsStoreStatisSyncJob.java:56)
+	at com.kangkang.file.utils.QuartzTask.run(QuartzTask.java:24)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:936)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:233)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1764)
+		... 43 common frames omitted
+	Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://101.43.21.125:9200], URI [/kangkang_store_statis_info/doc/1060?timeout=1m], status line [HTTP/1.1 400 Bad Request]
+Warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"}],"type":"mapper_parsing_exception","reason":"object mapping for [specArgument] tried to parse field [specArgument] as object, but found a concrete value"},"status":400}
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:552)
+		at org.elasticsearch.client.RestClient$1.completed(RestClient.java:537)
+		at org.apache.http.concurrent.BasicFuture.completed(BasicFuture.java:122)
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.responseCompleted(DefaultClientExchangeHandlerImpl.java:181)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.processResponse(HttpAsyncRequestExecutor.java:448)
+		at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.inputReady(HttpAsyncRequestExecutor.java:338)
+		at org.apache.http.impl.nio.DefaultNHttpClientConnection.consumeInput(DefaultNHttpClientConnection.java:265)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:81)
+		at org.apache.http.impl.nio.client.InternalIODispatch.onInputReady(InternalIODispatch.java:39)
+		at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:114)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:162)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:337)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:315)
+		at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:276)
+		at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+		... 1 common frames omitted
+[2022-02-14 16:44:17] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:44:17] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Shutting down Quartz Scheduler
+[2022-02-14 16:44:17] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2022-02-14 16:44:17] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:44:17] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2022-02-14 16:44:17] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-14 16:44:17] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-14 16:44:17] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:50:27] [INFO] [com.kangkang.FileProcessApplication] No active profile set, falling back to default profiles: default
+[2022-02-14 16:50:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:50:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 49ms. Found 2 Elasticsearch repository interfaces.
+[2022-02-14 16:50:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-14 16:50:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-14 16:50:27] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'ESStoreVORepository' and 'com.kangkang.file.dao.esdao.ESStoreVORepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:50:27] [WARN] [org.mybatis.spring.mapper.ClassPathMapperScanner] Skipping MapperFactoryBean with name 'esStoreStatisRepository' and 'com.kangkang.file.dao.esdao.EsStoreStatisRepository' mapperInterface. Bean already defined with the same name!
+[2022-02-14 16:50:27] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=f815dcd8-0eb2-3935-bce7-c550a454ee46
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-14 16:50:27] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-14 16:50:27] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:50:27] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-14 16:50:28] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8084 (http)
+[2022-02-14 16:50:28] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:50:28] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-14 16:50:28] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-14 16:50:28] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-14 16:50:28] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 978 ms
+[2022-02-14 16:50:28] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-14 16:50:28] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-14 16:50:28] [INFO] [com.kangkang.file.config.InitDataConfig] =========开始获取配置信息============
+[2022-02-14 16:50:28] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[2022-02-14 16:50:29] [INFO] [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[2022-02-14 16:50:29] [INFO] [com.kangkang.file.config.InitDataConfig] {confValue=bb, confKey=aa}
+[2022-02-14 16:50:29] [INFO] [com.kangkang.file.config.InitDataConfig] 这里可以做一些属性的初始化的工作。。。。。
+[2022-02-14 16:50:29] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:50:29] [ERROR] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository] failed to load elasticsearch nodes : org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=mapper_parsing_exception, reason=Mapping definition for [skuTitle] has unsupported parameters:  [analyzer : ik_max_word]]
+[2022-02-14 16:50:29] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in create index requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:50:29] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/_mapping/doc?master_timeout=30s&include_type_name=true&timeout=30s] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Using include_type_name in put mapping requests is deprecated. The parameter will be removed in the next major version."]
+[2022-02-14 16:50:30] [INFO] [com.kangkang.config.RocketmqConsumerConfig] consumer 创建成功 groupName=kangkang-fileprocess-consumer,  namesrvAddr=124.222.55.62:9876
+[2022-02-14 16:50:30] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:50:30] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:50:30] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-14 16:50:30] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-14 16:50:30] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-14 16:50:30] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-14 16:50:31] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-14 16:50:31] [INFO] [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[2022-02-14 16:50:31] [INFO] [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2022-02-14 16:50:31] [INFO] [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[2022-02-14 16:50:31] [INFO] [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[2022-02-14 16:50:31] [INFO] [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2022-02-14 16:50:31] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2022-02-14 16:50:31] [INFO] [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[2022-02-14 16:50:31] [INFO] [org.quartz.core.QuartzScheduler] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@525b8922
+[2022-02-14 16:50:31] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Starting Quartz Scheduler now
+[2022-02-14 16:50:31] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2022-02-14 16:50:31] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8084"]
+[2022-02-14 16:50:31] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8084 (http) with context path ''
+[2022-02-14 16:50:31] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP kangkang-file-process 192.168.251.2:8084 register finished
+[2022-02-14 16:50:31] [INFO] [com.kangkang.FileProcessApplication] Started FileProcessApplication in 5.079 seconds (JVM running for 5.858)
+[2022-02-14 16:51:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:51:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:51:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:51:08] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1060?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:51:13] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 数据更新成功：{"id":1060,"image":"bab3020db34d4ba9.jpg,cd13e5c002bdbd6f.jpg,4f0359675793493e.jpg,f4e8c4b6df4194d6.jpg,5320e364d5361946.jpg,39257edd4294f6ee.jpg","specArgument":"[\"商品名称：赞布斯 俄罗斯风味卢布肠纯肉火腿肠香肠牛筋肠牛肉鸡肉肠俄罗斯特产即食劲道下酒菜家庭配菜夜宵真空包装 卢布肠380g\", \"商品编号：10026495628395\", \"店铺： \", \"商品毛重：380.00g\", \"商品产地：中国大陆\", \"货号：001\", \"类别：猪肉肠\", \"包装形式：袋装\"]","specification":"3a40fc1b1024636f.jpg,edb91880dfb43a11.jpg,88f7a4b914d16364.jpg,bf7b40a9fa94345e.jpg,0e48bf7be6eba008.jpg,fd3c0b10e5b64913.jpg,112a774255d445d1.jpg,4b6670fc149d59dd.jpg,8ff5ddb42d22982a.jpg,80359e64c432f99d.jpg,1afd058276066361.jpg,f832dfb2f7ed3203.jpg,25330275c2118395.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:51:13] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =======开始将数据插入es========：{"id":1061,"image":"de00be2369a09b57.jpg,2fa3ce5c356609e9.jpg,2d3492a4fdc4152f.jpg,adb23ae1db2b6afe.jpg,d71cf11788e3ac87.jpg,405ee094319be20c.jpg,97d1999bca4dc7ac.jpg,9f809cac22e26238.jpg,14bef983cfd1be6c.jpg","specArgument":"[\"商品名称：卫龙1000g烧-A\", \"商品编号：100016240828\", \"商品毛重：1.03kg\", \"商品产地：中国大陆\", \"口味：其它\", \"类别：其它\", \"净含量：1kg以上\"]","specification":"28580c71702446b4.jpg,d611d26603a56143.jpg,11f6f7b115d7ae44.jpg,98b11ce58962bf19.jpg,591a4d9707a68a7b.jpg,7757525875b48444.jpg,f9e0c3206dd47ec3.jpg,05ebc32d4440e508.jpg,2c91e566be5b9345.jpg,aa1b3a5b73d1fa7b.jpg,aad089eea4a96764.jpg,3a5732beaba121e8.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:51:13] [WARN] [org.elasticsearch.client.RestClient] request [PUT http://101.43.21.125:9200/kangkang_store_statis_info/doc/1061?timeout=1m] returned 1 warnings: [299 Elasticsearch-7.4.2-2f90bbf7b93631e52bafb59b3b049cb44ec25e96 "[types removal] Specifying types in document index requests is deprecated, use the typeless endpoints instead (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})."]
+[2022-02-14 16:51:13] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] 数据更新成功：{"id":1061,"image":"de00be2369a09b57.jpg,2fa3ce5c356609e9.jpg,2d3492a4fdc4152f.jpg,adb23ae1db2b6afe.jpg,d71cf11788e3ac87.jpg,405ee094319be20c.jpg,97d1999bca4dc7ac.jpg,9f809cac22e26238.jpg,14bef983cfd1be6c.jpg","specArgument":"[\"商品名称：卫龙1000g烧-A\", \"商品编号：100016240828\", \"商品毛重：1.03kg\", \"商品产地：中国大陆\", \"口味：其它\", \"类别：其它\", \"净含量：1kg以上\"]","specification":"28580c71702446b4.jpg,d611d26603a56143.jpg,11f6f7b115d7ae44.jpg,98b11ce58962bf19.jpg,591a4d9707a68a7b.jpg,7757525875b48444.jpg,f9e0c3206dd47ec3.jpg,05ebc32d4440e508.jpg,2c91e566be5b9345.jpg,aa1b3a5b73d1fa7b.jpg,aad089eea4a96764.jpg,3a5732beaba121e8.jpg","tbCategoryId":1,"visitCount":0}
+[2022-02-14 16:52:00] [INFO] [com.kangkang.quartz.impl.EsStoreStatisSyncJob] =====表tb_store的统计数据更新到es开始执行====
+[2022-02-14 16:52:00] [INFO] [com.kangkang.quartz.impl.EsStoreInfoUpdateJob] =====数据库的数据更新到es开始执行====
+[2022-02-14 16:52:13] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:52:13] [INFO] [org.springframework.scheduling.quartz.SchedulerFactoryBean] Shutting down Quartz Scheduler
+[2022-02-14 16:52:13] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2022-02-14 16:52:13] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2022-02-14 16:52:13] [INFO] [org.quartz.core.QuartzScheduler] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2022-02-14 16:52:13] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-14 16:52:13] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-14 16:52:13] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'

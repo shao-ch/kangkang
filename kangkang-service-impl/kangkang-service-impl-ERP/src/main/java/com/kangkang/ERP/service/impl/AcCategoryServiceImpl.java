@@ -3,7 +3,7 @@ package com.kangkang.ERP.service.impl;
 import com.kangkang.ERP.dao.TbCategoryDao;
 import com.kangkang.ERP.service.AcCategoryService;
 import com.kangkang.manage.entity.TbCategory;
-import com.kangkang.manage.viewObject.TbCategoryVO;
+import com.kangkang.manage.dtoObject.TbCategoryDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class AcCategoryServiceImpl implements AcCategoryService {
      * @return
      */
     @Override
-    public void saveCategory(TbCategoryVO vo) {
+    public void saveCategory(TbCategoryDTO vo) {
 
         //0代表一级目录  1代表其他子目录
         if (StringUtils.equals("0", vo.getFlag())) {

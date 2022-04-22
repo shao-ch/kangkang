@@ -1,15 +1,13 @@
 package com.kangkang.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.manage.entity.TbComment;
-import com.kangkang.manage.viewObject.TbCommentVO;
+import com.kangkang.manage.dtoObject.TbCommentDTO;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.viewObject.StoreSearchVO;
-import com.kangkang.store.viewObject.TbStoreVO;
-import com.kangkang.tools.PageUtils;
+import com.kangkang.store.dtoObject.StoreSearchDTO;
+import com.kangkang.store.dtoObject.TbStoreDTO;
 import com.kangkang.tools.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,11 +34,11 @@ public class StoreController {
      * @return
      */
     @PostMapping("/queryStoreInfo")
-    public ResponseCode<List<TbStoreVO>> queryStoreInfo(@RequestBody StoreSearchVO storeSearchVO) {
+    public ResponseCode<List<TbStoreDTO>> queryStoreInfo(@RequestBody StoreSearchDTO storeSearchDTO) {
 
-        List<TbStoreVO> list = null;
+        List<TbStoreDTO> list = null;
         try {
-            list = storeService.queryStoreInfo(storeSearchVO);
+            list = storeService.queryStoreInfo(storeSearchDTO);
             return ResponseCode.message(200, list, "success");
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,9 +53,9 @@ public class StoreController {
      * @return
      */
     @GetMapping("/getStoreDetail")
-    public ResponseCode<TbStoreVO> getStoreDetail(@RequestParam("id") Long id) {
+    public ResponseCode<TbStoreDTO> getStoreDetail(@RequestParam("id") Long id) {
 
-        TbStoreVO tbStoreDetail = null;
+        TbStoreDTO tbStoreDetail = null;
         try {
             tbStoreDetail = storeService.getStoreDetail(id);
             return ResponseCode.message(200, tbStoreDetail, "success");
@@ -110,17 +108,17 @@ public class StoreController {
     /**
      * 新增评论
      *
-     * @param tbCommentVO 评论消息
+     * @param tbCommentDTO 评论消息
      * @return
      */
     @PostMapping("/addComment")
-    public ResponseCode<Void> addComment(@RequestBody TbCommentVO tbCommentVO) {
+    public ResponseCode<Void> addComment(@RequestBody TbCommentDTO tbCommentDTO) {
 
-        if (tbCommentVO.getTbStoreId() == null) {
+        if (tbCommentDTO.getTbStoreId() == null) {
             return ResponseCode.message(500, null, "商品id不能为空");
         }
         try {
-            storeService.addComment(tbCommentVO);
+            storeService.addComment(tbCommentDTO);
             return ResponseCode.message(200, null, "success");
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,18 +130,18 @@ public class StoreController {
     /**
      * 查询累计评论
      *
-     * @param tbCommentVO 评论消息
+     * @param tbCommentDTO 评论消息
      * @return
      */
     @GetMapping("/queryCommentInfo")
-    public ResponseCode<Page<TbComment>> queryCommentInfo(@RequestBody TbCommentVO tbCommentVO) {
+    public ResponseCode<Page<TbComment>> queryCommentInfo(@RequestBody TbCommentDTO tbCommentDTO) {
 
-        if (tbCommentVO.getTbStoreId() == null) {
+        if (tbCommentDTO.getTbStoreId() == null) {
             return ResponseCode.message(500, null, "商品id不能为空");
         }
         Page<TbComment> list = null;
         try {
-            list = storeService.queryCommentInfo(tbCommentVO);
+            list = storeService.queryCommentInfo(tbCommentDTO);
             return ResponseCode.message(200, list, "success");
         } catch (Exception e) {
             e.printStackTrace();

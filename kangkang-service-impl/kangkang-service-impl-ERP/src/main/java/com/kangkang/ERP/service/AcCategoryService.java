@@ -1,7 +1,7 @@
 package com.kangkang.ERP.service;
 
 import com.kangkang.manage.entity.TbCategory;
-import com.kangkang.manage.viewObject.TbCategoryVO;
+import com.kangkang.manage.dtoObject.TbCategoryDTO;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public interface AcCategoryService {
      * @param vo
      * @return
      */
-    void saveCategory(TbCategoryVO vo);
+    void saveCategory(TbCategoryDTO vo);
 
     /**
      * 通过id删除分类条目

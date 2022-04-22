@@ -1,7 +1,7 @@
 package com.kangkang.ERP;
 
 import com.kangkang.manage.entity.TbErpUser;
-import com.kangkang.manage.viewObject.TbErpUserVO;
+import com.kangkang.manage.dtoObject.TbErpUserDTO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,5 +50,5 @@ public interface ERPUserFeign {
     @LoadBalanced
     @ResponseBody
     @PostMapping(value = "manage/ERPLogin/")
-    Map<String,Object> erpLogin(@RequestBody TbErpUserVO tbErpUser);
+    Map<String,Object> erpLogin(@RequestBody TbErpUserDTO tbErpUser);
 }

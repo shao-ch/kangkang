@@ -2,11 +2,10 @@ package com.kangkang.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.store.entity.TbShoppingCar;
-import com.kangkang.store.entity.TbSku;
-import com.kangkang.store.viewObject.OrderPageVO;
-import com.kangkang.store.viewObject.OrderVO;
-import com.kangkang.store.viewObject.OrderView;
-import com.kangkang.store.viewObject.TbShoppingVO;
+import com.kangkang.store.dtoObject.OrderPageDTO;
+import com.kangkang.store.dtoObject.OrderDTO;
+import com.kangkang.store.dtoObject.OrderView;
+import com.kangkang.store.dtoObject.TbShoppingDTO;
 import com.kangkang.tools.ResultUtils;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.*;
@@ -30,12 +29,12 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @GetMapping(value = "order/queryOrder")
-    Map<String, Object> queryOrder(@RequestBody OrderVO order);
+    Map<String, Object> queryOrder(@RequestBody OrderDTO order);
 
 
     @LoadBalanced
     @PostMapping(value = "order/createOrder")
-    Map<String,Object> createOrder(@RequestBody OrderVO order);
+    Map<String,Object> createOrder(@RequestBody OrderDTO order);
 
     /**
      * 查询订单列表  0-代表查询全部订单，1-代付款订单，2-待收货订单，3-待评价订单
@@ -44,16 +43,16 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @PostMapping(value = "order/queryOrderList")
-    Page<Map<String, Object>> queryOrderList(@RequestBody OrderPageVO order);
+    Page<Map<String, Object>> queryOrderList(@RequestBody OrderPageDTO order);
 
     /**
      * 查询代付款订单
-     * @param orderPageVO
+     * @param orderPageDTO
      * @return
      */
     @LoadBalanced
     @PostMapping(value = "order/queryPayingOrder")
-    Page<OrderView> queryPayingOrder(@RequestBody OrderPageVO orderPageVO);
+    Page<OrderView> queryPayingOrder(@RequestBody OrderPageDTO orderPageDTO);
     /**
      * 查添加购物车
      * @param shoppingCar
@@ -90,7 +89,7 @@ public interface OrderFeignService {
      */
     @LoadBalanced
     @GetMapping(value = "order/queryShoppingCar")
-    List<TbShoppingVO> queryShoppingCar(@RequestParam("openId") String openId,@RequestParam("ids")List<Long> ids);
+    List<TbShoppingDTO> queryShoppingCar(@RequestParam("openId") String openId, @RequestParam("ids")List<Long> ids);
 
 
     /**

@@ -2,14 +2,13 @@ package com.kangkang.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.manage.entity.TbComment;
-import com.kangkang.manage.viewObject.TbCommentVO;
+import com.kangkang.manage.dtoObject.TbCommentDTO;
 import com.kangkang.service.KangkangApiService;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.viewObject.StoreSearchVO;
-import com.kangkang.store.viewObject.TbStoreVO;
-import com.kangkang.tools.PageUtils;
+import com.kangkang.store.dtoObject.StoreSearchDTO;
+import com.kangkang.store.dtoObject.TbStoreDTO;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -27,8 +26,8 @@ public class StoreImplController implements KangkangApiService {
     @Resource
     private StoreService storeService;
     @Override
-    public List<TbStoreVO> queryStoreInfo(StoreSearchVO storeSearchVO) {
-        return storeService.queryStoreInfo(storeSearchVO);
+    public List<TbStoreDTO> queryStoreInfo(StoreSearchDTO storeSearchDTO) {
+        return storeService.queryStoreInfo(storeSearchDTO);
     }
 
 
@@ -38,7 +37,7 @@ public class StoreImplController implements KangkangApiService {
      * @return
      */
     @Override
-    public TbStoreVO getStoreDetail(Long id) {
+    public TbStoreDTO getStoreDetail(Long id) {
         return storeService.getStoreDetail(id);
     }
 
@@ -74,23 +73,23 @@ public class StoreImplController implements KangkangApiService {
 
     /**
      * 新增评论
-     * @param tbCommentVO
+     * @param tbCommentDTO
      */
     @Override
-    public void addComment(TbCommentVO tbCommentVO) {
-        storeService.addComment(tbCommentVO);
+    public void addComment(TbCommentDTO tbCommentDTO) {
+        storeService.addComment(tbCommentDTO);
     }
 
 
     /**
      * 查询累计评论
-     * @param tbCommentVO
+     * @param tbCommentDTO
      * @return
      */
     @Override
-    public Page<TbComment> queryCommentInfo(TbCommentVO tbCommentVO) {
+    public Page<TbComment> queryCommentInfo(TbCommentDTO tbCommentDTO) {
 
-        return storeService.queryCommentInfo(tbCommentVO);
+        return storeService.queryCommentInfo(tbCommentDTO);
     }
 
     /**

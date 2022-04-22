@@ -3,19 +3,15 @@ package com.kangkang.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbShoppingCar;
-import com.kangkang.store.entity.TbSku;
-import com.kangkang.store.viewObject.OrderPageVO;
-import com.kangkang.store.viewObject.OrderVO;
-import com.kangkang.store.viewObject.OrderView;
-import com.kangkang.store.viewObject.TbShoppingVO;
-import com.kangkang.tools.HttpStatusCode;
+import com.kangkang.store.dtoObject.OrderPageDTO;
+import com.kangkang.store.dtoObject.OrderDTO;
+import com.kangkang.store.dtoObject.OrderView;
+import com.kangkang.store.dtoObject.TbShoppingDTO;
 import com.kangkang.tools.ResponseCode;
 import com.kangkang.tools.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,9 +38,9 @@ public class OrderController {
      * @return
      */
     @PostMapping("/createOrder")
-    public ResponseCode<Map<String,Object>> createOrder(@RequestBody OrderVO orderVo){
+    public ResponseCode<Map<String,Object>> createOrder(@RequestBody OrderDTO orderDTO){
         try {
-            Map<String,Object> data = orderService.createOrder(orderVo);
+            Map<String,Object> data = orderService.createOrder(orderDTO);
             if (data.get("status").equals("success")){
                 return ResponseCode.message(200,data,"success");
             }else {
@@ -60,18 +56,18 @@ public class OrderController {
 
     /**
      * 查询订单列表  0-代表查询全部订单，1-代付款订单，2-待收货订单，3-待评价订单
-     * @param orderPageVO
+     * @param orderPageDTO
      * @return
      */
     @PostMapping("/queryOrderList")
-    public ResponseCode<IPage<Map<String,Object>>> queryOrderList(@RequestBody OrderPageVO orderPageVO){
+    public ResponseCode<IPage<Map<String,Object>>> queryOrderList(@RequestBody OrderPageDTO orderPageDTO){
 
-        log.info("=====查询订单列表======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");
+        log.info("=====查询订单列表======,接收参数为：【"+ JSONObject.toJSONString(orderPageDTO)+"】");
         try {
 
 
             //查询全部订单列表
-            Page<Map<String,Object>> result= orderService.queryOrderList(orderPageVO);
+            Page<Map<String,Object>> result= orderService.queryOrderList(orderPageDTO);
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {
@@ -83,18 +79,18 @@ public class OrderController {
 
     /**
      * 查询代付款，已付款，代发货等信息订单
-     * @param orderPageVO
+     * @param orderPageDTO
      * @return
      */
     @PostMapping("/queryPayingOrder")
-    public ResponseCode<IPage<OrderView>> queryPayingOrder(@RequestBody OrderPageVO orderPageVO){
+    public ResponseCode<IPage<OrderView>> queryPayingOrder(@RequestBody OrderPageDTO orderPageDTO){
 
-        log.info("=====查询代付款订单======,接收参数为：【"+ JSONObject.toJSONString(orderPageVO)+"】");
+        log.info("=====查询代付款订单======,接收参数为：【"+ JSONObject.toJSONString(orderPageDTO)+"】");
         try {
 
 
             //查询代付款订单
-            Page<OrderView> result= orderService.queryPayingOrder(orderPageVO);
+            Page<OrderView> result= orderService.queryPayingOrder(orderPageDTO);
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {
@@ -179,7 +175,7 @@ public class OrderController {
      */
     @ResponseBody
     @PostMapping("/queryShoppingCar")
-    public ResponseCode<List<TbShoppingVO>> queryShoppingCar(@RequestBody String json){
+    public ResponseCode<List<TbShoppingDTO>> queryShoppingCar(@RequestBody String json){
 
         log.info("=====查询购物车内容======,接收参数为：【"+ JSONObject.toJSONString(json)+"】");
         List<Long> ids=new ArrayList<>();
@@ -193,7 +189,7 @@ public class OrderController {
                     ids.add(Long.valueOf(s));
                 }
             }
-            List<TbShoppingVO> result=orderService.queryShoppingCar(openId,ids);
+            List<TbShoppingDTO> result=orderService.queryShoppingCar(openId,ids);
 
             return ResponseCode.ok().body(result,"success");
         } catch (Exception e) {

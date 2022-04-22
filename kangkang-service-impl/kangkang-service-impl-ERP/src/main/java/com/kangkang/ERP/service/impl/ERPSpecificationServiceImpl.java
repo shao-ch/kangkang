@@ -4,9 +4,8 @@ import com.kangkang.ERP.dao.SpecificationDao;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.ERP.service.ERPSpecificationService;
 import com.kangkang.store.entity.TbSpecification;
-import com.kangkang.store.viewObject.TbSpecificationVO;
+import com.kangkang.store.dtoObject.TbSpecificationDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -50,12 +49,12 @@ public class ERPSpecificationServiceImpl implements ERPSpecificationService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true,rollbackFor = Exception.class)
-    public Page<TbSpecification> querySpecification(TbSpecificationVO tbSpecificationVO) {
-        Page<TbSpecification> page = new Page<>(tbSpecificationVO.getPageIndex(), tbSpecificationVO.getPageSize());
+    public Page<TbSpecification> querySpecification(TbSpecificationDTO tbSpecificationDTO) {
+        Page<TbSpecification> page = new Page<>(tbSpecificationDTO.getPageIndex(), tbSpecificationDTO.getPageSize());
         /**
          * 查询规格分类信息
          */
-        return specificationDao.querySpecification(page, tbSpecificationVO);
+        return specificationDao.querySpecification(page, tbSpecificationDTO);
     }
 
     /**

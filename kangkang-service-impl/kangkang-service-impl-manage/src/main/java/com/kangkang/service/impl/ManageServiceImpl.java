@@ -3,11 +3,9 @@ package com.kangkang.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kangkang.dao.KangKangUserDao;
 import com.kangkang.dao.TbAddressDao;
-import com.kangkang.dao.TbAreaDao;
 import com.kangkang.manage.entity.TbUser;
 import com.kangkang.manage.entity.TbAddress;
-import com.kangkang.manage.entity.TbArea;
-import com.kangkang.manage.viewObject.TbAdressVO;
+import com.kangkang.manage.dtoObject.TbAdressDTO;
 import com.kangkang.service.ManageService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -17,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -94,7 +91,7 @@ public class ManageServiceImpl implements ManageService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Map<String,Object> commitAddress(TbAdressVO vo) {
+    public Map<String,Object> commitAddress(TbAdressDTO vo) {
 
         HashMap<String, Object> result = new HashMap<>();
         try {
@@ -131,7 +128,7 @@ public class ManageServiceImpl implements ManageService {
      * @return
      */
     @Override
-    public void deleteAddress(TbAdressVO vo) {
+    public void deleteAddress(TbAdressDTO vo) {
         tbAddressDao.deleteById(vo.getId());
     }
 }

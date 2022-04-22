@@ -10,14 +10,14 @@ import com.kangkang.dao.TbSkuDao;
 import com.kangkang.dao.TbStoreDao;
 import com.kangkang.enumInfo.RocketInfo;
 import com.kangkang.manage.entity.TbComment;
-import com.kangkang.manage.viewObject.TbCommentVO;
+import com.kangkang.manage.dtoObject.TbCommentDTO;
 import com.kangkang.service.StoreService;
 import com.kangkang.store.entity.TbAfterSale;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
 import com.kangkang.store.entity.TbStore;
-import com.kangkang.store.viewObject.StoreSearchVO;
-import com.kangkang.store.viewObject.TbStoreVO;
+import com.kangkang.store.dtoObject.StoreSearchDTO;
+import com.kangkang.store.dtoObject.TbStoreDTO;
 import com.kangkang.tools.KangkangBeanUtils;
 import com.kangkang.untils.MqUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +42,6 @@ import org.elasticsearch.search.aggregations.metrics.tophits.TopHitsAggregationB
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
@@ -51,7 +50,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -90,7 +88,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TbStoreVO> queryStoreInfo(StoreSearchVO storeSearchVO) {
+    public List<TbStoreDTO> queryStoreInfo(StoreSearchDTO storeSearchDTO) {
         /**
          * 这里是高亮处理
          * new HighlightBuilder.Field("name").preTags(preTag).postTags(postTag),
@@ -103,38 +101,38 @@ public class StoreServiceImpl implements StoreService {
          */
         BoolQueryBuilder boolQuery;
         ArrayList<Long> idContext = new ArrayList<>();
-        ArrayList<TbStoreVO> result = new ArrayList<>();
+        ArrayList<TbStoreDTO> result = new ArrayList<>();
         List<String> likeContext = null;
 
         //查询此用户的喜好
-        Object o = redisTemplate.opsForValue().get(storeSearchVO.getLoginName());
+        Object o = redisTemplate.opsForValue().get(storeSearchDTO.getLoginName());
 
-        if (storeSearchVO.getSearchInfo() != null) {
+        if (storeSearchDTO.getSearchInfo() != null) {
             //这里是一个算法，就是记录用户最近查询的十条喜好
             if (o == null) {
                 //这里面代表是该用户没有任何喜好
                 likeContext = new ArrayList<>();
-                likeContext.add(storeSearchVO.getSearchInfo());
+                likeContext.add(storeSearchDTO.getSearchInfo());
                 String s = JSONObject.toJSONString(likeContext);
                 //使用原子操作，防止存在同一个用户的多条喜好记录
-                redisTemplate.opsForValue().setIfAbsent(storeSearchVO.getLoginName(), s);
+                redisTemplate.opsForValue().setIfAbsent(storeSearchDTO.getLoginName(), s);
 
             } else {  //说明用户有喜好
 
                 likeContext = JSONObject.parseArray(o.toString(), String.class);
                 //如果list中不包含并且list转化的字符串中也不包含该词那就存入喜好容器
-                if ((!likeContext.contains(storeSearchVO.getSearchInfo())) && (!o.toString().contains(storeSearchVO.getSearchInfo()))) {
-                    likeContext.add(storeSearchVO.getSearchInfo());
+                if ((!likeContext.contains(storeSearchDTO.getSearchInfo())) && (!o.toString().contains(storeSearchDTO.getSearchInfo()))) {
+                    likeContext.add(storeSearchDTO.getSearchInfo());
                     String s = JSONObject.toJSONString(likeContext);
                     //使用原子操作，防止存在同一个用户的多条喜好记录
-                    redisTemplate.opsForValue().getAndSet(storeSearchVO.getLoginName(), s);
+                    redisTemplate.opsForValue().getAndSet(storeSearchDTO.getLoginName(), s);
                 }
             }
 
             //搜索框的查询消息
             boolQuery = QueryBuilders.boolQuery();
 
-            boolQuery.should(QueryBuilders.matchQuery("skuTitle", storeSearchVO.getSearchInfo()));
+            boolQuery.should(QueryBuilders.matchQuery("skuTitle", storeSearchDTO.getSearchInfo()));
 
         } else {
             //查询喜好
@@ -179,8 +177,8 @@ public class StoreServiceImpl implements StoreService {
                                     Map<String, Object> sourceAsMap = sea.getSourceAsMap();
                                     ESStoreVO esStoreVO = KangkangBeanUtils.mapToBean(sourceAsMap, ESStoreVO.class);
                                     //数据转化
-                                    TbStoreVO tbStoreVO = esStoreToTbStoreVO(esStoreVO);
-                                    result.add(tbStoreVO);
+                                    TbStoreDTO tbStoreDTO = esStoreToTbStoreVO(esStoreVO);
+                                    result.add(tbStoreDTO);
                                 }
                             }
                         }
@@ -213,8 +211,8 @@ public class StoreServiceImpl implements StoreService {
                         for (SearchHit sea : hits1) {
                             Map<String, Object> sourceAsMap = sea.getSourceAsMap();
                             ESStoreVO esStoreVO = KangkangBeanUtils.mapToBean(sourceAsMap, ESStoreVO.class);
-                            TbStoreVO tbStoreVO = esStoreToTbStoreVO(esStoreVO);
-                            result.add(tbStoreVO);
+                            TbStoreDTO tbStoreDTO = esStoreToTbStoreVO(esStoreVO);
+                            result.add(tbStoreDTO);
 
                         }
                     }
@@ -233,16 +231,16 @@ public class StoreServiceImpl implements StoreService {
      * @param es
      * @return
      */
-    private TbStoreVO esStoreToTbStoreVO(ESStoreVO es) {
-        TbStoreVO tbStoreVO = new TbStoreVO();
-        tbStoreVO.setSkuId(es.getSkuId());
-        tbStoreVO.setPrice(es.getSkuPrice());
-        tbStoreVO.setTitle(es.getSkuTitle());
-        tbStoreVO.setId(es.getStoreId());
-        tbStoreVO.setImage(es.getStoreImage());
-        tbStoreVO.setSpecification(es.getStoreSpecification());
-        tbStoreVO.setSpecArgument(es.getStoreSpecArgument());
-        return tbStoreVO;
+    private TbStoreDTO esStoreToTbStoreVO(ESStoreVO es) {
+        TbStoreDTO tbStoreDTO = new TbStoreDTO();
+        tbStoreDTO.setSkuId(es.getSkuId());
+        tbStoreDTO.setPrice(es.getSkuPrice());
+        tbStoreDTO.setTitle(es.getSkuTitle());
+        tbStoreDTO.setId(es.getStoreId());
+        tbStoreDTO.setImage(es.getStoreImage());
+        tbStoreDTO.setSpecification(es.getStoreSpecification());
+        tbStoreDTO.setSpecArgument(es.getStoreSpecArgument());
+        return tbStoreDTO;
     }
 
 
@@ -254,9 +252,9 @@ public class StoreServiceImpl implements StoreService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)   //这里要设置只读
-    public TbStoreVO getStoreDetail(Long id) {
+    public TbStoreDTO getStoreDetail(Long id) {
 
-        TbStoreVO result = new TbStoreVO();
+        TbStoreDTO result = new TbStoreDTO();
         QueryWrapper<TbStore> wrapper = new QueryWrapper<>();
         //第一步查询商品详情实体
         wrapper.eq("id", id);
@@ -338,13 +336,13 @@ public class StoreServiceImpl implements StoreService {
     /**
      * 新增评论
      *
-     * @param tbCommentVO
+     * @param tbCommentDTO
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void addComment(TbCommentVO tbCommentVO) {
+    public void addComment(TbCommentDTO tbCommentDTO) {
         TbComment tbComment = new TbComment();
-        BeanUtils.copyProperties(tbCommentVO, tbComment);
+        BeanUtils.copyProperties(tbCommentDTO, tbComment);
         tbCommentDao.insert(tbComment);
     }
 
@@ -352,18 +350,18 @@ public class StoreServiceImpl implements StoreService {
     /**
      * 查询累计评论
      *
-     * @param tbCommentVO
+     * @param tbCommentDTO
      * @return
      */
     @Override
     @Transactional(readOnly = true)
-    public Page<TbComment> queryCommentInfo(TbCommentVO tbCommentVO) {
+    public Page<TbComment> queryCommentInfo(TbCommentDTO tbCommentDTO) {
 
-        Page<TbComment> page = new Page<>(tbCommentVO.getPageIndex(), tbCommentVO.getPageSize());
+        Page<TbComment> page = new Page<>(tbCommentDTO.getPageIndex(), tbCommentDTO.getPageSize());
         //0-代表查询商品评论，1-代表查询回复评论
-        if (StringUtils.equals("0", tbCommentVO.getFlag()))
-            return tbCommentDao.queryCommentInfoByStoreId(page, tbCommentVO.getTbStoreId());
-        return tbCommentDao.queryReplyCommentInfo(page, tbCommentVO.getId(), tbCommentVO.getTbStoreId());
+        if (StringUtils.equals("0", tbCommentDTO.getFlag()))
+            return tbCommentDao.queryCommentInfoByStoreId(page, tbCommentDTO.getTbStoreId());
+        return tbCommentDao.queryReplyCommentInfo(page, tbCommentDTO.getId(), tbCommentDTO.getTbStoreId());
     }
 
 

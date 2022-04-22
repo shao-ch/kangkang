@@ -2,7 +2,7 @@ package com.kangkang.controller;
 
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
-import com.kangkang.manage.viewObject.TbAdressVO;
+import com.kangkang.manage.dtoObject.TbAdressDTO;
 import com.kangkang.service.KangkangFeign;
 import com.kangkang.service.ManageService;
 import org.apache.commons.lang.StringUtils;
@@ -85,7 +85,7 @@ public class ManageController implements KangkangFeign {
      * @return
      */
     @Override
-    public Map<String,Object> commitAddress(TbAdressVO vo) {
+    public Map<String,Object> commitAddress(TbAdressDTO vo) {
         return manageService.commitAddress(vo);
     }
 
@@ -95,7 +95,7 @@ public class ManageController implements KangkangFeign {
      * @return
      */
     @Override
-    public void deleteAddress(TbAdressVO vo) {
+    public void deleteAddress(TbAdressDTO vo) {
         manageService.deleteAddress(vo);
     }
 }

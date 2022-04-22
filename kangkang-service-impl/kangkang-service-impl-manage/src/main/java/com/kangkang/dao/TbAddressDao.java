@@ -2,7 +2,6 @@ package com.kangkang.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kangkang.manage.entity.TbAddress;
-import com.kangkang.manage.viewObject.TbAdressVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

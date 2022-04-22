@@ -15,8 +15,8 @@
     <select id="querySpecification" resultMap="sepc01">
         select id, rule_name, attr_name, attr_value, spec_property from tb_specification
         <where>
-            <if test="tbSpecificationVO.ruleName!=null and tbSpecificationVO.ruleName!=''">
-                and rule_name like concat('%',#{tbSpecificationVO.rule_name},'%')
+            <if test="tbSpecificationDTO.ruleName!=null and tbSpecificationDTO.ruleName!=''">
+                and rule_name like concat('%',#{tbSpecificationDTO.rule_name},'%')
             </if>
         </where>
     </select>

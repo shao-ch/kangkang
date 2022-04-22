@@ -2,7 +2,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kangkang.dao.TbStoreDao">
 
-    <select id="selectStoreInfo" resultType="com.kangkang.store.viewObject.TbStoreVO">
+    <select id="selectStoreInfo" resultType="com.kangkang.store.dtoObject.TbStoreDTO">
         SELECT id, skuId, image, tb_category_id, title, price
         FROM (SELECT IF(@tem_id = id, @tmp_num:=@tmp_num+1, @tmp_num:=0) 'tmp_num',@tem_id:=id 'id',skuId,image,tb_category_id,title,price
               FROM (select a.id, b.id skuId, b.image, a.tb_category_id, b.title, b.price from tb_store a join tb_sku

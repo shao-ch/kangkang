@@ -3,10 +3,9 @@ package com.kangkang.ERP.controller;
 import com.kangkang.ERP.CategoryFeign;
 import com.kangkang.ERP.service.AcCategoryService;
 import com.kangkang.manage.entity.TbCategory;
-import com.kangkang.manage.viewObject.TbCategoryVO;
+import com.kangkang.manage.dtoObject.TbCategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class CategoryImplController implements CategoryFeign {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void saveCategory(TbCategoryVO vo) {
+    public void saveCategory(TbCategoryDTO vo) {
         acCategoryService.saveCategory(vo);
     }
 

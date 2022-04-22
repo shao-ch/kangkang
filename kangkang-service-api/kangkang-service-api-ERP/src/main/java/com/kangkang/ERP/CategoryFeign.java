@@ -1,7 +1,7 @@
 package com.kangkang.ERP;
 
 import com.kangkang.manage.entity.TbCategory;
-import com.kangkang.manage.viewObject.TbCategoryVO;
+import com.kangkang.manage.dtoObject.TbCategoryDTO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +29,7 @@ public interface CategoryFeign {
      */
     @LoadBalanced
     @PostMapping("/category/saveCategory")
-    void saveCategory(@RequestBody TbCategoryVO vo);
+    void saveCategory(@RequestBody TbCategoryDTO vo);
 
 
     /**

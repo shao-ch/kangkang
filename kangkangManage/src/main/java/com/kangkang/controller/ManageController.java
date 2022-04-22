@@ -4,7 +4,7 @@ package com.kangkang.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
-import com.kangkang.manage.viewObject.TbAdressVO;
+import com.kangkang.manage.dtoObject.TbAdressDTO;
 import com.kangkang.service.UserService;
 import com.kangkang.tools.ResponseCode;
 import org.slf4j.Logger;
@@ -83,7 +83,7 @@ public class ManageController {
      * @return
      */
     @PostMapping("/commitAddress")
-    public ResponseCode<Void> commitAddress(@RequestBody TbAdressVO vo){
+    public ResponseCode<Void> commitAddress(@RequestBody TbAdressDTO vo){
 
         ResponseCode save;
         logger.info("=====保存地址======,接收参数为：【"+ JSONObject.toJSONString(vo)+"】");
@@ -110,7 +110,7 @@ public class ManageController {
      * @return
      */
     @PostMapping("/deleteAddress")
-    public ResponseCode<Void> deleteAddress(@RequestBody TbAdressVO vo){
+    public ResponseCode<Void> deleteAddress(@RequestBody TbAdressDTO vo){
 
         ResponseCode save;
         logger.info("=====删除地址======,接收参数为：【"+ JSONObject.toJSONString(vo)+"】");

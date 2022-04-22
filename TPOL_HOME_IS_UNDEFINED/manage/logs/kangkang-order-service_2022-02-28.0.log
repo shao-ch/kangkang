@@ -1,0 +1,787 @@
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:52] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 14:43:52] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 14:43:52] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 14:43:53] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 14:43:53] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 8ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 14:43:53] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 14:43:53] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 2ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 14:43:53] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=bb974005-7dee-37a7-b992-6f528d9a99b8
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 14:43:53] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 14:43:53] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 14:43:53] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 14:43:53] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 14:43:53] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 14:43:53] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 14:43:53] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 14:43:53] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 639 ms
+[2022-02-28 14:43:53] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 14:43:53] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 14:43:53] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 14:43:53] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 14:43:53] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 14:43:53] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 14:43:53] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 14:43:53] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 14:43:54] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 14:43:54] [ERROR] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, manage-service register failed...NacosRegistration{nacosDiscoveryProperties=NacosDiscoveryProperties{serverAddr='110.40.235.203:8848', endpoint='', namespace='', watchDelay=30000, logName='', service='manage-service', weight=1.0, clusterName='DEFAULT', group='DEFAULT_GROUP', namingLoadCacheAtStart='false', metadata={preserved.register.source=SPRING_CLOUD}, registerEnabled=true, ip='192.168.8.150', networkInterface='', port=8081, secure=false, accessKey='', secretKey='', heartBeatInterval=null, heartBeatTimeout=null, ipDeleteTimeout=null}},
+java.lang.IllegalStateException: failed to req API:/nacos/v1/ns/instance after all servers([110.40.235.203:8848]) tried: failed to req API:110.40.235.203:8848/nacos/v1/ns/instance. code:500 msg: java.net.ConnectException: Connection refused (Connection refused)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:467)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:389)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.registerService(NamingProxy.java:191)
+	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.java:207)
+	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:64)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:239)
+	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.java:76)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:138)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.java:101)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:88)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:47)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:360)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:165)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.kangkang.ManageApplication.main(ManageApplication.java:21)
+[2022-02-28 14:43:54] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Pausing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 14:43:54] [INFO] [org.apache.catalina.core.StandardService] Stopping service [Tomcat]
+[2022-02-28 14:43:54] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Stopping ProtocolHandler ["http-nio-8081"]
+[2022-02-28 14:43:54] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Destroying ProtocolHandler ["http-nio-8081"]
+[2022-02-28 14:43:54] [INFO] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2022-02-28 14:43:54] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 14:43:54] [ERROR] [org.springframework.boot.SpringApplication] Application run failed
+java.lang.IllegalStateException: failed to req API:/nacos/v1/ns/instance after all servers([110.40.235.203:8848]) tried: failed to req API:110.40.235.203:8848/nacos/v1/ns/instance. code:500 msg: java.net.ConnectException: Connection refused (Connection refused)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:467)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:389)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.registerService(NamingProxy.java:191)
+	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.java:207)
+	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:64)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:239)
+	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.java:76)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:138)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.java:101)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:88)
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:47)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:360)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:165)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.kangkang.ManageApplication.main(ManageApplication.java:21)
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:29] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:35:29] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:35:29] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:35:30] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:35:30] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 8ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:35:30] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:35:30] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 2ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:35:30] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=bb974005-7dee-37a7-b992-6f528d9a99b8
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:35:30] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:35:30] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:35:30] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:35:30] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:35:30] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:35:30] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:35:30] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:35:30] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 547 ms
+[2022-02-28 16:35:30] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:35:30] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:35:30] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:35:30] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:35:30] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:35:30] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:35:31] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:35:31] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:35:31] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:35:31] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:35:31] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 1.899 seconds (JVM running for 2.364)
+[2022-02-28 16:38:08] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:38:08] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:38:08] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 16:40:54] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:40:54] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:40:54] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:41:09] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:41:09] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:41:09] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 9ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:41:09] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:41:09] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:41:09] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=bb974005-7dee-37a7-b992-6f528d9a99b8
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:41:09] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:41:09] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:41:09] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:41:09] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:41:09] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:41:09] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:41:09] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:41:09] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 759 ms
+[2022-02-28 16:41:10] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:41:10] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:41:10] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:41:10] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:41:10] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:41:10] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:41:10] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:41:10] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:41:10] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:41:10] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:41:10] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.38 seconds (JVM running for 2.835)
+[2022-02-28 16:41:25] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:41:25] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:41:25] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 16:41:37] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:41:37] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:41:37] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:09] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:45:09] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:45:09] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:45:10] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:45:10] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 16ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:45:10] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:45:10] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:45:10] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=bb974005-7dee-37a7-b992-6f528d9a99b8
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:45:10] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:45:10] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:45:10] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:45:10] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:45:10] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:45:10] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:45:10] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:45:10] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 1064 ms
+[2022-02-28 16:45:10] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:45:10] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:45:10] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:45:10] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:45:11] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:45:11] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:45:11] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:45:11] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:45:11] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:45:11] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:45:11] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.508 seconds (JVM running for 3.024)
+[2022-02-28 16:45:20] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:45:20] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:45:20] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 16:45:51] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:45:51] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:45:51] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:46:01] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:46:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:46:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:46:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:46:01] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:46:01] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:46:01] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:46:01] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:46:01] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:46:01] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:46:01] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:46:01] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:46:01] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:46:01] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 698 ms
+[2022-02-28 16:46:02] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:46:02] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:46:02] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:46:02] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:46:02] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:46:02] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:46:02] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:46:02] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:46:02] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:46:02] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:46:02] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.404 seconds (JVM running for 2.987)
+[2022-02-28 16:46:14] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:46:14] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:46:14] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 16:46:21] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:46:21] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:46:21] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 16:46:21] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 16:46:21] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:46:21] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@26501e0d
+[2022-02-28 16:46:22] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:46:22] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：Read timed out executing POST http://kangkang-manage/manage/selectErpUser/
+[2022-02-28 16:47:21] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 16:47:21] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:47:21] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:47:21] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:32] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:47:32] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:47:32] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:47:33] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:47:33] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 12ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:47:33] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:47:33] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:47:33] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:47:33] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:47:33] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:47:33] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:47:33] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:47:33] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:47:33] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:47:33] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:47:33] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 1044 ms
+[2022-02-28 16:47:33] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:47:33] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:47:33] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:47:33] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:47:33] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:47:34] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:47:34] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:47:34] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:47:34] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:47:34] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:47:34] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.547 seconds (JVM running for 3.077)
+[2022-02-28 16:47:47] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:47:47] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:47:47] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 16:48:04] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:48:09] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:48:09] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 16:48:09] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 16:48:09] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:48:09] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@176c38e
+[2022-02-28 16:48:10] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:48:11] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：Read timed out executing POST http://kangkang-manage/manage/selectErpUser/
+[2022-02-28 16:49:03] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:49:08] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：status 500 reading ERPUserService#saveErpUser(TbErpUser)
+[2022-02-28 16:49:11] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:49:11] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：status 500 reading ERPUserService#saveErpUser(TbErpUser)
+[2022-02-28 16:49:29] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:49:30] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：Read timed out executing POST http://kangkang-manage/manage/selectErpUser/
+[2022-02-28 16:52:05] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:52:05] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：com.netflix.client.ClientException: Load balancer does not have available server for client: kangkang-manage
+[2022-02-28 16:52:18] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:52:18] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：com.netflix.client.ClientException: Load balancer does not have available server for client: kangkang-manage
+[2022-02-28 16:52:21] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 16:52:21] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:52:21] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:52:21] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:30] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:52:30] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:52:30] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:52:31] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:52:31] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 11ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:52:31] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:52:31] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:52:31] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:52:31] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:52:31] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:52:31] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:52:31] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:52:31] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:52:31] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:52:31] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:52:31] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 646 ms
+[2022-02-28 16:52:31] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:52:31] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:52:31] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:52:31] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:52:31] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:52:32] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:52:32] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:52:32] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:52:32] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:52:32] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:52:32] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.169 seconds (JVM running for 2.885)
+[2022-02-28 16:52:42] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:52:42] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:52:42] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 16:52:42] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:52:42] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:52:42] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 16:52:42] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 16:52:42] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:52:42] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@7adcdbe8
+[2022-02-28 16:52:43] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：status 500 reading ERPUserService#saveErpUser(TbErpUser)
+[2022-02-28 16:52:43] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:53:06] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 16:53:06] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:53:06] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:53:06] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:55:27] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 16:55:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:55:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 11ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 16:55:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 16:55:27] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 16:55:27] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 16:55:27] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 16:55:27] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 16:55:27] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 16:55:27] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:55:27] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 16:55:27] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 16:55:28] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 16:55:28] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 665 ms
+[2022-02-28 16:55:28] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:55:28] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:55:28] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 16:55:28] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 16:55:28] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 16:55:28] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 16:55:28] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 16:55:28] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 16:55:28] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 16:55:28] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 16:55:28] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.069 seconds (JVM running for 2.766)
+[2022-02-28 16:55:45] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 16:55:45] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 16:55:45] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 3 ms
+[2022-02-28 16:55:45] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 16:55:45] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:55:45] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 16:55:45] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 16:55:45] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:55:45] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@15a3a096
+[2022-02-28 16:55:46] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 16:55:46] [ERROR] [com.kangkang.ERP.login.controller.UserLoginController] 调用失败：status 500 reading ERPUserService#saveErpUser(TbErpUser)
+[2022-02-28 16:57:33] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 16:57:33] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 16:57:33] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 16:57:33] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:06:17] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 17:06:17] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:06:17] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 8ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 17:06:17] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:06:17] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 2ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 17:06:17] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:06:17] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:06:17] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:06:18] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 17:06:18] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:06:18] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 17:06:18] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 17:06:18] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 17:06:18] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 631 ms
+[2022-02-28 17:06:18] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:06:18] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:06:18] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:06:18] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:06:18] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:06:18] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 17:06:18] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 17:06:18] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:06:18] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 17:06:19] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 17:06:19] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.21 seconds (JVM running for 2.701)
+[2022-02-28 17:06:32] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 17:06:32] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 17:06:32] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:39] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:06:40] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 17:06:40] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:06:40] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 8ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 17:06:40] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:06:40] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 2ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 17:06:40] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:06:40] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:06:40] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:06:40] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 17:06:40] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:06:40] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 17:06:40] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 17:06:40] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 17:06:40] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 587 ms
+[2022-02-28 17:06:40] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:06:40] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:06:40] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:06:40] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:06:40] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:06:41] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 17:06:41] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 17:06:41] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:06:41] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 17:06:41] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 17:06:41] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.191 seconds (JVM running for 2.687)
+[2022-02-28 17:06:50] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 17:06:50] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 17:06:50] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 17:06:50] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:06:50] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:06:50] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 17:06:50] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 17:06:50] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:06:50] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@4e945fe4
+[2022-02-28 17:06:51] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:07:16] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 17:07:16] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 17:07:16] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 17:07:16] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:08:53] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:08:54] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 17:08:54] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:08:54] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 8ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 17:08:54] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:08:54] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 3ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 17:08:54] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:08:54] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:08:54] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:08:54] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 17:08:54] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:08:54] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 17:08:54] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 17:08:54] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 17:08:54] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 555 ms
+[2022-02-28 17:08:54] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:08:54] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:08:54] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:08:54] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:08:54] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:08:54] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 17:08:55] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 17:08:55] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:08:55] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 17:08:55] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 17:08:55] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 1.909 seconds (JVM running for 2.584)
+[2022-02-28 17:09:02] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 17:09:02] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 17:09:02] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 17:09:02] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:09:02] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:09:02] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 17:09:02] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 17:09:02] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:09:02] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@3e3a2b14
+[2022-02-28 17:09:03] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:09:13] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:09:18] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:09:19] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:09:20] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:09:44] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 17:09:44] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 17:09:44] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 17:09:44] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:10:39] [INFO] [com.kangkang.ManageApplication] No active profile set, falling back to default profiles: default
+[2022-02-28 17:10:39] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:10:39] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 11ms. Found 0 Elasticsearch repository interfaces.
+[2022-02-28 17:10:39] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-02-28 17:10:39] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 2ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-02-28 17:10:39] [INFO] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=e5f8a159-2756-3027-a2a5-51b36d836617
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor] Post-processing PropertySource instances
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:39] [INFO] [com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter] Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[2022-02-28 17:10:40] [INFO] [com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter] Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2022-02-28 17:10:40] [INFO] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-02-28 17:10:40] [INFO] [com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver] Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2022-02-28 17:10:40] [INFO] [com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector] Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2022-02-28 17:10:40] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+[2022-02-28 17:10:40] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:10:40] [INFO] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+[2022-02-28 17:10:40] [INFO] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.29]
+[2022-02-28 17:10:40] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[2022-02-28 17:10:40] [INFO] [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 613 ms
+[2022-02-28 17:10:40] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:10:40] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:10:40] [WARN] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+[2022-02-28 17:10:40] [INFO] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2022-02-28 17:10:40] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+[2022-02-28 17:10:40] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+[2022-02-28 17:10:40] [WARN] [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration] Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+[2022-02-28 17:10:40] [INFO] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+[2022-02-28 17:10:40] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-02-28 17:10:41] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] nacos registry, DEFAULT_GROUP manage-service 192.168.8.150:8081 register finished
+[2022-02-28 17:10:41] [INFO] [com.kangkang.ManageApplication] Started ManageApplication in 2.18 seconds (JVM running for 2.558)
+[2022-02-28 17:10:48] [INFO] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-02-28 17:10:48] [INFO] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+[2022-02-28 17:10:48] [INFO] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 4 ms
+[2022-02-28 17:10:48] [INFO] [com.kangkang.ERP.login.controller.UserLoginController] ===后台用户注册====,传入的参数为：{"telephone":"19109624826"}
+[2022-02-28 17:10:48] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:10:48] [INFO] [com.netflix.loadbalancer.BaseLoadBalancer] Client: kangkang-manage instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2022-02-28 17:10:48] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] Using serverListUpdater PollingServerListUpdater
+[2022-02-28 17:10:48] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:10:48] [INFO] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] DynamicServerListLoadBalancer for client kangkang-manage initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=kangkang-manage,current list of Servers=[192.168.8.150:9001],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.8.150:9001;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@22121e4a
+[2022-02-28 17:10:49] [INFO] [com.netflix.config.ChainedDynamicProperty] Flipping property: kangkang-manage.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2022-02-28 17:14:32] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
+[2022-02-28 17:14:32] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
+[2022-02-28 17:14:33] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
+[2022-02-28 17:14:33] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'

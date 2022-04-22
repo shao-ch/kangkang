@@ -7,28 +7,46 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="kangkang-service-impl-manage" />
-        <module name="kangkang-common" />
+        <module name="kangkang-service-api-order" />
+        <module name="kangkangOrder" />
         <module name="kangkangStoreWeb" />
+        <module name="kangkangFileProcess" />
         <module name="kangkangManage" />
-        <module name="kangkang-gateway" />
+        <module name="kangkang-service-impl-order" />
         <module name="kangkang-service-api-store" />
         <module name="kangkang-service-api-kangkangManage" />
+        <module name="kagnkang-ERP" />
+        <module name="kangkang-service-impl-manage" />
+        <module name="kangkang-common" />
+        <module name="kangkang-entity" />
+        <module name="kangkang-service-api-ERP" />
+        <module name="kangkang-gateway" />
+        <module name="kangkang-log" />
         <module name="kankang-service-impl-store" />
+        <module name="kangkang-service-impl-ERP" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="kagnkang-ERP" options="-parameters" />
       <module name="kangkang-common" options="-parameters" />
+      <module name="kangkang-entity" options="-parameters" />
       <module name="kangkang-gateway" options="-parameters" />
-      <module name="kangkang-service-api" options="-parameters" />
+      <module name="kangkang-log" options="-parameters" />
+      <module name="kangkang-service-api" options="" />
+      <module name="kangkang-service-api-ERP" options="-parameters" />
       <module name="kangkang-service-api-kangkangManage" options="-parameters" />
+      <module name="kangkang-service-api-order" options="-parameters" />
       <module name="kangkang-service-api-store" options="-parameters" />
-      <module name="kangkang-service-impl" options="-parameters" />
+      <module name="kangkang-service-impl" options="" />
+      <module name="kangkang-service-impl-ERP" options="-parameters" />
       <module name="kangkang-service-impl-manage" options="-parameters" />
+      <module name="kangkang-service-impl-order" options="-parameters" />
+      <module name="kangkangFileProcess" options="-parameters" />
       <module name="kangkangManage" options="-parameters" />
+      <module name="kangkangOrder" options="-parameters" />
       <module name="kangkangStoreWeb" options="-parameters" />
       <module name="kankang-service-impl-store" options="-parameters" />
     </option>

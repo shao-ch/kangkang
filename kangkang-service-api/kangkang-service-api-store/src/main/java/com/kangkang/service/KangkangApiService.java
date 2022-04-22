@@ -2,12 +2,11 @@ package com.kangkang.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.manage.entity.TbComment;
-import com.kangkang.manage.viewObject.TbCommentVO;
+import com.kangkang.manage.dtoObject.TbCommentDTO;
 import com.kangkang.store.entity.TbSku;
 import com.kangkang.store.entity.TbStock;
-import com.kangkang.store.viewObject.StoreSearchVO;
-import com.kangkang.store.viewObject.TbStoreVO;
-import com.kangkang.tools.PageUtils;
+import com.kangkang.store.dtoObject.StoreSearchDTO;
+import com.kangkang.store.dtoObject.TbStoreDTO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +25,12 @@ public interface KangkangApiService {
 
     @LoadBalanced
     @PostMapping(value = "store/queryStoreInfo")
-    List<TbStoreVO> queryStoreInfo(@RequestBody StoreSearchVO storeSearchVO);
+    List<TbStoreDTO> queryStoreInfo(@RequestBody StoreSearchDTO storeSearchDTO);
 
 
     @LoadBalanced
     @GetMapping(value = "store/getStoreDetail")
-    TbStoreVO getStoreDetail(@RequestParam("id") Long id);
+    TbStoreDTO getStoreDetail(@RequestParam("id") Long id);
 
 
     /**
@@ -62,20 +61,20 @@ public interface KangkangApiService {
 
     /**
      * 新增评论
-     * @param tbCommentVO
+     * @param tbCommentDTO
      */
     @LoadBalanced
     @PostMapping(value = "store/addComment")
-    void addComment(@RequestBody TbCommentVO tbCommentVO);
+    void addComment(@RequestBody TbCommentDTO tbCommentDTO);
 
     /**
      * 查询累计评论
-     * @param tbCommentVO
+     * @param tbCommentDTO
      * @return
      */
     @LoadBalanced
     @GetMapping(value = "store/queryCommentInfo")
-    Page<TbComment> queryCommentInfo(@RequestBody TbCommentVO tbCommentVO);
+    Page<TbComment> queryCommentInfo(@RequestBody TbCommentDTO tbCommentDTO);
 
     /**
      * 点赞数

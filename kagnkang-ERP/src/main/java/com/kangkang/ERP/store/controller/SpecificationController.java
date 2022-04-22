@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.ERP.store.service.SpecificationService;
 import com.kangkang.store.entity.TbSpecification;
-import com.kangkang.store.viewObject.TbSpecificationVO;
+import com.kangkang.store.dtoObject.TbSpecificationDTO;
+import com.kangkang.tools.ConverUtils;
+import com.kangkang.tools.PageInfo;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -42,10 +44,10 @@ public class SpecificationController {
             log .info("===添加商品规格====,传入的参数为："+ JSONObject.toJSONString(json));
 
 
-            TbSpecificationVO tbSpecificationVO = JSONObject.parseObject(json, TbSpecificationVO.class);
+            TbSpecificationDTO tbSpecificationDTO = JSONObject.parseObject(json, TbSpecificationDTO.class);
             TbSpecification tbSpecification = new TbSpecification();
             //属性转移
-            BeanUtils.copyProperties(tbSpecificationVO,tbSpecification);
+            BeanUtils.copyProperties(tbSpecificationDTO,tbSpecification);
 
             /**
              * 如果id不为null这就代表是更新规格，那就吧商品
@@ -78,19 +80,24 @@ public class SpecificationController {
 
 
     @GetMapping("/querySpecification")
-    public ResponseCode<Page<TbSpecification>> querySpecification(@RequestParam("ruleName") String ruleName,
-                                                                  @RequestParam(value = "pageIndex",required = false) Integer pageIndex,
-                                                                  @RequestParam(value = "pageSize",required = false) Integer pageSize) {
+    public ResponseCode<PageInfo<TbSpecification>> querySpecification(@RequestParam("ruleName") String ruleName,
+                                                                      @RequestParam(value = "pageIndex",required = false) Integer pageIndex,
+                                                                      @RequestParam(value = "pageSize",required = false) Integer pageSize) {
 
         Page<TbSpecification> list = null;
         try {
-            TbSpecificationVO tbSpecificationVO = new TbSpecificationVO();
-            tbSpecificationVO.setRuleName(ruleName);
-            tbSpecificationVO.setPageIndex(pageIndex);
-            tbSpecificationVO.setPageSize(pageSize);
-            log.info("===查询商品规格====,传入的参数为："+JSONObject.toJSONString(tbSpecificationVO));
-            list = specificationService.querySpecification(tbSpecificationVO);
-            return ResponseCode.message(200, list, "success");
+            TbSpecificationDTO tbSpecificationDTO = new TbSpecificationDTO();
+            tbSpecificationDTO.setRuleName(ruleName);
+            tbSpecificationDTO.setPageIndex(pageIndex);
+            tbSpecificationDTO.setPageSize(pageSize);
+            log.info("===查询商品规格====,传入的参数为："+JSONObject.toJSONString(tbSpecificationDTO));
+            list = specificationService.querySpecification(tbSpecificationDTO);
+
+            //分页转化
+            PageInfo<TbSpecification> pageInfo = ConverUtils.pageConver(list);
+
+            //返回数据
+            return ResponseCode.message(200, pageInfo, "success");
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseCode.message(500, null, "服务异常");

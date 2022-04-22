@@ -6,7 +6,7 @@ import com.kangkang.ERP.login.service.ERPUserService;
 
 import com.kangkang.ERP.mynote.ParamsAOP;
 import com.kangkang.manage.entity.TbErpUser;
-import com.kangkang.manage.viewObject.TbErpUserVO;
+import com.kangkang.manage.dtoObject.TbErpUserDTO;
 import com.kangkang.tools.ConverUtils;
 import com.kangkang.tools.JwtUtils;
 import com.kangkang.tools.KBase64Utils;
@@ -45,7 +45,7 @@ public class UserLoginController {
      */
     @ResponseBody
     @PostMapping("/userRegister")
-    public ResponseCode<String> kkLogin(@RequestBody TbErpUserVO tbErpUser){
+    public ResponseCode<String> kkLogin(@RequestBody TbErpUserDTO tbErpUser){
 
         ResponseCode save;
         //首先查询用户存不存在，通过电话号码，或者微信的openid，目前只有两个
@@ -124,10 +124,10 @@ public class UserLoginController {
      */
     @ParamsAOP(parmsName = "telephone",
             rule = "^1(3[0-9]|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\\d{8}$",
-    classz = TbErpUserVO.class)
+    classz = TbErpUserDTO.class)
     @ResponseBody
     @PostMapping("/ERPLogin")
-    public ResponseCode<Map<String,Object>> erpLogin(@RequestBody TbErpUserVO tbErpUser){
+    public ResponseCode<Map<String,Object>> erpLogin(@RequestBody TbErpUserDTO tbErpUser){
         ResponseCode save;
         log.info("===康康后台管理系统登录====,传入的参数为："+ JSONObject.toJSONString(tbErpUser));
         try {

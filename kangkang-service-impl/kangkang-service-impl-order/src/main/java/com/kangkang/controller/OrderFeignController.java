@@ -4,11 +4,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kangkang.service.OrderFeignService;
 import com.kangkang.service.OrderService;
 import com.kangkang.store.entity.TbShoppingCar;
-import com.kangkang.store.entity.TbSku;
-import com.kangkang.store.viewObject.OrderPageVO;
-import com.kangkang.store.viewObject.OrderVO;
-import com.kangkang.store.viewObject.OrderView;
-import com.kangkang.store.viewObject.TbShoppingVO;
+import com.kangkang.store.dtoObject.OrderPageDTO;
+import com.kangkang.store.dtoObject.OrderDTO;
+import com.kangkang.store.dtoObject.OrderView;
+import com.kangkang.store.dtoObject.TbShoppingDTO;
 import com.kangkang.tools.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +34,7 @@ public class OrderFeignController implements OrderFeignService {
      * @return
      */
     @Override
-    public Map<String, Object> queryOrder(OrderVO order) {
+    public Map<String, Object> queryOrder(OrderDTO order) {
         return orderService.queryOrder(order);
     }
 
@@ -45,7 +44,7 @@ public class OrderFeignController implements OrderFeignService {
      * @param order
      */
     @Override
-    public Map<String,Object> createOrder(OrderVO order) {
+    public Map<String,Object> createOrder(OrderDTO order) {
        return orderService.createOrder(order);
     }
 
@@ -55,19 +54,19 @@ public class OrderFeignController implements OrderFeignService {
      * @return
      */
     @Override
-    public Page<Map<String, Object>> queryOrderList(OrderPageVO order) {
+    public Page<Map<String, Object>> queryOrderList(OrderPageDTO order) {
         return orderService.queryOrderList(order);
     }
 
 
     /**
      * 查询代付款订单
-     * @param orderPageVO
+     * @param orderPageDTO
      * @return
      */
     @Override
-    public Page<OrderView> queryPayingOrder(OrderPageVO orderPageVO) {
-        return orderService.queryPayingOrder(orderPageVO);
+    public Page<OrderView> queryPayingOrder(OrderPageDTO orderPageDTO) {
+        return orderService.queryPayingOrder(orderPageDTO);
     }
 
 
@@ -109,7 +108,7 @@ public class OrderFeignController implements OrderFeignService {
      * @return
      */
     @Override
-    public List<TbShoppingVO> queryShoppingCar(String openId,List<Long> ids) {
+    public List<TbShoppingDTO> queryShoppingCar(String openId, List<Long> ids) {
         return orderService.queryShoppingCar(openId,ids);
     }
 

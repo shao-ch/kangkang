@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/kagnkang-ERP/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kagnkang-ERP/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkang-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-entity/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkang-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-log/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-log/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-ERP/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-ERP/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-kangkangManage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-kangkangManage/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-store/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-api/kangkang-service-api-store/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-ERP/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-manage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-manage/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-order/src/main/java/com/kangkang/service/impl/OrderServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kangkang-service-impl-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkang-service-impl/kankang-service-impl-store/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkang-service-impl/kankang-service-impl-store/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkangFileProcess/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkangFileProcess/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkangManage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkangManage/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkangOrder/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkangOrder/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kangkangStoreWeb/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kangkangStoreWeb/src/main/resources" charset="UTF-8" />
   </component>
 </project>

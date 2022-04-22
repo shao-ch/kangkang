@@ -5,17 +5,13 @@ import com.kangkang.ERP.ERPUserFeign;
 import com.kangkang.ERP.config.TXSmsUtils;
 import com.kangkang.ERP.service.ERPUserService;
 import com.kangkang.manage.entity.TbErpUser;
-import com.kangkang.manage.viewObject.TbErpUserVO;
+import com.kangkang.manage.dtoObject.TbErpUserDTO;
 import com.kangkang.tools.AESUtils;
 import com.kangkang.tools.ConverUtils;
-import com.tencentcloudapi.sms.v20190711.models.SendStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -106,7 +102,7 @@ public class ERPUerController implements ERPUserFeign {
      * @return
      */
     @Override
-    public Map<String,Object> erpLogin(TbErpUserVO tbErpUser) {
+    public Map<String,Object> erpLogin(TbErpUserDTO tbErpUser) {
 
         HashMap<String, Object> map = new HashMap<>();
 

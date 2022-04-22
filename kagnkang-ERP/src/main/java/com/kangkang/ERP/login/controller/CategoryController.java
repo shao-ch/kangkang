@@ -3,7 +3,7 @@ package com.kangkang.ERP.login.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.kangkang.ERP.login.service.CategoryService;
 import com.kangkang.manage.entity.TbCategory;
-import com.kangkang.manage.viewObject.TbCategoryVO;
+import com.kangkang.manage.dtoObject.TbCategoryDTO;
 import com.kangkang.tools.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +49,7 @@ public class CategoryController {
      * @return
      */
     @PostMapping("/saveCategory")
-    public ResponseCode<Void> saveCategory(@RequestBody TbCategoryVO vo){
+    public ResponseCode<Void> saveCategory(@RequestBody TbCategoryDTO vo){
         log.info("====开始保存分类信息=====参数为："+ JSONObject.toJSONString(vo));
         try {
             categoryService.saveCategory(vo);

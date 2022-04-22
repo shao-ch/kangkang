@@ -2,7 +2,7 @@ package com.kangkang.service;
 
 import com.kangkang.manage.entity.TbAddress;
 import com.kangkang.manage.entity.TbUser;
-import com.kangkang.manage.viewObject.TbAdressVO;
+import com.kangkang.manage.dtoObject.TbAdressDTO;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,7 +57,7 @@ public interface KangkangFeign {
      */
     @LoadBalanced
     @PostMapping("/manage/commitAddress/")
-    Map<String,Object> commitAddress(@RequestBody TbAdressVO vo);
+    Map<String,Object> commitAddress(@RequestBody TbAdressDTO vo);
 
 
     /**
@@ -67,5 +67,5 @@ public interface KangkangFeign {
      */
     @LoadBalanced
     @PostMapping("/manage/deleteAddress/")
-    void deleteAddress(@RequestBody TbAdressVO vo);
+    void deleteAddress(@RequestBody TbAdressDTO vo);
 }

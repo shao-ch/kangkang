@@ -1,4 +1,0 @@
-[2022-02-10 11:03:17] [INFO] [com.netflix.loadbalancer.PollingServerListUpdater] Shutting down the Executor Pool for PollingServerListUpdater
-[2022-02-10 11:03:17] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registering from Nacos Server now...
-[2022-02-10 11:03:18] [INFO] [com.alibaba.cloud.nacos.registry.NacosServiceRegistry] De-registration finished.
-[2022-02-10 11:03:18] [INFO] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
